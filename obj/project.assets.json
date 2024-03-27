@@ -8451,19 +8451,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pedro\\.nuget\\packages\\": {}
+    "/Users/yandavid/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Glimpse\\Glimpse.csproj",
+      "projectUniqueName": "/Users/yandavid/Library/Mobile Documents/com~apple~CloudDocs/Disciplinas/Projeto Glimpse/Glimpse/Glimpse.csproj",
       "projectName": "Glimpse",
-      "projectPath": "C:\\Glimpse\\Glimpse.csproj",
-      "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Glimpse\\obj\\",
+      "projectPath": "/Users/yandavid/Library/Mobile Documents/com~apple~CloudDocs/Disciplinas/Projeto Glimpse/Glimpse/Glimpse.csproj",
+      "packagesPath": "/Users/yandavid/.nuget/packages/",
+      "outputPath": "/Users/yandavid/Library/Mobile Documents/com~apple~CloudDocs/Disciplinas/Projeto Glimpse/Glimpse/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/yandavid/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8534,7 +8534,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
