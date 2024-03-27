@@ -141,3 +141,4 @@ C:\Glimpse\obj\Debug\net8.0\refint\Glimpse.dll
 C:\Glimpse\obj\Debug\net8.0\Glimpse.pdb
 C:\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
+C:\Glimpse\obj\Debug\net8.0\Glimpse.sourcelink.json
