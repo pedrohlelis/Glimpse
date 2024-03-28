@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Glimpse.Models;
 using Glimpse.Migrations;
@@ -13,7 +11,7 @@ public class UserController : Controller
     {
         try
         {
-            using (var _context = new GlimpseContext())
+            await using (var _context = new GlimpseContext())
             {
                 newUser.UserId = 0;
                 newUser.IsActive = true;
@@ -29,42 +27,63 @@ public class UserController : Controller
     }
 
     [HttpGet("UsersList")]
-    public List<User> GetAllUsers()
+    public async Task<IActionResult> GetAllUsers()
     {
-        using (var _context = new GlimpseContext())
+        try
         {
-            List<User> item = _context.Users.Where(u => u.IsActive).ToList(); 
-            return item;
+            await using (var _context = new GlimpseContext())
+            {
+                List<User> item = _context.Users.Where(u => u.IsActive).ToList(); 
+                return Ok(item);
+            }
+        }
+        catch(Exception e)
+        {
+            return NotFound("Ocorreu um erro durante sua solicitacao. " + e.Message);
         }
     }
 
     [HttpPut("UpdateUser/{id}")]
-    public bool UpdateUser(int id, [FromForm] User userNewInfo)
+    public async Task<IActionResult> UpdateUser(int id, [FromForm] User userNewInfo)
     {
-        using (var _context = new GlimpseContext())
+        try
         {
-            var item = _context.Users.FirstOrDefault(t => t.UserId == id);
-            
-            item.UserName = userNewInfo.UserName;
-            item.UserEmail = userNewInfo.UserEmail;
-            item.UserPassword = userNewInfo.UserPassword;
+            await using (var _context = new GlimpseContext())
+            {
+                var item = _context.Users.FirstOrDefault(t => t.UserId == id);
+                
+                item.UserName = userNewInfo.UserName;
+                item.UserEmail = userNewInfo.UserEmail;
+                item.UserPassword = userNewInfo.UserPassword;
 
-            _context.SaveChanges();
-            return true;
+                _context.SaveChanges();
+                return Ok("Os dados do usuario foram atualizados.");
+            }
+        }
+        catch(Exception e)
+        {
+            return BadRequest("Ocorreu um erro durante sua requisição. " + e.Message);
         }
     }
 
     [HttpDelete("RemoveUser/{id}")]
-    public bool RemoveUser(int id)
+    public async Task<IActionResult> RemoveUser(int id)
     {
-        using (var _context = new GlimpseContext())
+        try
         {
-            var item = _context.Users.FirstOrDefault(t => t.UserId == id);
+            await using (var _context = new GlimpseContext())
+            {
+                var item = _context.Users.FirstOrDefault(t => t.UserId == id);
 
-            item.IsActive = false;
+                item.IsActive = false;
 
-            _context.SaveChanges();
-            return true;
+                _context.SaveChanges();
+                return Ok("Usuario removido com sucesso.");
+            }
+        }
+        catch(Exception e)
+        {
+            return BadRequest("Erro ao remover usuario. " + e.Message);
         }
     }
 }
