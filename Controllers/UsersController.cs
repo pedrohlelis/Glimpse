@@ -1,20 +1,30 @@
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Glimpse.Models;
+using Glimpse.Migrations;
 
-namespace WorkspaceGlimpse;
-public class UserController
+namespace Glimpse.Controllers;
+public class UserController : Controller
 {
+
     [HttpPost("AddUser")]
-    public bool PostNewUser([FromForm] User newUser)
+    public async Task<IActionResult> PostNewUser([FromForm] User newUser)
     {
-        using (var _context = new GlimpseContext())
+        try
         {
-            newUser.UserId = 0;
-            newUser.IsActive = true;
-            _context.Users.Add(newUser);
-            _context.SaveChanges();
-            return true;
+            using (var _context = new GlimpseContext())
+            {
+                newUser.UserId = 0;
+                newUser.IsActive = true;
+                _context.Users.Add(newUser);
+                _context.SaveChanges();
+                return Ok("Usuario cadastrado com sucesso.");
+            }
+        }
+        catch(Exception e)
+        {
+            return BadRequest("Ocorreu um erro ao cadastrar o usuario. " + e.Message);
         }
     }
 
