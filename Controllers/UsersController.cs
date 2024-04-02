@@ -5,7 +5,7 @@ using Glimpse.Migrations;
 namespace Glimpse.Controllers;
 public class UserController : Controller
 {
-
+    
     [HttpPost("AddUser")]
     public async Task<IActionResult> PostNewUser([FromForm] User newUser)
     {

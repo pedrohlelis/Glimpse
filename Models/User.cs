@@ -11,6 +11,7 @@ public class User
     private String? _UserPassword;
     private String? _ProfilePic;
     private bool _IsActive;
+    private List<Team> _FkTeamsTeamId = [];
 
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,4 +21,5 @@ public class User
     public String? UserPassword {get{return _UserPassword;} set{_UserPassword = value;}}
     public String? ProfilePic {get{return _ProfilePic;} set{_ProfilePic = value;}}
     public bool IsActive {get{return _IsActive;} set{_IsActive = value;}}
+    public List<Team> FkTeamsTeamId {get{return _FkTeamsTeamId;} set{_FkTeamsTeamId = value;}}
 }
