@@ -14,6 +14,7 @@ public class Role
     private bool _CanRemoveMembers;
     private bool _CanCreateRole;
 
+
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int RoleId {get{return _RoleId;} set{_RoleId = value;}}
