@@ -18,8 +18,7 @@ namespace Glimpse.Migrations
                     BoardId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BackgroundImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    FkProjectProjectId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CreationDate = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,11 +33,18 @@ namespace Glimpse.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProjectName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    ProjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ProjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FkBoardBoardId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Projects", x => x.ProjectId);
+                    table.ForeignKey(
+                        name: "FK_Projects_Boards_FkBoardBoardId",
+                        column: x => x.FkBoardBoardId,
+                        principalTable: "Boards",
+                        principalColumn: "BoardId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -46,6 +52,11 @@ namespace Glimpse.Migrations
                 table: "Boards",
                 column: "BoardId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Projects_FkBoardBoardId",
+                table: "Projects",
+                column: "FkBoardBoardId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Projects_ProjectId",
@@ -58,10 +69,10 @@ namespace Glimpse.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Boards");
+                name: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "Boards");
         }
     }
 }

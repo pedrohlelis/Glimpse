@@ -9,7 +9,6 @@ namespace Glimpse.Models
         public int BoardId { get; set; }
         public string? BackgroundImage { get; set; }
         public DateOnly CreationDate { get; set; }
-        [ForeignKey("Project")]
-        public string FkProjectProjectId { get; set; }
+        //public Project FkProject { get; set; }
     }
 }

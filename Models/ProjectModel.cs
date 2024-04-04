@@ -10,7 +10,7 @@ namespace Glimpse.Models
         public required string ProjectName { get; set; }
         public DateOnly CreationDate { get; set; }
         public required string ProjectDescription { get; set; }
-        //[ForeignKey("Board")]
         //public string FkUserUserId { get; set; }
+        public Board FkBoard { get; set; }
     }
 }

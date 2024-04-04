@@ -36,10 +36,6 @@ namespace Glimpse.Migrations
                     b.Property<DateOnly>("CreationDate")
                         .HasColumnType("date");
 
-                    b.Property<string>("FkProjectProjectId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("BoardId");
 
                     b.HasIndex("BoardId")
@@ -59,6 +55,9 @@ namespace Glimpse.Migrations
                     b.Property<DateOnly>("CreationDate")
                         .HasColumnType("date");
 
+                    b.Property<int>("FkBoardBoardId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ProjectDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -69,10 +68,23 @@ namespace Glimpse.Migrations
 
                     b.HasKey("ProjectId");
 
+                    b.HasIndex("FkBoardBoardId");
+
                     b.HasIndex("ProjectId")
                         .IsUnique();
 
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Glimpse.Models.Project", b =>
+                {
+                    b.HasOne("Glimpse.Models.Board", "FkBoard")
+                        .WithMany()
+                        .HasForeignKey("FkBoardBoardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FkBoard");
                 });
 #pragma warning restore 612, 618
         }
