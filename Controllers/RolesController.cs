@@ -3,73 +3,70 @@ using Glimpse.Models;
 using Glimpse.Migrations;
 
 namespace Glimpse.Controllers;
-
-[Route("Glimpse/[controller]")]
-public class UserController : Controller
+public class RoleController : Controller
 {
 
-    [HttpPost("AddUser")]
-    public async Task<IActionResult> PostNewUser([FromForm] User newUser)
+    [HttpPost("CreateRole")]
+    public async Task<IActionResult> PostNewRole([FromForm] Role newRole)
     {
         try
         {
             await using (var _context = new GlimpseContext())
             {
-                newUser.UserId = 0;
-                newUser.IsActive = true;
-                _context.Users.Add(newUser);
+                newRole.RoleId = 0;
+                _context.Roles.Add(newRole);
                 _context.SaveChanges();
-                return Ok("Usuario cadastrado com sucesso.");
+                return Ok("Cargo criado com sucesso.");
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             return BadRequest("Ocorreu um erro ao cadastrar o usuario. " + e.Message);
         }
     }
 
-    [HttpGet("UsersList")]
-    public async Task<IActionResult> GetAllUsers()
+    [HttpGet("RolesList")]
+    public async Task<IActionResult> GetAllRoles()
     {
         try
         {
             await using (var _context = new GlimpseContext())
             {
-                List<User> item = _context.Users.Where(u => u.IsActive).ToList(); 
+                List<Role> item = _context.Roles.ToList();
                 return Ok(item);
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             return NotFound("Ocorreu um erro durante sua solicitacao. " + e.Message);
         }
     }
 
-    [HttpPut("UpdateUser/{id}")]
-    public async Task<IActionResult> UpdateUser(int id, [FromForm] User userNewInfo)
+    [HttpPut("UpdateRole/{id}")]
+    public async Task<IActionResult> UpdateRole(int id, [FromForm] Role roleNewInfo)
     {
         try
         {
             await using (var _context = new GlimpseContext())
             {
-                var item = _context.Users.FirstOrDefault(t => t.UserId == id);
-                
-                item.UserName = userNewInfo.UserName;
-                item.UserEmail = userNewInfo.UserEmail;
-                item.UserPassword = userNewInfo.UserPassword;
+                var item = _context.Roles.FirstOrDefault(t => t.RoleId == id);
+
+                int aux = item.RoleId;
+                item = roleNewInfo;
+                item.RoleId = aux;
 
                 _context.SaveChanges();
                 return Ok("Os dados do usuario foram atualizados.");
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             return BadRequest("Ocorreu um erro durante sua requisição. " + e.Message);
         }
     }
 
-    [HttpDelete("RemoveUser/{id}")]
-    public async Task<IActionResult> RemoveUser(int id)
+    [HttpDelete("RemoveRole/{id}")]
+    public async Task<IActionResult> RemoveRole(int id)
     {
         try
         {
@@ -77,15 +74,15 @@ public class UserController : Controller
             {
                 var item = _context.Users.FirstOrDefault(t => t.UserId == id);
 
-                item.IsActive = false;
+                _context.Users.Remove(item);
 
                 _context.SaveChanges();
-                return Ok("Usuario removido com sucesso.");
+                return Ok("Cargo removido com sucesso.");
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
-            return BadRequest("Erro ao remover usuario. " + e.Message);
+            return BadRequest("Erro ao remover cargo. " + e.Message);
         }
     }
 }

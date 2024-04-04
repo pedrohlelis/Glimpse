@@ -5,17 +5,16 @@ namespace Glimpse.Models;
 
 public class Team
 {
-    private int _TeamId;
-    private int _FkProjectsProjectId;
-    private List<User> _FkUsersUserId = [];
+    private int _FkUsersUserId { get; set; }
+    private int _FkProjectsProjectId { get; set; }
+    private int? _FkRolesRoleId { get; set; }
 
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int TeamId {get{return _TeamId;} set{_TeamId = value;}}
-    [Required]
-    [ForeignKey("Projects")]
     public int FkProjectsProjectId {get{return _FkProjectsProjectId;} set{_FkProjectsProjectId = value;}}
-    [Required]
-    [ForeignKey("Users")]
-    public List<User> FkUsersUserId {get{return _FkUsersUserId;} set{_FkUsersUserId = value;}}
+    public virtual Project Project { get; set; }
+    public int FkUsersUserId {get{return _FkUsersUserId;} set{_FkUsersUserId = value;}}
+    public virtual User User { get; set; }
+    
+    public int? FkRolesRoleId { get{return _FkRolesRoleId; } set{ _FkRolesRoleId = value;}}
+    public virtual Role Role { get; set; }
+
 }
