@@ -33,13 +33,25 @@ namespace Glimpse.Migrations
                     b.Property<string>("BackgroundImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("BoardName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateOnly>("CreationDate")
                         .HasColumnType("date");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
 
                     b.HasKey("BoardId");
 
                     b.HasIndex("BoardId")
                         .IsUnique();
+
+                    b.HasIndex("ProjectId");
 
                     b.ToTable("Boards");
                 });
@@ -55,9 +67,6 @@ namespace Glimpse.Migrations
                     b.Property<DateOnly>("CreationDate")
                         .HasColumnType("date");
 
-                    b.Property<int>("FkBoardBoardId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ProjectDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -68,23 +77,22 @@ namespace Glimpse.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.HasIndex("FkBoardBoardId");
-
                     b.HasIndex("ProjectId")
                         .IsUnique();
 
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("Glimpse.Models.Board", b =>
+                {
+                    b.HasOne("Glimpse.Models.Project", null)
+                        .WithMany("Boards")
+                        .HasForeignKey("ProjectId");
+                });
+
             modelBuilder.Entity("Glimpse.Models.Project", b =>
                 {
-                    b.HasOne("Glimpse.Models.Board", "FkBoard")
-                        .WithMany()
-                        .HasForeignKey("FkBoardBoardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FkBoard");
+                    b.Navigation("Boards");
                 });
 #pragma warning restore 612, 618
         }

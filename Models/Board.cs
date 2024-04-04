@@ -7,8 +7,10 @@ namespace Glimpse.Models
     {
         [Key]
         public int BoardId { get; set; }
+        public required string BoardName { get; set; }
         public string? BackgroundImage { get; set; }
         public DateOnly CreationDate { get; set; }
-        //public Project FkProject { get; set; }
+        public bool IsActive { get; set; }
+        //public virtual User FkUserUserId { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Glimpse.Models
         public required string ProjectName { get; set; }
         public DateOnly CreationDate { get; set; }
         public required string ProjectDescription { get; set; }
-        //public string FkUserUserId { get; set; }
-        public Board FkBoard { get; set; }
+        public virtual List<Board>? Boards { get; set; }
+        //public virtual User FkUserUserId { get; set; }
     }
 }
