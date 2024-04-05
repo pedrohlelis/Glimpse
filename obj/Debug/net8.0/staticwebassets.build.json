@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Rp8VU8pb8tEph2sChu+NeODZIfXdWus4/XNJDr9K4jQ=",
+  "Hash": "n0g+fwMbDzr8HkBxKEvjKhr9GDmW3767rFdS0D7ujy4=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\ProfilePics\\56d49663-fac8-4325-b22f-ee2030c9ab45_tattoo_idea.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "ProfilePics/56d49663-fac8-4325-b22f-ee2030c9ab45_tattoo_idea.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfilePics\\56d49663-fac8-4325-b22f-ee2030c9ab45_tattoo_idea.png"
     }
   ]
 }

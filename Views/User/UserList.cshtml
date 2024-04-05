@@ -1,0 +1,29 @@
+@model List<Glimpse.Models.User>;
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create role</title>
+    </head>
+    <body>
+        <table>
+        <tr>
+            <th>ID</th>
+            <th>Profile Picture</th>
+            <th>Nome</th>
+            <th>Email</th>
+        </tr>
+        @foreach (User user in Model)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td><img src="@user.ProfilePic" alt=""></td>
+                <td>@user.UserName</td>
+                <td>@user.UserEmail</td>
+            </tr>
+        }
+        </table>
+    </body>
+</html>

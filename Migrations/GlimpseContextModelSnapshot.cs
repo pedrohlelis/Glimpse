@@ -22,6 +22,72 @@ namespace Glimpse.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Glimpse.Models.Board", b =>
+                {
+                    b.Property<int>("BoardId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BoardId"));
+
+                    b.Property<string>("BoardName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FkProjectsProjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BoardId");
+
+                    b.HasIndex("FkProjectsProjectId");
+
+                    b.ToTable("Board");
+                });
+
+            modelBuilder.Entity("Glimpse.Models.Card", b =>
+                {
+                    b.Property<int>("CardId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CardId"));
+
+                    b.Property<string>("CardDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FkLanesLaneId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CardId");
+
+                    b.HasIndex("FkLanesLaneId");
+
+                    b.ToTable("Cards");
+                });
+
+            modelBuilder.Entity("Glimpse.Models.Lane", b =>
+                {
+                    b.Property<int>("LaneId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LaneId"));
+
+                    b.Property<int>("FkBoardsBoardId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LaneName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LaneId");
+
+                    b.HasIndex("FkBoardsBoardId");
+
+                    b.ToTable("Lanes");
+                });
+
             modelBuilder.Entity("Glimpse.Models.Project", b =>
                 {
                     b.Property<int>("ProjectId")
@@ -42,7 +108,7 @@ namespace Glimpse.Migrations
                     b.Property<string>("ProjectName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ResponsibleUserId")
+                    b.Property<int>("ResponsibleUserId")
                         .HasColumnType("int");
 
                     b.HasKey("ProjectId");
@@ -66,12 +132,6 @@ namespace Glimpse.Migrations
                     b.Property<bool>("CanRemoveMembers")
                         .HasColumnType("bit");
 
-                    b.Property<int>("FkProjectsProjectIdProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FkUsersUserIdUserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("RoleColor")
                         .HasColumnType("nvarchar(max)");
 
@@ -83,29 +143,25 @@ namespace Glimpse.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.HasIndex("FkProjectsProjectIdProjectId");
-
-                    b.HasIndex("FkUsersUserIdUserId");
-
                     b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Glimpse.Models.Team", b =>
                 {
-                    b.Property<int>("FkUsersUserId")
+                    b.Property<int>("FkUsers")
                         .HasColumnType("int");
 
-                    b.Property<int>("FkProjectsProjectId")
+                    b.Property<int>("FkProjects")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FkRolesRoleId")
+                    b.Property<int?>("FkRoles")
                         .HasColumnType("int");
 
-                    b.HasKey("FkUsersUserId", "FkProjectsProjectId");
+                    b.HasKey("FkUsers", "FkProjects");
 
-                    b.HasIndex("FkProjectsProjectId");
+                    b.HasIndex("FkProjects");
 
-                    b.HasIndex("FkRolesRoleId");
+                    b.HasIndex("FkRoles");
 
                     b.ToTable("Teams");
                 });
@@ -138,64 +194,63 @@ namespace Glimpse.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ProjectUser", b =>
+            modelBuilder.Entity("Glimpse.Models.Board", b =>
                 {
-                    b.Property<int>("ProjectsProjectId")
-                        .HasColumnType("int");
+                    b.HasOne("Glimpse.Models.Project", "FkProjects")
+                        .WithMany()
+                        .HasForeignKey("FkProjectsProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("UsersUserId")
-                        .HasColumnType("int");
+                    b.Navigation("FkProjects");
+                });
 
-                    b.HasKey("ProjectsProjectId", "UsersUserId");
+            modelBuilder.Entity("Glimpse.Models.Card", b =>
+                {
+                    b.HasOne("Glimpse.Models.Lane", "FkLanes")
+                        .WithMany("FkCards")
+                        .HasForeignKey("FkLanesLaneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasIndex("UsersUserId");
+                    b.Navigation("FkLanes");
+                });
 
-                    b.ToTable("ProjectUser");
+            modelBuilder.Entity("Glimpse.Models.Lane", b =>
+                {
+                    b.HasOne("Glimpse.Models.Board", "FkBoards")
+                        .WithMany("FkLanes")
+                        .HasForeignKey("FkBoardsBoardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FkBoards");
                 });
 
             modelBuilder.Entity("Glimpse.Models.Project", b =>
                 {
-                    b.HasOne("Glimpse.Models.User", "ResponsibleUser")
+                    b.HasOne("Glimpse.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("ResponsibleUserId");
 
-                    b.Navigation("ResponsibleUser");
-                });
-
-            modelBuilder.Entity("Glimpse.Models.Role", b =>
-                {
-                    b.HasOne("Glimpse.Models.Project", "FkProjectsProjectId")
-                        .WithMany("Roles")
-                        .HasForeignKey("FkProjectsProjectIdProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Glimpse.Models.User", "FkUsersUserId")
-                        .WithMany("Roles")
-                        .HasForeignKey("FkUsersUserIdUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FkProjectsProjectId");
-
-                    b.Navigation("FkUsersUserId");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Glimpse.Models.Team", b =>
                 {
                     b.HasOne("Glimpse.Models.Project", "Project")
                         .WithMany()
-                        .HasForeignKey("FkProjectsProjectId")
+                        .HasForeignKey("FkProjects")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Glimpse.Models.Role", "Role")
                         .WithMany()
-                        .HasForeignKey("FkRolesRoleId");
+                        .HasForeignKey("FkRoles");
 
                     b.HasOne("Glimpse.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("FkUsersUserId")
+                        .HasForeignKey("FkUsers")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -206,29 +261,14 @@ namespace Glimpse.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ProjectUser", b =>
+            modelBuilder.Entity("Glimpse.Models.Board", b =>
                 {
-                    b.HasOne("Glimpse.Models.Project", null)
-                        .WithMany()
-                        .HasForeignKey("ProjectsProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Glimpse.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("FkLanes");
                 });
 
-            modelBuilder.Entity("Glimpse.Models.Project", b =>
+            modelBuilder.Entity("Glimpse.Models.Lane", b =>
                 {
-                    b.Navigation("Roles");
-                });
-
-            modelBuilder.Entity("Glimpse.Models.User", b =>
-                {
-                    b.Navigation("Roles");
+                    b.Navigation("FkCards");
                 });
 #pragma warning restore 612, 618
         }

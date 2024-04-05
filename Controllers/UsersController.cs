@@ -1,15 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
 using Glimpse.Models;
 using Glimpse.Migrations;
+using Glimpse.Helpers;
 
 namespace Glimpse.Controllers;
 
 [Route("Glimpse/[controller]")]
+[ApiController]
 public class UserController : Controller
 {
+    private readonly IWebHostEnvironment _hostingEnvironment;
+    private readonly string _profilePicFolderName;
 
-    [HttpPost("AddUser")]
-    public async Task<IActionResult> PostNewUser([FromForm] User newUser)
+    public UserController(IWebHostEnvironment hostingEnvironment)
+    {
+        _hostingEnvironment = hostingEnvironment;
+        _profilePicFolderName = "ProfilePics";
+    }
+
+
+    [HttpGet("Register")]
+    public IActionResult RegisterPage()
+    {
+        return View("Register");
+    }
+
+    [HttpPost("Register")]
+    public async Task<IActionResult> PostNewUser([FromForm] User newUser, IFormFile profilePic)
     {
         try
         {
@@ -17,6 +34,10 @@ public class UserController : Controller
             {
                 newUser.UserId = 0;
                 newUser.IsActive = true;
+
+                string profilePicPath = FileHandlingHelper.UploadFile(profilePic, _profilePicFolderName, _hostingEnvironment);
+                newUser.ProfilePic = profilePicPath;
+
                 _context.Users.Add(newUser);
                 _context.SaveChanges();
                 return Ok("Usuario cadastrado com sucesso.");
@@ -35,8 +56,8 @@ public class UserController : Controller
         {
             await using (var _context = new GlimpseContext())
             {
-                List<User> item = _context.Users.Where(u => u.IsActive).ToList(); 
-                return Ok(item);
+                List<User> item = _context.Users.Where(u => u.IsActive).ToList();
+                return View(@"UserList", item); ;
             }
         }
         catch(Exception e)

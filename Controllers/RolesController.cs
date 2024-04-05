@@ -3,8 +3,16 @@ using Glimpse.Models;
 using Glimpse.Migrations;
 
 namespace Glimpse.Controllers;
+
+[Route("Glimpse/[controller]")]
+[ApiController]
 public class RoleController : Controller
 {
+    [HttpGet("CreateRole")]
+    public IActionResult CreateRole()
+    {
+        return View("Create");
+    }
 
     [HttpPost("CreateRole")]
     public async Task<IActionResult> PostNewRole([FromForm] Role newRole)
