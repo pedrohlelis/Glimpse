@@ -43,7 +43,7 @@ namespace Glimpse.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("ProjectId")
+                    b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
                     b.HasKey("BoardId");
@@ -88,14 +88,13 @@ namespace Glimpse.Migrations
 
             modelBuilder.Entity("Glimpse.Models.Board", b =>
                 {
-                    b.HasOne("Glimpse.Models.Project", null)
-                        .WithMany("Boards")
-                        .HasForeignKey("ProjectId");
-                });
+                    b.HasOne("Glimpse.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("Glimpse.Models.Project", b =>
-                {
-                    b.Navigation("Boards");
+                    b.Navigation("Project");
                 });
 #pragma warning restore 612, 618
         }

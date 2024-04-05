@@ -37,7 +37,7 @@ namespace Glimpse.Migrations
                     BackgroundImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    ProjectId = table.Column<int>(type: "int", nullable: true)
+                    ProjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,7 +46,8 @@ namespace Glimpse.Migrations
                         name: "FK_Boards_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
-                        principalColumn: "ProjectId");
+                        principalColumn: "ProjectId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
