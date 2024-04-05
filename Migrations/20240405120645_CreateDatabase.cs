@@ -19,7 +19,8 @@ namespace Glimpse.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProjectName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    ProjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ProjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProjectPicture = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

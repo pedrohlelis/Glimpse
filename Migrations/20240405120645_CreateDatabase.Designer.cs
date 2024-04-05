@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
-    [Migration("20240404174922_CreateDatabase")]
+    [Migration("20240405120645_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -76,6 +76,9 @@ namespace Glimpse.Migrations
 
                     b.Property<string>("ProjectName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectPicture")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProjectId");

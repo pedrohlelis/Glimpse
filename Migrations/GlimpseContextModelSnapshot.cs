@@ -75,6 +75,9 @@ namespace Glimpse.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProjectPicture")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ProjectId");
 
                     b.HasIndex("ProjectId")

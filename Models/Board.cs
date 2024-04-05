@@ -11,6 +11,7 @@ namespace Glimpse.Models
         public string? BackgroundImage { get; set; }
         public DateOnly CreationDate { get; set; }
         public bool IsActive { get; set; }
+        public virtual required Project Project { get; set; }
         //public virtual User FkUserUserId { get; set; }
     }
 }

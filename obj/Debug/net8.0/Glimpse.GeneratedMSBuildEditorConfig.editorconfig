@@ -26,8 +26,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a498902/OneDrive - Volvo Group/Glimpse/Views/Project/MainProjectsPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxNYWluUHJvamVjdHNQYWdlLmNzaHRtbA==
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse/Views/Project/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse/Views/Project/MainProjects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxNYWluUHJvamVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/a498902/OneDrive - Volvo Group/Glimpse/Views/Shared/Error.cshtml]

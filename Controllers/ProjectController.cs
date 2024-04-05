@@ -10,17 +10,18 @@ namespace Glimpse.Controllers;
 public class ProjectController : Controller
 {
     private readonly GlimpseContext _db;
+    private readonly IWebHostEnvironment _hostEnvironment;
 
-    public ProjectController(GlimpseContext db)
+    public ProjectController(GlimpseContext db, IWebHostEnvironment hostEnvironment)
     {
         _db = db;
+        _hostEnvironment = hostEnvironment;
     }
 
     // READ
-    public async Task<IActionResult> MainProjectsPage()
+    public async Task<IActionResult> MainProjects()
     {
-        List<Project> projects = await _db.Projects.ToListAsync();
-        return View(projects);
+        return View(await _db.Projects.ToListAsync());
     }
 
     public async Task<IActionResult> GetInfo(int id)
@@ -45,27 +46,31 @@ public class ProjectController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CriarProject(Project Project)
+    public async Task<IActionResult> CreateProject(Project project, IFormFile projectImg)
     {
+        project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
+
         if (ModelState.IsValid)
         {
-            _db.Projects.Add(Project);
-            try
+            if (projectImg != null && projectImg.Length > 0)
             {
-                await _db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                //ViewData["uniqueAlert"] = "Chassi do Project ja cadastrado";
-                //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
+                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "uploads");
+                string nomeArquivo = Guid.NewGuid().ToString() + "_" + Path.GetFileName(projectImg.FileName);
+                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
+                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+                {
+                    await projectImg.CopyToAsync(stream);
+                }
+                project.ProjectPicture = "~/uploads/" + nomeArquivo;
+            } 
+            _db.Projects.Add(project);
+            await _db.SaveChangesAsync();
 
-                return View("Create", Project);
-            }
-            return RedirectToAction("Get");
+            return RedirectToAction("ProjectBoards");
         }
         //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
-        return View("Create", Project);
+        return View("Create", project);
     }
 
     // UPDATE
