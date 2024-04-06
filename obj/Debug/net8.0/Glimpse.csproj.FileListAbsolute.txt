@@ -142,3 +142,9 @@ C:\Glimpse\obj\Debug\net8.0\Glimpse.pdb
 C:\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
 C:\Glimpse\obj\Debug\net8.0\Glimpse.sourcelink.json
+C:\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Options.dll

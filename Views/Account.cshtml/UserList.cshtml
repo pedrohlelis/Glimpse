@@ -18,10 +18,10 @@
         @foreach (User user in Model)
         {
             <tr>
-                <td>@user.UserId</td>
                 <td><img src="@user.ProfilePic" alt=""></td>
                 <td>@user.UserName</td>
-                <td>@user.UserEmail</td>
+                <td>@user.Email</td>
+                <td>@user.PasswordHash</td>
             </tr>
         }
         </table>
