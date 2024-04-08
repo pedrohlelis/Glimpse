@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Glimpse.Controllers;
 
@@ -9,14 +10,17 @@ namespace Glimpse.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly UserManager<User> _userManager;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, UserManager<User> userManager)
     {
         _logger = logger;
+        _userManager = userManager;
     }
 
     public IActionResult Index()
     {
+        ViewData["UserId"] = _userManager.GetUserId(this.User);
         return View();
     }
 

@@ -7,7 +7,12 @@ namespace Glimpse.Models;
 
 public class User : IdentityUser
 {
-    public string? Name { get; set;}
+    [PersonalData]
+    [MaxLength(50)]
+    public string? FirstName { get; set;}
+    [PersonalData]
+    [MaxLength(50)]
+    public string? LastName { get; set;}
     public string? ProfilePic {get; set;}
     public bool IsActive {get; set;}
 }

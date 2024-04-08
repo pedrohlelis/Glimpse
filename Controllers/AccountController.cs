@@ -27,7 +27,7 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.UserName!, model.Password!, model.RememberMe, false);
+            var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, model.RememberMe, false);
 
             if (result.Succeeded)
             {
@@ -50,7 +50,8 @@ public class AccountController : Controller
         {
             User user = new()
             {
-                Name = model.Name,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
                 UserName = model.Email,
                 Email = model.Email,
                 IsActive = true,
