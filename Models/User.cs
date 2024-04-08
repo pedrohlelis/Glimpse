@@ -7,6 +7,7 @@ namespace Glimpse.Models;
 
 public class User : IdentityUser
 {
-    public String? ProfilePic {get; set;}
+    public string? Name { get; set;}
+    public string? ProfilePic {get; set;}
     public bool IsActive {get; set;}
 }
