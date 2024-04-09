@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Glimpse.ViewModels;
 
 namespace Glimpse.Controllers;
 
@@ -20,11 +21,23 @@ public class UserController : Controller
         _profilePicFolderName = "ProfilePics";
     }
 
-    public IActionResult ProfilePage()
+    public IActionResult Profile()
     {
+        var user = _userManager.GetUserAsync(User).Result;
+
+        var userProfile = new ProfileVM
+        {
+            ProfilePic = user!.ProfilePic!,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email
+        };
+
         ViewData["UserId"] = _userManager.GetUserId(this.User);
-        return View();
+        return View(userProfile);
     }
+    
+
 
     //             _context.SaveChanges();
     //             return Ok("Os dados do usuario foram atualizados.");
