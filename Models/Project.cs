@@ -16,6 +16,6 @@ public class Project
     // public List<User> Users {get; set;}
     // public List<Role> Roles { get; set; }
 
-    public int? ResponsibleUserId { get; set; }
-    public User ResponsibleUser { get; set; }
+    public string? ResponsibleUserId { get; set; }
+    public User User { get; set; }
 }

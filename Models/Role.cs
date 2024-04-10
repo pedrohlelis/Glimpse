@@ -6,8 +6,6 @@ namespace Glimpse.Models;
 public class Role
 {
     private int _RoleId;
-    private Project _FkProjectsProjectId;
-    private User _FkUsersUserId;
     private String? _RoleName;
     private String? _RoleDescription;
     private String? _RoleColor;
@@ -17,8 +15,6 @@ public class Role
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int RoleId {get{return _RoleId;} set{_RoleId = value;}}
-    public Project FkProjects { get{return _FkProjectsProjectId; } set{ _FkProjectsProjectId = value;}}
-    public User FkUsers {get{return _FkUsersUserId;} set{_FkUsersUserId = value;}}
     public String? RoleName {get{return _RoleName;} set{_RoleName = value;}}
     public String? RoleDescription {get{return _RoleDescription;} set{_RoleDescription = value;}}
     public String? RoleColor {get{return _RoleColor;} set{_RoleColor = value;}}
