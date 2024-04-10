@@ -20,7 +20,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+
+        var user = _userManager.GetUserAsync(User).Result;
         ViewData["UserId"] = _userManager.GetUserId(this.User);
+        ViewData["UserPfp"] = user.ProfilePic;
         return View();
     }
 

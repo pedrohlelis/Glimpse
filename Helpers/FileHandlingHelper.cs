@@ -56,4 +56,25 @@ public class FileHandlingHelper
 
         return Path.Combine("/", folderName, uniqueFileName).Replace("\\", "/");
     }
+
+    public static void DeleteFile(string folderPath, string fileName)
+    {
+        try
+        {
+            string filePath = Path.Combine(folderPath, fileName);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            else
+            {
+                Console.WriteLine($"File '{fileName}' does not exist in the specified folder.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred while deleting the file: {ex.Message}");
+        }
+    }
 }

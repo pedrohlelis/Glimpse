@@ -1,13 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Glimpse.Models;
+using Glimpse.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Glimpse.ViewModels;
+using Microsoft.VisualBasic;
 
 namespace Glimpse.Controllers;
 
 [Route("Glimpse/[controller]")]
 [ApiController]
+[Authorize]
 public class UserController : Controller
 {
     private readonly IWebHostEnvironment _hostingEnvironment;
@@ -18,55 +21,74 @@ public class UserController : Controller
     {
         _hostingEnvironment = hostingEnvironment;
         _userManager = userManager;
-        _profilePicFolderName = "ProfilePics";
+        _profilePicFolderName = "UserProfilePics";
     }
 
+    [HttpGet("profile", Name = "Profile")]
     public IActionResult Profile()
     {
         var user = _userManager.GetUserAsync(User).Result;
 
         var userProfile = new ProfileVM
         {
-            ProfilePic = user!.ProfilePic!,
+            ProfilePicPath = user.ProfilePic,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Email = user.Email
+            Email = user.Email,
+            Phone = user.PhoneNumber
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
         return View(userProfile);
     }
-    
 
+    [HttpGet("profile/edit", Name = "ProfileEdit")]
+    public IActionResult ProfileEdit()
+    {
+        var user = _userManager.GetUserAsync(User).Result;
+        var userProfile = new ProfileVM
+        {
+            ProfilePicPath = user.ProfilePic,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Phone = user.PhoneNumber
+        };
 
-    //             _context.SaveChanges();
-    //             return Ok("Os dados do usuario foram atualizados.");
-    //         }
-    //     }
-    //     catch(Exception e)
-    //     {
-    //         return BadRequest("Ocorreu um erro durante sua requisição. " + e.Message);
-    //     }
-    // }
+        ViewData["UserId"] = _userManager.GetUserId(this.User);
+        return View(userProfile);
+    }
 
-    // [HttpDelete("RemoveUser/{id}")]
-    // public async Task<IActionResult> RemoveUser(int id)
-    // {
-    //     try
-    //     {
-    //         await using (var _context = new GlimpseContext())
-    //         {
-    //             var item = _context.Users.FirstOrDefault(t => t.UserId == id);
+    [HttpPost("profile/edit", Name = "UpdateProfile")]
+    public async Task<IActionResult> UpdateProfile([FromForm] ProfileVM profileVM)
+    {
+        var user = _userManager.GetUserAsync(User).Result;
 
-    //             item.IsActive = false;
+        if (ModelState.IsValid)
+        {
+            var profilePicture = profileVM.ProfilePicFile;
+            if (profilePicture != null && profilePicture.Length > 0)
+            {
+                if (user.ProfilePic != null) { FileHandlingHelper.DeleteFile(@"C:\Glimpse\wwwroot\UserProfilePics", user.ProfilePic); }
+                user!.ProfilePic = FileHandlingHelper.UploadFile(profilePicture, _profilePicFolderName, _hostingEnvironment);
+            }
+            else { user!.ProfilePic = null; }
+            user.Email = profileVM.Email;
+            user.UserName = profileVM.Email;
+            user.FirstName = profileVM.FirstName;
+            user.LastName = profileVM.LastName;
+            user.PhoneNumber = profileVM.Phone;
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Profile", "User");
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+        }
+        return View("ProfileEdit", profileVM);
+    }
 
-    //             _context.SaveChanges();
-    //             return Ok("Usuario removido com sucesso.");
-    //         }
-    //     }
-    //     catch(Exception e)
-    //     {
-    //         return BadRequest("Erro ao remover usuario. " + e.Message);
-    //     }
-    // }
 }
