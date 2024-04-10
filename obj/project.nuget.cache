@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SNDt7QoacennEiODwq5eThSK9fBe/EtU3BKyR5iGwHeZTVtrWIZn9PM4pXtuioMm4d1UCo+kTqz0Njd53ksvFA==",
+  "dgSpecHash": "U7qmaVKiqRlYlCVjkOn5YZiSgFYg5zcxq+WXcjmyXRUNXuQfxfXRdRnjd1GBZzMp4xXKwWf4h67T/9JeiEgMGw==",
   "success": true,
   "projectFilePath": "C:\\Glimpse\\Glimpse.csproj",
   "expectedPackageFiles": [
@@ -179,12 +179,5 @@
     "C:\\Users\\Pedro\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Glimpse\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
