@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Glimpse.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Glimpse.ViewModels;
+using Glimpse.Helpers;
 
 namespace Glimpse.Controllers;
 
@@ -11,62 +9,103 @@ namespace Glimpse.Controllers;
 public class UserController : Controller
 {
     private readonly IWebHostEnvironment _hostingEnvironment;
-    private readonly UserManager<User> _userManager;
     private readonly string _profilePicFolderName;
 
-    public UserController(IWebHostEnvironment hostingEnvironment, UserManager<User> userManager)
+    public UserController(IWebHostEnvironment hostingEnvironment)
     {
         _hostingEnvironment = hostingEnvironment;
-        _userManager = userManager;
         _profilePicFolderName = "ProfilePics";
     }
 
-    public IActionResult Profile()
+
+    [HttpGet("Register")]
+    public IActionResult RegisterPage()
     {
-        var user = _userManager.GetUserAsync(User).Result;
-
-        var userProfile = new ProfileVM
-        {
-            ProfilePic = user!.ProfilePic!,
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Email = user.Email
-        };
-
-        ViewData["UserId"] = _userManager.GetUserId(this.User);
-        return View(userProfile);
+        return View("Register");
     }
-    
 
+    [HttpPost("Register")]
+    public async Task<IActionResult> PostNewUser([FromForm] User newUser, IFormFile profilePic)
+    {
+        try
+        {
+            await using (var _context = new GlimpseContext())
+            {
+                //newUser.UserId = "0";
+                newUser.IsActive = true;
 
-    //             _context.SaveChanges();
-    //             return Ok("Os dados do usuario foram atualizados.");
-    //         }
-    //     }
-    //     catch(Exception e)
-    //     {
-    //         return BadRequest("Ocorreu um erro durante sua requisição. " + e.Message);
-    //     }
-    // }
+                string profilePicPath = FileHandlingHelper.UploadFile(profilePic, _profilePicFolderName, _hostingEnvironment);
+                //newUser.ProfilePicture = profilePicPath;
 
-    // [HttpDelete("RemoveUser/{id}")]
-    // public async Task<IActionResult> RemoveUser(int id)
-    // {
-    //     try
-    //     {
-    //         await using (var _context = new GlimpseContext())
-    //         {
-    //             var item = _context.Users.FirstOrDefault(t => t.UserId == id);
+                _context.Users.Add(newUser);
+                _context.SaveChanges();
+                return Ok("Usuario cadastrado com sucesso.");
+            }
+        }
+        catch(Exception e)
+        {
+            return BadRequest("Ocorreu um erro ao cadastrar o usuario. " + e.Message);
+        }
+    }
 
-    //             item.IsActive = false;
+    [HttpGet("UsersList")]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        try
+        {
+            await using (var _context = new GlimpseContext())
+            {
+                List<User> item = _context.Users.Where(u => u.IsActive).ToList();
+                return View(@"UserList", item); ;
+            }
+        }
+        catch(Exception e)
+        {
+            return NotFound("Ocorreu um erro durante sua solicitacao. " + e.Message);
+        }
+    }
 
-    //             _context.SaveChanges();
-    //             return Ok("Usuario removido com sucesso.");
-    //         }
-    //     }
-    //     catch(Exception e)
-    //     {
-    //         return BadRequest("Erro ao remover usuario. " + e.Message);
-    //     }
-    // }
+    [HttpPut("UpdateUser/{id}")]
+    public async Task<IActionResult> UpdateUser(int id, [FromForm] User userNewInfo)
+    {
+        try
+        {
+            await using (var _context = new GlimpseContext())
+            {
+                //var item = _context.Users.FirstOrDefault(t => t.UserId == id);
+                
+                //item.UserName = userNewInfo.UserName;
+                //item.UserEmail = userNewInfo.UserEmail;
+                //item.UserPassword = userNewInfo.UserPassword;
+
+                _context.SaveChanges();
+                return Ok("Os dados do usuario foram atualizados.");
+            }
+        }
+        catch(Exception e)
+        {
+            return BadRequest("Ocorreu um erro durante sua requisição. " + e.Message);
+        }
+    }
+
+    [HttpDelete("RemoveUser/{id}")]
+    public async Task<IActionResult> RemoveUser(int id)
+    {
+        try
+        {
+            await using (var _context = new GlimpseContext())
+            {
+                //var item = _context.Users.FirstOrDefault(t => t.UserId == id);
+
+                //item.IsActive = false;
+
+                _context.SaveChanges();
+                return Ok("Usuario removido com sucesso.");
+            }
+        }
+        catch(Exception e)
+        {
+            return BadRequest("Erro ao remover usuario. " + e.Message);
+        }
+    }
 }

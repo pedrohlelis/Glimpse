@@ -3,17 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Glimpse.Models;
 
-public class Card
+public class Card 
 {
-    private int _CardId;
-    private String? _CardName;
-    private String? _CardDescription;
-
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int CardId {get{return _CardId;} set{_CardId = value;}}
-    public String? CardName {get{return _CardName;} set{_CardName = value;}}
-    public String? CardDescription {get{return _CardDescription;} set{_CardDescription = value;}}
-    public Lane lane {get; set;}
-
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    // fk opcional Lane shadow
+    public virtual Lane? Lane { get; set; }
+    public ICollection<User> Users { get; } = [];
+    public ICollection<Tag> Tags { get; } = [];
+    public ICollection<Checkbox> Checkboxes { get; } = [];
 }

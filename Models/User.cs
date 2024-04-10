@@ -1,18 +1,21 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Identity;
-
 
 namespace Glimpse.Models;
 
-public class User : IdentityUser
+public class User
 {
-    [PersonalData]
-    [MaxLength(50)]
-    public string? FirstName { get; set;}
-    [PersonalData]
-    [MaxLength(50)]
-    public string? LastName { get; set;}
-    public string? ProfilePic {get; set;}
-    public bool IsActive {get; set;}
+    [Key]
+    public string Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string Picture { get; set; }
+    public bool IsActive { get; set; }
+    // card x user
+    public ICollection<Card> Cards { get; } = [];
+    // cargo x user
+    public ICollection<Role> Roles { get; } = [];
+    // projeto x user
+    public ICollection<Project> Projects { get; } = [];
 }

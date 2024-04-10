@@ -1,0 +1,29 @@
+@model User
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<form asp-action="PostNewUser" asp-controller="User" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name">Nome:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" type="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+
+        <label asp-for="Password">Senha:</label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <br>    
+    <div class="form-group">
+        <label asp-for="Picture">Foto de perfil:</label>
+        <input asp-for="Picture" type="file" class="form-control-file" />
+        <span asp-validation-for="Picture" class="text-danger"></span>
+    </div>
+    <br>
+
+    <button type="submit" class="btn btn-primary">Create Role</button>
+</form>

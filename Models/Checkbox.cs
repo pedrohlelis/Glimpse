@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Glimpse.Models;
 
-public class Lane
+public class Checkbox
 {
     [Key]
     public int Id { get; set; }
     public string Name { get; set; }
-    public virtual required Board Board { get; set; }
-    public int Index { get; set; }
-    public ICollection<Card> Cards { get; } = [];
+    public bool Finished { get; set; }
+    // fk opcional com shadow foreign key
+    public virtual Card? Card { get; set; } = null!;
 }
