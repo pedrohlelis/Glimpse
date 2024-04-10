@@ -17,7 +17,7 @@ namespace Glimpse.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ResponsibleUserId = table.Column<int>(type: "int", nullable: false),
+                    ResponsibleUserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -183,6 +183,7 @@ namespace Glimpse.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Index = table.Column<int>(type: "int", nullable: false),
                     LaneId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

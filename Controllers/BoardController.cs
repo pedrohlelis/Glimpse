@@ -2,10 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http.Features;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace Glimpse.Controllers;
 
@@ -20,42 +17,50 @@ public class BoardController : Controller
         _hostEnvironment = hostEnvironment;
     }
     // Abre o quadro
+    [HttpGet("/project/boards")]
     public async Task<IActionResult> GetBoardInfo(int id)
     {
-        var board = await _db.Boards.FindAsync(id);
+        Board board = await _db.Boards.FindAsync(id);
 
         if (board == null)
         {
             return NotFound();
         }
         // Lista dos usuarios do quadro
-        ViewData["users"] = GetUsersFromBoard(id);
+        ViewData["users"] = GetUsersFromBoard(board);
 
         // HashMap das raias e dos cards do quadro
-        ViewData["lanesAndCards"] = GetLanesWithCardsAsync(id);
-
-        // List de checkboxes
-        
+        ViewData["lanes"] = GetLanesFromBoard(board);
         
         // Hash -> Card e Tags
         
 
         return View(board);
     }
+    public async Task<IActionResult> GetProjectBoards(int id)
+    {
+        Project project = await _db.Projects.FindAsync(id);
+
+        if (project == null)
+        {
+            return NotFound();
+        }
+        ViewData["ProjectBoards"] = project.Boards;
+
+        return View();
+    }
 
     // CREATE
     public IActionResult Create(string id)
     {
-        string name = "";
         foreach (User item in _db.Users)
         {
-            //if(item.UserId == id)
+            if(item.Id == id)
             {
                 //name = item.UserName;
                 break;
             }
         }
-        ViewData["projectName"] = name;
 
         return View();
     }
@@ -155,33 +160,46 @@ public class BoardController : Controller
         return View("Delete", Board);
     }
 
-    public async Task<List<User>> GetUsersFromBoard(int boardId)
+    public async Task<ICollection<User>> GetUsersFromBoard(Board board)
     {
-        List<User> users = [];
-        //foreach (Team team in await _db.Teams.ToListAsync())
-        {
-            //if (await _db.Boards.FindAsync(Board.Id))
-            {
+        ICollection<User> users = [];
 
+        foreach (User user in board.Project.Users)
+        {
+            if (user.IsActive == true)
+            {
+                users.Add(user);
             }
         }
         
         return users;
     }
 
-    public async Task<Dictionary<Lane, List<Card>>> GetLanesWithCardsAsync(int boardId)
+    public ICollection<Lane> GetLanesFromBoard(Board board)
     {
-        Dictionary<Lane, List<Card>> laneCardHashMap = new Dictionary<Lane, List<Card>>();
+        ICollection<Lane> lanes = [];
+
+        foreach (Lane lane in board.Lanes)
+        {
+            lanes.Add(lane);
+        }
+
+        return lanes;
+    }
+
+    /*public async Task<Dictionary<Lane, List<Card>>> GetLanesWithCardsAsync(int boardId)
+    {
+        Dictionary<Lane, List<Card>> laneCardHashMap = [];
 
         foreach (Lane lane in await _db.Lanes.ToListAsync())
         {
             if (lane.Board.Id == boardId)
             {
-                List<Card> cards = await _db.Cards.Where(card => card.Lane.Id == lane.Id).ToListAsync();
+                List<Card> cards = lane.Cards.ToList();
                 laneCardHashMap.Add(lane, cards);
             }
         }
 
         return laneCardHashMap;
-    }
+    }*/
 }

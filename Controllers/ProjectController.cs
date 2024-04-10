@@ -19,29 +19,29 @@ public class ProjectController : Controller
     }
 
     // READ
-    public async Task<IActionResult> MainProjects()
+    [HttpGet("/projects")]
+    public async Task<IActionResult> MainProjects(string userId)
     {
-        return View(await _db.Projects.ToListAsync());
-    }
+        User user = await _db.Users.FindAsync(userId);
 
-    public async Task<IActionResult> GetInfo(int id)
-    {
-        var Project = await _db.Projects.FindAsync(id);
-
-        if (Project == null)
+        if (user != null && user.IsActive == true)
         {
-            return NotFound();
+            ICollection<Project> ActiveProjects = [];
+            foreach (Project project in user.Projects)
+            {
+                if (project.IsActive == true)
+                {
+                    ActiveProjects.Add(project);
+                }
+            }
+            return View(await _db.Projects.ToListAsync());
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
-
-        return View(Project);
+        return NotFound();
     }
 
     // CREATE
     public IActionResult Create()
     {
-        //ViewData["Filiais"] = _db.Filiais.ToList();
-
         return View();
     }
 
@@ -49,51 +49,53 @@ public class ProjectController : Controller
     public async Task<IActionResult> CreateProject(Project project, IFormFile projectImg)
     {
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
+        project.IsActive = true;
+        project.ResponsibleUserId = "$sessionUser";
+        // adicionar criador no projeto na criação
 
         if (ModelState.IsValid)
         {
             if (projectImg != null && projectImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
-                string nomeArquivo = project.Id + "_" + Path.GetFileName(projectImg.FileName);
+                string nomeArquivo = new Guid() + "_" + Path.GetFileName(projectImg.FileName);
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
                     await projectImg.CopyToAsync(stream);
                 }
-                project.Picture = "~/project-pictures/" + nomeArquivo;
+                project.Picture = "../project-pictures/" + nomeArquivo;
             } 
-            _db.Projects.Add(project);
+            _db.Projects.AddAsync(project);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("ProjectBoards");
+            return RedirectToAction("MainProjects");
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View("Create", project);
     }
 
     // UPDATE
+    [HttpGet("/projects/edit")]
     public async Task<IActionResult> Edit(int id)
     {
-        var Project = await _db.Projects.FindAsync(id);
+        Project Project = await _db.Projects.FindAsync(id);
 
         if (Project == null)
         {
             return NotFound();
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View(Project);
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditarProject(Project Project)
+    public async Task<IActionResult> EditProject(Project Project)
     {
         if (ModelState.IsValid)
         {
-            //var ProjectAntigo = await _db.Projects.FindAsync(Project.CodProject);
-            //_db.Entry(ProjectAntigo).CurrentValues.SetValues(Project);
+            Project oldProject = await _db.Projects.FindAsync(Project.Id);
+            _db.Entry(oldProject).CurrentValues.SetValues(Project);
             try
             {
                 await _db.SaveChangesAsync();
@@ -105,9 +107,8 @@ public class ProjectController : Controller
 
                 return View("Edit", Project);
             }
-            return RedirectToAction("Get");
+            return RedirectToAction("MainProjects");
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View("Edit", Project);
     }
@@ -115,7 +116,7 @@ public class ProjectController : Controller
     // DELETE
     public async Task<IActionResult> Delete(int id)
     {
-        var Project = await _db.Projects.FindAsync(id);
+        Project Project = await _db.Projects.FindAsync(id);
 
         if (Project == null)
         {
@@ -130,11 +131,12 @@ public class ProjectController : Controller
     {
         if (ModelState.IsValid)
         {
-            Project item = await _db.Projects.FindAsync(project.Id);
-            _db.Entry(item).CurrentValues.SetValues(project);
+            
+            Project currentProject = await _db.Projects.FindAsync(project.Id);
+            _db.Entry(currentProject).CurrentValues.SetValues(project);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("Get");
+            return RedirectToAction("MainProjects");
         }
 
         return View("Delete", project);

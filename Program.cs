@@ -5,7 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<GlimpseContext>();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -13,8 +12,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

@@ -1,7 +1,6 @@
-@model List<Board>
+@model ICollection<Board>
 @{
     ViewData["Title"] = "Quadros do projeto";
-
 }
 
 <section>
@@ -11,23 +10,10 @@
                 <h1>Quadros - Name</h1>
             </li>
             <li class="nav-item">
-                <a class="CTA-MODEL-01" asp-area="" asp-controller="Board" asp-action="Create">+ Criar Quadro</a>
+                <a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create">+ Criar Quadro</a>
             </li>
         </ul>
     </div>
-
-    <section>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <h1>Meus Projetos</h1>
-                </li>
-                <li class="nav-item">
-                    <a class="CTA-MODEL-01" asp-area="" asp-controller="Project" asp-action="Create">+ Criar Projeto</a>
-                </li>
-            </ul>
-        </div>
-    </section>
 
     <section class="project-list-section">
         <ul class="navbar-nav flex-grow-1">
