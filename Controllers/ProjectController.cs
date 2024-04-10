@@ -121,7 +121,6 @@ public class ProjectController : Controller
         {
             return NotFound();
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View(Project);
     }
@@ -131,8 +130,8 @@ public class ProjectController : Controller
     {
         if (ModelState.IsValid)
         {
-            //var item = await _db.Projects.FindAsync(project.CodProject);
-            //_db.Projects.Remove(item);
+            Project item = await _db.Projects.FindAsync(project.ProjectId);
+            _db.Entry(item).CurrentValues.SetValues(project);
             await _db.SaveChangesAsync();
 
             return RedirectToAction("Get");

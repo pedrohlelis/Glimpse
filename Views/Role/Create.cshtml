@@ -1,0 +1,25 @@
+@model Role
+
+<form asp-action="CreateRole" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="RoleName">Titulo do Cargo:</label>
+        <input asp-for="RoleName" class="form-control" />
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+
+        <label asp-for="RoleDescription">Descrição do Cargo:</label>
+        <input asp-for="RoleDescription" class="form-control" />
+        <span asp-validation-for="RoleDescription" class="text-danger"></span>
+
+        <label asp-for="RoleColor">Cor de Exibição:</label>
+        <input asp-for="RoleColor" class="form-control" />
+        <span asp-validation-for="RoleColor" class="text-danger"></span>
+
+        <label asp-for="RoleColor">Cor de Exibição:</label>
+        <input asp-for="RoleColor" class="form-control" />
+        <span asp-validation-for="RoleColor" class="text-danger"></span>
+    </div>
+    
+    <!-- Add other fields as needed -->
+
+    <button type="submit" class="btn btn-primary">Create Role</button>
+</form>
