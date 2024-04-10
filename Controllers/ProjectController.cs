@@ -55,13 +55,13 @@ public class ProjectController : Controller
             if (projectImg != null && projectImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
-                string nomeArquivo = project.ProjectId + "_" + Path.GetFileName(projectImg.FileName);
+                string nomeArquivo = project.Id + "_" + Path.GetFileName(projectImg.FileName);
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
                     await projectImg.CopyToAsync(stream);
                 }
-                project.ProjectPicture = "~/project-pictures/" + nomeArquivo;
+                project.Picture = "~/project-pictures/" + nomeArquivo;
             } 
             _db.Projects.Add(project);
             await _db.SaveChangesAsync();
@@ -130,7 +130,7 @@ public class ProjectController : Controller
     {
         if (ModelState.IsValid)
         {
-            Project item = await _db.Projects.FindAsync(project.ProjectId);
+            Project item = await _db.Projects.FindAsync(project.Id);
             _db.Entry(item).CurrentValues.SetValues(project);
             await _db.SaveChangesAsync();
 

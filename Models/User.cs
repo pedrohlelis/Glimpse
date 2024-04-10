@@ -6,10 +6,16 @@ namespace Glimpse.Models;
 public class User
 {
     [Key]
-    public string UserId { get; set; }
-    public string UserName { get; set; }
-    public string UserEmail { get; set; }
-    public string UserPassword { get; set; }
-    public string ProfilePicture { get; set; }
+    public string Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string Picture { get; set; }
     public bool IsActive { get; set; }
+    // card x user
+    public ICollection<Card> Cards { get; } = [];
+    // cargo x user
+    public ICollection<Role> Roles { get; } = [];
+    // projeto x user
+    public ICollection<Project> Projects { get; } = [];
 }

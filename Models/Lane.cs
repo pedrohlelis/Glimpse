@@ -6,8 +6,9 @@ namespace Glimpse.Models;
 public class Lane
 {
     [Key]
-    public int LaneId { get; set; }
-    public string LaneName { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
     public virtual required Board Board { get; set; }
-    public int LaneIndex { get; set; }
+    public int Index { get; set; }
+    public ICollection<Card> Cards { get; } = [];
 }

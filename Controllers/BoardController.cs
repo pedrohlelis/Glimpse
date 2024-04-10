@@ -34,11 +34,11 @@ public class BoardController : Controller
         // HashMap das raias e dos cards do quadro
         ViewData["lanesAndCards"] = GetLanesWithCardsAsync(id);
 
-        // List of checklist items
+        // List de checkboxes
         
         
-        // List of Tag
-
+        // Hash -> Card e Tags
+        
 
         return View(board);
     }
@@ -49,9 +49,9 @@ public class BoardController : Controller
         string name = "";
         foreach (User item in _db.Users)
         {
-            if(item.UserId == id)
+            //if(item.UserId == id)
             {
-                name = item.UserName;
+                //name = item.UserName;
                 break;
             }
         }
@@ -76,7 +76,7 @@ public class BoardController : Controller
                 {
                     await BoardImg.CopyToAsync(stream);
                 }
-                Board.BackgroundImage = "../board-pictures/" + nomeArquivo;
+                Board.Background = "../board-pictures/" + nomeArquivo;
             } 
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
@@ -145,7 +145,7 @@ public class BoardController : Controller
     {
         if (ModelState.IsValid)
         {
-            Board item = await _db.Boards.FindAsync(Board.BoardId);
+            Board item = await _db.Boards.FindAsync(Board.Id);
             _db.Entry(item).CurrentValues.SetValues(Board);
             await _db.SaveChangesAsync();
 
@@ -157,7 +157,14 @@ public class BoardController : Controller
 
     public async Task<List<User>> GetUsersFromBoard(int boardId)
     {
-        List<User> users = await _db.Users.Where(u => u.Board.BoardId == boardId).ToListAsync();
+        List<User> users = [];
+        //foreach (Team team in await _db.Teams.ToListAsync())
+        {
+            //if (await _db.Boards.FindAsync(Board.Id))
+            {
+
+            }
+        }
         
         return users;
     }
@@ -168,9 +175,9 @@ public class BoardController : Controller
 
         foreach (Lane lane in await _db.Lanes.ToListAsync())
         {
-            if (lane.Board.BoardId == boardId)
+            if (lane.Board.Id == boardId)
             {
-                List<Card> cards = await _db.Cards.Where(card => card.Lane.LaneId == lane.LaneId).ToListAsync();
+                List<Card> cards = await _db.Cards.Where(card => card.Lane.Id == lane.Id).ToListAsync();
                 laneCardHashMap.Add(lane, cards);
             }
         }

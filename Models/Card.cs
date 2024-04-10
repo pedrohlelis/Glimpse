@@ -6,8 +6,12 @@ namespace Glimpse.Models;
 public class Card 
 {
     [Key]
-    public int CardId { get; set; }
-    public string CardName { get; set; }
-    public string CardDescription { get; set; }
-    public virtual Lane Lane { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    // fk opcional Lane shadow
+    public virtual Lane? Lane { get; set; }
+    public ICollection<User> Users { get; } = [];
+    public ICollection<Tag> Tags { get; } = [];
+    public ICollection<Checkbox> Checkboxes { get; } = [];
 }

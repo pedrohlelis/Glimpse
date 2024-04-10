@@ -6,8 +6,9 @@ namespace Glimpse.Models;
 public class Checkbox
 {
     [Key]
-    public int CheckboxId { get; set; }
-    public string CheckboxName { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
     public bool Finished { get; set; }
-    public virtual Card Card { get; set; }
+    // fk opcional com shadow foreign key
+    public virtual Card? Card { get; set; } = null!;
 }

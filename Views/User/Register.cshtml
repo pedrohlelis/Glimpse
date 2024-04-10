@@ -5,23 +5,23 @@
 
 <form asp-action="PostNewUser" asp-controller="User" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label asp-for="UserName">Nome:</label>
-        <input asp-for="UserName" class="form-control" />
-        <span asp-validation-for="UserName" class="text-danger"></span>
+        <label asp-for="Name">Nome:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
 
-        <label asp-for="UserEmail">Email:</label>
-        <input asp-for="UserEmail" type="Email" class="form-control" />
-        <span asp-validation-for="UserEmail" class="text-danger"></span>
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" type="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
 
-        <label asp-for="UserPassword">Senha:</label>
-        <input asp-for="UserPassword" class="form-control" />
-        <span asp-validation-for="UserPassword" class="text-danger"></span>
+        <label asp-for="Password">Senha:</label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
     </div>
     <br>    
     <div class="form-group">
-        <label asp-for="ProfilePicture">Foto de perfil:</label>
-        <input asp-for="ProfilePicture" type="file" class="form-control-file" />
-        <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+        <label asp-for="Picture">Foto de perfil:</label>
+        <input asp-for="Picture" type="file" class="form-control-file" />
+        <span asp-validation-for="Picture" class="text-danger"></span>
     </div>
     <br>
 

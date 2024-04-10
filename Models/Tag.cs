@@ -5,14 +5,9 @@ namespace Glimpse.Models;
 
 public class Tag
 {
-    private int _TagId;
-    private string? _TagName;
-    private string? _TagColor;
-
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int TagId {get{return _TagId;} set{_TagId = value;}}
-    public string? TagName {get{return _TagName;} set{_TagName = value;}}
-    public string? TagColor {get{return _TagColor;} set{_TagColor = value;}}
-
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Color { get; set; }
+    public ICollection<Card> Cards { get; } = [];
 }
