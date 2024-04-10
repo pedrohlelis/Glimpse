@@ -50,8 +50,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/EditProject.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0UHJvamVjdC5jc2h0bWw=
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/MainProjects.cshtml]

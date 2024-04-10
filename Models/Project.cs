@@ -7,7 +7,7 @@ public class Project
 {
     [Key]
     public int Id { get; set; }
-    public int ResponsibleUserId { get; set; }
+    public string ResponsibleUserId { get; set; }
     public string? Name { get; set; }
     public DateOnly CreationDate { get; set; }
     public string? Description { get; set; }

@@ -28,7 +28,7 @@
                 <h1>Meus Projetos</h1>
             </li>
             <li class="nav-item">
-                <a class="CTA-MODEL-01" asp-area="" asp-controller="Project" asp-action="Create">+ Criar Projeto</a>
+                <a class="CTA-MODEL-01" asp-controller="Project" asp-action="Create">+ Criar Projeto</a>
             </li>
         </ul>
     </div>
@@ -39,7 +39,7 @@
         @foreach (Project p in Model) {
             <li class="nav-item-7">
                 <div class="project-card">
-                    <a class="sla" asp-controller="Project" asp-action="GetProject" asp-route-id="@p.Id">
+                    <a class="sla" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
                         <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
                         <p>@p.Name</p>
                     </a>

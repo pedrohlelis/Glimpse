@@ -85,6 +85,9 @@ namespace Glimpse.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
                     b.Property<int?>("LaneId")
                         .HasColumnType("int");
 
@@ -172,8 +175,9 @@ namespace Glimpse.Migrations
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ResponsibleUserId")
-                        .HasColumnType("int");
+                    b.Property<string>("ResponsibleUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -352,7 +356,7 @@ namespace Glimpse.Migrations
             modelBuilder.Entity("Glimpse.Models.Lane", b =>
                 {
                     b.HasOne("Glimpse.Models.Board", "Board")
-                        .WithMany()
+                        .WithMany("Lanes")
                         .HasForeignKey("BoardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -414,6 +418,11 @@ namespace Glimpse.Migrations
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Glimpse.Models.Board", b =>
+                {
+                    b.Navigation("Lanes");
                 });
 
             modelBuilder.Entity("Glimpse.Models.Card", b =>

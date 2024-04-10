@@ -1,23 +1,24 @@
 @model Project
 @{
-    ViewData["Title"] = "Criar Projeto";
+    ViewData["Title"] = Model.Name + "- Glimpse";
 }
-
 <script>
     function validateForm() {
-        var fileInput = document.getElementById('boardImg');
+        var fileInput = document.getElementById('projectImg');
         var BackgroundImage = document.getElementById('BackgroundImage');
         var file = fileInput.files[0];
         if (!file) {
-            BackgroundImage.setAttribute("value", "../default-images/defaultBackground.jpg")
+            BackgroundImage.setAttribute("value", "../default-images/defaultProjectIcon.jpg")
             return true;
         }
         return true;
     }
 </script>
 
+<h1>Editar Projeto -> @Model.Name</h1>
+
 <section>
-    <form asp-action="CreateProject" asp-controller="Project" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form asp-action="EditProject" asp-controller="Project" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         <div class="row">
             <div class="col-lg-12">
 

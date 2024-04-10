@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\icons\\edit.svg",
+      "PackagePath": "staticwebassets\\icons\\edit.svg"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\icons\\more-vertical.svg",
+      "PackagePath": "staticwebassets\\icons\\more-vertical.svg"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -247,6 +255,18 @@
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\0_Logo Gradient.png",
+      "PackagePath": "staticwebassets\\project-pictures\\0_Logo Gradient.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props",
