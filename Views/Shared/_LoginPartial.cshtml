@@ -4,9 +4,10 @@
 <ul class="navbar-nav">
     @if(signInManager.IsSignedIn(User))
     {
+        
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            @User.Identity!.Name!
+                @User.Identity!.Name!
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
@@ -15,7 +16,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="dropdown-item" asp-action="Profile" asp-controller="User">
+                    <a class="dropdown-item" asp-route="Profile">
                         Profile
                     </a>
                 </li>
