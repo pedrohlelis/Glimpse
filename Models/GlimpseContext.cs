@@ -10,6 +10,11 @@ namespace Glimpse.Models
         public DbSet<Card> Cards { get; set; } = null!;
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<Role> Roles { get; set; } = null!;
+        public DbSet<Checkbox> Checkboxes { get; set; } = null!;
+        public DbSet<Tag> Tag { get; set; } = null!;
+        public DbSet<Team> Teams { get; set; } = null!;
+        public DbSet<UserCard> UserCards { get; set; } = null!;
+        public DbSet<CardTag> CardTags { get; set; } = null!;
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
