@@ -5,9 +5,9 @@ namespace Glimpse.Models;
 
 public class Team
 {
-    private int _FkUsersUserId { get; set; }
-    private int _FkProjectsProjectId { get; set; }
-    private int? _FkRolesRoleId { get; set; }
+    private int _FkUsersUserId;
+    private int _FkProjectsProjectId;
+    private int? _FkRolesRoleId;
 
     public int FkProjectsProjectId {get{return _FkProjectsProjectId;} set{_FkProjectsProjectId = value;}}
     public virtual Project Project { get; set; }
