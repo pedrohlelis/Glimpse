@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rSA1BxN90uhK1ZWCk+tgvWk0goHL9DgYZ2z/9KGK9zY=",
+  "Hash": "Lqy+5XktzPKA+sbIOYp5zzdmH6lo7469RlVsEvwpSfA=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -112,12 +112,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\icons\\edit.svg",
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_avatar.webp",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\",
       "BasePath": "_content/Glimpse",
-      "RelativePath": "icons/edit.svg",
+      "RelativePath": "Icons/default_avatar.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,15 +128,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\edit.svg"
+      "OriginalItemSpec": "wwwroot\\Icons\\default_avatar.webp"
     },
     {
-      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\icons\\more-vertical.svg",
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_pfp.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\",
       "BasePath": "_content/Glimpse",
-      "RelativePath": "icons/more-vertical.svg",
+      "RelativePath": "Icons/default_pfp.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,7 +147,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\more-vertical.svg"
+      "OriginalItemSpec": "wwwroot\\Icons\\default_pfp.png"
     },
     {
       "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\js\\site.js",

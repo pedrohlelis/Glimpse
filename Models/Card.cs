@@ -10,7 +10,6 @@ public class Card
     public string Name { get; set; }
     public string Description { get; set; }
     public int Index { get; set; }
-    // fk opcional Lane shadow
     public virtual Lane? Lane { get; set; }
     public ICollection<User> Users { get; } = [];
     public ICollection<Tag> Tags { get; } = [];

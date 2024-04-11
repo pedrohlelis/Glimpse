@@ -1,0 +1,97 @@
+@using Glimpse.ViewModels;
+@model ProfileVM;
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath != null ? Model.PicturePath : "../Icons/default_avatar.webp")' alt="">
+                <span class="font-weight-bold">@Model.Name</span>
+                <span class="text-black-50">@Model.Email</span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <form method="post" asp-action="UpdateProfile" id="form" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+
+                    <div class="col-md-6">
+                        <label asp-for="PictureFile" class="control-label"></label>
+                        <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file">
+                        <span asp-validation-for="PictureFile" class="text-danger"></span>
+                        
+                        <script>
+                            $(function () {
+                                var fileName = '@Model.PicturePath';
+                                $('#profilePicFileInput').html(fileName);
+                            });
+                        </script>
+                        
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" id="firstName" name="firstName" class="form-control" placeholder="Name" value="@Model.Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" id="Email" name="Email" class="form-control" placeholder="Email" value="@Model.Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                    </div>
+
+                    <div class="mt-2 text-center">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ConfirmDeleteModal">
+                        Delete Account
+                        </button>
+                    </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-labelledby="ConfirmDeleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ConfirmDeleteModalLabel">Account Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete your account?</p>
+                                <p><strong>This action cannot be undone.</strong></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger">yes, delete</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#ConfirmDeleteBtn').click(function () {
+            var form = document.getElementById("form");
+            form.submit();
+        });
+    });
+</script>
+
+@section Scripts
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

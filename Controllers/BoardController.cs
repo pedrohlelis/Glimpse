@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 
-
 namespace Glimpse.Controllers;
 
 public class BoardController : Controller
@@ -17,7 +16,6 @@ public class BoardController : Controller
         _hostEnvironment = hostEnvironment;
     }
     // Abre o quadro
-    [HttpGet("/project/boards")]
     public async Task<IActionResult> GetBoardInfo(int id)
     {
         Board board = await _db.Boards.FindAsync(id);

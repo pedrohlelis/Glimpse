@@ -860,3 +860,9 @@ C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\obj\Debug\net8.0\scopedcss\pro
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\obj\Debug\net8.0\Glimpse.csproj.Up2Date
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\obj\Debug\net8.0\ref\Glimpse.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Options.dll

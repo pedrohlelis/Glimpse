@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Glimpse.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_avatar.webp",
+      "PackagePath": "staticwebassets\\Icons\\default_avatar.webp"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_pfp.png",
+      "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -15,14 +23,6 @@
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\icons\\edit.svg",
-      "PackagePath": "staticwebassets\\icons\\edit.svg"
-    },
-    {
-      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\icons\\more-vertical.svg",
-      "PackagePath": "staticwebassets\\icons\\more-vertical.svg"
     },
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\js\\site.js",

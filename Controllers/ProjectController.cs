@@ -51,7 +51,7 @@ public class ProjectController : Controller
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         project.IsActive = true;
         project.ResponsibleUserId = "$sessionUser";
-        // adicionar criador no projeto na criação
+        project.Users.Add(_db.Users.Find("$sessionUser"));
 
         if (ModelState.IsValid)
         {
