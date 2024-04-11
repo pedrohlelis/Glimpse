@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Glimpse.Helpers;
 
 namespace Glimpse.Controllers;
 
+[Authorize]
 public class ProjectController : Controller
 {
     private readonly GlimpseContext _db;
@@ -19,10 +19,9 @@ public class ProjectController : Controller
     }
 
     // READ
-    [HttpGet("/projects")]
     public async Task<IActionResult> MainProjects(string userId)
     {
-        User user = await _db.Users.FindAsync(userId);
+        User user = _userManager.GetUserAsync(User).Result;
 
         if (user != null && user.IsActive == true)
         {

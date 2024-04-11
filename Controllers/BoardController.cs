@@ -5,6 +5,7 @@ using Glimpse.Models;
 
 namespace Glimpse.Controllers;
 
+[Authorize]
 public class BoardController : Controller
 {
     private readonly GlimpseContext _db;
