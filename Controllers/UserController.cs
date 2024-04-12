@@ -13,14 +13,16 @@ namespace Glimpse.Controllers;
 [Authorize]
 public class UserController : Controller
 {
+    private readonly SignInManager<User> _signInManager;
     private readonly IWebHostEnvironment _hostingEnvironment;
     private readonly UserManager<User> _userManager;
     private readonly string _profilePicFolderName;
 
-    public UserController(IWebHostEnvironment hostingEnvironment, UserManager<User> userManager)
+    public UserController(IWebHostEnvironment hostingEnvironment, UserManager<User> userManager, SignInManager<User> signInManager)
     {
         _hostingEnvironment = hostingEnvironment;
         _userManager = userManager;
+        _signInManager = signInManager;
         _profilePicFolderName = "UserProfilePics";
     }
 
@@ -31,11 +33,12 @@ public class UserController : Controller
 
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user.ProfilePic,
+            ProfilePicPath = user!.ProfilePic,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email,
-            Phone = user.PhoneNumber
+            Phone = user.PhoneNumber,
+            DeleteAccount = false
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -48,11 +51,12 @@ public class UserController : Controller
         var user = _userManager.GetUserAsync(User).Result;
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user.ProfilePic,
+            ProfilePicPath = user!.ProfilePic,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email,
-            Phone = user.PhoneNumber
+            Phone = user.PhoneNumber,
+            DeleteAccount = false
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -62,10 +66,18 @@ public class UserController : Controller
     [HttpPost("profile/edit", Name = "UpdateProfile")]
     public async Task<IActionResult> UpdateProfile([FromForm] ProfileVM profileVM)
     {
-        var user = _userManager.GetUserAsync(User).Result;
-
         if (ModelState.IsValid)
         {
+            var user = _userManager.GetUserAsync(User).Result;
+            // if(profileVM.DeleteAccount == true)
+            // {
+            //     user!.IsActive = false;
+            //     await _userManager.UpdateAsync(user);
+
+            //     await _signInManager.SignOutAsync();
+
+            //     return RedirectToAction("Index", "Home");
+            // }
             var profilePicture = profileVM.ProfilePicFile;
             if (profilePicture != null && profilePicture.Length > 0)
             {
@@ -88,7 +100,6 @@ public class UserController : Controller
                 ModelState.AddModelError("", error.Description);
             }
         }
-        return View("ProfileEdit", profileVM);
+        return View(profileVM);
     }
-
 }

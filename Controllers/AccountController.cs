@@ -81,7 +81,6 @@ public class AccountController : Controller
                 }
             }
 
-
             User user = new()
             {
                 FirstName = model.FirstName,

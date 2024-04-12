@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json.Serialization;
 
 namespace Glimpse.ViewModels;
 
@@ -19,6 +20,7 @@ public class ProfileVM
     public string? Email { get; set; }
 
     [Required(ErrorMessage = "Phone number is required.")]
+    [RegularExpression("/${11}[0-9]/", ErrorMessage = "Invalid Phone number.")]
     [Phone(ErrorMessage = "Invalid Phone number.")]
     [DataType(DataType.PhoneNumber)]
     public string? Phone { get; set; }

@@ -5,16 +5,32 @@
       "PackagePath": "staticwebassets\\Glimpse.bundle.scp.css"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
-      "PackagePath": "staticwebassets\\Icons\\default_avatar.webp"
+      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default-avatar.webp",
+      "PackagePath": "staticwebassets\\Icons\\default-avatar.webp"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
-      "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
+      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default-pfp.png",
+      "PackagePath": "staticwebassets\\Icons\\default-pfp.png"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\a89bcbb8-19a0-4da6-a8d6-3367e0b48c31_beasts_of_the_mesozoic_t__rex_by_arvalis_depivt9-fullview.jpg",
-      "PackagePath": "staticwebassets\\UserProfilePics\\a89bcbb8-19a0-4da6-a8d6-3367e0b48c31_beasts_of_the_mesozoic_t__rex_by_arvalis_depivt9-fullview.jpg"
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\1c7dba57-140c-4afe-a5a4-b144f77c5ab5_grafico parabula.jpg",
+      "PackagePath": "staticwebassets\\UserProfilePics\\1c7dba57-140c-4afe-a5a4-b144f77c5ab5_grafico parabula.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\33a057c3-c760-40ec-96a2-f0bea7900a6b_vet (1).jpeg",
+      "PackagePath": "staticwebassets\\UserProfilePics\\33a057c3-c760-40ec-96a2-f0bea7900a6b_vet (1).jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\3b472a7d-b361-44eb-b818-0635ffe9482c_carcharo skull.jfif",
+      "PackagePath": "staticwebassets\\UserProfilePics\\3b472a7d-b361-44eb-b818-0635ffe9482c_carcharo skull.jfif"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\3e9dac47-d493-4f15-bc39-2eb380c3482c_U9_Carch1.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\3e9dac47-d493-4f15-bc39-2eb380c3482c_U9_Carch1.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\51ff832d-ea18-44a2-93af-828eac29de27_U9_Carch1.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\51ff832d-ea18-44a2-93af-828eac29de27_U9_Carch1.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\css\\site.css",

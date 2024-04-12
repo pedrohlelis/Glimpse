@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="300px" src='@(Model.ProfilePicPath != null ? Model.ProfilePicPath : "../Icons/default_avatar.webp")' alt="">
+                <img class="rounded-circle mt-5" width="300px" src='@(Model.ProfilePicPath != null ? Model.ProfilePicPath : "../wwwroot/Icons/default-avatar.webp")' alt="">
                 <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                 <span class="text-black-50">@Model.Email</span>
             </div>
@@ -16,20 +16,12 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <form method="post" asp-action="UpdateProfile" id="form" enctype="multipart/form-data">
-                    <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
                     <div class="col-md-6">
                         <label asp-for="ProfilePicFile" class="control-label"></label>
                         <input asp-for="ProfilePicFile" id="profilePicFileInput" class="form-control-file">
                         <span asp-validation-for="ProfilePicFile" class="text-danger"></span>
-                        
-                        <script>
-                            $(function () {
-                                var fileName = '@Model.ProfilePicPath';
-                                $('#profilePicFileInput').html(fileName);
-                            });
-                        </script>
-                        
                     </div>
 
                     <div class="row mt-2">
@@ -60,9 +52,11 @@
                             <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                     </div>
-                    
+
+                    <input type="hidden" asp-for="DeleteAccount" id="DeleteAccountBool" value=false>
+
                     <div class="mt-5 text-center">
-                        <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                        <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
                     </div>
 
                     <div class="mt-2 text-center">
@@ -84,7 +78,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger">yes, delete</button>
+                                <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
                             </div>
                             </div>
                         </div>
@@ -95,16 +89,34 @@
     </div>
 </div>
 
-<script>
-    $(function () {
-        $('#ConfirmDeleteBtn').click(function () {
-            var form = document.getElementById("form");
-            form.submit();
-        });
-    });
-</script>
-
 @section Scripts
 {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    @* document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("form");
+        const button1 = document.getElementById("submit-update");
+        const button2 = document.getElementById("delete-submit");
+    });
+        form.addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        var deleteBool = document.getElementById("deleteAccountBoolInput")
+        
+        if (event.submitter === button2) {
+            deleteBool.value = true;
+        }
+        form.submit();
+    });
+
+    function toggleBooleanInput(inputElement) {
+        let currentValue = inputElement.value;
+        console.log(currentValue);
+
+        currentValue = !currentValue;
+        inputElement.value = currentValue;
+    } *@
+</script>
+
+
