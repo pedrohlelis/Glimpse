@@ -1,4 +1,7 @@
 @model Role
+@{
+    //List<Project> projects = List<Project> ViewData["projects"];
+}
 
 <form asp-action="CreateRole" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -14,9 +17,17 @@
         <input asp-for="Color" class="form-control" />
         <span asp-validation-for="Color" class="text-danger"></span>
 
-        <label asp-for="Color">Cor de Exibição:</label>
-        <input asp-for="Color" class="form-control" />
-        <span asp-validation-for="Color" class="text-danger"></span>
+        <label asp-for="Hierarchy">Poder:</label>
+        <select asp-for="Hierarchy" class="form-control">
+            <option value="3">Ver - Editar - Comandar</option>
+            <option value="2">Ver - Editar</option>
+            <option value="1">Ver</option>
+        </select>
+        <span asp-validation-for="Hierarchy" class="text-danger"></span>
+
+
+        
+
     </div>
     
     <!-- Add other fields as needed -->

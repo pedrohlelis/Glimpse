@@ -2,27 +2,29 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace Glimpse.Controllers;
 
+[Authorize]
 public class ProjectController : Controller
 {
     private readonly GlimpseContext _db;
+    private readonly UserManager<User> _userManager;
     private readonly IWebHostEnvironment _hostEnvironment;
 
-    public ProjectController(GlimpseContext db, IWebHostEnvironment hostEnvironment)
+    public ProjectController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
     {
         _db = db;
+        _userManager = userManager;
         _hostEnvironment = hostEnvironment;
     }
 
     // READ
-    [HttpGet("/projects")]
     public async Task<IActionResult> MainProjects(string userId)
     {
-        User user = await _db.Users.FindAsync(userId);
+        User user = _userManager.GetUserAsync(User).Result;
 
         if (user != null && user.IsActive == true)
         {
@@ -51,7 +53,7 @@ public class ProjectController : Controller
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         project.IsActive = true;
         project.ResponsibleUserId = "$sessionUser";
-        // adicionar criador no projeto na criação
+        project.Users.Add(_db.Users.Find("$sessionUser"));
 
         if (ModelState.IsValid)
         {

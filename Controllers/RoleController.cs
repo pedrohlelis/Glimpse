@@ -6,35 +6,29 @@ using Glimpse.Models;
 namespace Glimpse.Controllers;
 
 [Authorize]
-public class BoardController : Controller
+public class RoleController : Controller
 {
     private readonly GlimpseContext _db;
     private readonly IWebHostEnvironment _hostEnvironment;
 
-    public BoardController(GlimpseContext db, IWebHostEnvironment hostEnvironment)
+    public RoleController(GlimpseContext db, IWebHostEnvironment hostEnvironment)
     {
         _db = db;
         _hostEnvironment = hostEnvironment;
     }
-    // Abre o quadro
-    public async Task<IActionResult> GetBoardInfo(int id)
+    // Padrão para Roles, exibe todos os registros (teste)
+    public async Task<IActionResult> ShowRoles()
     {
-        Board board = await _db.Boards.FindAsync(id);
-
-        if (board == null)
-        {
-            return NotFound();
-        }
-        // Lista dos usuarios do quadro
-        ViewData["users"] = GetUsersFromBoard(board);
-
-        // HashMap das raias e dos cards do quadro
-        ViewData["lanes"] = GetLanesFromBoard(board);
+        // Lista de todos os projetos
+        ViewData["projects"] = _db.Projects.ToList();
+        // Lista de todos os usuários
+        ViewData["users"] = _db.Users.ToList();
+        // Relacionamento user - role
+        ViewData["userRole"] = _db.UserRoles.ToList();
+        // Lista de todos os roles
+        List<Role> roles = _db.Roles.ToList();
         
-        // Hash -> Card e Tags
-        
-
-        return View(board);
+        return View(roles);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
@@ -65,7 +59,7 @@ public class BoardController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateBoard(Board Board, IFormFile BoardImg)
+    public async Task<IActionResult> CreateRole(Board Board, IFormFile BoardImg)
     {
         Board.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
 

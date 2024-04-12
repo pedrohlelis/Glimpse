@@ -27,7 +27,15 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, model.RememberMe, false);
+            var user = await _userManager.FindByNameAsync(model.Email);
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            {
+                if (!user.IsActive)
+                {
+                    ModelState.AddModelError("", "Invalid Login Attempt.");
+                    return View(model);
+                }
+                var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, model.RememberMe, false);
 
             if (result.Succeeded)
             {
@@ -35,6 +43,7 @@ public class AccountController : Controller
             }
             ModelState.AddModelError("", "Invalid Login Attempt");
             return View(model);
+            }
         }
         return View(model);
     }
@@ -48,12 +57,37 @@ public class AccountController : Controller
     {
         if(ModelState.IsValid)
         {
+            var existingUser = await _userManager.FindByEmailAsync(model.Email);
+
+            if (existingUser != null && !existingUser.IsActive)
+            {
+                // Reactivate the existing user
+                existingUser.IsActive = true;
+                var result1 = await _userManager.UpdateAsync(existingUser);
+
+                if (result1.Succeeded)
+                {
+                    // Handle successful reactivation
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+                    // Handle errors during reactivation
+                    foreach (var error in result1.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View(model);
+                }
+            }
+
+
             User user = new()
             {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
+                Name = model.Name,
                 UserName = model.Email,
                 Email = model.Email,
+                Picture = null,
                 IsActive = true,
             };
 
@@ -73,6 +107,19 @@ public class AccountController : Controller
 
     public async Task<IActionResult> Logout()
     {
+        await _signInManager.SignOutAsync();
+
+        return RedirectToAction("Index", "Home");
+    }
+
+    [HttpPost("DeleteAccount", Name = "DeleteAccount")]
+    public async Task<IActionResult> DeleteAccount()
+    {
+        var user = _userManager.GetUserAsync(User).Result;
+
+        user.IsActive = false;
+        _userManager.UpdateAsync(user);
+
         await _signInManager.SignOutAsync();
 
         return RedirectToAction("Index", "Home");

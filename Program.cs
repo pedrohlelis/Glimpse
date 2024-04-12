@@ -1,10 +1,31 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Glimpse.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<GlimpseContext>();
+
+var connectionString = builder.Configuration.GetConnectionString("default");
+// Add services to the container.
+builder.Services.AddDbContext<GlimpseContext>(
+    options => options.UseSqlServer(connectionString)
+);
+
+builder.Services.AddIdentity<User, IdentityRole>(
+    Options =>
+    {
+        Options.Password.RequiredUniqueChars = 0;
+        Options.Password.RequireUppercase = true;
+        Options.Password.RequiredLength = 8;
+        Options.Password.RequireDigit = true;
+        Options.Password.RequireNonAlphanumeric = true;
+        Options.Password.RequireLowercase = true;
+    }
+    )
+    .AddEntityFrameworkStores<GlimpseContext>().AddDefaultTokenProviders();
+
 
 var app = builder.Build();
 
@@ -14,15 +35,13 @@ if (app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseSwagger();
-app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
+
 app.MapControllers();
 app.MapControllerRoute(
     name: "default",

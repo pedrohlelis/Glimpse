@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Role/ShowRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxTaG93Um9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,12 +86,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/User/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/User/UserList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyTGlzdC5jc2h0bWw=
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/User/ProfileEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/_ViewImports.cshtml]
