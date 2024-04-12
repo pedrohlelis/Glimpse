@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "O+YanLF121au0i8rfcmRR6oU6P+ZKxBbDl6f5ChBgRs=",
+=======
+  "Hash": "mZjvb06/lp9Vt0+0wQMfvS0P5YqDuAA887R+k5Rk+UY=",
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -112,7 +116,11 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_avatar.webp",
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
@@ -131,7 +139,11 @@
       "OriginalItemSpec": "wwwroot\\Icons\\default_avatar.webp"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_pfp.png",
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
@@ -1271,7 +1283,30 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\0_Logo Gradient.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_download.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",

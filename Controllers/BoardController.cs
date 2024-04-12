@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Glimpse.Controllers;
 
@@ -10,16 +11,18 @@ public class BoardController : Controller
 {
     private readonly GlimpseContext _db;
     private readonly IWebHostEnvironment _hostEnvironment;
+    private readonly UserManager<User> _userManager;
 
-    public BoardController(GlimpseContext db, IWebHostEnvironment hostEnvironment)
+    public BoardController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
     {
         _db = db;
         _hostEnvironment = hostEnvironment;
+        _userManager = userManager;
     }
     // Abre o quadro
     public async Task<IActionResult> GetBoardInfo(int id)
     {
-        Board board = await _db.Boards.FindAsync(id);
+        var board = await _db.Boards.FindAsync(id);
 
         if (board == null)
         {
@@ -38,36 +41,35 @@ public class BoardController : Controller
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        Project project = await _db.Projects.FindAsync(id);
+        var project = await _db.Projects.FindAsync(id);
 
-        if (project == null)
+        if (project == null || project.IsActive == false)
         {
             return NotFound();
         }
         ViewData["ProjectBoards"] = project.Boards;
+        ViewData["project"] = project;
 
         return View();
     }
 
     // CREATE
-    public IActionResult Create(string id)
+    public IActionResult Create(int id)
     {
-        foreach (User item in _db.Users)
-        {
-            if(item.Id == id)
-            {
-                //name = item.UserName;
-                break;
-            }
-        }
+        var project = _db.Projects.Find(id);
+
+        ViewData["Project"] = project;
 
         return View();
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateBoard(Board Board, IFormFile BoardImg)
+    public async Task<IActionResult> CreateBoard(Board Board, IFormFile BoardImg, int itemid)
     {
         Board.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
+        Board.IsActive = true;
+        Board.CreatorId = _userManager.GetUserAsync(User).Result.Id;
+        Board.Project = _db.Projects.Find(itemid);
 
         if (ModelState.IsValid)
         {
@@ -85,9 +87,8 @@ public class BoardController : Controller
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("BoardBoards");
+            return RedirectToAction("GetBoardInfo", itemid);
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View("Create", Board);
     }

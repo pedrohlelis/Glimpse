@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
+using Glimpse.Helpers;
 using Microsoft.AspNetCore.Identity;
-
 
 namespace Glimpse.Controllers;
 
@@ -17,12 +17,12 @@ public class ProjectController : Controller
     public ProjectController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
     {
         _db = db;
-        _userManager = userManager;
         _hostEnvironment = hostEnvironment;
+        _userManager = userManager;
     }
 
     // READ
-    public async Task<IActionResult> MainProjects(string userId)
+    public async Task<IActionResult> MainProjects()
     {
         User user = _userManager.GetUserAsync(User).Result;
 
@@ -52,8 +52,8 @@ public class ProjectController : Controller
     {
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         project.IsActive = true;
-        project.ResponsibleUserId = "$sessionUser";
-        project.Users.Add(_db.Users.Find("$sessionUser"));
+        project.ResponsibleUserId = _userManager.GetUserAsync(User).Result.Id;
+        project.Users.Add(_userManager.GetUserAsync(User).Result);
 
         if (ModelState.IsValid)
         {

@@ -866,6 +866,7 @@ C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Asp
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+<<<<<<< HEAD
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.csproj.AssemblyReference.cache
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfoInputs.cache
@@ -1016,3 +1017,5 @@ C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimps
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.csproj.CopyComplete
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
+=======
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156

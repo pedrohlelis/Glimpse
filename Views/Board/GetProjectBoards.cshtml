@@ -1,38 +1,42 @@
 @model ICollection<Board>
 @{
     ViewData["Title"] = "Quadros do projeto";
+    Project project = ViewData["project"] as Project;
 }
 
 <section>
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
         <ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
-                <h1>Quadros - Name</h1>
+                <h1>Quadros - @project.Name</h1>
             </li>
             <li class="nav-item">
-                <a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create">+ Criar Quadro</a>
+                <a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@project.Id">+ Criar Quadro</a>
             </li>
         </ul>
     </div>
 
     <section class="project-list-section">
         <ul class="navbar-nav flex-grow-1">
-        @foreach (Board b in Model) 
+        @if (Model != null)
         {
-            <li class="nav-item-7">
-                <div class="project-card">
-                    <a class="sla" asp-controller="Project" asp-action="GetProject" asp-route-id="@b.Id">
-                        <img class="img-icon" src="@Url.Content(b.Background)" alt="">
-                        <p>@b.Name</p>
-                    </a>
-                    <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
-                    
-                </div>
-                <label class="pop-up-1" id="pop-up-@b.Id" style="display: none;">
-                    <a asp-controller="Project" asp-action="EditProject" asp-route-id="@b.Id">Editar</a>
-                    <img class="normal-icon" src="../icons/edit.svg" alt="">
-                </label>
-            </li>
+            @foreach (Board b in Model) 
+            {
+                <li class="nav-item-7">
+                    <div class="project-card">
+                        <a class="sla" asp-controller="Project" asp-action="GetProject" asp-route-id="@b.Id">
+                            <img class="img-icon" src="@Url.Content(b.Background)" alt="">
+                            <p>@b.Name</p>
+                        </a>
+                        <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
+                        
+                    </div>
+                    <label class="pop-up-1" id="pop-up-@b.Id" style="display: none;">
+                        <a asp-controller="Project" asp-action="EditProject" asp-route-id="@b.Id">Editar</a>
+                        <img class="normal-icon" src="../icons/edit.svg" alt="">
+                    </label>
+                </li>
+            }
         }
         </ul>
     </section>

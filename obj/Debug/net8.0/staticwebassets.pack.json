@@ -5,6 +5,7 @@
       "PackagePath": "staticwebassets\\Glimpse.bundle.scp.css"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
       "PackagePath": "staticwebassets\\Icons\\default_avatar.webp"
     },
@@ -14,6 +15,17 @@
     },
     {
       "Id": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\css\\site.css",
+=======
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_avatar.webp",
+      "PackagePath": "staticwebassets\\Icons\\default_avatar.webp"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\Icons\\default_pfp.png",
+      "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\css\\site.css",
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
@@ -25,7 +37,11 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\js\\site.js",
+=======
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\js\\site.js",
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
@@ -257,7 +273,15 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+=======
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
       "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png"
     },
     {
