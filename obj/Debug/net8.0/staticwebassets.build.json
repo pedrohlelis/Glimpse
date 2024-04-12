@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lqy+5XktzPKA+sbIOYp5zzdmH6lo7469RlVsEvwpSfA=",
+  "Hash": "mZjvb06/lp9Vt0+0wQMfvS0P5YqDuAA887R+k5Rk+UY=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -1269,6 +1269,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\0_Logo Gradient.png"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_download.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
     },
     {
       "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",

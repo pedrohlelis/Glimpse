@@ -257,6 +257,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
       "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png"
     },
