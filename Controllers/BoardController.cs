@@ -20,9 +20,9 @@ public class BoardController : Controller
         _userManager = userManager;
     }
     // Abre o quadro
-    public async Task<IActionResult> GetBoardInfo(int id)
+    public async Task<IActionResult> GetBoardInfo(int boardId)
     {
-        var board = await _db.Boards.FindAsync(id);
+        Board board = await _db.Boards.FindAsync(boardId);
 
         if (board == null)
         {
@@ -41,14 +41,14 @@ public class BoardController : Controller
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        var project = await _db.Projects.FindAsync(id);
+        Project project = await _db.Projects.FindAsync(id);
 
         if (project == null || project.IsActive == false)
         {
             return NotFound();
         }
-        ViewData["ProjectBoards"] = project.Boards;
-        ViewData["project"] = project;
+        ViewData["Project"] = project;
+        ViewData["Boards"] = project.Boards;
 
         return View();
     }
@@ -56,20 +56,22 @@ public class BoardController : Controller
     // CREATE
     public IActionResult Create(int id)
     {
-        var project = _db.Projects.Find(id);
+        Project project = _db.Projects.Find(id);
 
-        ViewData["Project"] = project;
+        ViewData["project"] = project;
 
         return View();
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateBoard(Board Board, IFormFile BoardImg, int itemid)
+    public async Task<IActionResult> CreateBoard(Board Board, IFormFile BoardImg, int projectId)
     {
         Board.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         Board.IsActive = true;
         Board.CreatorId = _userManager.GetUserAsync(User).Result.Id;
-        Board.Project = _db.Projects.Find(itemid);
+        Board.Project = _db.Projects.Find(projectId);
+
+        //Project updatedProject = Board.Project;
 
         if (ModelState.IsValid)
         {
@@ -86,8 +88,11 @@ public class BoardController : Controller
             } 
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
+            //updatedProject.Boards.Add(Board);
+            //_db.Entry(_db.Projects.Find(projectId)).CurrentValues.SetValues(updatedProject);
+            //await _db.SaveChangesAsync();
 
-            return RedirectToAction("GetBoardInfo", itemid);
+            return RedirectToAction("GetBoardInfo", Board.Id);
         }
 
         return View("Create", Board);
@@ -102,7 +107,6 @@ public class BoardController : Controller
         {
             return NotFound();
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View(Board);
     }
@@ -121,13 +125,11 @@ public class BoardController : Controller
             catch (DbUpdateException)
             {
                 //ViewData["uniqueAlert"] = "Chassi do Board ja cadastrado";
-                //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
                 return View("Edit", Board);
             }
             return RedirectToAction("Get");
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View("Edit", Board);
     }

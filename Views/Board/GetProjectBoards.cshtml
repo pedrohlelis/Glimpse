@@ -1,7 +1,7 @@
-@model ICollection<Board>
 @{
     ViewData["Title"] = "Quadros do projeto";
-    Project project = ViewData["project"] as Project;
+    List<Board> boards = ViewData["Boards"] as List<Board>;
+    Project project = ViewData["Project"] as Project;
 }
 
 <section>
@@ -10,9 +10,6 @@
             <li class="nav-item">
                 <h1>Quadros - @project.Name</h1>
             </li>
-            <li class="nav-item">
-                <a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@project.Id">+ Criar Quadro</a>
-            </li>
         </ul>
     </div>
 
@@ -20,11 +17,11 @@
         <ul class="navbar-nav flex-grow-1">
         @if (Model != null)
         {
-            @foreach (Board b in Model) 
+            @foreach (Board b in boards) 
             {
                 <li class="nav-item-7">
                     <div class="project-card">
-                        <a class="sla" asp-controller="Project" asp-action="GetProject" asp-route-id="@b.Id">
+                        <a class="sla" asp-controller="Board" asp-action="GetProject" asp-route-id="@b.Id">
                             <img class="img-icon" src="@Url.Content(b.Background)" alt="">
                             <p>@b.Name</p>
                         </a>
@@ -32,11 +29,16 @@
                         
                     </div>
                     <label class="pop-up-1" id="pop-up-@b.Id" style="display: none;">
-                        <a asp-controller="Project" asp-action="EditProject" asp-route-id="@b.Id">Editar</a>
+                        <a asp-controller="Board" asp-action="Edit" asp-route-id="@b.Id">Editar</a>
                         <img class="normal-icon" src="../icons/edit.svg" alt="">
                     </label>
                 </li>
             }
+        }
+        else {
+            <br><br><br><br><br><br>
+            <center>Você ainda não possui quadros nesse projeto.</center><br>
+            <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@project.Id">+ Criar Quadro</a></center>
         }
         </ul>
     </section>

@@ -70,6 +70,10 @@ public class GlimpseContext : IdentityDbContext<User>
             .HasForeignKey("CardId")
             .IsRequired(false);
 
-        
+        modelBuilder.Entity<Project>()
+            .HasMany(e => e.Boards)
+            .WithOne(e => e.Project)
+            .HasForeignKey("ProjectId")
+            .IsRequired(false);
     }
 }
