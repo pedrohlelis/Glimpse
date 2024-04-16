@@ -1,28 +1,25 @@
+@model Project
 @{
     ViewData["Title"] = "Quadros do projeto";
-    List<Board> boards = ViewData["Boards"] as List<Board>;
-    Project project = ViewData["Project"] as Project;
+
 }
 
 <section>
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
         <ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
-                <h1>Quadros - @project.Name</h1>
+                <h1>Quadros - @Model.Name</h1>
             </li>
         </ul>
     </div>
-
+    <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@Model.Id">+ Criar Quadro</a></center>
     <section class="project-list-section">
         <ul class="navbar-nav flex-grow-1">
-        @if (Model != null)
-        {
-            @foreach (Board b in boards) 
+            @foreach (Board b in Model.Boards) 
             {
                 <li class="nav-item-7">
                     <div class="project-card">
-                        <a class="sla" asp-controller="Board" asp-action="GetProject" asp-route-id="@b.Id">
-                            <img class="img-icon" src="@Url.Content(b.Background)" alt="">
+                        <a class="sla" asp-controller="Board" asp-action="GetProjectInfo" asp-route-id="@b.Id">
                             <p>@b.Name</p>
                         </a>
                         <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
@@ -34,12 +31,6 @@
                     </label>
                 </li>
             }
-        }
-        else {
-            <br><br><br><br><br><br>
-            <center>Você ainda não possui quadros nesse projeto.</center><br>
-            <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@project.Id">+ Criar Quadro</a></center>
-        }
         </ul>
     </section>
 </section>

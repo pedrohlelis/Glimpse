@@ -30,11 +30,8 @@ public class GlimpseContext : IdentityDbContext<User>
         {
             entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
         });
-        /*modelBuilder.Entity<Board>()
-            .HasIndex(a => a.Id)
-            .IsUnique();
 
-        modelBuilder.Entity<User>()
+        /*modelBuilder.Entity<User>()
             .HasMany(a => a.Projects)
             .WithMany(a => a.Users)
             .UsingEntity(
@@ -73,7 +70,14 @@ public class GlimpseContext : IdentityDbContext<User>
         modelBuilder.Entity<Project>()
             .HasMany(e => e.Boards)
             .WithOne(e => e.Project)
-            .HasForeignKey("ProjectId")
-            .IsRequired(false);
+            .HasForeignKey("ProjectId");
+
+       /* modelBuilder.Entity<Board>()
+            .Navigation(e => e.Project)
+            .UsePropertyAccessMode(PropertyAccessMode.Property);
+        
+        modelBuilder.Entity<Project>()
+            .Navigation(e => e.Boards)
+            .UsePropertyAccessMode(PropertyAccessMode.Property);*/
     }
 }

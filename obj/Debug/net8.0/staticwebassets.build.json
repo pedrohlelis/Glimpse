@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hn9QpDBTqT7Gwal7F53ZMsxRbMUcj/CE+TGLps/i84k=",
+  "Hash": "6P7p54s438iti4Dq3PgVsrcBvMUjdFdDyqP4zNq2AzM=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "board-pictures/00000000-0000-0000-0000-000000000000-board-pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png"
     },
     {
       "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\css\\site.css",

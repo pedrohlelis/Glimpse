@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
-    [Migration("20240415174305_CreateDatabase")]
+    [Migration("20240416112815_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />

@@ -20,9 +20,10 @@ public class BoardController : Controller
         _userManager = userManager;
     }
     // Abre o quadro
-    public async Task<IActionResult> GetBoardInfo(int boardId)
+    public async Task<IActionResult> GetBoardInfo(int id)
     {
-        Board board = await _db.Boards.FindAsync(boardId);
+        Board board = _db.Boards.Find(id);
+        Console.WriteLine(id);
 
         if (board == null)
         {
@@ -47,10 +48,10 @@ public class BoardController : Controller
         {
             return NotFound();
         }
-        ViewData["Project"] = project;
+
         ViewData["Boards"] = project.Boards;
 
-        return View();
+        return View(project);
     }
 
     // CREATE
@@ -71,14 +72,12 @@ public class BoardController : Controller
         Board.CreatorId = _userManager.GetUserAsync(User).Result.Id;
         Board.Project = _db.Projects.Find(projectId);
 
-        //Project updatedProject = Board.Project;
-
         if (ModelState.IsValid)
         {
             if (BoardImg != null && BoardImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = new Guid() + "_" + Path.GetFileName(BoardImg.FileName);
+                string nomeArquivo = new Guid() + "-board-pic.png";
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
@@ -86,13 +85,11 @@ public class BoardController : Controller
                 }
                 Board.Background = "../board-pictures/" + nomeArquivo;
             } 
-            _db.Boards.Add(Board);
+            var entityEntry = _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
-            //updatedProject.Boards.Add(Board);
-            //_db.Entry(_db.Projects.Find(projectId)).CurrentValues.SetValues(updatedProject);
-            //await _db.SaveChangesAsync();
+            int id = entityEntry.Entity.Id;
 
-            return RedirectToAction("GetBoardInfo", Board.Id);
+            return await GetBoardInfo(id);
         }
 
         return View("Create", Board);
@@ -188,20 +185,4 @@ public class BoardController : Controller
 
         return lanes;
     }
-
-    /*public async Task<Dictionary<Lane, List<Card>>> GetLanesWithCardsAsync(int boardId)
-    {
-        Dictionary<Lane, List<Card>> laneCardHashMap = [];
-
-        foreach (Lane lane in await _db.Lanes.ToListAsync())
-        {
-            if (lane.Board.Id == boardId)
-            {
-                List<Card> cards = lane.Cards.ToList();
-                laneCardHashMap.Add(lane, cards);
-            }
-        }
-
-        return laneCardHashMap;
-    }*/
 }
