@@ -5,14 +5,10 @@ namespace Glimpse.Models;
 
 public class Lane
 {
-    private int _LaneId;
-    private String? _LaneName;
-
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int LaneId {get{return _LaneId;} set{_LaneId = value;}}
-    public String? LaneName {get{return _LaneName;} set{_LaneName = value;}}
-    
-    public virtual Board Board {get; set;}
-    public List<Card> Cards {get; set;}
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public virtual required Board Board { get; set; }
+    public int Index { get; set; }
+    public ICollection<Card> Cards { get; } = [];
 }

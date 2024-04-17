@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z8kFCw9u8dga1HTldrAepEbrWqNhJPHG1OFyxI+xzgU=",
+  "Hash": "oM+YXBD2JBpG9gGbODq+qbTWHHgKxBR0ZETenq29v8o=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -74,6 +74,25 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Glimpse\\wwwroot\\default-images\\defaultBackground.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "default-images/defaultBackground.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\default-images\\defaultBackground.jpg"
+    },
+    {
       "Identity": "C:\\Glimpse\\wwwroot\\favicon.ico",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -91,6 +110,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "Icons/default_avatar.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Icons\\default_avatar.webp"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "Icons/default_pfp.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Icons\\default_pfp.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\Icons\\default-avatar.webp",
@@ -1233,12 +1290,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\1c7dba57-140c-4afe-a5a4-b144f77c5ab5_grafico parabula.jpg",
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\0_Logo Gradient.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
-      "RelativePath": "UserProfilePics/1c7dba57-140c-4afe-a5a4-b144f77c5ab5_grafico parabula.jpg",
+      "RelativePath": "project-pictures/0_Logo Gradient.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1249,15 +1306,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserProfilePics\\1c7dba57-140c-4afe-a5a4-b144f77c5ab5_grafico parabula.jpg"
+      "OriginalItemSpec": "wwwroot\\project-pictures\\0_Logo Gradient.png"
     },
     {
-      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\33a057c3-c760-40ec-96a2-f0bea7900a6b_vet (1).jpeg",
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
-      "RelativePath": "UserProfilePics/33a057c3-c760-40ec-96a2-f0bea7900a6b_vet (1).jpeg",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_download.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1268,15 +1325,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserProfilePics\\33a057c3-c760-40ec-96a2-f0bea7900a6b_vet (1).jpeg"
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
     },
     {
-      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\3b472a7d-b361-44eb-b818-0635ffe9482c_carcharo skull.jfif",
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
-      "RelativePath": "UserProfilePics/3b472a7d-b361-44eb-b818-0635ffe9482c_carcharo skull.jfif",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1287,15 +1344,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserProfilePics\\3b472a7d-b361-44eb-b818-0635ffe9482c_carcharo skull.jfif"
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png"
     },
     {
-      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\3e9dac47-d493-4f15-bc39-2eb380c3482c_U9_Carch1.png",
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
-      "RelativePath": "UserProfilePics/3e9dac47-d493-4f15-bc39-2eb380c3482c_U9_Carch1.png",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,15 +1363,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserProfilePics\\3e9dac47-d493-4f15-bc39-2eb380c3482c_U9_Carch1.png"
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg"
     },
     {
-      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\51ff832d-ea18-44a2-93af-828eac29de27_U9_Carch1.png",
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
-      "RelativePath": "UserProfilePics/51ff832d-ea18-44a2-93af-828eac29de27_U9_Carch1.png",
+      "RelativePath": "project-pictures/2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1325,7 +1382,45 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserProfilePics\\51ff832d-ea18-44a2-93af-828eac29de27_U9_Carch1.png"
+      "OriginalItemSpec": "wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "UserProfilePics/14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "UserProfilePics/87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserProfilePics\\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif"
     }
   ]
 }

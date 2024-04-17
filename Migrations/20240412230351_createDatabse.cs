@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Glimpse.Migrations
 {
     /// <inheritdoc />
-    public partial class createDatabase : Migration
+    public partial class createDatabse : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,7 +31,7 @@ namespace Glimpse.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProfilePic = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -55,20 +55,35 @@ namespace Glimpse.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Roles",
+                name: "Projects",
                 columns: table => new
                 {
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RoleDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RoleColor = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CanRemoveMembers = table.Column<bool>(type: "bit", nullable: false),
-                    CanCreateRole = table.Column<bool>(type: "bit", nullable: false)
+                    ResponsibleUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Roles", x => x.RoleId);
+                    table.PrimaryKey("PK_Projects", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tags",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tags", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -178,94 +193,118 @@ namespace Glimpse.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Projects",
+                name: "Boards",
                 columns: table => new
                 {
-                    ProjectId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProjectName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreationDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProjectDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Background = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    ResponsibleUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Projects", x => x.ProjectId);
-                    table.ForeignKey(
-                        name: "FK_Projects_AspNetUsers_ResponsibleUserId",
-                        column: x => x.ResponsibleUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Board",
-                columns: table => new
-                {
-                    BoardId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    BoardName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatorId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Board", x => x.BoardId);
+                    table.PrimaryKey("PK_Boards", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Board_Projects_ProjectId",
+                        name: "FK_Boards_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
-                        principalColumn: "ProjectId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Teams",
+                name: "ProjectUser",
                 columns: table => new
                 {
-                    FkProjects = table.Column<int>(type: "int", nullable: false),
-                    FkUsers = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FkRoles = table.Column<int>(type: "int", nullable: true)
+                    ProjectsId = table.Column<int>(type: "int", nullable: false),
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Teams", x => new { x.FkUsers, x.FkProjects });
+                    table.PrimaryKey("PK_ProjectUser", x => new { x.ProjectsId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_Teams_AspNetUsers_FkUsers",
-                        column: x => x.FkUsers,
+                        name: "FK_ProjectUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Teams_Projects_FkProjects",
-                        column: x => x.FkProjects,
+                        name: "FK_ProjectUser_Projects_ProjectsId",
+                        column: x => x.ProjectsId,
                         principalTable: "Projects",
-                        principalColumn: "ProjectId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Hierarchy = table.Column<int>(type: "int", nullable: false),
+                    ProjectId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Teams_Roles_FkRoles",
-                        column: x => x.FkRoles,
-                        principalTable: "Roles",
-                        principalColumn: "RoleId");
+                        name: "FK_Roles_Projects_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Projects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Lanes",
                 columns: table => new
                 {
-                    LaneId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LaneName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BoardId = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BoardId = table.Column<int>(type: "int", nullable: false),
+                    Index = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Lanes", x => x.LaneId);
+                    table.PrimaryKey("PK_Lanes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Lanes_Board_BoardId",
+                        name: "FK_Lanes_Boards_BoardId",
                         column: x => x.BoardId,
-                        principalTable: "Board",
-                        principalColumn: "BoardId",
+                        principalTable: "Boards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RoleUser",
+                columns: table => new
+                {
+                    RolesId = table.Column<int>(type: "int", nullable: false),
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoleUser", x => new { x.RolesId, x.UsersId });
+                    table.ForeignKey(
+                        name: "FK_RoleUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RoleUser_Roles_RolesId",
+                        column: x => x.RolesId,
+                        principalTable: "Roles",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -273,20 +312,88 @@ namespace Glimpse.Migrations
                 name: "Cards",
                 columns: table => new
                 {
-                    CardId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CardName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LaneId = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Index = table.Column<int>(type: "int", nullable: false),
+                    LaneId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cards", x => x.CardId);
+                    table.PrimaryKey("PK_Cards", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Cards_Lanes_LaneId",
                         column: x => x.LaneId,
                         principalTable: "Lanes",
-                        principalColumn: "LaneId",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CardTag",
+                columns: table => new
+                {
+                    CardsId = table.Column<int>(type: "int", nullable: false),
+                    TagsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CardTag", x => new { x.CardsId, x.TagsId });
+                    table.ForeignKey(
+                        name: "FK_CardTag_Cards_CardsId",
+                        column: x => x.CardsId,
+                        principalTable: "Cards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CardTag_Tags_TagsId",
+                        column: x => x.TagsId,
+                        principalTable: "Tags",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Checkboxes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Finished = table.Column<bool>(type: "bit", nullable: false),
+                    CardId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Checkboxes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Checkboxes_Cards_CardId",
+                        column: x => x.CardId,
+                        principalTable: "Cards",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserCard",
+                columns: table => new
+                {
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CardsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserCard", x => new { x.UsersId, x.CardsId });
+                    table.ForeignKey(
+                        name: "FK_UserCard_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserCard_Cards_CardsId",
+                        column: x => x.CardsId,
+                        principalTable: "Cards",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -330,8 +437,8 @@ namespace Glimpse.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Board_ProjectId",
-                table: "Board",
+                name: "IX_Boards_ProjectId",
+                table: "Boards",
                 column: "ProjectId");
 
             migrationBuilder.CreateIndex(
@@ -340,24 +447,39 @@ namespace Glimpse.Migrations
                 column: "LaneId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CardTag_TagsId",
+                table: "CardTag",
+                column: "TagsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Checkboxes_CardId",
+                table: "Checkboxes",
+                column: "CardId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Lanes_BoardId",
                 table: "Lanes",
                 column: "BoardId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Projects_ResponsibleUserId",
-                table: "Projects",
-                column: "ResponsibleUserId");
+                name: "IX_ProjectUser_UsersId",
+                table: "ProjectUser",
+                column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Teams_FkProjects",
-                table: "Teams",
-                column: "FkProjects");
+                name: "IX_Roles_ProjectId",
+                table: "Roles",
+                column: "ProjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Teams_FkRoles",
-                table: "Teams",
-                column: "FkRoles");
+                name: "IX_RoleUser_UsersId",
+                table: "RoleUser",
+                column: "UsersId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserCard_CardsId",
+                table: "UserCard",
+                column: "CardsId");
         }
 
         /// <inheritdoc />
@@ -379,28 +501,43 @@ namespace Glimpse.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Cards");
+                name: "CardTag");
 
             migrationBuilder.DropTable(
-                name: "Teams");
+                name: "Checkboxes");
+
+            migrationBuilder.DropTable(
+                name: "ProjectUser");
+
+            migrationBuilder.DropTable(
+                name: "RoleUser");
+
+            migrationBuilder.DropTable(
+                name: "UserCard");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Lanes");
+                name: "Tags");
 
             migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "Board");
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Cards");
+
+            migrationBuilder.DropTable(
+                name: "Lanes");
+
+            migrationBuilder.DropTable(
+                name: "Boards");
 
             migrationBuilder.DropTable(
                 name: "Projects");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
         }
     }
 }

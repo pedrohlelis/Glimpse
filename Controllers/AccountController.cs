@@ -44,6 +44,7 @@ public class AccountController : Controller
             ModelState.AddModelError("", "Invalid Login Attempt");
             return View(model);
             }
+            ModelState.AddModelError("", "Invalid Login Attempt");
         }
         return View(model);
     }
@@ -112,16 +113,16 @@ public class AccountController : Controller
         return RedirectToAction("Index", "Home");
     }
 
-    [HttpPost("DeleteAccount", Name = "DeleteAccount")]
-    public async Task<IActionResult> DeleteAccount()
-    {
-        var user = _userManager.GetUserAsync(User).Result;
+    // [HttpPost("DeleteAccount", Name = "DeleteAccount")]
+    // public async Task<IActionResult> DeleteAccount()
+    // {
+    //     var user = _userManager.GetUserAsync(User).Result;
 
-        user.IsActive = false;
-        _userManager.UpdateAsync(user);
+    //     user.IsActive = false;
+    //     _userManager.UpdateAsync(user);
 
-        await _signInManager.SignOutAsync();
+    //     await _signInManager.SignOutAsync();
 
-        return RedirectToAction("Index", "Home");
-    }
+    //     return RedirectToAction("Index", "Home");
+    // }
 }

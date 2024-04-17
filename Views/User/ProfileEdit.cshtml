@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="300px" src='@(Model.ProfilePicPath != null ? Model.ProfilePicPath : "../wwwroot/Icons/default-avatar.webp")' alt="">
+                <img class="rounded-circle mt-5" width="300px" src='@(Model.ProfilePicPath != null ? Model.ProfilePicPath : @"../Icons/default-avatar.webp")' alt="">
                 <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                 <span class="text-black-50">@Model.Email</span>
             </div>
@@ -16,11 +16,11 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <form method="post" asp-action="UpdateProfile" id="form" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div asp-validation-summary="All" class="text-danger" role="alert"></div>
 
                     <div class="col-md-6">
                         <label asp-for="ProfilePicFile" class="control-label"></label>
-                        <input asp-for="ProfilePicFile" id="profilePicFileInput" class="form-control-file">
+                        <input asp-for="ProfilePicFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
                         <span asp-validation-for="ProfilePicFile" class="text-danger"></span>
                     </div>
 
@@ -45,19 +45,18 @@
                         </div>
                     </div>
                     
-                    <div class="row mt-3">
+                    @* <div class="row mt-3">
                         <div class="col-md-12">
                             <label asp-for="Phone" class="control-label"></label>
-                            <input asp-for="Phone" id="Phone" name="Phone" class="form-control" placeholder="Phone" value="@Model.Phone">
+                            <input asp-for="Phone" id="Phone" name="Phone" pattern="^\d{11}$" class="form-control" placeholder="Phone" value="@Model.Phone">
                             <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
-                    </div>
-
-                    <input type="hidden" asp-for="DeleteAccount" id="DeleteAccountBool" value=false>
+                    </div> *@
 
                     <div class="mt-5 text-center">
                         <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
                     </div>
+                    </form>
 
                     <div class="mt-2 text-center">
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ConfirmDeleteModal">
@@ -76,14 +75,15 @@
                                 <p>Are you sure you want to delete your account?</p>
                                 <p><strong>This action cannot be undone.</strong></p>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
-                            </div>
+                            <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
+                                </div>
+                            </form>
                             </div>
                         </div>
-                        </div>
-                </form>
+                    </div>
             </div>
         </div>
     </div>
@@ -94,29 +94,6 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<script>
-    @* document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("form");
-        const button1 = document.getElementById("submit-update");
-        const button2 = document.getElementById("delete-submit");
-    });
-        form.addEventListener("submit", function(event) {
-        event.preventDefault(); 
-        var deleteBool = document.getElementById("deleteAccountBoolInput")
-        
-        if (event.submitter === button2) {
-            deleteBool.value = true;
-        }
-        form.submit();
-    });
 
-    function toggleBooleanInput(inputElement) {
-        let currentValue = inputElement.value;
-        console.log(currentValue);
-
-        currentValue = !currentValue;
-        inputElement.value = currentValue;
-    } *@
-</script>
 
 

@@ -13,28 +13,28 @@
       "PackagePath": "staticwebassets\\Icons\\default-pfp.png"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\1c7dba57-140c-4afe-a5a4-b144f77c5ab5_grafico parabula.jpg",
-      "PackagePath": "staticwebassets\\UserProfilePics\\1c7dba57-140c-4afe-a5a4-b144f77c5ab5_grafico parabula.jpg"
+      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
+      "PackagePath": "staticwebassets\\Icons\\default_avatar.webp"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\33a057c3-c760-40ec-96a2-f0bea7900a6b_vet (1).jpeg",
-      "PackagePath": "staticwebassets\\UserProfilePics\\33a057c3-c760-40ec-96a2-f0bea7900a6b_vet (1).jpeg"
+      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
+      "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\3b472a7d-b361-44eb-b818-0635ffe9482c_carcharo skull.jfif",
-      "PackagePath": "staticwebassets\\UserProfilePics\\3b472a7d-b361-44eb-b818-0635ffe9482c_carcharo skull.jfif"
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif",
+      "PackagePath": "staticwebassets\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\3e9dac47-d493-4f15-bc39-2eb380c3482c_U9_Carch1.png",
-      "PackagePath": "staticwebassets\\UserProfilePics\\3e9dac47-d493-4f15-bc39-2eb380c3482c_U9_Carch1.png"
-    },
-    {
-      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\51ff832d-ea18-44a2-93af-828eac29de27_U9_Carch1.png",
-      "PackagePath": "staticwebassets\\UserProfilePics\\51ff832d-ea18-44a2-93af-828eac29de27_U9_Carch1.png"
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif",
+      "PackagePath": "staticwebassets\\UserProfilePics\\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\default-images\\defaultBackground.jpg",
+      "PackagePath": "staticwebassets\\default-images\\defaultBackground.jpg"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\favicon.ico",
@@ -271,6 +271,26 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\0_Logo Gradient.png",
+      "PackagePath": "staticwebassets\\project-pictures\\0_Logo Gradient.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props",

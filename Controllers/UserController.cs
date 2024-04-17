@@ -33,12 +33,10 @@ public class UserController : Controller
 
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user!.ProfilePic,
+            ProfilePicPath = user.ProfilePic,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email,
-            Phone = user.PhoneNumber,
-            DeleteAccount = false
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -51,12 +49,10 @@ public class UserController : Controller
         var user = _userManager.GetUserAsync(User).Result;
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user!.ProfilePic,
+            ProfilePicPath = user.ProfilePic,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Email = user.Email,
-            Phone = user.PhoneNumber,
-            DeleteAccount = false
+            Email = user.UserName,
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -69,19 +65,22 @@ public class UserController : Controller
         if (ModelState.IsValid)
         {
             var user = _userManager.GetUserAsync(User).Result;
-            // if(profileVM.DeleteAccount == true)
-            // {
-            //     user!.IsActive = false;
-            //     await _userManager.UpdateAsync(user);
 
-            //     await _signInManager.SignOutAsync();
+            var existingUser = await _userManager.FindByEmailAsync(profileVM.Email);
+            if (existingUser != null && existingUser.Id != user.Id)
+            {
+                ModelState.AddModelError("Email", "This email is already taken by another user.");
+                return View("ProfileEdit", profileVM);
+            }
+            else
+            {
+                profileVM.Email = user.Email;
+            }
 
-            //     return RedirectToAction("Index", "Home");
-            // }
             var profilePicture = profileVM.ProfilePicFile;
             if (profilePicture != null && profilePicture.Length > 0)
             {
-                if (user.ProfilePic != null) { FileHandlingHelper.DeleteFile(@"C:\Glimpse\wwwroot\UserProfilePics", user.ProfilePic); }
+                if (user.ProfilePic != null) { FileHandlingHelper.DeleteFile(@"..\UserProfilePics", user.ProfilePic); }
                 user!.ProfilePic = FileHandlingHelper.UploadFile(profilePicture, _profilePicFolderName, _hostingEnvironment);
             }
             else { user!.ProfilePic = null; }
@@ -89,7 +88,6 @@ public class UserController : Controller
             user.UserName = profileVM.Email;
             user.FirstName = profileVM.FirstName;
             user.LastName = profileVM.LastName;
-            user.PhoneNumber = profileVM.Phone;
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
@@ -99,7 +97,16 @@ public class UserController : Controller
             {
                 ModelState.AddModelError("", error.Description);
             }
+            return View("ProfileEdit",profileVM);
         }
-        return View(profileVM);
+        return View("ProfileEdit",profileVM);
+    }
+    public async Task<IActionResult> DeleteProfile()
+    {
+        var user = _userManager.GetUserAsync(User).Result;
+            user!.IsActive = false;
+            await _userManager.UpdateAsync(user);
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
     }
 }
