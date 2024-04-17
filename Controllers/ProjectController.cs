@@ -24,21 +24,27 @@ public class ProjectController : Controller
     // READ
     public async Task<IActionResult> MainProjects()
     {
-        User user = _userManager.GetUserAsync(User).Result;
+        string userId = _userManager.GetUserId(User);
+        //User user = await _userManager.FindByIdAsync(userId);
+        var user = _db.Users
+                      .Include(u => u.Projects)
+                      .Single(u => u.Id == userId);
 
-        if (user != null && user.IsActive == true)
+        var projetosDoUsuario = user.Projects;
+        System.Console.WriteLine(user.Projects.Count);
+
+        /*ICollection<Project> activeProjects = new List<Project>();
+        if (user.Projects != null)
         {
-            ICollection<Project> ActiveProjects = [];
             foreach (Project project in user.Projects)
             {
                 if (project.IsActive == true)
                 {
-                    ActiveProjects.Add(project);
+                    activeProjects.Add(project);
                 }
             }
-            return View(await _db.Projects.ToListAsync());
-        }
-        return NotFound();
+        }*/
+        return View(projetosDoUsuario);
     }
 
     // CREATE
@@ -52,7 +58,7 @@ public class ProjectController : Controller
     {
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         project.IsActive = true;
-        project.ResponsibleUserId = _userManager.GetUserAsync(User).Result.Id;
+        project.ResponsibleUserId = _userManager.GetUserId(User);
         project.Users.Add(_userManager.GetUserAsync(User).Result);
 
         if (ModelState.IsValid)

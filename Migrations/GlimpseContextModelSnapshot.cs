@@ -37,6 +37,21 @@ namespace Glimpse.Migrations
                     b.ToTable("CardTag");
                 });
 
+            modelBuilder.Entity("CardUser", b =>
+                {
+                    b.Property<int>("CardsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CardsId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("CardUser");
+                });
+
             modelBuilder.Entity("Glimpse.Models.Board", b =>
                 {
                     b.Property<int>("Id")
@@ -471,21 +486,6 @@ namespace Glimpse.Migrations
                     b.ToTable("RoleUser");
                 });
 
-            modelBuilder.Entity("UserCard", b =>
-                {
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("CardsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UsersId", "CardsId");
-
-                    b.HasIndex("CardsId");
-
-                    b.ToTable("UserCard");
-                });
-
             modelBuilder.Entity("CardTag", b =>
                 {
                     b.HasOne("Glimpse.Models.Card", null)
@@ -497,6 +497,21 @@ namespace Glimpse.Migrations
                     b.HasOne("Glimpse.Models.Tag", null)
                         .WithMany()
                         .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CardUser", b =>
+                {
+                    b.HasOne("Glimpse.Models.Card", null)
+                        .WithMany()
+                        .HasForeignKey("CardsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Glimpse.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -621,21 +636,6 @@ namespace Glimpse.Migrations
                     b.HasOne("Glimpse.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Glimpse.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("UserCard", b =>
-                {
-                    b.HasOne("Glimpse.Models.Card", null)
-                        .WithMany()
-                        .HasForeignKey("CardsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

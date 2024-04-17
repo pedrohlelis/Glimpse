@@ -161,7 +161,7 @@ public class BoardController : Controller
 
     public async Task<ICollection<User>> GetUsersFromBoard(Board board)
     {
-        ICollection<User> users = [];
+        /*ICollection<User> users = [];
 
         foreach (User user in board.Project.Users)
         {
@@ -169,9 +169,9 @@ public class BoardController : Controller
             {
                 users.Add(user);
             }
-        }
+        }*/
         
-        return users;
+        return null;
     }
 
     public ICollection<Lane> GetLanesFromBoard(Board board)

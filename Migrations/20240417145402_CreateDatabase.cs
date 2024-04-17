@@ -352,6 +352,30 @@ namespace Glimpse.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CardUser",
+                columns: table => new
+                {
+                    CardsId = table.Column<int>(type: "int", nullable: false),
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CardUser", x => new { x.CardsId, x.UsersId });
+                    table.ForeignKey(
+                        name: "FK_CardUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CardUser_Cards_CardsId",
+                        column: x => x.CardsId,
+                        principalTable: "Cards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Checkboxes",
                 columns: table => new
                 {
@@ -369,30 +393,6 @@ namespace Glimpse.Migrations
                         column: x => x.CardId,
                         principalTable: "Cards",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserCard",
-                columns: table => new
-                {
-                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CardsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserCard", x => new { x.UsersId, x.CardsId });
-                    table.ForeignKey(
-                        name: "FK_UserCard_AspNetUsers_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserCard_Cards_CardsId",
-                        column: x => x.CardsId,
-                        principalTable: "Cards",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -450,6 +450,11 @@ namespace Glimpse.Migrations
                 column: "TagsId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CardUser_UsersId",
+                table: "CardUser",
+                column: "UsersId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Checkboxes_CardId",
                 table: "Checkboxes",
                 column: "CardId");
@@ -473,11 +478,6 @@ namespace Glimpse.Migrations
                 name: "IX_RoleUser_UsersId",
                 table: "RoleUser",
                 column: "UsersId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserCard_CardsId",
-                table: "UserCard",
-                column: "CardsId");
         }
 
         /// <inheritdoc />
@@ -502,6 +502,9 @@ namespace Glimpse.Migrations
                 name: "CardTag");
 
             migrationBuilder.DropTable(
+                name: "CardUser");
+
+            migrationBuilder.DropTable(
                 name: "Checkboxes");
 
             migrationBuilder.DropTable(
@@ -511,22 +514,19 @@ namespace Glimpse.Migrations
                 name: "RoleUser");
 
             migrationBuilder.DropTable(
-                name: "UserCard");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Cards");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Cards");
+                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Lanes");
