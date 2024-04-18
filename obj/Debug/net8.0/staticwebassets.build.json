@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
   "Hash": "7wZAIWnlEnUdC70n3NNod8wkv0pYFyj9CylBB4BEmMU=",
-=======
-  "Hash": "6P7p54s438iti4Dq3PgVsrcBvMUjdFdDyqP4zNq2AzM=",
->>>>>>> 86a00dfb5e79cfff84d1966d5a2bf7abb7539728
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -116,30 +112,7 @@
       "OriginalItemSpec": "wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg"
     },
     {
-<<<<<<< HEAD
       "Identity": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png",
-=======
-      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png",
-      "SourceId": "Glimpse",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\",
-      "BasePath": "_content/Glimpse",
-      "RelativePath": "board-pictures/00000000-0000-0000-0000-000000000000-board-pic.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png"
-    },
-    {
-      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\css\\site.css",
->>>>>>> 86a00dfb5e79cfff84d1966d5a2bf7abb7539728
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\",

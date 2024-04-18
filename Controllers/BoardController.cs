@@ -91,7 +91,7 @@ public class BoardController : Controller
                 }
                 Board.Background = "../board-pictures/" + nomeArquivo;
             } 
-            var entityEntry = _db.Boards.Add(Board);
+            _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
 
             System.Console.WriteLine(projectId);
@@ -176,7 +176,6 @@ public class BoardController : Controller
     public async Task<ICollection<User>> GetUsersFromBoard(Board board)
     {
         /*ICollection<User> users = [];
-        /*ICollection<User> users = [];
 
         foreach (User user in board.Project.Users)
         {
@@ -185,7 +184,6 @@ public class BoardController : Controller
                 users.Add(user);
             }
         }*/
-        
         
         return null;
     }
