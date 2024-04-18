@@ -11,9 +11,8 @@ public class User : IdentityUser
     public string? Picture { get; set; }
     public bool IsActive { get; set; }
     // card x user
-    public ICollection<Card> Cards { get; } = [];
-    // cargo x user
-    public ICollection<Role> Roles { get; } = [];
-    // projeto x user
-    public ICollection<Project> Projects { get; } = [];
+    public ICollection<Card>? Cards { get; set; }
+    // cargo x user 
+    public ICollection<Role>? Roles { get; set; } 
+    public virtual ICollection<Project> Projects { get; set; } = [];
 }

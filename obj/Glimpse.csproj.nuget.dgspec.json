@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\Glimpse.csproj": {}
+    "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\Glimpse.csproj": {
+    "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\Glimpse.csproj",
+        "projectUniqueName": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj",
         "projectName": "Glimpse",
-        "projectPath": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\Glimpse.csproj",
-        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\obj\\",
+        "projectPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj",
+        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -103,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -24,21 +24,16 @@ public class ProjectController : Controller
     // READ
     public async Task<IActionResult> MainProjects()
     {
-        User user = _userManager.GetUserAsync(User).Result;
+        // coisas aqui
+        string userId = _userManager.GetUserId(User);
 
-        if (user != null && user.IsActive == true)
-        {
-            ICollection<Project> ActiveProjects = [];
-            foreach (Project project in user.Projects)
-            {
-                if (project.IsActive == true)
-                {
-                    ActiveProjects.Add(project);
-                }
-            }
-            return View(await _db.Projects.ToListAsync());
-        }
-        return NotFound();
+        var user = _db.Users
+            .Include(u => u.Projects)
+            .Single(u => u.Id == userId);
+
+        var userProjects = user.Projects;
+
+        return View(userProjects);
     }
 
     // CREATE
@@ -52,7 +47,7 @@ public class ProjectController : Controller
     {
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         project.IsActive = true;
-        project.ResponsibleUserId = _userManager.GetUserAsync(User).Result.Id;
+        project.ResponsibleUserId = _userManager.GetUserId(User);
         project.Users.Add(_userManager.GetUserAsync(User).Result);
 
         if (ModelState.IsValid)
@@ -67,8 +62,16 @@ public class ProjectController : Controller
                     await projectImg.CopyToAsync(stream);
                 }
                 project.Picture = "../project-pictures/" + nomeArquivo;
-            } 
+            }
+            // coisas aqui
             _db.Projects.AddAsync(project);
+            await _db.SaveChangesAsync();
+
+            var user = await _db.Users
+                  .Include(u => u.Projects)
+                  .SingleAsync(u => u.Id == project.ResponsibleUserId);
+
+            user.Projects.Add(project);
             await _db.SaveChangesAsync();
 
             return RedirectToAction("MainProjects");
