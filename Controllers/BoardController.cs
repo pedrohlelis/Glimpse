@@ -53,7 +53,6 @@ public class BoardController : Controller
         ViewData["Boards"] = project.Boards;
 
         return View(project);
-        return View(project);
     }
 
     // CREATE
@@ -84,7 +83,6 @@ public class BoardController : Controller
             if (BoardImg != null && BoardImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = new Guid() + "-board-pic.png";
                 string nomeArquivo = new Guid() + "-board-pic.png";
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
@@ -187,9 +185,8 @@ public class BoardController : Controller
                 users.Add(user);
             }
         }*/
-        }*/
         
-        return null;
+        
         return null;
     }
 
