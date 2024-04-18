@@ -53,6 +53,7 @@ public class BoardController : Controller
         ViewData["Boards"] = project.Boards;
 
         return View(project);
+        return View(project);
     }
 
     // CREATE
@@ -84,6 +85,7 @@ public class BoardController : Controller
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
                 string nomeArquivo = new Guid() + "-board-pic.png";
+                string nomeArquivo = new Guid() + "-board-pic.png";
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
@@ -91,7 +93,7 @@ public class BoardController : Controller
                 }
                 Board.Background = "../board-pictures/" + nomeArquivo;
             } 
-            _db.Boards.Add(Board);
+            var entityEntry = _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
 
             System.Console.WriteLine(projectId);
@@ -176,6 +178,7 @@ public class BoardController : Controller
     public async Task<ICollection<User>> GetUsersFromBoard(Board board)
     {
         /*ICollection<User> users = [];
+        /*ICollection<User> users = [];
 
         foreach (User user in board.Project.Users)
         {
@@ -184,7 +187,9 @@ public class BoardController : Controller
                 users.Add(user);
             }
         }*/
+        }*/
         
+        return null;
         return null;
     }
 

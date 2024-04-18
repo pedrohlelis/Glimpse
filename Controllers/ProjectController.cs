@@ -48,6 +48,7 @@ public class ProjectController : Controller
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
+        project.ResponsibleUserId = _userManager.GetUserId(User);
         project.Users.Add(_userManager.GetUserAsync(User).Result);
 
         if (ModelState.IsValid)

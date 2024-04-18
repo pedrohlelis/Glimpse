@@ -13,11 +13,19 @@
       "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png"
     },
     {
       "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+=======
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+>>>>>>> 86a00dfb5e79cfff84d1966d5a2bf7abb7539728
       "PackagePath": "staticwebassets\\board-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
     },
     {
