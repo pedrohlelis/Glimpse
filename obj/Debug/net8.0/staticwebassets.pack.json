@@ -13,10 +13,6 @@
       "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\a89bcbb8-19a0-4da6-a8d6-3367e0b48c31_beasts_of_the_mesozoic_t__rex_by_arvalis_depivt9-fullview.jpg",
-      "PackagePath": "staticwebassets\\UserProfilePics\\a89bcbb8-19a0-4da6-a8d6-3367e0b48c31_beasts_of_the_mesozoic_t__rex_by_arvalis_depivt9-fullview.jpg"
-    },
-    {
       "Id": "C:\\Glimpse\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

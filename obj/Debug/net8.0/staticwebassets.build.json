@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AWtUjsXRXLQA0UGGOsfVUsgWm38nysVfWqDOIw2pz/0=",
+  "Hash": "mDWfpZCJd3I79PjNlO2zgCMtih4Ji7cq+oEYJy467iA=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -1231,25 +1231,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\a89bcbb8-19a0-4da6-a8d6-3367e0b48c31_beasts_of_the_mesozoic_t__rex_by_arvalis_depivt9-fullview.jpg",
-      "SourceId": "Glimpse",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
-      "BasePath": "_content/Glimpse",
-      "RelativePath": "UserProfilePics/a89bcbb8-19a0-4da6-a8d6-3367e0b48c31_beasts_of_the_mesozoic_t__rex_by_arvalis_depivt9-fullview.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserProfilePics\\a89bcbb8-19a0-4da6-a8d6-3367e0b48c31_beasts_of_the_mesozoic_t__rex_by_arvalis_depivt9-fullview.jpg"
     }
   ]
 }

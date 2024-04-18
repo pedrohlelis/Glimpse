@@ -21,6 +21,7 @@ builder.Services.AddIdentity<User, IdentityRole>(
         Options.Password.RequireDigit = true;
         Options.Password.RequireNonAlphanumeric = true;
         Options.Password.RequireLowercase = true;
+        Options.SignIn.RequireConfirmedEmail = true;
     }
     )
     .AddEntityFrameworkStores<GlimpseContext>().AddDefaultTokenProviders();
