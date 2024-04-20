@@ -43,14 +43,15 @@
                         <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
                         <p>@p.Name</p>
                     </a>
-                    <a style="cursor: pointer;" class="popup-trigger" data-project-id="@p.Id"><img src="../icons/more-vertical.svg" alt=""></a>
+                    <a style="cursor: pointer;" class="popup-trigger" data-project-id="@p.Id"><img src="../icons/vertical-dots.svg" alt=""></a>
                     
                 </div>
                 <label class="pop-up-1" id="pop-up-@p.Id" style="display: none;">
-                    <a asp-controller="Project" asp-action="EditProject" asp-route-id="@p.Id">Editar</a>
+                    <a asp-controller="Project" asp-action="Edit" asp-route-id="@p.Id">Editar</a>
                     <img class="normal-icon" src="../icons/edit.svg" alt="">
                 </label>
             </li>
+            
         }
     </ul>
 </section>

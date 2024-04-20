@@ -10,9 +10,7 @@ public class User : IdentityUser
     public string? Name { get; set; }
     public string? Picture { get; set; }
     public bool IsActive { get; set; }
-    // card x user
-    public ICollection<Card>? Cards { get; set; }
-    // cargo x user 
-    public ICollection<Role>? Roles { get; set; } 
+    public virtual ICollection<Card>? Cards { get; set; } = [];
+    public virtual ICollection<Role>? Roles { get; set; } = [];
     public virtual ICollection<Project> Projects { get; set; } = [];
 }

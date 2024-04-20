@@ -8,7 +8,7 @@ public class Lane
     [Key]
     public int Id { get; set; }
     public required string Name { get; set; }
-    public virtual required Board Board { get; set; }
+    public virtual Board? Board { get; set; }
     public int Index { get; set; }
-    public ICollection<Card> Cards { get; } = [];
+    public virtual ICollection<Card> Cards { get; } = [];
 }

@@ -9,5 +9,5 @@ public class Tag
     public int Id { get; set; }
     public required string Name { get; set; }
     public required string Color { get; set; }
-    public ICollection<Card> Cards { get; } = [];
+    public virtual ICollection<Card> Cards { get; } = [];
 }

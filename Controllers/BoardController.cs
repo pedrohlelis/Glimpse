@@ -19,24 +19,22 @@ public class BoardController : Controller
         _hostEnvironment = hostEnvironment;
         _userManager = userManager;
     }
-    // Abre o quadro
-    public async Task<IActionResult> GetBoardInfo(int projectId)
+    public IActionResult GetBoardInfo(int id)
     {
-        Board board = _db.Boards.Find(projectId);
-        Console.WriteLine(projectId);
+        System.Console.WriteLine(id);
+        var board = _db.Boards
+            .Include(u => u.Lanes)
+            .Single(u => u.Id == id);
 
         if (board == null)
         {
             return NotFound();
         }
-        // Lista dos usuarios do quadro
-        ViewData["users"] = GetUsersFromBoard(board);
 
-        // HashMap das raias e dos cards do quadro
-        ViewData["lanes"] = GetLanesFromBoard(board);
-        
-        // Hash -> Card e Tags
-        
+        //ViewData["users"] = GetUsersFromBoard(board);
+        ViewData["lanes"] = board.Lanes;
+        //ViewData["cards"] = 
+
 
         return View(board);
     }
@@ -55,7 +53,6 @@ public class BoardController : Controller
         return View(project);
     }
 
-    // CREATE
     public IActionResult Create(int id)
     {
         var project = _db.Projects
@@ -83,7 +80,7 @@ public class BoardController : Controller
             if (BoardImg != null && BoardImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = new Guid() + "-board-pic.png";
+                string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
@@ -93,8 +90,6 @@ public class BoardController : Controller
             } 
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
-
-            System.Console.WriteLine(projectId);
             
             var project = await _db.Projects
                 .Include(u => u.Boards)
@@ -103,13 +98,12 @@ public class BoardController : Controller
             project.Boards.Add(Board);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("GetBoardInfo", new {projectId});
+            return RedirectToAction("GetBoardInfo", new { id = Board.Id });
         }
 
         return View("Create", Board);
     }
 
-    // UPDATE
     public async Task<IActionResult> Edit(int id)
     {
         var Board = await _db.Boards.FindAsync(id);
@@ -145,7 +139,6 @@ public class BoardController : Controller
         return View("Edit", Board);
     }
 
-    // DELETE
     public async Task<IActionResult> Delete(int id)
     {
         var Board = await _db.Boards.FindAsync(id);

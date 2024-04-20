@@ -11,7 +11,7 @@ public class Card
     public string Description { get; set; }
     public int Index { get; set; }
     public virtual Lane? Lane { get; set; }
-    public ICollection<User> Users { get; } = [];
-    public ICollection<Tag> Tags { get; } = [];
-    public ICollection<Checkbox> Checkboxes { get; } = [];
+    public virtual ICollection<User> Users { get; } = [];
+    public virtual ICollection<Tag> Tags { get; } = [];
+    public virtual ICollection<Checkbox> Checkboxes { get; } = [];
 }

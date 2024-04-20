@@ -23,7 +23,7 @@
     <form asp-action="CreateBoard" asp-controller="Board" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Criar quadro em @projectName + @ViewData["projectId"]</h1>
+                <h1>Criar quadro em @projectName</h1>
                 <div class="form-group">
                     <label>Nome do quadro</label>
                     <input asp-for="Name" type="text" class="form-control" required/>
