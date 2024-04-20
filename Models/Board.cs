@@ -15,6 +15,6 @@ namespace Glimpse.Models
         public bool IsActive { get; set; }
         public string? CreatorId { get; set; }
         public virtual Project? Project { get; set; }
-        public ICollection<Lane> Lanes { get; } = [];
+        public virtual ICollection<Lane> Lanes { get; } = [];
     }
 }

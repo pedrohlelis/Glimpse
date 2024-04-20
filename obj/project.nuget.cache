@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jDLash3FJAPIDT9T2VJuVgnhZCJaAlvG5GWXxx6kyYDfIyhITKIIU298SpMGafHtRzAAlo4SgdfyeSS/BWo4rg==",
+  "dgSpecHash": "bIUCaYGOMyWpuI+SHVxekD8Q/sxU8NelHoKW7LcuUVhlCoYFk8vin35YIVVZSQxM0zHDOQj0pxAxAf7eQNahUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj",
+  "projectFilePath": "C:\\Users\\victo\\Downloads\\Glimpse\\Glimpse.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victo\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

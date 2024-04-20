@@ -1,7 +1,6 @@
 @model Project
 @{
     ViewData["Title"] = "Quadros do projeto";
-    var projectBoards = ViewData["Boards"] as List<Board>;
 }
 
 <section>
@@ -15,7 +14,7 @@
     <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@Model.Id">+ Criar Quadro</a></center>
     <section class="project-list-section">
         <ul class="navbar-nav flex-grow-1">
-            @foreach (Board b in projectBoards) 
+            @foreach (Board b in ViewData["Boards"] as List<Board>) 
             {
                 <li class="nav-item-7">
                     <div class="project-card">

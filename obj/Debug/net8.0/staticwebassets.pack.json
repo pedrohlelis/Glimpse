@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
     },
     {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\Icons\\vertical-dots.svg",
+      "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
+    },
+    {
       "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\00000000-0000-0000-0000-000000000000-board-pic.png"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\board-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg",
       "PackagePath": "staticwebassets\\board-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png"
     },
     {
       "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\css\\site.css",
@@ -271,6 +279,14 @@
     {
       "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_El_Primo.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_El_Primo.png"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_Frame 3.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_Frame 3.png"
     },
     {
       "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",

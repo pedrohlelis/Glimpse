@@ -21,10 +21,8 @@ public class ProjectController : Controller
         _userManager = userManager;
     }
 
-    // READ
     public async Task<IActionResult> MainProjects()
     {
-        // coisas aqui
         string userId = _userManager.GetUserId(User);
 
         var user = _db.Users
@@ -36,7 +34,6 @@ public class ProjectController : Controller
         return View(userProjects);
     }
 
-    // CREATE
     public IActionResult Create()
     {
         return View();
@@ -46,6 +43,7 @@ public class ProjectController : Controller
     public async Task<IActionResult> CreateProject(Project project, IFormFile projectImg)
     {
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
+        project.LastEdited = project.CreationDate;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
         project.Users.Add(_userManager.GetUserAsync(User).Result);
@@ -63,13 +61,12 @@ public class ProjectController : Controller
                 }
                 project.Picture = "../project-pictures/" + nomeArquivo;
             }
-            // coisas aqui
             _db.Projects.AddAsync(project);
             await _db.SaveChangesAsync();
 
             var user = await _db.Users
-                  .Include(u => u.Projects)
-                  .SingleAsync(u => u.Id == project.ResponsibleUserId);
+                .Include(u => u.Projects)
+                .SingleAsync(u => u.Id == project.ResponsibleUserId);
 
             user.Projects.Add(project);
             await _db.SaveChangesAsync();
@@ -80,8 +77,6 @@ public class ProjectController : Controller
         return View("Create", project);
     }
 
-    // UPDATE
-    [HttpGet("/projects/edit")]
     public async Task<IActionResult> Edit(int id)
     {
         Project Project = await _db.Projects.FindAsync(id);
@@ -90,7 +85,7 @@ public class ProjectController : Controller
         {
             return NotFound();
         }
-
+        Console.WriteLine("foi pra view");
         return View(Project);
     }
 
@@ -100,25 +95,16 @@ public class ProjectController : Controller
         if (ModelState.IsValid)
         {
             Project oldProject = await _db.Projects.FindAsync(Project.Id);
-            _db.Entry(oldProject).CurrentValues.SetValues(Project);
-            try
-            {
-                await _db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                //ViewData["uniqueAlert"] = "Chassi do Project ja cadastrado";
-                //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
-                return View("Edit", Project);
-            }
+            _db.Entry(oldProject).CurrentValues.SetValues(Project);
+            await _db.SaveChangesAsync();
+
             return RedirectToAction("MainProjects");
         }
 
         return View("Edit", Project);
     }
 
-    // DELETE
     public async Task<IActionResult> Delete(int id)
     {
         Project Project = await _db.Projects.FindAsync(id);
@@ -132,11 +118,10 @@ public class ProjectController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> DeletarProject(Project project)
+    public async Task<IActionResult> DeleteProject(Project project)
     {
         if (ModelState.IsValid)
         {
-            
             Project currentProject = await _db.Projects.FindAsync(project.Id);
             _db.Entry(currentProject).CurrentValues.SetValues(project);
             await _db.SaveChangesAsync();

@@ -62,6 +62,7 @@ namespace Glimpse.Migrations
                     ResponsibleUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreationDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    LastEdited = table.Column<DateOnly>(type: "date", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Picture = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
@@ -248,7 +249,7 @@ namespace Glimpse.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Hierarchy = table.Column<int>(type: "int", nullable: false),
-                    ProjectId = table.Column<int>(type: "int", nullable: false)
+                    ProjectId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -257,8 +258,7 @@ namespace Glimpse.Migrations
                         name: "FK_Roles_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -268,7 +268,7 @@ namespace Glimpse.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BoardId = table.Column<int>(type: "int", nullable: false),
+                    BoardId = table.Column<int>(type: "int", nullable: true),
                     Index = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -278,8 +278,7 @@ namespace Glimpse.Migrations
                         name: "FK_Lanes_Boards_BoardId",
                         column: x => x.BoardId,
                         principalTable: "Boards",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
