@@ -6,10 +6,101 @@
 <section class="board-menu-func">
     <div class="board-header">
         <h3>@Model.Name</h3>
-        
     </div>
 </section>
 
 <section class="board-main-layout">
-    
+    <div>
+        <!-- botao de adicionar aqui -->
+        <button id="addLaneButton">Adicionar Raia</button>
+        <!-- raia aqui -->
+        @foreach (Lane lane in Model.Lanes)
+        {
+            <div>
+                <div>
+                    <form class="lane-form" asp-action="CreateLane" asp-controller="Lane" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+                        <input type="text" value="@lane.Name" class="lane-name-input">
+                        <input type="submit" style="visibility: hidden;"/>
+                    </form>
+                    <p>@lane.Cards.Count</p>
+                </div>
+                <a href="#">Criar card</a>
+                <ul>
+                    @foreach (Card card in lane.Cards)
+                    {
+                        <li>
+                            <p>@card.Name</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
 </section>
+
+@section Scripts {
+    <script>
+        document.getElementById('addLaneButton').addEventListener('click', function() {
+            var form = document.createElement('form');
+            form.className = 'lane-form';
+            form.method = 'post';
+            form.action = '@Url.Action("CreateLane", "Lane")';
+            form.enctype = 'multipart/form-data';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.value = 'Nome da Raia';
+            input.className = 'lane-name-input';
+            form.appendChild(input);
+
+            var submit = document.createElement('input');
+            submit.type = 'submit';
+            submit.style.visibility = 'hidden';
+            form.appendChild(submit);
+
+            document.querySelector('.board-main-layout > div').appendChild(form);
+        });
+
+        Array.from(document.getElementsByClassName('lane-name-input')).forEach(function(input) {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    this.form.submit();
+                }
+            });
+        });
+        $('.lane-form').on('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            var laneName = $(form).find('.lane-name-input').val();
+
+            // Verifica se o nome da raia não é nulo ou vazio
+            if (laneName && laneName.trim() !== '') {
+                $.ajax({
+                    url: '@Url.Action("CreateLane", "Lane")',
+                    type: 'POST',
+                    data: {
+                        name: laneName,
+                        id: '@Model.Id'
+                    },
+                    success: function() {
+                        // Cria uma nova raia com o nome fornecido e adiciona ao DOM
+                        var newLane = document.createElement('div');
+                        var laneNameElement = document.createElement('p');
+                        laneNameElement.textContent = laneName;
+                        newLane.appendChild(laneNameElement);
+
+                        // Adiciona a nova raia ao final do quadro
+                        document.querySelector('.board-main-layout > div').appendChild(newLane);
+
+                        // Limpa o campo de entrada
+                        $(form).find('.lane-name-input').val('');
+                    }
+                });
+            } else {
+                alert('O nome da raia não pode ser vazio.');
+            }
+        });
+
+    </script>
+}
