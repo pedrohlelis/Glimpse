@@ -13,14 +13,16 @@ namespace Glimpse.Controllers;
 [Authorize]
 public class UserController : Controller
 {
+    private readonly SignInManager<User> _signInManager;
     private readonly IWebHostEnvironment _hostingEnvironment;
     private readonly UserManager<User> _userManager;
     private readonly string _profilePicFolderName;
 
-    public UserController(IWebHostEnvironment hostingEnvironment, UserManager<User> userManager)
+    public UserController(IWebHostEnvironment hostingEnvironment, UserManager<User> userManager, SignInManager<User> signInManager)
     {
         _hostingEnvironment = hostingEnvironment;
         _userManager = userManager;
+        _signInManager = signInManager;
         _profilePicFolderName = "UserProfilePics";
     }
 
@@ -35,7 +37,6 @@ public class UserController : Controller
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email,
-            Phone = user.PhoneNumber
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -51,8 +52,7 @@ public class UserController : Controller
             ProfilePicPath = user.ProfilePic,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Email = user.Email,
-            Phone = user.PhoneNumber
+            Email = user.UserName,
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -62,14 +62,25 @@ public class UserController : Controller
     [HttpPost("profile/edit", Name = "UpdateProfile")]
     public async Task<IActionResult> UpdateProfile([FromForm] ProfileVM profileVM)
     {
-        var user = _userManager.GetUserAsync(User).Result;
-
         if (ModelState.IsValid)
         {
+            var user = _userManager.GetUserAsync(User).Result;
+
+            var existingUser = await _userManager.FindByEmailAsync(profileVM.Email);
+            if (existingUser != null && existingUser.Id != user.Id)
+            {
+                ModelState.AddModelError("Email", "This email is already taken by another user.");
+                return View("ProfileEdit", profileVM);
+            }
+            else
+            {
+                profileVM.Email = user.Email;
+            }
+
             var profilePicture = profileVM.ProfilePicFile;
             if (profilePicture != null && profilePicture.Length > 0)
             {
-                if (user.ProfilePic != null) { FileHandlingHelper.DeleteFile(@"C:\Glimpse\wwwroot\UserProfilePics", user.ProfilePic); }
+                if (user.ProfilePic != null) { FileHandlingHelper.DeleteFile(@"..\UserProfilePics", user.ProfilePic); }
                 user!.ProfilePic = FileHandlingHelper.UploadFile(profilePicture, _profilePicFolderName, _hostingEnvironment);
             }
             else { user!.ProfilePic = null; }
@@ -77,7 +88,6 @@ public class UserController : Controller
             user.UserName = profileVM.Email;
             user.FirstName = profileVM.FirstName;
             user.LastName = profileVM.LastName;
-            user.PhoneNumber = profileVM.Phone;
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
@@ -87,8 +97,16 @@ public class UserController : Controller
             {
                 ModelState.AddModelError("", error.Description);
             }
+            return View("ProfileEdit",profileVM);
         }
-        return View("ProfileEdit", profileVM);
+        return View("ProfileEdit",profileVM);
     }
-
+    public async Task<IActionResult> DeleteProfile()
+    {
+        var user = _userManager.GetUserAsync(User).Result;
+            user!.IsActive = false;
+            await _userManager.UpdateAsync(user);
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+    }
 }

@@ -1,0 +1,17 @@
+@model Project
+@{
+    ViewData["Title"] = "Deletar Projeto";
+}
+<center>Deletar projeto?</center>
+<form asp-action="DeleteProject" asp-controller="Project" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-footer">
+                    <center>
+                        <button type="submit" class="btn-primary">Criar Projeto</button>
+                        <button class="btn-secondary"><a asp-action="MainProjects" asp-controller="Project">Cancelar</a></button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </form>

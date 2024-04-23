@@ -1,0 +1,56 @@
+@model List<Project>
+@{
+    ViewData["Title"] = "Projetos";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".popup-trigger").click(function () {
+            var projectId = $(this).data('project-id');
+            $("#pop-up-" + projectId).toggle();
+        });
+
+        $(document).mouseup(function (e) {
+            var container = $(".pop-up-1");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+    });
+</script>
+
+<section>
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <h1>Meus Projetos</h1>
+            </li>
+            <li class="nav-item">
+                <a class="CTA-MODEL-01" asp-controller="Project" asp-action="Create">+ Criar Projeto</a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="project-list-section">
+    <ul class="navbar-nav flex-grow-1">
+        @foreach (Project p in Model) {
+            <li class="nav-item-7">
+                <div class="project-card">
+                    <a class="sla" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
+                        <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
+                        <p>@p.Name</p>
+                    </a>
+                    <a style="cursor: pointer;" class="popup-trigger" data-project-id="@p.Id"><img src="../icons/more-vertical.svg" alt=""></a>
+                    
+                </div>
+                <label class="pop-up-1" id="pop-up-@p.Id" style="display: none;">
+                    <a asp-controller="Project" asp-action="EditProject" asp-route-id="@p.Id">Editar</a>
+                    <img class="normal-icon" src="../icons/edit.svg" alt="">
+                </label>
+            </li>
+        }
+    </ul>
+</section>

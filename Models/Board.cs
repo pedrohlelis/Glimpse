@@ -1,17 +1,18 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Glimpse.Models;
-
-public class Board
+namespace Glimpse.Models
 {
-    private int _BoardId;
-    private String? _BoardName;
-
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int BoardId {get{return _BoardId;} set{_BoardId = value;}}
-    public String? BoardName {get{return _BoardName;} set{_BoardName = value;}}
-    public virtual Project project {get; set;}
-    public virtual List<Lane> lanes {get; set;}
+    public class Board
+    {
+        [Key]
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Background { get; set; }
+        public DateOnly CreationDate { get; set; }
+        public bool IsActive { get; set; }
+        public required string CreatorId { get; set; }
+        public virtual required Project Project { get; set; }
+        public ICollection<Lane> Lanes { get; } = [];
+    }
 }
