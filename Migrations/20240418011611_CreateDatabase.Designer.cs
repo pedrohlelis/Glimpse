@@ -12,11 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
-<<<<<<<< HEAD:Migrations/20240412171228_CreateDatabase.Designer.cs
-    [Migration("20240412171228_CreateDatabase")]
-========
-    [Migration("20240411173412_CreateDatabase")]
->>>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156:Migrations/20240411173412_CreateDatabase.Designer.cs
+    [Migration("20240418011611_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -44,6 +40,21 @@ namespace Glimpse.Migrations
                     b.ToTable("CardTag");
                 });
 
+            modelBuilder.Entity("CardUser", b =>
+                {
+                    b.Property<int>("CardsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CardsId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("CardUser");
+                });
+
             modelBuilder.Entity("Glimpse.Models.Board", b =>
                 {
                     b.Property<int>("Id")
@@ -53,14 +64,12 @@ namespace Glimpse.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Background")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateOnly>("CreationDate")
                         .HasColumnType("date");
 
                     b.Property<string>("CreatorId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -68,9 +77,10 @@ namespace Glimpse.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("ProjectId")
+                    b.Property<int?>("ProjectId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -183,7 +193,6 @@ namespace Glimpse.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ResponsibleUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -480,21 +489,6 @@ namespace Glimpse.Migrations
                     b.ToTable("RoleUser");
                 });
 
-            modelBuilder.Entity("UserCard", b =>
-                {
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("CardsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UsersId", "CardsId");
-
-                    b.HasIndex("CardsId");
-
-                    b.ToTable("UserCard");
-                });
-
             modelBuilder.Entity("CardTag", b =>
                 {
                     b.HasOne("Glimpse.Models.Card", null)
@@ -510,13 +504,26 @@ namespace Glimpse.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CardUser", b =>
+                {
+                    b.HasOne("Glimpse.Models.Card", null)
+                        .WithMany()
+                        .HasForeignKey("CardsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Glimpse.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Glimpse.Models.Board", b =>
                 {
                     b.HasOne("Glimpse.Models.Project", "Project")
                         .WithMany("Boards")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProjectId");
 
                     b.Navigation("Project");
                 });
@@ -632,21 +639,6 @@ namespace Glimpse.Migrations
                     b.HasOne("Glimpse.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Glimpse.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("UserCard", b =>
-                {
-                    b.HasOne("Glimpse.Models.Card", null)
-                        .WithMany()
-                        .HasForeignKey("CardsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

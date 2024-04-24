@@ -1,43 +1,43 @@
-@model ICollection<Board>
+@model Project
 @{
     ViewData["Title"] = "Quadros do projeto";
-    Project project = ViewData["project"] as Project;
+    var projectBoards = ViewData["Boards"] as List<Board>;
+    bool? creatorR = ViewData["Creator"] as bool?;
+    bool creator = creatorR ?? false;
 }
 
 <section>
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
         <ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
-                <h1>Quadros - @project.Name</h1>
-            </li>
-            <li class="nav-item">
-                <a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@project.Id">+ Criar Quadro</a>
+                <h1>Quadros - @Model.Name</h1>
             </li>
         </ul>
     </div>
-
+    <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@Model.Id">+ Criar Quadro</a></center>
+    <center><a class="CTA-MODEL-01" asp-controller="Role" asp-action="ShowRoles" asp-route-projectId="@Model.Id">+ Ver Cargos</a></center>
+    @if(creator){
+        <center><a class="CTA-MODEL-01" asp-controller="Project" asp-action="Add" asp-route-projectId="@Model.Id">+ Adicionar usuários</a></center>
+    }
+    
     <section class="project-list-section">
         <ul class="navbar-nav flex-grow-1">
-        @if (Model != null)
-        {
-            @foreach (Board b in Model) 
+            @foreach (Board b in projectBoards) 
             {
                 <li class="nav-item-7">
                     <div class="project-card">
-                        <a class="sla" asp-controller="Project" asp-action="GetProject" asp-route-id="@b.Id">
-                            <img class="img-icon" src="@Url.Content(b.Background)" alt="">
+                        <a class="sla" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@b.Id">
                             <p>@b.Name</p>
                         </a>
                         <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
                         
                     </div>
                     <label class="pop-up-1" id="pop-up-@b.Id" style="display: none;">
-                        <a asp-controller="Project" asp-action="EditProject" asp-route-id="@b.Id">Editar</a>
+                        <a asp-controller="Board" asp-action="Edit" asp-route-id="@b.Id">Editar</a>
                         <img class="normal-icon" src="../icons/edit.svg" alt="">
                     </label>
                 </li>
             }
-        }
         </ul>
     </section>
 </section>

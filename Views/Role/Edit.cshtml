@@ -3,8 +3,9 @@
     int? projectId = ViewData["projectId"] as int?;
 }
 
-<form asp-action="CreateRole" method="post" enctype="multipart/form-data">
+<form asp-action="EditRole" method="post" enctype="multipart/form-data">
     <div class="form-group">
+
         <label asp-for="Name">Titulo do Cargo:</label>
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name" class="text-danger"></span>
@@ -17,18 +18,19 @@
         <input asp-for="Color" class="form-control" />
         <span asp-validation-for="Color" class="text-danger"></span>
 
-        <label asp-for="Hierarchy">Permissão:</label>
+        <label asp-for="Hierarchy">Poder:</label>
         <select asp-for="Hierarchy" class="form-control">
             <option value="1">Ver</option>
             <option value="2">Ver - Editar</option>
             <option value="3">Ver - Editar - Comandar</option>
         </select>
 
+        <input type="hidden" asp-for="Id" name="Id" class="form-control"></input>
         <input type="hidden" id="projectId" name="projectId" class="form-control" value="@projectId"></input>
         
     </div>
     
     <!-- Add other fields as needed -->
 
-    <button type="submit" class="btn btn-primary">Criar cargo</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
 </form>

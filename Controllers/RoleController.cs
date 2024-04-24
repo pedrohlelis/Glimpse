@@ -17,155 +17,149 @@ public class RoleController : Controller
         _hostEnvironment = hostEnvironment;
     }
     // Padrão para Roles, exibe todos os registros (teste)
-    public async Task<IActionResult> ShowRoles()
+    public async Task<IActionResult> ShowRoles(int projectId)
     {
-        // Lista de todos os projetos
-        ViewData["projects"] = _db.Projects.ToList();
-        // Lista de todos os usuários
-        ViewData["users"] = _db.Users.ToList();
-        // Relacionamento user - role
-        ViewData["userRole"] = _db.UserRoles.ToList();
-        // Lista de todos os roles
-        List<Role> roles = _db.Roles.ToList();
+        ICollection<Role> roles;
+        
+        System.Console.WriteLine(projectId);
+
+        var project = _db.Projects
+            .Include(p => p.Roles)
+            .Single(p => p.Id == projectId);
+        roles = project.Roles;
+
+        ViewData["projectId"] = projectId;
         
         return View(roles);
     }
-    public async Task<IActionResult> GetProjectBoards(int id)
-    {
-        Project project = await _db.Projects.FindAsync(id);
-
-        if (project == null)
-        {
-            return NotFound();
-        }
-        ViewData["ProjectBoards"] = project.Boards;
-
-        return View();
-    }
 
     // CREATE
-    public IActionResult Create(string id)
+    public IActionResult Create(int projectId)
     {
-        foreach (User item in _db.Users)
-        {
-            if(item.Id == id)
-            {
-                //name = item.UserName;
-                break;
-            }
-        }
+        // Lista de todos os projetos
+        ViewData["projectId"] = projectId;
 
         return View();
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateRole(Board Board, IFormFile BoardImg)
+    public async Task<IActionResult> CreateRole(Role role, int projectId)
     {
-        Board.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
 
-        if (ModelState.IsValid)
-        {
-            if (BoardImg != null && BoardImg.Length > 0)
-            {
-                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = new Guid() + "_" + Path.GetFileName(BoardImg.FileName);
-                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
-                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-                {
-                    await BoardImg.CopyToAsync(stream);
-                }
-                Board.Background = "../board-pictures/" + nomeArquivo;
-            } 
-            _db.Boards.Add(Board);
-            await _db.SaveChangesAsync();
+        Project project = _db.Projects.Find(projectId);
+        role.Project = project;
+        // Lista de todos os roles
+        _db.Roles.Add(role);
+        project.Roles.Add(role);
+        await _db.SaveChangesAsync();
+        return RedirectToAction("ShowRoles", new { projectId });
+        
 
-            return RedirectToAction("BoardBoards");
-        }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
-
-        return View("Create", Board);
+        // return RedirectToAction("Create", new { projectId });
     }
 
     // UPDATE
-    public async Task<IActionResult> Edit(int id)
+    public async Task<IActionResult> Edit(int projectId, int roleId)
     {
-        var Board = await _db.Boards.FindAsync(id);
-
-        if (Board == null)
+        Role role = _db.Roles.Find(roleId);
+        if (role == null)
         {
-            return NotFound();
+            return NotFound("Cargo não encontrado");
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
-        return View(Board);
+        ViewData["projectId"] = projectId;
+
+        return View(role);
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditarBoard(Board Board)
+    public async Task<IActionResult> EditRole(Role role, int projectId)
     {
-        if (ModelState.IsValid)
+        try
         {
-            //var BoardAntigo = await _db.Boards.FindAsync(Board.CodBoard);
-            //_db.Entry(BoardAntigo).CurrentValues.SetValues(Board);
-            try
-            {
-                await _db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                //ViewData["uniqueAlert"] = "Chassi do Board ja cadastrado";
-                //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
-
-                return View("Edit", Board);
-            }
-            return RedirectToAction("Get");
+            Role toEditRole = _db.Roles.Find(role.Id);
+            _db.Entry(toEditRole).CurrentValues.SetValues(role);
+            await _db.SaveChangesAsync();
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
+        catch (DbUpdateException)
+        {
+            return RedirectToAction("Edit", new {role.Id, projectId});
+        }
+        return RedirectToAction("ShowRoles", new {projectId});
 
-        return View("Edit", Board);
+        // return RedirectToAction("Edit", new {role.Id, projectId});
     }
 
     // DELETE
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(int projectId, int roleId)
     {
-        var Board = await _db.Boards.FindAsync(id);
+        Role role = await _db.Roles.FindAsync(roleId);
 
-        if (Board == null)
-        {
-            return NotFound();
-        }
+        ViewData["projectId"] = projectId;
 
-        return View(Board);
+        return View(role);
     }
 
     [HttpPost]
-    public async Task<IActionResult> DeletarBoard(Board Board)
+    public async Task<IActionResult> DeleteRole(Role role)
     {
-        if (ModelState.IsValid)
-        {
-            Board item = await _db.Boards.FindAsync(Board.Id);
-            _db.Entry(item).CurrentValues.SetValues(Board);
-            await _db.SaveChangesAsync();
+        Role toDeleteRole = await _db.Roles.FindAsync(role.Id);
+        _db.Roles.Remove(toDeleteRole);
+        await _db.SaveChangesAsync();
 
-            return RedirectToAction("Get");
-        }
-
-        return View("Delete", Board);
+        return RedirectToAction("Get");
     }
 
-    public async Task<ICollection<User>> GetUsersFromBoard(Board board)
+    public async Task<IActionResult> Assign(int roleId, int projectId)
     {
-        ICollection<User> users = [];
+        Role role = _db.Roles.Find(roleId);
+        Project project = _db.Projects
+            .Include(p => p.Users)
+            .Single(p => p.Id == projectId);
 
-        foreach (User user in board.Project.Users)
+
+        ICollection<User> projectUsers = [];
+        foreach (User user in project.Users)
         {
-            if (user.IsActive == true)
+            if (user.IsActive)
             {
-                users.Add(user);
+                projectUsers.Add(user);
             }
         }
+
+        ViewData["projectUsers"] = projectUsers;
+
+        return View(role);
+    }
+
+    public async Task<IActionResult> AtribuirRole(int roleId, string userId)
+    {
+        Role role = _db.Roles
+            .Include(r => r.Project)
+            .Single(r => r.Id == roleId);
+        User user = _db.Users.Find(userId);
+        int projectId = role.Project.Id;
+        role.Users.Add(user);
+        await _db.SaveChangesAsync();
         
-        return users;
+        return RedirectToAction("ShowRoles", new { projectId });
+    }
+
+    public async Task<IActionResult> UserRoles(int projectId)
+    {
+        ICollection<Role> roles;
+        
+        System.Console.WriteLine(projectId);
+
+        var project = _db.Projects
+            .Include(p => p.Roles)
+            .Include(r => r.Roles)
+            .Single(p => p.Id == projectId);
+        roles = project.Roles;
+
+        ViewData["projectId"] = projectId;
+        
+        return View(roles);
     }
 
     public ICollection<Lane> GetLanesFromBoard(Board board)

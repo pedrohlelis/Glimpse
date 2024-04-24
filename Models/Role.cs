@@ -12,5 +12,5 @@ public class Role
     public string? Color { get; set; }
     public int Hierarchy { get; set; }
     public ICollection<User> Users { get; } = [];
-    public Project Project { get; set; } = null!;
+    public Project? Project { get; set; }
 }
