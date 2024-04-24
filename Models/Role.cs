@@ -11,6 +11,6 @@ public class Role
     public string? Description { get; set; }
     public string? Color { get; set; }
     public int Hierarchy { get; set; }
-    public ICollection<User> Users { get; } = [];
-    public Project? Project { get; set; }
+    public virtual ICollection<User> Users { get; } = [];
+    public virtual Project? Project { get; set; }
 }

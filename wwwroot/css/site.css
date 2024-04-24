@@ -7,7 +7,8 @@
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem rgb(32, 32, 32), 0 0 0 0.25rem #258cfb;
+  text-decoration: none;
 }
 * {
   font-family: 'Poppins', sans-serif;
@@ -23,6 +24,7 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-clip: content-box
 }
 
 .project-card {
@@ -68,7 +70,7 @@ body {
   font-size: 16px;
   position: relative;
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  border: 1px solid #131313;
   padding: 15px;
   z-index: 1;
   color: black;
@@ -82,4 +84,61 @@ body {
 .normal-icon {
   width: 10px;
   height: 10px;
+}
+
+.lanes {
+  display: flex;
+}
+
+.lane {
+  padding: 1%;
+  justify-content: space-between;
+  border-radius: 0.8vw;
+  width: 14vw;
+}
+
+.lane-name {
+  display: flex;
+  width: 100%;
+  padding: 4%;
+  border-radius: 0.4vw;
+  align-content: center;
+  column-gap: 0.8vw;
+}
+
+.lane-name p {
+  margin: 0;
+}
+
+hr {
+  margin: 0;
+}
+
+.number-circle {
+  background-color: #e2e2e2;
+  border-radius: 50%;
+  width: 1.2vw;
+  text-align: center;
+}
+
+.new-card-btn {
+  display: flex;
+  width: 100%;
+  height: 6vh;
+  border-radius: 0.4vw;
+  text-align: center;
+  justify-content: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.new-card-btn a {
+  align-content: center;
+}
+
+.new-lane-btn {
+  width: 12%;
+  height: 6vh;
+  border-radius: 0.4vw;
+  align-content: center;
+  border: none;
 }

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "LsZvafkpPzMy8pnypPGXmf+VXquzpCesppR6bTry2lHXxpJR90m/B+Rhjsqg4rbggrBVvbMAED5rYboSJj7y3g==",
   "success": true,
   "projectFilePath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\Glimpse.csproj",
+=======
+  "dgSpecHash": "O+IMMc/6w2/lWJKeVykLBJ0P7MW48a7abACVvOsDRGZ/rvOzoU9mwPf7zMVYySTXjd5vqX4w7F9v1fN5jAf13Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\Glimpse.csproj",
+>>>>>>> origin/branch-victor
   "expectedPackageFiles": [
     "C:\\Users\\patum\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\patum\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
