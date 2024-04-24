@@ -53,7 +53,7 @@ public class ProjectController : Controller
             if (projectImg != null && projectImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
-                string nomeArquivo = new Guid() + "_" + Path.GetFileName(projectImg.FileName);
+                string nomeArquivo = Guid.NewGuid() + "_" + Path.GetFileName(projectImg.FileName);
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {

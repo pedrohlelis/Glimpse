@@ -1166,3 +1166,9 @@ C:\Users\victo\Downloads\Glimpse\obj\Debug\net8.0\refint\Glimpse.dll
 C:\Users\victo\Downloads\Glimpse\obj\Debug\net8.0\Glimpse.pdb
 C:\Users\victo\Downloads\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Users\victo\Downloads\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Options.dll

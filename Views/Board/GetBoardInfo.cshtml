@@ -10,21 +10,20 @@
 </section>
 
 <section class="board-main-layout">
-    <div>
-        <!-- botao de adicionar aqui -->
-        <button id="addLaneButton">Adicionar Raia</button>
-        <!-- raia aqui -->
+    <div class="lanes">
         @foreach (Lane lane in Model.Lanes)
         {
-            <div>
-                <div>
-                    <form class="lane-form" asp-action="CreateLane" asp-controller="Lane" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
-                        <input type="text" value="@lane.Name" class="lane-name-input">
-                        <input type="submit" style="visibility: hidden;"/>
-                    </form>
-                    <p>@lane.Cards.Count</p>
+            <div class="lane">
+                <div class="lane-name">
+                    <p>@lane.Name</p>
+                    <p class="number-circle">@lane.Cards.Count</p>
                 </div>
-                <a href="#">Criar card</a>
+                <hr>
+                <br>
+                <div class="new-card-btn">
+                    <img src="../Icons/plusIcon.svg" alt="">
+                    <a href="#">Nova Tarefa</a>
+                </div>
                 <ul>
                     @foreach (Card card in lane.Cards)
                     {
@@ -35,6 +34,7 @@
                 </ul>
             </div>
         }
+        <button class="new-lane-btn" id="addLaneButton">Adicionar Raia</button>
     </div>
 </section>
 
@@ -49,8 +49,15 @@
 
             var input = document.createElement('input');
             input.type = 'text';
+            input.name = 'name'
             input.value = 'Nome da Raia';
             input.className = 'lane-name-input';
+            form.appendChild(input);
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'id'
+            input.value = @Model.Id;
             form.appendChild(input);
 
             var submit = document.createElement('input');
@@ -65,10 +72,14 @@
             input.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    this.form.submit();
+                    var laneName = this.value.trim();
+                    if (laneName !== '') {
+                        this.form.submit();
+                    }
                 }
             });
         });
+
         $('.lane-form').on('submit', function(e) {
             e.preventDefault();
             var form = this;
@@ -101,6 +112,5 @@
                 alert('O nome da raia não pode ser vazio.');
             }
         });
-
     </script>
 }
