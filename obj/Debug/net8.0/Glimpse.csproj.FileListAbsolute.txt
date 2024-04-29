@@ -1340,7 +1340,6 @@ C:\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.build.Glimpse.props
 C:\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Glimpse.props
 C:\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Glimpse.props
 C:\Glimpse\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Glimpse\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Glimpse\obj\Debug\net8.0\scopedcss\bundle\Glimpse.styles.css
 C:\Glimpse\obj\Debug\net8.0\scopedcss\projectbundle\Glimpse.bundle.scp.css
 C:\Glimpse\obj\Debug\net8.0\Glimpse.csproj.Up2Date
@@ -1349,3 +1348,4 @@ C:\Glimpse\obj\Debug\net8.0\refint\Glimpse.dll
 C:\Glimpse\obj\Debug\net8.0\Glimpse.pdb
 C:\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
+C:\Glimpse\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

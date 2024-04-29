@@ -13,14 +13,6 @@
       "PackagePath": "staticwebassets\\Icons\\default-pfp.png"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
-      "PackagePath": "staticwebassets\\Icons\\default_avatar.webp"
-    },
-    {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
-      "PackagePath": "staticwebassets\\Icons\\default_pfp.png"
-    },
-    {
       "Id": "C:\\Glimpse\\wwwroot\\Icons\\vertical-dots.svg",
       "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
     },
@@ -79,6 +71,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\css\\site.css",
@@ -447,6 +443,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
       "PackagePath": "staticwebassets\\project-pictures\\f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\registerSideImage.svg",
+      "PackagePath": "staticwebassets\\registerSideImage.svg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props",

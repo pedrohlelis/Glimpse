@@ -53,6 +53,7 @@ public class AccountController : Controller
 
     public IActionResult Register()
     {
+        ViewData["stylesheetUrl"] = "~/css/register.css";
         return View();
     }
     [HttpPost]
