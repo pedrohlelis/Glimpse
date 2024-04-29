@@ -160,22 +160,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Icons\default_pfp.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Icons\plusIcon.svg))">
-      <SourceType>Package</SourceType>
-      <SourceId>Glimpse</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Glimpse</BasePath>
-      <RelativePath>Icons/plusIcon.svg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Icons\plusIcon.svg))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Icons\vertical-dots.svg))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
@@ -1200,20 +1184,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_download.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-<<<<<<< HEAD
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png))">
-=======
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_El_Primo.png))">
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Glimpse</BasePath>
-<<<<<<< HEAD
-      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png</RelativePath>
-=======
       <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_El_Primo.png</RelativePath>
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1222,9 +1198,6 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-<<<<<<< HEAD
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png))</OriginalItemSpec>
-=======
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_El_Primo.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_Frame 3.png))">
@@ -1242,7 +1215,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_Frame 3.png))</OriginalItemSpec>
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_logico_1glimpse.png))">
       <SourceType>Package</SourceType>
@@ -1260,7 +1248,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_logico_1glimpse.png))</OriginalItemSpec>
     </StaticWebAsset>
-<<<<<<< HEAD
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
@@ -1277,12 +1264,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_volvo FH16.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Glimpse</BasePath>
-      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_volvo FH16.jpg</RelativePath>
+      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1291,13 +1278,25 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_volvo FH16.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\0_Logo Gradient.png))">
-=======
-<<<<<<< HEAD
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pipefinal.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_pipefinal.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pipefinal.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_resultado_Figura (1).png))">
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -1345,15 +1344,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_roblok.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\0_Logo Gradient.png))">
-=======
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg))">
->>>>>>> origin/branch-victor
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_volvo FH16.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Glimpse</BasePath>
-      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg</RelativePath>
+      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_volvo FH16.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1362,23 +1358,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pipefinal.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>Glimpse</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Glimpse</BasePath>
-      <RelativePath>project-pictures/00000000-0000-0000-0000-000000000000_pipefinal.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_pipefinal.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\00000000-0000-0000-0000-000000000000_volvo FH16.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg))">
       <SourceType>Package</SourceType>
@@ -1412,20 +1392,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-<<<<<<< HEAD
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif))">
-=======
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg))">
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Glimpse</BasePath>
-<<<<<<< HEAD
-      <RelativePath>UserProfilePics/14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif</RelativePath>
-=======
       <RelativePath>project-pictures/4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg</RelativePath>
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1434,24 +1406,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-<<<<<<< HEAD
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif))">
-=======
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg))">
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Glimpse</BasePath>
-<<<<<<< HEAD
-      <RelativePath>UserProfilePics/87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif</RelativePath>
-=======
       <RelativePath>project-pictures/9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg</RelativePath>
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1460,24 +1422,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-<<<<<<< HEAD
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png))">
-=======
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg))">
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Glimpse</BasePath>
-<<<<<<< HEAD
-      <RelativePath>UserProfilePics/9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png</RelativePath>
-=======
       <RelativePath>project-pictures/ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg</RelativePath>
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1486,9 +1438,6 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-<<<<<<< HEAD
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png))</OriginalItemSpec>
-=======
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg))">
@@ -1554,7 +1503,54 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg))</OriginalItemSpec>
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>UserProfilePics/14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>UserProfilePics/87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>UserProfilePics/9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UserProfilePics\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

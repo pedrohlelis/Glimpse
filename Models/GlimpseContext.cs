@@ -6,6 +6,10 @@ using Newtonsoft.Json.Serialization;
 namespace Glimpse.Models;
 public class GlimpseContext(DbContextOptions<GlimpseContext> options) : IdentityDbContext<User>(options)
 {
+    // public GlimpseContext(DbContextOptions<GlimpseContext> options) : base(options)
+    // {
+
+    // }
     public virtual DbSet<Project> Projects { get; set; } = null!;
     public virtual DbSet<Board> Boards { get; set; } = null!;
     public virtual DbSet<Lane> Lanes { get; set; } = null!;

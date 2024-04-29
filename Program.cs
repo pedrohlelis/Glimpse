@@ -12,7 +12,7 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 
 var connectionString = builder.Configuration.GetConnectionString("default");
 
-
+builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(
         CertificateAuthenticationDefaults.AuthenticationScheme)
     .AddCertificate();

@@ -7968,45 +7968,24 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Pedro\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\patum\\.nuget\\packages\\": {}
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Glimpse\\Glimpse.csproj",
       "projectName": "Glimpse",
       "projectPath": "C:\\Glimpse\\Glimpse.csproj",
       "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
       "outputPath": "C:\\Glimpse\\obj\\",
-=======
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\Glimpse.csproj",
-      "projectName": "Glimpse",
-      "projectPath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\Glimpse.csproj",
-      "packagesPath": "C:\\Users\\patum\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\Glimpse.csproj",
-      "projectName": "Glimpse",
-      "projectPath": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\Glimpse.csproj",
-      "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\obj\\",
->>>>>>> origin/branch-victor
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-        "C:\\Users\\patum\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8026,6 +8005,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8102,12 +8086,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
->>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Glimpse\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
