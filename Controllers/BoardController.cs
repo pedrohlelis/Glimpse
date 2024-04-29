@@ -19,9 +19,9 @@ public class BoardController : Controller
         _hostEnvironment = hostEnvironment;
         _userManager = userManager;
     }
-    public IActionResult GetBoardInfo(int id)
+
+    public async Task<IActionResult> GetBoardInfo(int id)
     {
-        System.Console.WriteLine(id);
         var board = _db.Boards
             .Include(u => u.Lanes)
             .Single(u => u.Id == id);
@@ -43,12 +43,22 @@ public class BoardController : Controller
         Project project = _db.Projects
             .Include(u => u.Boards)
             .Single(u => u.Id == id);
+        bool creator = false;
+        if (project == null || !project.IsActive )
 
         if (project == null || project.IsActive == false)
         {
             return NotFound();
         }
+        string userId = _userManager.GetUserId(User);
+
+        if (userId == project.ResponsibleUserId)
+        {
+            creator = true;
+        }
+
         ViewData["Boards"] = project.Boards;
+        ViewData["Creator"] = creator;
 
         return View(project);
     }
@@ -58,12 +68,11 @@ public class BoardController : Controller
         var project = _db.Projects
             .Include(u => u.Boards)
             .Single(u => u.Id == id);
-        System.Console.WriteLine(project.Id);
 
         ViewData["project"] = project;
         ViewData["projectName"] = project.Name;
         ViewData["projectId"] = project.Id;
-
+        
         return View();
     }
 
@@ -90,14 +99,12 @@ public class BoardController : Controller
             }
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
-
             var project = await _db.Projects
                 .Include(u => u.Boards)
                 .SingleAsync(p => p.Id == projectId);
 
             project.Boards.Add(Board);
             await _db.SaveChangesAsync();
-
             return RedirectToAction("GetBoardInfo", new { id = Board.Id });
         }
 
@@ -177,7 +184,7 @@ public class BoardController : Controller
                 users.Add(user);
             }
         }*/
-
+        
         return null;
     }
 

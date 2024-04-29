@@ -9,12 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Glimpse
 build_property.RootNamespace = Glimpse
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Glimpse\
+=======
+build_property.ProjectDir = c:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = C:\Glimpse
 build_property._RazorSourceGeneratorDebug = 
 
@@ -23,13 +28,20 @@ build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtRW1haWwu
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Glimpse/Views/Account/Login.cshtml]
+=======
+build_property.MSBuildProjectDirectory = c:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse
+build_property._RazorSourceGeneratorDebug = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Account/Login.cshtml]
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Glimpse/Views/Account/Register.cshtml]
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< HEAD
 [C:/Glimpse/Views/Account/SuccessRegistration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTdWNjZXNzUmVnaXN0cmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -79,17 +91,93 @@ build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Glimpse/Views/Shared/_LoginPartial.cshtml]
+=======
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Board/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Board/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Board/GetBoardInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcR2V0Qm9hcmRJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Board/GetProjectBoards.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcR2V0UHJvamVjdEJvYXJkcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Project/MainProjects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxNYWluUHJvamVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Role/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBc3NpZ24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Role/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Role/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Role/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Role/ShowRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxTaG93Um9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Role/UserRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxVc2VyUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Shared/_LoginPartial.cshtml]
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Glimpse/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Glimpse/Views/User/Profile.cshtml]
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/User/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< HEAD
 [C:/Glimpse/Views/User/ProfileEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -103,5 +191,20 @@ build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Glimpse/Views/Shared/_Layout.cshtml]
+=======
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/User/ProfileEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse/Views/Shared/_Layout.cshtml]
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9dixb1gj9v

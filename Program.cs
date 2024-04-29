@@ -37,8 +37,6 @@ builder.Services.AddIdentity<User, IdentityRole>(
     .AddEntityFrameworkStores<GlimpseContext>().AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

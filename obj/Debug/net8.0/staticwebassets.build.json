@@ -1,6 +1,14 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "ZLU4mXm4oQg7W7vnQHi/m8b9lH3KV6jfbIfhb2kKs7A=",
+=======
+<<<<<<< HEAD
+  "Hash": "Vl0ESU897dRSHa5HRaotapOTuuqWp4zv7e9/RR3IFWs=",
+=======
+  "Hash": "pdTXn/t2m+21ClkuT3HL99X7qUwy2IoTicrDEBL541c=",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -10,17 +18,39 @@
     {
       "Name": "Glimpse\\wwwroot",
       "Source": "Glimpse",
+<<<<<<< HEAD
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Glimpse.styles.css",
       "SourceId": "Glimpse",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Glimpse.styles.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Glimpse.styles.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "Glimpse.styles.css",
       "AssetKind": "All",
@@ -33,6 +63,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Glimpse.styles.css"
     },
     {
@@ -40,6 +71,25 @@
       "SourceId": "Glimpse",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+=======
+<<<<<<< HEAD
+      "OriginalItemSpec": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Glimpse.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+=======
+      "OriginalItemSpec": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Glimpse.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "Glimpse.bundle.scp.css",
       "AssetKind": "All",
@@ -52,6 +102,7 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css"
     },
     {
@@ -59,6 +110,63 @@
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "OriginalItemSpec": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\css\\site.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "OriginalItemSpec": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\board-pictures\\33fff271-dba3-4d04-b038-92a9be6eb3f3-board-pic.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "board-pictures/33fff271-dba3-4d04-b038-92a9be6eb3f3-board-pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\board-pictures\\33fff271-dba3-4d04-b038-92a9be6eb3f3-board-pic.png"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "board-pictures/4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\css\\site.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -74,10 +182,24 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\default-images\\defaultBackground.jpg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\default-images\\defaultBackground.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\default-images\\defaultBackground.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "default-images/defaultBackground.jpg",
       "AssetKind": "All",
@@ -93,10 +215,24 @@
       "OriginalItemSpec": "wwwroot\\default-images\\defaultBackground.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\favicon.ico",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\favicon.ico",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\favicon.ico",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -112,10 +248,24 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\Icons\\default_avatar.webp",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "Icons/default_avatar.webp",
       "AssetKind": "All",
@@ -131,10 +281,24 @@
       "OriginalItemSpec": "wwwroot\\Icons\\default_avatar.webp"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\Icons\\default_pfp.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "Icons/default_pfp.png",
       "AssetKind": "All",
@@ -150,12 +314,27 @@
       "OriginalItemSpec": "wwwroot\\Icons\\default_pfp.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\Icons\\default-avatar.webp",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "Icons/default-avatar.webp",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\js\\site.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\Icons\\plusIcon.svg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "Icons/plusIcon.svg",
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -166,6 +345,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\Icons\\default-avatar.webp"
     },
     {
@@ -175,6 +355,17 @@
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "Icons/default-pfp.png",
+=======
+      "OriginalItemSpec": "wwwroot\\Icons\\plusIcon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\Icons\\vertical-dots.svg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "Icons/vertical-dots.svg",
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,6 +376,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\Icons\\default-pfp.png"
     },
     {
@@ -192,6 +384,16 @@
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+      "OriginalItemSpec": "wwwroot\\Icons\\vertical-dots.svg"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\js\\site.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -207,10 +409,24 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -226,10 +442,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -245,10 +475,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -264,10 +508,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -283,10 +541,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -302,10 +574,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -321,10 +607,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -340,10 +640,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -359,10 +673,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -378,10 +706,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -397,10 +739,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -416,10 +772,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -435,10 +805,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -454,10 +838,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -473,10 +871,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -492,10 +904,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -511,10 +937,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -530,10 +970,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -549,10 +1003,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -568,10 +1036,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -587,10 +1069,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -606,10 +1102,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -625,10 +1135,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -644,10 +1168,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -663,10 +1201,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -682,10 +1234,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -701,10 +1267,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -720,10 +1300,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -739,10 +1333,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -758,10 +1366,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -777,10 +1399,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -796,10 +1432,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -815,10 +1465,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -834,10 +1498,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -853,10 +1531,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -872,10 +1564,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -891,10 +1597,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -910,10 +1630,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -929,10 +1663,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -948,10 +1696,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -967,10 +1729,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -986,10 +1762,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1005,10 +1795,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1024,10 +1828,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1043,10 +1861,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1062,10 +1894,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1081,10 +1927,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1100,10 +1960,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1119,10 +1993,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1138,10 +2026,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1157,10 +2059,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1176,10 +2092,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1195,10 +2125,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1214,10 +2158,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1233,10 +2191,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1252,10 +2224,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1271,10 +2257,24 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1290,10 +2290,18 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\0_Logo Gradient.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\0_Logo Gradient.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "project-pictures/0_Logo Gradient.png",
       "AssetKind": "All",
@@ -1309,10 +2317,99 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\0_Logo Gradient.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_aa segredo dog.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_aa segredo dog.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_aa segredo dog.png"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_banana.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_banana.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_banana.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned (1).jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_clowned (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned (1).jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_clowned.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_download.jpeg",
       "AssetKind": "All",
@@ -1328,12 +2425,27 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_El_Primo.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_El_Primo.png",
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1344,6 +2456,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png"
     },
     {
@@ -1351,6 +2464,35 @@
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_El_Primo.png"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_Frame 3.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_Frame 3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_Frame 3.png"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
       "AssetKind": "All",
@@ -1366,12 +2508,30 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_resultado_Figura (1).png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_resultado_Figura (1).png",
+=======
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1382,6 +2542,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg"
     },
     {
@@ -1391,6 +2552,29 @@
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_volvo FH16.jpg",
+=======
+<<<<<<< HEAD
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_resultado_Figura (1).png"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok 2.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_roblok 2.jpg",
+=======
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_pipefinal.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_pipefinal.png",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1401,6 +2585,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_volvo FH16.jpg"
     },
     {
@@ -1408,6 +2593,63 @@
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+=======
+<<<<<<< HEAD
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok 2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/00000000-0000-0000-0000-000000000000_roblok.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+=======
+      "OriginalItemSpec": "wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_pipefinal.png"
+    },
+    {
+      "Identity": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse\\wwwroot\\",
+>>>>>>> origin/branch-victor
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "BasePath": "_content/Glimpse",
       "RelativePath": "project-pictures/2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
       "AssetKind": "All",
@@ -1423,12 +2665,21 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "UserProfilePics/14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif",
+=======
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg",
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1439,6 +2690,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif"
     },
     {
@@ -1448,6 +2700,17 @@
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "UserProfilePics/87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif",
+=======
+      "OriginalItemSpec": "wwwroot\\project-pictures\\4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg",
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1458,6 +2721,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\UserProfilePics\\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif"
     },
     {
@@ -1467,6 +2731,17 @@
       "ContentRoot": "C:\\Glimpse\\wwwroot\\",
       "BasePath": "_content/Glimpse",
       "RelativePath": "UserProfilePics/9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png",
+=======
+      "OriginalItemSpec": "wwwroot\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg",
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1477,7 +2752,87 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\UserProfilePics\\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png"
+=======
+      "OriginalItemSpec": "wwwroot\\project-pictures\\ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\ec07ad0a-7735-45af-b6fd-239ccf314e94_clowned.jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/ec07ad0a-7735-45af-b6fd-239ccf314e94_clowned.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\ec07ad0a-7735-45af-b6fd-239ccf314e94_clowned.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\project-pictures\\f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+>>>>>>> 9036cca839116aa07baa6e03499779b46d02e315
     }
   ]
 }
