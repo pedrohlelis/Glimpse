@@ -7974,11 +7974,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Glimpse\\Glimpse.csproj",
       "projectName": "Glimpse",
       "projectPath": "C:\\Glimpse\\Glimpse.csproj",
       "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
       "outputPath": "C:\\Glimpse\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\Glimpse.csproj",
+      "projectName": "Glimpse",
+      "projectPath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\Glimpse.csproj",
+      "packagesPath": "C:\\Users\\patum\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\",
+>>>>>>> ffa3eaf518e47a1a51d2b9123f8ada79d5a8a2a7
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8095,7 +8103,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Glimpse\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> ffa3eaf518e47a1a51d2b9123f8ada79d5a8a2a7
     }
   ]
 }

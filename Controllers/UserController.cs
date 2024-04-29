@@ -33,7 +33,7 @@ public class UserController : Controller
 
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user.ProfilePic,
+            PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email,
@@ -49,10 +49,10 @@ public class UserController : Controller
         var user = _userManager.GetUserAsync(User).Result;
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user.ProfilePic,
+            PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Email = user.UserName,
+            Email = user.Email,
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);

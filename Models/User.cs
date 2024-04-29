@@ -9,7 +9,7 @@ public class User : IdentityUser
     [MaxLength(50)]
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
-    public string? ProfilePic { get; set; }
+    public string? Picture { get; set; }
     public bool IsActive { get; set; }
     // card x user
     public virtual ICollection<Card> Cards { get; } = [];
