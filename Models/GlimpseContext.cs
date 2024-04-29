@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Newtonsoft.Json.Serialization;
+
 
 namespace Glimpse.Models;
 public class GlimpseContext(DbContextOptions<GlimpseContext> options) : IdentityDbContext<User>(options)

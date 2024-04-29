@@ -176,7 +176,7 @@ public class BoardController : Controller
     [HttpPost]
     public async Task<IActionResult> DeletarBoard(Board Board, IFormFile BoardImg, int projectId)
     {
-         if (ModelState.IsValid)
+        if (ModelState.IsValid)
         {
             if (BoardImg != null && BoardImg.Length > 0)
             {

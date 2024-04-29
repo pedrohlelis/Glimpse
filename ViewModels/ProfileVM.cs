@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json.Serialization;
+
 
 namespace Glimpse.ViewModels;
 

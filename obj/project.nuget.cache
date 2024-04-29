@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "DEFp9wEEij1m4JYjQGvdIuLZEZKvDDPUPUeP98WepujIKCJa65kz23LOCTjr8CjDiQYQABd6krRDwgl+xKeZQg==",
   "success": true,
   "projectFilePath": "C:\\Glimpse\\Glimpse.csproj",
-=======
-  "dgSpecHash": "LsZvafkpPzMy8pnypPGXmf+VXquzpCesppR6bTry2lHXxpJR90m/B+Rhjsqg4rbggrBVvbMAED5rYboSJj7y3g==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\Glimpse.csproj",
->>>>>>> ffa3eaf518e47a1a51d2b9123f8ada79d5a8a2a7
   "expectedPackageFiles": [
     "C:\\Users\\Pedro\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -162,11 +156,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Glimpse\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> ffa3eaf518e47a1a51d2b9123f8ada79d5a8a2a7
     }
   ]
 }

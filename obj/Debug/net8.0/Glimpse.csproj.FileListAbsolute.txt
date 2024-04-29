@@ -872,7 +872,6 @@ C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Asp
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-<<<<<<< HEAD
 >>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
 >>>>>>> d3880efd79220a002e868f2ca2b90593e94f23bc
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -881,10 +880,6 @@ C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimps
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-=======
-<<<<<<< HEAD
-=======
->>>>>>> a05743459eb76b0b9a7c1e9a2f7c1afb483ed156
 >>>>>>> ffa3eaf518e47a1a51d2b9123f8ada79d5a8a2a7
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\appsettings.json
@@ -1193,17 +1188,6 @@ C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Exten
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 >>>>>>> origin/branch-victor
-<<<<<<< HEAD
-C:\Glimpse\obj\Debug\net8.0\Glimpse.csproj.AssemblyReference.cache
-C:\Glimpse\obj\Debug\net8.0\Glimpse.GeneratedMSBuildEditorConfig.editorconfig
-C:\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfoInputs.cache
-C:\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfo.cs
-C:\Glimpse\obj\Debug\net8.0\Glimpse.csproj.CoreCompileInputs.cache
-C:\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cs
-C:\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cache
-C:\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cache
-C:\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cs
-C:\Glimpse\obj\Debug\net8.0\Glimpse.sourcelink.json
 C:\Glimpse\bin\Debug\net8.0\appsettings.Development.json
 C:\Glimpse\bin\Debug\net8.0\appsettings.json
 C:\Glimpse\bin\Debug\net8.0\Glimpse.staticwebassets.runtime.json
@@ -1339,6 +1323,16 @@ C:\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Glimpse\obj\Debug\net8.0\Glimpse.csproj.AssemblyReference.cache
+C:\Glimpse\obj\Debug\net8.0\Glimpse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfoInputs.cache
+C:\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfo.cs
+C:\Glimpse\obj\Debug\net8.0\Glimpse.csproj.CoreCompileInputs.cache
+C:\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cs
+C:\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cache
+C:\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cache
+C:\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cs
+C:\Glimpse\obj\Debug\net8.0\Glimpse.sourcelink.json
 C:\Glimpse\obj\Debug\net8.0\staticwebassets.build.json
 C:\Glimpse\obj\Debug\net8.0\staticwebassets.development.json
 C:\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props
@@ -1355,155 +1349,3 @@ C:\Glimpse\obj\Debug\net8.0\refint\Glimpse.dll
 C:\Glimpse\obj\Debug\net8.0\Glimpse.pdb
 C:\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
-=======
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.csproj.AssemblyReference.cache
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfoInputs.cache
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfo.cs
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.csproj.CoreCompileInputs.cache
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cache
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cs
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.sourcelink.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\appsettings.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Glimpse.staticwebassets.runtime.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Glimpse.exe
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Glimpse.deps.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Glimpse.runtimeconfig.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Glimpse.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Glimpse.pdb
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Azure.Core.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Azure.Identity.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Humanizer.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\dotnet-ef.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Mono.TextTemplating.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.CodeDom.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Composition.AttributedModel.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Composition.Convention.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Composition.Hosting.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Composition.Runtime.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Composition.TypedParts.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Drawing.Common.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Memory.Data.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Runtime.Caching.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\System.Windows.Extensions.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.build.Glimpse.props
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Glimpse.props
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Glimpse.props
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\scopedcss\bundle\Glimpse.styles.css
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\scopedcss\projectbundle\Glimpse.bundle.scp.css
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.csproj.CopyComplete
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\refint\Glimpse.dll
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.pdb
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
-C:\Users\patum\OneDrive - Grupo Marista\Programação\PUC\Projeto Glimpse\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
->>>>>>> ffa3eaf518e47a1a51d2b9123f8ada79d5a8a2a7
