@@ -101,12 +101,12 @@ public class UserController : Controller
         }
         return View("ProfileEdit",profileVM);
     }
-    public async Task<IActionResult> DeleteProfile()
-    {
-        var user = _userManager.GetUserAsync(User).Result;
-            user!.IsActive = false;
-            await _userManager.UpdateAsync(user);
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
-    }
+    // public async Task<IActionResult> DeleteProfile()
+    // {
+    //     var user = _userManager.GetUserAsync(User).Result;
+    //         user!.IsActive = false;
+    //         await _userManager.UpdateAsync(user);
+    //         await _signInManager.SignOutAsync();
+    //         return RedirectToAction("Index", "Home");
+    // }
 }

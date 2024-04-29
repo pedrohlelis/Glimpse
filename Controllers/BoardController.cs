@@ -19,81 +19,91 @@ public class BoardController : Controller
         _hostEnvironment = hostEnvironment;
         _userManager = userManager;
     }
-    // Abre o quadro
-    public async Task<IActionResult> GetBoardInfo(int id)
+    public IActionResult GetBoardInfo(int id)
     {
-        var board = await _db.Boards.FindAsync(id);
+        System.Console.WriteLine(id);
+        var board = _db.Boards
+            .Include(u => u.Lanes)
+            .Single(u => u.Id == id);
 
         if (board == null)
         {
             return NotFound();
         }
-        // Lista dos usuarios do quadro
-        ViewData["users"] = GetUsersFromBoard(board);
 
-        // HashMap das raias e dos cards do quadro
-        ViewData["lanes"] = GetLanesFromBoard(board);
-        
-        // Hash -> Card e Tags
-        
+        //ViewData["users"] = GetUsersFromBoard(board);
+        ViewData["lanes"] = board.Lanes;
+        //ViewData["cards"] = 
+
 
         return View(board);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        var project = await _db.Projects.FindAsync(id);
+        Project project = _db.Projects
+            .Include(u => u.Boards)
+            .Single(u => u.Id == id);
 
         if (project == null || project.IsActive == false)
         {
             return NotFound();
         }
-        ViewData["ProjectBoards"] = project.Boards;
-        ViewData["project"] = project;
+        ViewData["Boards"] = project.Boards;
 
-        return View();
+        return View(project);
     }
 
-    // CREATE
     public IActionResult Create(int id)
     {
-        var project = _db.Projects.Find(id);
+        var project = _db.Projects
+            .Include(u => u.Boards)
+            .Single(u => u.Id == id);
+        System.Console.WriteLine(project.Id);
 
-        ViewData["Project"] = project;
+        ViewData["project"] = project;
+        ViewData["projectName"] = project.Name;
+        ViewData["projectId"] = project.Id;
 
         return View();
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateBoard(Board Board, IFormFile BoardImg, int itemid)
+    public async Task<IActionResult> CreateBoard(Board Board, IFormFile BoardImg, int projectId)
     {
         Board.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
         Board.IsActive = true;
         Board.CreatorId = _userManager.GetUserAsync(User).Result.Id;
-        Board.Project = _db.Projects.Find(itemid);
+        Board.Project = _db.Projects.Find(projectId);
 
         if (ModelState.IsValid)
         {
             if (BoardImg != null && BoardImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = new Guid() + "_" + Path.GetFileName(BoardImg.FileName);
+                string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
                     await BoardImg.CopyToAsync(stream);
                 }
                 Board.Background = "../board-pictures/" + nomeArquivo;
-            } 
+            }
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("GetBoardInfo", itemid);
+            var project = await _db.Projects
+                .Include(u => u.Boards)
+                .SingleAsync(p => p.Id == projectId);
+
+            project.Boards.Add(Board);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("GetBoardInfo", new { id = Board.Id });
         }
 
         return View("Create", Board);
     }
 
-    // UPDATE
     public async Task<IActionResult> Edit(int id)
     {
         var Board = await _db.Boards.FindAsync(id);
@@ -102,7 +112,6 @@ public class BoardController : Controller
         {
             return NotFound();
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View(Board);
     }
@@ -121,18 +130,15 @@ public class BoardController : Controller
             catch (DbUpdateException)
             {
                 //ViewData["uniqueAlert"] = "Chassi do Board ja cadastrado";
-                //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
                 return View("Edit", Board);
             }
             return RedirectToAction("Get");
         }
-        //ViewData["Filiais"] = await _db.Filiais.ToListAsync();
 
         return View("Edit", Board);
     }
 
-    // DELETE
     public async Task<IActionResult> Delete(int id)
     {
         var Board = await _db.Boards.FindAsync(id);
@@ -162,7 +168,7 @@ public class BoardController : Controller
 
     public async Task<ICollection<User>> GetUsersFromBoard(Board board)
     {
-        ICollection<User> users = [];
+        /*ICollection<User> users = [];
 
         foreach (User user in board.Project.Users)
         {
@@ -170,9 +176,9 @@ public class BoardController : Controller
             {
                 users.Add(user);
             }
-        }
-        
-        return users;
+        }*/
+
+        return null;
     }
 
     public ICollection<Lane> GetLanesFromBoard(Board board)
@@ -186,20 +192,4 @@ public class BoardController : Controller
 
         return lanes;
     }
-
-    /*public async Task<Dictionary<Lane, List<Card>>> GetLanesWithCardsAsync(int boardId)
-    {
-        Dictionary<Lane, List<Card>> laneCardHashMap = [];
-
-        foreach (Lane lane in await _db.Lanes.ToListAsync())
-        {
-            if (lane.Board.Id == boardId)
-            {
-                List<Card> cards = lane.Cards.ToList();
-                laneCardHashMap.Add(lane, cards);
-            }
-        }
-
-        return laneCardHashMap;
-    }*/
 }
