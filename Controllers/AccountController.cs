@@ -89,7 +89,7 @@ public class AccountController : Controller
                 LastName = model.LastName,
                 UserName = model.Email,
                 Email = model.Email,
-                ProfilePic = null,
+                Picture = null,
                 IsActive = true,
             };
 

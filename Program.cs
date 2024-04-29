@@ -12,7 +12,7 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 
 var connectionString = builder.Configuration.GetConnectionString("default");
 
-
+builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(
         CertificateAuthenticationDefaults.AuthenticationScheme)
     .AddCertificate();
@@ -37,8 +37,6 @@ builder.Services.AddIdentity<User, IdentityRole>(
     .AddEntityFrameworkStores<GlimpseContext>().AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

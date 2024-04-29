@@ -9,12 +9,12 @@ public class User : IdentityUser
     [MaxLength(50)]
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
-    public string? ProfilePic { get; set; }
+    public string? Picture { get; set; }
     public bool IsActive { get; set; }
     // card x user
-    public ICollection<Card> Cards { get; } = [];
+    public virtual ICollection<Card> Cards { get; } = [];
     // cargo x user
-    public ICollection<Role> Roles { get; } = [];
+    public virtual ICollection<Role> Roles { get; } = [];
     // projeto x user
-    public ICollection<Project> Projects { get; } = [];
+    public virtual ICollection<Project> Projects { get; } = [];
 }

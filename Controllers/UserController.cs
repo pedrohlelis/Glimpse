@@ -33,7 +33,7 @@ public class UserController : Controller
 
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user.ProfilePic,
+            PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email,
@@ -49,10 +49,10 @@ public class UserController : Controller
         var user = _userManager.GetUserAsync(User).Result;
         var userProfile = new ProfileVM
         {
-            ProfilePicPath = user.ProfilePic,
+            PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Email = user.UserName,
+            Email = user.Email,
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -77,13 +77,13 @@ public class UserController : Controller
                 profileVM.Email = user.Email;
             }
 
-            var profilePicture = profileVM.ProfilePicFile;
+            var profilePicture = profileVM.PictureFile;
             if (profilePicture != null && profilePicture.Length > 0)
             {
-                if (user.ProfilePic != null) { FileHandlingHelper.DeleteFile(@"..\UserProfilePics", user.ProfilePic); }
-                user!.ProfilePic = FileHandlingHelper.UploadFile(profilePicture, _profilePicFolderName, _hostingEnvironment);
+                if (user.Picture != null) { FileHandlingHelper.DeleteFile(@"..\UserProfilePics", user.Picture); }
+                user!.Picture = FileHandlingHelper.UploadFile(profilePicture, _profilePicFolderName, _hostingEnvironment);
             }
-            else { user!.ProfilePic = null; }
+            else { user!.Picture = null; }
             user.Email = profileVM.Email;
             user.UserName = profileVM.Email;
             user.FirstName = profileVM.FirstName;
@@ -100,13 +100,5 @@ public class UserController : Controller
             return View("ProfileEdit",profileVM);
         }
         return View("ProfileEdit",profileVM);
-    }
-    public async Task<IActionResult> DeleteProfile()
-    {
-        var user = _userManager.GetUserAsync(User).Result;
-            user!.IsActive = false;
-            await _userManager.UpdateAsync(user);
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
     }
 }

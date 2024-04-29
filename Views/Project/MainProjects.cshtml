@@ -44,13 +44,23 @@
                         <p>@p.Name</p>
                     </a>
                     <a style="cursor: pointer;" class="popup-trigger" data-project-id="@p.Id"><img src="../icons/more-vertical.svg" alt=""></a>
+                    <div>
+                        <center>
+                            <a class="sla" asp-controller="Project" asp-action="Edit" asp-route-id="@p.Id">editar</a>
+                        </center>
+                        <center>
+                            <a class="sla" asp-controller="Project" asp-action="Delete" asp-route-id="@p.Id">deletar</a>
+                        </center>
+                    </div>
+                    
                     
                 </div>
                 <label class="pop-up-1" id="pop-up-@p.Id" style="display: none;">
-                    <a asp-controller="Project" asp-action="EditProject" asp-route-id="@p.Id">Editar</a>
-                    <img class="normal-icon" src="../icons/edit.svg" alt="">
+                    <a asp-controller="Project" asp-action="Edit" asp-route-id="@p.Id">Editar</a>
+                    <img class="normal-icon" src="../Icons/edit.svg" alt="">
                 </label>
             </li>
+            
         }
     </ul>
 </section>
