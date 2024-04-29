@@ -84,7 +84,8 @@ public class AccountController : Controller
 
             User user = new()
             {
-                Name = model.Name,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
                 UserName = model.Email,
                 Email = model.Email,
                 Picture = null,

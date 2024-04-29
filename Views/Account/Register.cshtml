@@ -11,9 +11,14 @@
         <form asp-action="Register" method="post">
             <div asp-validation-summary="All" class="text-danger" role="alert"></div>
             <div class="mb-1">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control">
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control">
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control">
+                <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="mb-1">
                 <label asp-for="Email" class="control-label"></label>

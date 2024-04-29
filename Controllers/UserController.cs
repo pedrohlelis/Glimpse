@@ -32,7 +32,8 @@ public class UserController : Controller
         var userProfile = new ProfileVM
         {
             PicturePath = user.Picture,
-            Name = user.Name,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
             Email = user.Email,
         };
 
@@ -47,7 +48,8 @@ public class UserController : Controller
         var userProfile = new ProfileVM
         {
             PicturePath = user.Picture,
-            Name = user.Name,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
             Email = user.Email,
         };
 
@@ -71,8 +73,8 @@ public class UserController : Controller
             else { user!.Picture = null; }
             user.Email = profileVM.Email;
             user.UserName = profileVM.Email;
-            user.Name = profileVM.Name;
-            user.Name = profileVM.Name;
+            user.FirstName = profileVM.FirstName;
+            user.LastName = profileVM.LastName;
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {

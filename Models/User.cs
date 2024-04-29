@@ -7,7 +7,8 @@ public class User : IdentityUser
 {
     [PersonalData]
     [MaxLength(50)]
-    public string? Name { get; set; }
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
     public string? Picture { get; set; }
     public bool IsActive { get; set; }
     public virtual ICollection<Card>? Cards { get; set; } = [];

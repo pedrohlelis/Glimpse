@@ -9,7 +9,7 @@ ICollection<User> projectUsers = ViewData["projectUsers"] as ICollection<User>;
 <h5>Usuários do projeto:</h5>
 @foreach(User user in projectUsers)
 {
-    <p>@user.Name
+    <p>@user.FirstName @user.LastName
         <a asp-area="" asp-controller="Role" asp-action="AtribuirRole" asp-route-userId="@user.Id" asp-route-roleId="@Model.Id">Atribuir</a>
     </p>
 }
