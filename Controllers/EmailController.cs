@@ -8,16 +8,16 @@ namespace Glimpse.Controllers;
 
 public class EmailController : ControllerBase
 {
-    private readonly IEmailService _emailService;
-    public EmailController(IEmailService emailService)
+    private readonly IEmailSender _emailSender;
+    public EmailController(IEmailSender emailSender)
     {
-        _emailService = emailService;
+        _emailSender = emailSender;
     }
 
     [HttpPost("SendEmail")]
     public IActionResult SendEmail([FromForm] EmailDto request)
     {
-        if (_emailService.SendEmail(request))
+        if (_emailSender.SendEmail(request))
         {
             return Ok();
         }

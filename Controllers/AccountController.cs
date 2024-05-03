@@ -10,13 +10,13 @@ public class AccountController : Controller
 {
     private readonly SignInManager<User> _signInManager;
     private readonly UserManager<User> _userManager;
-    private readonly IEmailService _emailService;
+    private readonly IEmailSender _emailSender;
 
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IEmailService emailService)
+    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IEmailSender emailSender)
     {
         _signInManager = signInManager;
         _userManager = userManager;
-        _emailService = emailService;
+        _emailSender = emailSender;
     }
 
     public IActionResult Login()

@@ -2,7 +2,7 @@ using Glimpse.Models;
 
 namespace Glimpse.Services;
 
-public interface IEmailService
+public interface IEmailSender
 {
     public bool SendEmail(EmailDto request);
 }

@@ -6,7 +6,7 @@ using MailKit.Security;
 
 namespace Glimpse.Services
 {
-    public class EmailService : IEmailService
+    public class EmailSender : IEmailSender
     {
         public bool SendEmail(EmailDto request)
         {
