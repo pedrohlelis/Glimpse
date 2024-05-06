@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "necLWaewcFiDuOg+yO0mrF4+nKCcDR4IgMKPmd/FLDBL/mMJuVdnycjBaGcJ0w/aGOfQxspwGdnH0i1HjOQuNg==",
+  "dgSpecHash": "FhAbHdL7NMc0p3HPsz9NyucNH7jpiFAzeHb/MDBbQAIoj9It/nJ63PaZU0BXE5t2r2nXnnpMqQtqElpmGbopNQ==",
   "success": true,
   "projectFilePath": "C:\\Glimpse\\Glimpse.csproj",
   "expectedPackageFiles": [
@@ -170,6 +170,8 @@
     "C:\\Users\\Pedro\\.nuget\\packages\\nuget.projectmodel\\6.9.1\\nuget.projectmodel.6.9.1.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\nuget.protocol\\6.9.1\\nuget.protocol.6.9.1.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\nuget.versioning\\6.9.1\\nuget.versioning.6.9.1.nupkg.sha512",
+    "C:\\Users\\Pedro\\.nuget\\packages\\sendgrid\\9.29.3\\sendgrid.9.29.3.nupkg.sha512",
+    "C:\\Users\\Pedro\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Pedro\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

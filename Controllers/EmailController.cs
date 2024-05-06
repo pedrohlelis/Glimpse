@@ -3,9 +3,11 @@ using Glimpse.Models;
 using Glimpse.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Glimpse.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Glimpse.Controllers;
 
+[Authorize]
 public class EmailController : ControllerBase
 {
     private readonly IEmailSender _emailSender;
@@ -17,6 +19,7 @@ public class EmailController : ControllerBase
     [HttpPost("SendEmail")]
     public IActionResult SendEmail([FromForm] EmailDto request)
     {
+        _emailSender.SendEmail(request);
         if (_emailSender.SendEmail(request))
         {
             return Ok();

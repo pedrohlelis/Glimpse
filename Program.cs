@@ -15,7 +15,7 @@ builder.Services.AddAuthentication()
         googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
     });
 
-builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var connectionString = builder.Configuration.GetConnectionString("default");
 
@@ -36,7 +36,7 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
