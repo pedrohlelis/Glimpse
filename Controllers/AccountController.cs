@@ -53,6 +53,7 @@ public class AccountController : Controller
 
     public IActionResult Register()
     {
+        ViewData["stylesheetUrl"] = "~/css/register.css";
         return View();
     }
     [HttpPost]
@@ -89,7 +90,7 @@ public class AccountController : Controller
                 LastName = model.LastName,
                 UserName = model.Email,
                 Email = model.Email,
-                ProfilePic = null,
+                Picture = null,
                 IsActive = true,
             };
 

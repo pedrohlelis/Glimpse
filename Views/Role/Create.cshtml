@@ -1,4 +1,7 @@
 @model Role
+@{
+    int? projectId = ViewData["projectId"] as int?;
+}
 
 <form asp-action="CreateRole" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -14,12 +17,18 @@
         <input asp-for="Color" class="form-control" />
         <span asp-validation-for="Color" class="text-danger"></span>
 
-        <label asp-for="Color">Cor de Exibição:</label>
-        <input asp-for="Color" class="form-control" />
-        <span asp-validation-for="Color" class="text-danger"></span>
+        <label asp-for="Hierarchy">Permissão:</label>
+        <select asp-for="Hierarchy" class="form-control">
+            <option value="1">Ver</option>
+            <option value="2">Ver - Editar</option>
+            <option value="3">Ver - Editar - Comandar</option>
+        </select>
+
+        <input type="hidden" id="projectId" name="projectId" class="form-control" value="@projectId"></input>
+        
     </div>
     
     <!-- Add other fields as needed -->
 
-    <button type="submit" class="btn btn-primary">Create Role</button>
+    <button type="submit" class="btn btn-primary">Criar cargo</button>
 </form>

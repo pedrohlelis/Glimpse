@@ -13,7 +13,7 @@ namespace Glimpse.Services
             try
             {
                 var email = new MimeMessage();
-                email.From.Add(MailboxAddress.Parse("zion.aufderhar81@ethereal.email"));
+                email.From.Add(MailboxAddress.Parse("alan.kling@ethereal.email"));
                 email.To.Add(MailboxAddress.Parse(request.To));
                 email.Subject = request.Subject;
                 email.Body = new TextPart(TextFormat.Html) { Text = request.Body };
@@ -22,7 +22,7 @@ namespace Glimpse.Services
                 {
                     smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
                     smtp.Connect("smtp.ethereal.email", 587, SecureSocketOptions.StartTls);
-                    smtp.Authenticate("zion.aufderhar81@ethereal.email", "NFsw9r1w2nsEC9t26V");
+                    smtp.Authenticate("alan.kling@ethereal.email", "eQVNaycSa5n6qWXbdG");
                     smtp.Send(email);
                     smtp.Disconnect(true);
                     return true;

@@ -1,0 +1,469 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Glimpse\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Glimpse.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default-avatar.webp",
+      "PackagePath": "staticwebassets\\Icons\\default-avatar.webp"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\Icons\\default-pfp.png",
+      "PackagePath": "staticwebassets\\Icons\\default-pfp.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\Icons\\vertical-dots.svg",
+      "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif",
+      "PackagePath": "staticwebassets\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\55ce7c1e-3615-4a0c-b795-55580875aaa2_Questao4.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\55ce7c1e-3615-4a0c-b795-55580875aaa2_Questao4.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif",
+      "PackagePath": "staticwebassets\\UserProfilePics\\87905735-2a7d-4034-a388-00222f76cc58_carcharo skull.jfif"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\8a3d54d6-c1b3-433c-ad26-73a614817a4d_tattoo_idea.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\8a3d54d6-c1b3-433c-ad26-73a614817a4d_tattoo_idea.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\16c45241-84a6-450b-a13e-eea2029a9680-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\16c45241-84a6-450b-a13e-eea2029a9680-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\32538f99-0e33-4464-8e93-527fd58badea-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\32538f99-0e33-4464-8e93-527fd58badea-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\33fff271-dba3-4d04-b038-92a9be6eb3f3-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\33fff271-dba3-4d04-b038-92a9be6eb3f3-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\abed08ca-9be1-4e87-a82f-bf9b7610c25c-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\abed08ca-9be1-4e87-a82f-bf9b7610c25c-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\ac72ee40-7c07-4553-86af-30f16239673d-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\ac72ee40-7c07-4553-86af-30f16239673d-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\b391f4bd-3e85-4927-92d7-d67ab1023357-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\b391f4bd-3e85-4927-92d7-d67ab1023357-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\default-images\\defaultBackground.jpg",
+      "PackagePath": "staticwebassets\\default-images\\defaultBackground.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_El_Primo.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_El_Primo.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_Frame 3.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_Frame 3.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_aa segredo dog.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_aa segredo dog.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_banana.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_banana.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned (1).jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned (1).jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_clowned.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_download.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_inicializacao_Windows_imagem.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_logico_1glimpse.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_messi_wallpaper1.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_pexels-jonny-lew-1121123.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_pipefinal.png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_pipefinal.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_resultado_Figura (1).png",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_resultado_Figura (1).png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok 2.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok 2.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_roblok.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\00000000-0000-0000-0000-000000000000_volvo FH16.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\00000000-0000-0000-0000-000000000000_volvo FH16.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\03474d05-d9a9-4291-b0a4-1c08c2855360_Questao2.png",
+      "PackagePath": "staticwebassets\\project-pictures\\03474d05-d9a9-4291-b0a4-1c08c2855360_Questao2.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\173ec144-d2e2-474a-9ab1-59c618b6a059_foto.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\173ec144-d2e2-474a-9ab1-59c618b6a059_foto.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\4c764ad1-1662-485f-947d-1501a54cb52f_clowned (1).jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\4c764ad1-1662-485f-947d-1501a54cb52f_clowned (1).jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\68feb401-70dd-4cc9-8483-3e4f6633b139_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\68feb401-70dd-4cc9-8483-3e4f6633b139_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\a8e288d3-7365-443d-85b6-ae68a68a9b67_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\a8e288d3-7365-443d-85b6-ae68a68a9b67_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ce545407-92a1-432a-8086-6775f94f03ba_Questao4.png",
+      "PackagePath": "staticwebassets\\project-pictures\\ce545407-92a1-432a-8086-6775f94f03ba_Questao4.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ec07ad0a-7735-45af-b6fd-239ccf314e94_clowned.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\ec07ad0a-7735-45af-b6fd-239ccf314e94_clowned.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\f0934dc1-70e4-409b-ade6-b50fef085cf1_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\registerSideImage.svg",
+      "PackagePath": "staticwebassets\\registerSideImage.svg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Glimpse.props",
+      "PackagePath": "build\\Glimpse.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Glimpse.props",
+      "PackagePath": "buildMultiTargeting\\Glimpse.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Glimpse.props",
+      "PackagePath": "buildTransitive\\Glimpse.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
