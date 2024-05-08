@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Glimpse.Services;
 
 namespace Glimpse.Areas.Identity.Pages.Account
 {
@@ -65,7 +65,7 @@ namespace Glimpse.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-                ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+                ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email. user is null");
                 return Page();
             }
 
@@ -74,7 +74,7 @@ namespace Glimpse.Areas.Identity.Pages.Account
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
             var callbackUrl = Url.Page(
-                "/Account/ConfirmEmail",
+                "/ConfirmEmail",
                 pageHandler: null,
                 values: new { userId = userId, code = code },
                 protocol: Request.Scheme);
@@ -82,7 +82,9 @@ namespace Glimpse.Areas.Identity.Pages.Account
             await _emailSender.SendEmailAsync(
                 "Confirm your email",
                 Input.Email,
-                "PessoaTeste"
+                "PessoaTeste",
+                "Please confirm your account",
+                callbackUrl
                 );
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");

@@ -16,14 +16,14 @@ public class EmailController : ControllerBase
         _emailSender = emailSender;
     }
 
-    [HttpPost("SendEmail")]
-    public IActionResult SendEmail([FromForm] EmailDto request)
-    {
-        _emailSender.SendEmail(request);
-        if (_emailSender.SendEmail(request))
-        {
-            return Ok();
-        }
-        return BadRequest("erro ao enviar email.");
-    }
+    // [HttpPost("SendEmail")]
+    // public IActionResult SendEmail([FromForm] EmailDto request)
+    // {
+    //     _emailSender.SendEmailAsync(request);
+    //     if (_emailSender.SendEmailAsync(request))
+    //     {
+    //         return Ok();
+    //     }
+    //     return BadRequest("erro ao enviar email.");
+    // }
 }
