@@ -1,5 +1,6 @@
 using Glimpse.Models;
 using Glimpse.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +31,9 @@ builder.Services.AddDbContext<GlimpseContext>(
 // Identity setup
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<GlimpseContext>();
+
+builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
+        o.TokenLifespan = TimeSpan.FromHours(3));
 
 // Other services setup
 builder.Services.AddControllersWithViews();
