@@ -23,6 +23,7 @@ public class ProjectController : Controller
 
     public async Task<IActionResult> MainProjects()
     {
+        // coisas aqui
         string userId = _userManager.GetUserId(User);
 
         var user = _db.Users
@@ -30,10 +31,20 @@ public class ProjectController : Controller
             .Single(u => u.Id == userId);
 
         var userProjects = user.Projects;
+        ICollection<Project> activeUserProjects = [];
+        foreach(Project project in userProjects)
+        {
+            if(project.IsActive)
+            {
+                activeUserProjects.Add(project);
+            }
+        }
+        ViewData["UserName"] = user.FirstName + " " + user.LastName;
 
-        return View(userProjects);
+        return View(activeUserProjects);
     }
 
+    // CREATE
     public IActionResult Create()
     {
         return View();
@@ -43,7 +54,7 @@ public class ProjectController : Controller
     public async Task<IActionResult> CreateProject(Project project, IFormFile projectImg)
     {
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
-        project.LastEdited = project.CreationDate;
+        project.LastEdited = DateTime.UtcNow;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
         project.Users.Add(_userManager.GetUserAsync(User).Result);
@@ -53,7 +64,7 @@ public class ProjectController : Controller
             if (projectImg != null && projectImg.Length > 0)
             {
                 string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
-                string nomeArquivo = new Guid() + "_" + Path.GetFileName(projectImg.FileName);
+                string nomeArquivo = Guid.NewGuid() + "_" + Path.GetFileName(projectImg.FileName);
                 string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
                 using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
                 {
@@ -85,15 +96,25 @@ public class ProjectController : Controller
         {
             return NotFound();
         }
-        Console.WriteLine("foi pra view");
         return View(Project);
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditProject(Project Project)
+    public async Task<IActionResult> EditProject(Project Project, IFormFile projectImg)
     {
         if (ModelState.IsValid)
         {
+            if (projectImg != null && projectImg.Length > 0)
+            {
+                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
+                string nomeArquivo = Guid.NewGuid() + "_" + Path.GetFileName(projectImg.FileName);
+                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
+                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+                {
+                    await projectImg.CopyToAsync(stream);
+                }
+                Project.Picture = "../project-pictures/" + nomeArquivo;
+            }
             Project oldProject = await _db.Projects.FindAsync(Project.Id);
 
             _db.Entry(oldProject).CurrentValues.SetValues(Project);
@@ -122,6 +143,7 @@ public class ProjectController : Controller
     {
         if (ModelState.IsValid)
         {
+            project.IsActive = false;
             Project currentProject = await _db.Projects.FindAsync(project.Id);
             _db.Entry(currentProject).CurrentValues.SetValues(project);
             await _db.SaveChangesAsync();
@@ -131,4 +153,37 @@ public class ProjectController : Controller
 
         return View("Delete", project);
     }
+
+    public async Task<IActionResult> Add(int projectId)
+    {
+        Project Project = await _db.Projects.FindAsync(projectId);
+
+        if (Project == null)
+        {
+            return NotFound();
+        }
+
+        
+
+        return View(Project);
+    }
+
+    public async Task<IActionResult> AddUser(int projectId, string userEmail)
+    {
+        Project project = await _db.Projects.FindAsync(projectId);
+        if (project == null)
+        {
+            return NotFound("Projeto não existe");
+        }
+        var user = await _userManager.FindByNameAsync(userEmail);
+        if (project == null)
+        {
+            return NotFound("Email digitado não pertence a nenhum usuário");
+        }
+        project.Users.Add(user);
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction("MainProjects");
+    }
+
 }

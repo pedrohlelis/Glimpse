@@ -1,18 +1,25 @@
+// using Glimpse.Migrations;
 using Glimpse.Models;
+using Glimpse.Services;
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var connectionString = builder.Configuration.GetConnectionString("default");
-// Add services to the container.
+
+builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication(
+        CertificateAuthenticationDefaults.AuthenticationScheme)
+    .AddCertificate();
+
 builder.Services.AddDbContext<GlimpseContext>(
     options => options.UseSqlServer(connectionString)
 );
-
 builder.Services.AddIdentity<User, IdentityRole>(
     Options =>
     {
@@ -22,10 +29,14 @@ builder.Services.AddIdentity<User, IdentityRole>(
         Options.Password.RequireDigit = true;
         Options.Password.RequireNonAlphanumeric = true;
         Options.Password.RequireLowercase = true;
+
+        Options.User.RequireUniqueEmail = true;
+        // Options.SignIn.RequireConfirmedEmail = true;
     }
     )
     .AddEntityFrameworkStores<GlimpseContext>().AddDefaultTokenProviders();
 
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -35,13 +46,16 @@ if (app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
-
 app.MapControllers();
 app.MapControllerRoute(
     name: "default",

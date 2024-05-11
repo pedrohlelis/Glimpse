@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                         <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath != null ? Model.PicturePath : "../Icons/default_avatar.webp")' alt="">
-                        <span class="font-weight-bold">@Model.Name</span>
+                        <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                         <span class="text-black-50">@Model.Email</span>
                     </div>
                 </div>
@@ -44,10 +44,19 @@
                 <div class="card-body">
                     <div class="row">
                     <div class="col-sm-3">
-                        <h6 class="mb-0">Name</h6>
+                        <h6 class="mb-0">First Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                        @Model.Name
+                        @Model.FirstName
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        @Model.LastName
                     </div>
                     </div>
                     <hr>

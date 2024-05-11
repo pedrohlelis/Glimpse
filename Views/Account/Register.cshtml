@@ -3,47 +3,65 @@
 
 @{
     ViewData["Title"] = "Register";
+    Layout = null;
 }
 
-<div class="row d-flex align-items-center justify-content-center">
-    <div class="col-md-4 card p-3">
-        <h2 class="text-center text-info">Register</h2>
-        <form asp-action="Register" method="post">
-            <div asp-validation-summary="All" class="text-danger" role="alert"></div>
-            <div class="mb-1">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control">
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="mb-1">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control">
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-            <div class="mb-1">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control">
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="mb-1">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control">
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-
-            <div class="row">
-                <div class="col-8">
-                    <a asp-action="Login" class="text-decoration-none float-start mt-2">Already have an account?</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Glimpse</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Glimpse.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <br><br><br><br><br><br>
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-4 card p-3">
+            <h2 class="text-center text-info">Register</h2>
+            <form asp-action="Register" method="post">
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                <div class="mb-1">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control">
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
-                <div class="col-4">
-                    <input type="submit" value="Register" class="btn btn-primary btn-sm float-end">
+                <div class="mb-1">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
-            </div>
-        </form>
+                <div class="mb-1">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-1">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="mb-1">
+                    <label asp-for="ConfirmPassword" class="control-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <a asp-action="Login" class="text-decoration-none float-start mt-2">Already have an account?</a>
+                    </div>
+                    <div class="col-4">
+                        <input type="submit" value="Register" class="btn btn-primary btn-sm float-end">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
+</body>
 @section Scripts
 {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

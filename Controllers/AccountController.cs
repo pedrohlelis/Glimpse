@@ -1,8 +1,8 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Glimpse.Models;
 using Glimpse.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Glimpse.Services;
 
 namespace Glimpse.Controllers;
 
@@ -10,11 +10,13 @@ public class AccountController : Controller
 {
     private readonly SignInManager<User> _signInManager;
     private readonly UserManager<User> _userManager;
+    private readonly IEmailService _emailService;
 
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
+    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IEmailService emailService)
     {
         _signInManager = signInManager;
         _userManager = userManager;
+        _emailService = emailService;
     }
 
     public IActionResult Login()
@@ -39,12 +41,13 @@ public class AccountController : Controller
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("MainProjects", "Project");
             }
             ModelState.AddModelError("", "Invalid Login Attempt");
             return View(model);
             }
         }
+        ModelState.AddModelError("", "Invalid Login Attempt");
         return View(model);
     }
 
@@ -63,17 +66,16 @@ public class AccountController : Controller
             {
                 // Reactivate the existing user
                 existingUser.IsActive = true;
-                var result1 = await _userManager.UpdateAsync(existingUser);
+                var resultReactivate = await _userManager.UpdateAsync(existingUser);
 
-                if (result1.Succeeded)
+                if (resultReactivate.Succeeded)
                 {
-                    // Handle successful reactivation
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
                     // Handle errors during reactivation
-                    foreach (var error in result1.Errors)
+                    foreach (var error in resultReactivate.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
                     }
@@ -81,23 +83,30 @@ public class AccountController : Controller
                 }
             }
 
-
             User user = new()
             {
-                Name = model.Name,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
                 UserName = model.Email,
                 Email = model.Email,
                 Picture = null,
                 IsActive = true,
             };
 
-            var result = await _userManager.CreateAsync(user, model.Password!);
-            if (result.Succeeded)
+            var resultCreateUser = await _userManager.CreateAsync(user, model.Password!);
+            if (resultCreateUser.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Home");
+                // var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                // var confirmationLink = Url.Action(nameof(ConfirmEmail), "Account", new { token, email = user.Email }, Request.Scheme);
+                // EmailDto emailDto = new EmailDto(user.Email, "email confirmation.", "teste");
+                // _emailService.SendEmail(emailDto);
+                
+                // await _emailService.SendEmail(user.Email, "teste", "Hello World");
+                // return RedirectToAction(nameof(SuccessRegistration));
+                return RedirectToAction("MainProjects", "Project");
             }
-            foreach(var error in result.Errors)
+            foreach(var error in resultCreateUser.Errors)
             {
                 ModelState.AddModelError("", error.Description);
             }
@@ -118,10 +127,26 @@ public class AccountController : Controller
         var user = _userManager.GetUserAsync(User).Result;
 
         user.IsActive = false;
-        _userManager.UpdateAsync(user);
+        await _userManager.UpdateAsync(user);
 
         await _signInManager.SignOutAsync();
 
         return RedirectToAction("Index", "Home");
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> ConfirmEmail(string token, string email)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user == null)
+            return View("Error");
+        var result = await _userManager.ConfirmEmailAsync(user, token);
+        return View(result.Succeeded ? nameof(ConfirmEmail) : "Error");
+    }
+
+    [HttpGet]
+    public IActionResult SuccessRegistration()
+    {
+        return View();
     }
 }

@@ -19,5 +19,28 @@ public class LaneController : Controller
         _hostEnvironment = hostEnvironment;
         _userManager = userManager;
     }
+    [HttpPost]
+    public async Task<bool> CreateLane(string name, int id)
+    {
+        if (string.IsNullOrEmpty(name))
+        {
+            return false;
+        }
+        var lane = new Lane
+        {
+            Name = name,
+            Index = 0,
+            Board = await _db.Boards.FirstOrDefaultAsync(x => x.Id == id)
+        };
+        if (lane.Board == null)
+        {
+            return false;
+        }
+
+        _db.Add(lane);
+        await _db.SaveChangesAsync();
+
+        return true;
+    }
 
 }
