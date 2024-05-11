@@ -23,6 +23,7 @@ public class ProjectController : Controller
 
     public async Task<IActionResult> MainProjects()
     {
+        // coisas aqui
         string userId = _userManager.GetUserId(User);
 
         var user = _db.Users
@@ -43,6 +44,7 @@ public class ProjectController : Controller
         return View(activeUserProjects);
     }
 
+    // CREATE
     public IActionResult Create()
     {
         return View();
@@ -114,6 +116,7 @@ public class ProjectController : Controller
                 Project.Picture = "../project-pictures/" + nomeArquivo;
             }
             Project oldProject = await _db.Projects.FindAsync(Project.Id);
+
             _db.Entry(oldProject).CurrentValues.SetValues(Project);
             await _db.SaveChangesAsync();
 
