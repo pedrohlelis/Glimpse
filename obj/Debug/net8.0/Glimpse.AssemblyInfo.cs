@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Glimpse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5c194be0d20e976749d9877a765155f3e4ef023")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80fb0cf884399475a5e4823bdc881aacb8bf77db")]
+>>>>>>> a42a04fede35eccab7a27bdb42506ba1998a7336
 [assembly: System.Reflection.AssemblyProductAttribute("Glimpse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Glimpse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

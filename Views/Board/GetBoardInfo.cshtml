@@ -36,6 +36,32 @@
         }
         <button class="new-lane-btn" id="addLaneButton">Adicionar Raia</button>
     </div>
+    <div class="lanes">
+        @foreach (Lane lane in Model.Lanes)
+        {
+            <div class="lane">
+                <div class="lane-name">
+                    <p>@lane.Name</p>
+                    <p class="number-circle">@lane.Cards.Count</p>
+                </div>
+                <hr>
+                <br>
+                <div class="new-card-btn">
+                    <img src="../Icons/plusIcon.svg" alt="">
+                    <a href="#">Nova Tarefa</a>
+                </div>
+                <ul>
+                    @foreach (Card card in lane.Cards)
+                    {
+                        <li>
+                            <p>@card.Name</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        <button class="new-lane-btn" id="addLaneButton">Adicionar Raia</button>
+    </div>
 </section>
 
 @section Scripts {
