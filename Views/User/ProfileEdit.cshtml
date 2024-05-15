@@ -7,6 +7,7 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath != null ? Model.PicturePath : "../Icons/default_avatar.webp")' alt="">
                 <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
+                <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                 <span class="text-black-50">@Model.Email</span>
             </div>
         </div>
@@ -21,11 +22,20 @@
                     <div class="col-md-6">
                         <label asp-for="PictureFile" class="control-label"></label>
                         <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
+                        <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
                         <span asp-validation-for="PictureFile" class="text-danger"></span>
                     </div>
 
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" id="firstName" name="firstName" class="form-control" placeholder="First Name" value="@Model.FirstName">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" id="LastName" name="LastName" class="form-control" placeholder="Last Name" value="@Model.LastName">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
                             <label asp-for="FirstName" class="control-label"></label>
                             <input asp-for="FirstName" id="firstName" name="firstName" class="form-control" placeholder="First Name" value="@Model.FirstName">
                             <span asp-validation-for="FirstName" class="text-danger"></span>
@@ -55,6 +65,7 @@
 
                     <div class="mt-5 text-center">
                         <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
+                        <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
                     </div>
                     </form>
 
@@ -81,8 +92,15 @@
                                     <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
                                 </div>
                             </form>
+                            <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
+                                </div>
+                            </form>
                             </div>
                         </div>
+                    </div>
                     </div>
             </div>
         </div>
@@ -93,6 +111,10 @@
 {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+
+
 
 
 

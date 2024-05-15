@@ -1025,7 +1025,6 @@ C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\staticwebasse
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\scopedcss\bundle\Glimpse.styles.css
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\scopedcss\projectbundle\Glimpse.bundle.scp.css
-C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\Glimpse.csproj.CopyComplete
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\Glimpse.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\refint\Glimpse.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\Glimpse.pdb
@@ -1188,6 +1187,190 @@ C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Exten
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\a498902\OneDrive - Volvo Group\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 >>>>>>> origin/branch-victor
+>>>>>>> 28038110cdad8f2fcd3d66908310db4c33513a65
+C:\Dev\Glimpse\bin\Debug\net8.0\appsettings.Development.json
+C:\Dev\Glimpse\bin\Debug\net8.0\appsettings.json
+C:\Dev\Glimpse\bin\Debug\net8.0\Glimpse.staticwebassets.runtime.json
+C:\Dev\Glimpse\bin\Debug\net8.0\Glimpse.exe
+C:\Dev\Glimpse\bin\Debug\net8.0\Glimpse.deps.json
+C:\Dev\Glimpse\bin\Debug\net8.0\Glimpse.runtimeconfig.json
+C:\Dev\Glimpse\bin\Debug\net8.0\Glimpse.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Glimpse.pdb
+C:\Dev\Glimpse\bin\Debug\net8.0\Azure.Core.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Azure.Identity.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\FirebaseAdmin.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Google.Api.Gax.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Google.Apis.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Google.Apis.Auth.PlatformServices.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Humanizer.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\MailKit.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Certificate.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\dotnet-ef.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\MimeKit.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.CodeDom.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Dev\Glimpse\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.csproj.AssemblyReference.cache
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfoInputs.cache
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.AssemblyInfo.cs
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.csproj.CoreCompileInputs.cache
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cs
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.MvcApplicationPartsAssemblyInfo.cache
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cache
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.RazorAssemblyInfo.cs
+C:\Dev\Glimpse\obj\Debug\net8.0\staticwebassets.build.json
+C:\Dev\Glimpse\obj\Debug\net8.0\staticwebassets.development.json
+C:\Dev\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Dev\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.build.Glimpse.props
+C:\Dev\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Glimpse.props
+C:\Dev\Glimpse\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Glimpse.props
+C:\Dev\Glimpse\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Dev\Glimpse\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Dev\Glimpse\obj\Debug\net8.0\scopedcss\bundle\Glimpse.styles.css
+C:\Dev\Glimpse\obj\Debug\net8.0\scopedcss\projectbundle\Glimpse.bundle.scp.css
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.csproj.Up2Date
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.dll
+C:\Dev\Glimpse\obj\Debug\net8.0\refint\Glimpse.dll
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.pdb
+C:\Dev\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
+C:\Dev\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\FirebaseAdmin.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Google.Api.Gax.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\MailKit.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Certificate.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\MimeKit.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\Glimpse.csproj.Up2Date
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\FirebaseAdmin.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Api.Gax.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\MailKit.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Certificate.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\MimeKit.dll
 C:\Glimpse\bin\Debug\net8.0\appsettings.Development.json
 C:\Glimpse\bin\Debug\net8.0\appsettings.json
 C:\Glimpse\bin\Debug\net8.0\Glimpse.staticwebassets.runtime.json

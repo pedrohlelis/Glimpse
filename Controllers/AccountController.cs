@@ -41,12 +41,13 @@ public class AccountController : Controller
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("MainProjects", "Project");
             }
             ModelState.AddModelError("", "Invalid Login Attempt");
             return View(model);
             }
         }
+        ModelState.AddModelError("", "Invalid Login Attempt");
         ModelState.AddModelError("", "Invalid Login Attempt");
         return View(model);
     }
@@ -69,6 +70,7 @@ public class AccountController : Controller
                 existingUser.IsActive = true;
                 var resultReactivate = await _userManager.UpdateAsync(existingUser);
 
+                if (resultReactivate.Succeeded)
                 if (resultReactivate.Succeeded)
                 {
                     return RedirectToAction("Login", "Account");
@@ -129,6 +131,7 @@ public class AccountController : Controller
 
         user.IsActive = false;
         await _userManager.UpdateAsync(user);
+        await _userManager.UpdateAsync(user);
 
         await _signInManager.SignOutAsync();
 
@@ -150,4 +153,5 @@ public class AccountController : Controller
     {
         return View();
     }
+
 }

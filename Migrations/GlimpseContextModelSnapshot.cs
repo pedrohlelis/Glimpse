@@ -183,8 +183,8 @@ namespace Glimpse.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<DateOnly>("LastEdited")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("LastEdited")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
-    [Migration("20240508215340_createDatabase")]
+    [Migration("20240515221036_createDatabase")]
     partial class createDatabase
     {
         /// <inheritdoc />
@@ -186,8 +186,8 @@ namespace Glimpse.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<DateOnly>("LastEdited")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("LastEdited")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
