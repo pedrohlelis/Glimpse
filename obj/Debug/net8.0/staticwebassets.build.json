@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5d/LxdxpP8aPWVyC/c13BgLw5J42ilhZYLdUMjfe4x4=",
+  "Hash": "YJNnFXlfkZX5eZIn5NGGTpFuQ6vsUr588DxN0mpFaeQ=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -1801,6 +1801,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\23a39df4-3cba-41f4-8e6f-9e549881e168_Icon Glimpse 02.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/23a39df4-3cba-41f4-8e6f-9e549881e168_Icon Glimpse 02.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\23a39df4-3cba-41f4-8e6f-9e549881e168_Icon Glimpse 02.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",

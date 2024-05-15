@@ -14,7 +14,7 @@ namespace Glimpse.Services
         {
             try{
             //var apiKey = Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
-            var apiKey = "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";
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("glimpse.emailsender@gmail.com", "Glimpse");
             var subject = Mailsubject;

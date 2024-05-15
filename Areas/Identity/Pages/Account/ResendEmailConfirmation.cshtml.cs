@@ -74,11 +74,12 @@ namespace Glimpse.Areas.Identity.Pages.Account
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
             var callbackUrl = Url.Page(
-                "/ConfirmEmail",
+                "/Account/ConfirmEmail",
                 pageHandler: null,
-                values: new { userId = userId, code = code },
+                values: new { area = "Identity", userId = userId, code = code },
                 protocol: Request.Scheme);
 
+            try{
             await _emailSender.SendEmailAsync(
                 "Confirm your email",
                 Input.Email,
@@ -86,8 +87,13 @@ namespace Glimpse.Areas.Identity.Pages.Account
                 "Please confirm your account",
                 callbackUrl
                 );
-
-            ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+            Console.WriteLine("email sent?..." + Input.Email);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email. hey");
             return Page();
         }
     }
