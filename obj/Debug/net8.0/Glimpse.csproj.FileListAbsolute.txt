@@ -1520,3 +1520,14 @@ C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\MailKit.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Certificate.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\MimeKit.dll
 C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\obj\Debug\net8.0\Glimpse.csproj.Up2Date
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\FirebaseAdmin.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Api.Gax.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\MailKit.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Certificate.dll
+C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\bin\Debug\net8.0\MimeKit.dll

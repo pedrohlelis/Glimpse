@@ -9,135 +9,135 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Glimpse
 build_property.RootNamespace = Glimpse
-build_property.ProjectDir = C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\
+build_property.ProjectDir = C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\victo\OneDrive\Área de Trabalho\Glimpse
+build_property.MSBuildProjectDirectory = C:\Users\a498902\OneDrive - Volvo Group\Glimpse-1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Account/ConfirmEmail.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Account/Login.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Account/Register.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Account/SuccessRegistration.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Account/SuccessRegistration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTdWNjZXNzUmVnaXN0cmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Board/Create.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Board/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Board/Delete.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Board/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Board/Edit.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Board/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Board/GetBoardInfo.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Board/GetBoardInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcR2V0Qm9hcmRJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Board/GetProjectBoards.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Board/GetProjectBoards.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcR2V0UHJvamVjdEJvYXJkcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Home/Home.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Home/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Home/Index.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Home/Privacy.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Project/Add.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Project/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Project/Create.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Project/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Project/Delete.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Project/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Project/Edit.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Project/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Project/MainProjects.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Project/MainProjects.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxNYWluUHJvamVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Role/Assign.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Role/Assign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBc3NpZ24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Role/Create.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Role/Delete.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Role/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Role/Edit.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Role/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Role/ShowRoles.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Role/ShowRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxTaG93Um9sZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Role/UserRoles.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Role/UserRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxVc2VyUm9sZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Shared/Error.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/User/Profile.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/User/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/User/ProfileEdit.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/User/ProfileEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/_ViewImports.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/_ViewStart.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Área de Trabalho/Glimpse/Views/Shared/_Layout.cshtml]
+[C:/Users/a498902/OneDrive - Volvo Group/Glimpse-1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9dixb1gj9v

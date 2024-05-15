@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
+@font-face {
+  font-family: "Fixture-SemiBold";
+  src: url("../fonts/Fixture-SemiBold.otf");
+}
+@font-face {
+  font-family: "Fixture-Expanded-SemiBold";
+  src: url("../fonts/Fixture-Expanded-SemiBold.otf");
+}
+@font-face {
+  font-family: "Fixture-Expanded-Light";
+  src: url("../fonts/Fixture-Expanded-Light.otf");
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -11,13 +24,10 @@
   text-decoration: none;
 }
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Fixture-Expanded-Light', sans-serif;
 }
 
 html {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-style: normal;
   position: relative;
   min-height: 100%;
 }
@@ -196,23 +206,23 @@ ul:hover li:hover ~ li:before {
 .button-register {
   padding: 0.6em 1.6em;
   border: none;
-  border-radius: 8px;
+  border-radius: 1.5em;
   letter-spacing: 1px;
   box-sizing: border-box;
-  color: #6600eb;
+  color: white;
   transition: all 500ms;
   justify-content: center;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  text-transform: uppercase;
-  outline: 2px solid #6600eb;
+  outline: 2px solid #B936EF;
+  background-color: #B936EF;
 }
 
 .button-login {
   padding: 0.6em 1.6em;
   border: none;
-  border-radius: 8px;
+  border-radius: 1.5em;
   letter-spacing: 1px;
   box-sizing: border-box;
   transition: all 500ms;
@@ -220,15 +230,14 @@ ul:hover li:hover ~ li:before {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  text-transform: uppercase;
-  outline: 2px solid #6600eb;
+  outline: 1px solid #e7e7e7;
   background-color: black;
   color: white;
 }
 
 .button-style-1:hover {
   transform: scale(1.05);
-  outline: 2px solid #6600eb;
+  outline: 1px solid #B936EF;
   box-shadow: 2px 3px 10px -2px #6600eb;
   color: white;
 }
@@ -240,7 +249,7 @@ ul:hover li:hover ~ li:before {
   top: 0;
   width: 0;
   height: 100%;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#6600eb);
+  background-image: linear-gradient(144deg,#AF40FF, #c150f1 50%,#d375f0);
   transform: skewX(45deg);
   z-index: -1;
   transition: width 500ms;
