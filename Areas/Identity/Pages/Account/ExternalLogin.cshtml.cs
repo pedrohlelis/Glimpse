@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.Net;
 
 namespace Glimpse.Areas.Identity.Pages.Account
 {
@@ -154,8 +155,13 @@ namespace Glimpse.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
+                var firstName = info.Principal.FindFirstValue(ClaimTypes.GivenName);
+                var lastName = info.Principal.FindFirstValue(ClaimTypes.Surname);
+
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FirstName = firstName;
+                user.LastName = lastName;
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)

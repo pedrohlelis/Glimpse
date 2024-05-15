@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o+p+Tf1LeCHzE5YXV2iksqG6f3KSzUZDUfvLqXq3O3E=",
+  "Hash": "LZGAOP1S+wIR54/lkjpp82C+TsHjSG/Woxv94UWNPtw=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -2618,6 +2618,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\c3f933c1-4f48-4187-bc3d-297429f59f66_devsecops-controls.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "UserProfilePics/c3f933c1-4f48-4187-bc3d-297429f59f66_devsecops-controls.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserProfilePics\\c3f933c1-4f48-4187-bc3d-297429f59f66_devsecops-controls.png"
     },
     {
       "Identity": "C:\\Users\\Pedro\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\8.0.4\\staticwebassets\\V5\\css\\site.css",
