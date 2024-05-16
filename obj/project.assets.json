@@ -11155,24 +11155,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pedro\\.nuget\\packages\\": {}
+    "C:\\Users\\patum\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Glimpse\\Glimpse.csproj",
+      "projectUniqueName": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\Glimpse.csproj",
       "projectName": "Glimpse",
-      "projectPath": "C:\\Glimpse\\Glimpse.csproj",
-      "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Glimpse\\obj\\",
+      "projectPath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\Glimpse.csproj",
+      "packagesPath": "C:\\Users\\patum\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\patum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11185,11 +11187,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11284,16 +11281,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Glimpse\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
