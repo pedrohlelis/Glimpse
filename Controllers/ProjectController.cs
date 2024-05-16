@@ -163,8 +163,6 @@ public class ProjectController : Controller
             return NotFound();
         }
 
-        
-
         return View(Project);
     }
 
