@@ -39,6 +39,7 @@ public class ProjectController : Controller
                 activeUserProjects.Add(project);
             }
         }
+        ViewData["UserName"] = user.FirstName + " " + user.LastName;
 
         return View(activeUserProjects);
     }
@@ -53,7 +54,7 @@ public class ProjectController : Controller
     public async Task<IActionResult> CreateProject(Project project, IFormFile projectImg)
     {
         project.CreationDate = DateOnly.FromDateTime(DateTime.UtcNow);
-        project.LastEdited = project.CreationDate;
+        project.LastEdited = DateTime.UtcNow;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
         project.Users.Add(_userManager.GetUserAsync(User).Result);

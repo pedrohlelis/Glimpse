@@ -143,3 +143,7 @@ hr {
   align-content: center;
   border: none;
 }
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
