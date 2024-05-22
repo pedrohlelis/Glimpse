@@ -176,25 +176,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png))</OriginalItemSpec>
     </StaticWebAsset>
-<<<<<<< HEAD
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\e027c9f7-394b-4695-8c7d-190d348359b4-board-pic.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>Glimpse</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Glimpse</BasePath>
-      <RelativePath>board-pictures/e027c9f7-394b-4695-8c7d-190d348359b4-board-pic.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\e027c9f7-394b-4695-8c7d-190d348359b4-board-pic.png))</OriginalItemSpec>
-    </StaticWebAsset>
-=======
->>>>>>> ed03636271f601656517665daa432056afe09185
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\fc5efbf9-ec28-4115-8313-e71bc555048c-board-pic.png))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
@@ -1810,22 +1791,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\173ec144-d2e2-474a-9ab1-59c618b6a059_foto.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\1936f9a0-2b83-4f62-80bd-ad9a5414f957_Captura de tela 2024-05-20 141707.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>Glimpse</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Glimpse</BasePath>
-      <RelativePath>project-pictures/1936f9a0-2b83-4f62-80bd-ad9a5414f957_Captura de tela 2024-05-20 141707.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\1936f9a0-2b83-4f62-80bd-ad9a5414f957_Captura de tela 2024-05-20 141707.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg))">
       <SourceType>Package</SourceType>

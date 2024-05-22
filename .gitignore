@@ -78,4 +78,3 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 obj/Debug/net8.0/Glimpse.GeneratedMSBuildEditorConfig.editorconfig
-obj/Debug/net8.0/project.razor.vscode.bin

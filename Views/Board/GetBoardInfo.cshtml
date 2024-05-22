@@ -53,7 +53,6 @@
             input.value = 'Nome da Raia';
             input.className = 'lane-name-input';
             form.appendChild(input);
-            input.focus();
 
             var hiddenInput = document.createElement('input');
             hiddenInput.type = 'hidden';
@@ -69,18 +68,11 @@
             document.querySelector('.board-main').appendChild(form);
         });
 
-
         document.querySelectorAll('.add-card-link').forEach(function(link) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 var laneElement = this.closest('.lane');
-
-                var hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = 'id';
-                hiddenInput.value = '@Model.Id';
-                laneElement.appendChild(hiddenInput);
 
                 var cardInput = document.createElement('input');
                 cardInput.type = 'text';
@@ -95,22 +87,20 @@
                         var cardName = this.value.trim();
                         if (cardName !== '') {
                             var laneId = laneElement.getAttribute('data-lane-id');
-                            var boardId = @Model.Id;
-                            createCard(cardName, laneId, laneElement, this, boardId);
+                            createCard(cardName, laneId, laneElement, this);
                         }
                     }
                 });
             });
         });
 
-        function createCard(cardName, laneId, laneElement, inputElement, boardId) {
+        function createCard(cardName, laneId, laneElement, inputElement) {
             $.ajax({
                 url: '@Url.Action("CreateCard", "Card")',
                 type: 'POST',
                 data: {
                     name: cardName,
-                    laneId: laneId,
-                    boardId: boardId
+                    laneId: laneId
                 },
                 success: function() {
                     var newCard = document.createElement('li');
