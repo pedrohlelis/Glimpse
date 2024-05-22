@@ -62,28 +62,28 @@ public class CardController : Controller
     }*/
 
     [HttpPost]
-    public async Task<IActionResult> CreateCard(string name, int laneId, int boardId)
+    public async Task<IActionResult> CreateCard(Card Card, int laneId, int boardId)
     {
-        var card = new Card
+        var car = new Card
         {
-            Name = name,
+            Name = Card.Name,
             Lane = await _db.Lanes.FirstOrDefaultAsync(x => x.Id == laneId)
         };
         if (ModelState.IsValid)
         {
-            _db.Cards.Add(card);
+            _db.Cards.Add(Card);
             await _db.SaveChangesAsync();
             var lane = await _db.Lanes
                 .Include(u => u.Cards)
                 .SingleAsync(p => p.Id == laneId);
 
-            lane.Cards.Add(card);
+            lane.Cards.Add(Card);
             await _db.SaveChangesAsync();
 
             return RedirectToAction("GetBoardInfo", new { boardId });
         }
 
-        return View("GetBoardInfo", card);
+        return View("GetBoardInfo", Card);
     }
 
     public async Task<IActionResult> Edit(int laneId, int CardId)
