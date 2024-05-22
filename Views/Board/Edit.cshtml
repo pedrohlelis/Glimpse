@@ -1,0 +1,60 @@
+@model Board
+@{
+    ViewData["Title"] = "Criar Quadro";
+    int? projectId = ViewData["projectId"] as int?;
+}
+
+<script>
+    function validateForm() {
+        var fileInput = document.getElementById('boardImg');
+        var BackgroundImage = document.getElementById('BackgroundImage');
+        var file = fileInput.files[0];
+        if (!file) {
+            BackgroundImage.setAttribute("value", "../default-images/defaultBackground.jpg")
+            return true;
+        }
+        return true;
+    }
+</script>
+
+<section>
+    <form asp-action="EditBoard" asp-controller="Board" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Editar quadro</h1>
+                <input type="hidden" asp-for="Id">
+                <input type="hidden" asp-for="CreationDate">
+                <input type="hidden" asp-for="IsActive">
+                <input type="hidden" asp-for="CreatorId">
+                <div class="form-group">
+                    <label>Nome do quadro:</label>
+                    <input asp-for="Name" type="text" class="form-control" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="boardImg">Imagem de fundo:</label>
+                    <input id="boardImg" name="boardImg" type="file" accept="image/png, image/jpeg, image/jpg" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <input id="BackgroundImage" asp-for="Background" type="text" class="form-control" hidden/>
+                </div>
+
+                 <div class="form-group">
+                    <input id="projectId" name="projectId" value='@projectId' type="text" class="form-control" hidden/>
+                </div>
+
+                <div class="form-group">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+
+                <div class="card-footer">
+                    <center>
+                        <button type="submit" class="btn-primary">Editar Quadro</button>
+                        <button class="btn-secondary"><a asp-action="GetProjectBoards" asp-route-id='@ViewData["projectId"]' asp-controller="Board">Cancelar</a></button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,92 @@
+@model List<Project>
+@{
+    ViewData["Title"] = "Projetos";
+}
+
+<br><br><br>
+<div class="d-flex align-items-center justify-content-center flex-column">
+    <h1 class="display-6 fw-bold reveal text-primary" style="letter-spacing: 3px;">Olá, @ViewData["UserName"]!</h1>
+    <p class="fw-light fs-6">Aqui estão seus projetos vistos recentemente.</p>
+    <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
+</div>
+<br><br><br>
+
+<div class="row row-4 flex-lg-grow-1">
+    @foreach (Project p in Model) {
+        <div class="col  border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; width: 100px; height: 200px;">
+            <a class="text-decoration-none" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
+
+                <p class="overflow-hidden text-white">@p.Name</p>
+
+                <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
+
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="project-dropdown">
+                    <li>
+                        <a class="text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@p.Id">
+                            Editar
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-white" asp-controller="Project" asp-action="Delete" asp-route-id="@p.Id">
+                            Deletar
+                        </a>
+                    </li>
+                </ul>
+                <br><br>
+                <p class="text-muted overflow-hidden" style="font-size: smaller;">@p.Description</p>
+            </a>
+        </div>
+    }
+</div>
+
+<style>
+    .button-create {
+        padding: 0.4em 1.2em;
+        border: none;
+        border-radius: 8px;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+        transition: all 500ms;
+        justify-content: center;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        outline: 2px solid #6600eb;
+        background-color: black;
+        color: white;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        outline: 2px solid #6600eb;
+        box-shadow: 2px 3px 10px -2px #6600eb;
+        color: white;
+    }
+
+    button::before {
+        content: "";
+        position: absolute;
+        left: -50px;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#6600eb);
+        transform: skewX(45deg);
+        z-index: -1;
+        transition: width 500ms;
+    }
+
+    button:hover::before {
+        width: 200%;
+    }
+
+    .glimpse-p {
+        font-weight: bolder;
+        background: -webkit-linear-gradient(144deg,#AF40FF, #5B42F3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 0.2em;
+        font-style: italic;
+    }
+</style>

@@ -1,0 +1,117 @@
+@model Board
+@{
+    ViewData["Title"] = Model.Name;
+}
+<br><br>
+<section class="board-menu-func">
+    <div class="board-header">
+        <h3>@Model.Name</h3>
+    </div>
+</section>
+<br>
+<div class="container d-flex overflow-visible">
+    <div class="board-main d-flex">
+        @foreach (Lane lane in Model.Lanes)
+        {
+            <div style="width: 300px;" class="lane" data-lane-id="@lane.Id">
+                <div class="d-flex align-content-between">
+                    <p>@lane.Name</p>
+                    <p class="number-circle">@lane.Cards.Count</p>
+                </div>
+                <hr>
+                <ul class="card-list">
+                    @foreach (Card card in lane.Cards)
+                    {
+                        <li>
+                            <p>@card.Name</p>
+                        </li>
+                    }
+                </ul>
+                <br>
+                <div class="new-card-btn">
+                    <img src="../Icons/plusIcon.svg" alt="">
+                    <a href="#" class="add-card-link">Nova Tarefa</a>
+                </div>
+            </div>
+        }
+        <button class="new-lane-btn" id="addLaneButton">Adicionar Raia</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('addLaneButton').addEventListener('click', function() {
+            var form = document.createElement('form');
+            form.className = 'lane-form';
+            form.method = 'post';
+            form.action = '@Url.Action("CreateLane", "Lane")';
+            form.enctype = 'multipart/form-data';
+
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'name';
+            input.value = 'Nome da Raia';
+            input.className = 'lane-name-input';
+            form.appendChild(input);
+
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'id';
+            hiddenInput.value = '@Model.Id';
+            form.appendChild(hiddenInput);
+
+            var submit = document.createElement('input');
+            submit.type = 'submit';
+            submit.style.visibility = 'hidden';
+            form.appendChild(submit);
+
+            document.querySelector('.board-main').appendChild(form);
+        });
+
+        document.querySelectorAll('.add-card-link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                var laneElement = this.closest('.lane');
+
+                var cardInput = document.createElement('input');
+                cardInput.type = 'text';
+                cardInput.className = 'card-name-input';
+                cardInput.placeholder = 'Nome da Tarefa';
+                laneElement.appendChild(cardInput);
+                cardInput.focus();
+
+                cardInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        var cardName = this.value.trim();
+                        if (cardName !== '') {
+                            var laneId = laneElement.getAttribute('data-lane-id');
+                            createCard(cardName, laneId, laneElement, this);
+                        }
+                    }
+                });
+            });
+        });
+
+        function createCard(cardName, laneId, laneElement, inputElement) {
+            $.ajax({
+                url: '@Url.Action("CreateCard", "Card")',
+                type: 'POST',
+                data: {
+                    name: cardName,
+                    laneId: laneId
+                },
+                success: function() {
+                    var newCard = document.createElement('li');
+                    newCard.textContent = cardName;
+                    laneElement.querySelector('.card-list').appendChild(newCard);
+                    inputElement.remove();
+                },
+                error: function() {
+                    alert('Erro ao criar a tarefa. Tente novamente.');
+                }
+            });
+        }
+    </script>
+}
