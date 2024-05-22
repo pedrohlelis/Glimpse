@@ -77,9 +77,11 @@ namespace Glimpse.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [StringLength(50, ErrorMessage = "First Name is too long.")]
+            [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "First Name can only contain letters.")]
             public string FirstName { get; set; }
             [Required]
             [StringLength(50, ErrorMessage = "Last Name is too long.")]
+            [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Last Name can only contain letters.")]
             public string LastName { get; set; }
 
             [Required]

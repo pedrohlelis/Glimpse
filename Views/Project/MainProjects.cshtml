@@ -6,23 +6,17 @@
 <br><br><br>
 <div class="d-flex align-items-center justify-content-center flex-column">
     <h1 class="display-6 fw-bold reveal text-primary" style="letter-spacing: 3px;">Olá, @ViewData["UserName"]!</h1>
-    <p class="fw-light">Aqui estão seus projetos vistos recentemente.</p>
+    <p class="fw-light fs-6">Aqui estão seus projetos vistos recentemente.</p>
     <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
 </div>
 <br><br><br>
 
-<div class="row row-cols-4">
+<div class="row row-4 flex-lg-grow-1">
     @foreach (Project p in Model) {
-        <div class="col border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em;">
-            <a class="d-flex" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
+        <div class="col  border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; width: 100px; height: 200px;">
+            <a class="text-decoration-none" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
 
-                <div class="d-flex">
-                    <p class="text-uppercase overflow-hidden">@p.Name</p>
-
-                    <a class="dropdown-toggle text-white" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" data-project-id="@p.Id">
-                        <i class="fa fa-heart"></i>
-                    </a>
-                </div>
+                <p class="overflow-hidden text-white">@p.Name</p>
 
                 <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
 
@@ -38,8 +32,8 @@
                         </a>
                     </li>
                 </ul>
-
-                <p class="text-muted fs-6">@p.Description</p>
+                <br><br>
+                <p class="text-muted overflow-hidden" style="font-size: smaller;">@p.Description</p>
             </a>
         </div>
     }

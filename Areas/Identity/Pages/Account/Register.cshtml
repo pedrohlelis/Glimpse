@@ -6,16 +6,18 @@
     ViewData["stylesheetUrl"] = "~/css/register.css";
 }
 
-<body class="bg-dark text-white">
-    <div class="fixed-glimpse-text">
-        <a class="navbar-brand active text-white" aria-current="page" href="~/Home/Index">
-            <img src="~/Glimpse_text_white.png" alt="" width="160" height="36" class="d-inline-block align-text-top">
-        </a>
-    </div>
     <div class="container-fluid h-100">
         <div class="row h-100">
+            
             <!-- Left half: Centered form -->
             <div class="col-md-6 h-100 d-flex justify-content-center ">
+                <div class="flex-column">
+                <div class="fixed-glimpse-text">
+                    <a class="navbar-brand active text-white" aria-current="page" href="~/Home/Index">
+                        <img src="~/Glimpse_text_white.png" alt="" width="160" height="36" class="d-inline-block align-text-top">
+                    </a>
+                </div>
+
                 <div class="centered-form">
                     <div class="form-container">
                         <h2 class="mb-4">Register</h2>
@@ -94,6 +96,7 @@
                     </div>
                     </div>
                 </div>
+                </div>
             </div>
             <!-- Right half: Image -->
             <div class="col-md-6 h-100 d-md-block d-none">
@@ -105,7 +108,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-</body>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
