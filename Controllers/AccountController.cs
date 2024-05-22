@@ -10,13 +10,13 @@ public class AccountController : Controller
 {
     private readonly SignInManager<User> _signInManager;
     private readonly UserManager<User> _userManager;
-    private readonly IEmailService _emailService;
+    private readonly IEmailSender _emailSender;
 
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IEmailService emailService)
+    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IEmailSender emailSender)
     {
         _signInManager = signInManager;
         _userManager = userManager;
-        _emailService = emailService;
+        _emailSender = emailSender;
     }
 
     public IActionResult Login()
@@ -48,11 +48,13 @@ public class AccountController : Controller
             }
         }
         ModelState.AddModelError("", "Invalid Login Attempt");
+        ModelState.AddModelError("", "Invalid Login Attempt");
         return View(model);
     }
 
     public IActionResult Register()
     {
+        ViewData["stylesheetUrl"] = "~/css/register.css";
         return View();
     }
     [HttpPost]
@@ -68,6 +70,7 @@ public class AccountController : Controller
                 existingUser.IsActive = true;
                 var resultReactivate = await _userManager.UpdateAsync(existingUser);
 
+                if (resultReactivate.Succeeded)
                 if (resultReactivate.Succeeded)
                 {
                     return RedirectToAction("Login", "Account");
@@ -104,7 +107,7 @@ public class AccountController : Controller
                 
                 // await _emailService.SendEmail(user.Email, "teste", "Hello World");
                 // return RedirectToAction(nameof(SuccessRegistration));
-                return RedirectToAction("MainProjects", "Project");
+                return RedirectToAction("Index", "Home");
             }
             foreach(var error in resultCreateUser.Errors)
             {
@@ -128,6 +131,7 @@ public class AccountController : Controller
 
         user.IsActive = false;
         await _userManager.UpdateAsync(user);
+        await _userManager.UpdateAsync(user);
 
         await _signInManager.SignOutAsync();
 
@@ -149,4 +153,5 @@ public class AccountController : Controller
     {
         return View();
     }
+
 }
