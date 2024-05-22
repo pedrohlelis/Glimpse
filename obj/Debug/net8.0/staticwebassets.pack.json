@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\board-pictures\\16c45241-84a6-450b-a13e-eea2029a9680-board-pic.png"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\31f1de47-0777-4035-bd73-739f333d9ad0-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\31f1de47-0777-4035-bd73-739f333d9ad0-board-pic.png"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\32538f99-0e33-4464-8e93-527fd58badea-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\32538f99-0e33-4464-8e93-527fd58badea-board-pic.png"
     },
@@ -55,6 +59,10 @@
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\4b625fcf-8bd4-49b6-b5b4-1141255bbb9a-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\4b625fcf-8bd4-49b6-b5b4-1141255bbb9a-board-pic.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\4bac35a4-8d43-4e41-9bce-920579ac2b80-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\4bac35a4-8d43-4e41-9bce-920579ac2b80-board-pic.png"
     },
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png",
@@ -77,6 +85,14 @@
       "PackagePath": "staticwebassets\\board-pictures\\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\e027c9f7-394b-4695-8c7d-190d348359b4-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\e027c9f7-394b-4695-8c7d-190d348359b4-board-pic.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\board-pictures\\fc5efbf9-ec28-4115-8313-e71bc555048c-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\fc5efbf9-ec28-4115-8313-e71bc555048c-board-pic.png"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },
@@ -91,6 +107,54 @@
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Black.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Black.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Condensed-SemiBold.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Condensed-SemiBold.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Expanded-Light.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Expanded-Light.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Expanded-SemiBold.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Expanded-SemiBold.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-ExtraBold.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-ExtraBold.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-ExtraLight.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-ExtraLight.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Light.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Light.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-SemiBold.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-SemiBold.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-Bold.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-Bold.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-ExtraLight.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-ExtraLight.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-SemiBold.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-SemiBold.otf"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-Thin.otf",
+      "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-Thin.otf"
     },
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\js\\site.js",
@@ -397,6 +461,10 @@
       "PackagePath": "staticwebassets\\project-pictures\\173ec144-d2e2-474a-9ab1-59c618b6a059_foto.jpg"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\1936f9a0-2b83-4f62-80bd-ad9a5414f957_Captura de tela 2024-05-20 141707.png",
+      "PackagePath": "staticwebassets\\project-pictures\\1936f9a0-2b83-4f62-80bd-ad9a5414f957_Captura de tela 2024-05-20 141707.png"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg",
       "PackagePath": "staticwebassets\\project-pictures\\1ed16dd2-716e-4df8-9f6b-912928354adb_commit 3.jpg"
     },
@@ -433,6 +501,10 @@
       "PackagePath": "staticwebassets\\project-pictures\\8470ccbf-b530-4dd5-bcbf-593b3d1f6c20_FDSF.png"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png",
+      "PackagePath": "staticwebassets\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg",
       "PackagePath": "staticwebassets\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg"
     },
@@ -457,8 +529,20 @@
       "PackagePath": "staticwebassets\\project-pictures\\bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
     },
     {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\c13608c4-716e-485d-a49c-569097907597_Conceitual_01.png",
+      "PackagePath": "staticwebassets\\project-pictures\\c13608c4-716e-485d-a49c-569097907597_Conceitual_01.png"
+    },
+    {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\ce545407-92a1-432a-8086-6775f94f03ba_Questao4.png",
       "PackagePath": "staticwebassets\\project-pictures\\ce545407-92a1-432a-8086-6775f94f03ba_Questao4.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\da3a2d7e-2ae7-4413-b2e9-a785ad7272da_ConceitualHotelimagem.png",
+      "PackagePath": "staticwebassets\\project-pictures\\da3a2d7e-2ae7-4413-b2e9-a785ad7272da_ConceitualHotelimagem.png"
+    },
+    {
+      "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\e631938f-91dd-447f-bcf0-7dd388434c76_ConceitualHotelimagem.png",
+      "PackagePath": "staticwebassets\\project-pictures\\e631938f-91dd-447f-bcf0-7dd388434c76_ConceitualHotelimagem.png"
     },
     {
       "Id": "C:\\Users\\a498902\\OneDrive - Volvo Group\\Glimpse-1\\wwwroot\\project-pictures\\ec07ad0a-7735-45af-b6fd-239ccf314e94_clowned.jpg",
