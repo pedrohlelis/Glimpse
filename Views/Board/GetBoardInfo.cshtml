@@ -53,6 +53,7 @@
             input.value = 'Nome da Raia';
             input.className = 'lane-name-input';
             form.appendChild(input);
+            input.focus();
 
             var hiddenInput = document.createElement('input');
             hiddenInput.type = 'hidden';
@@ -74,6 +75,12 @@
                 
                 var laneElement = this.closest('.lane');
 
+                var hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'id';
+                hiddenInput.value = '@Model.Id';
+                laneElement.appendChild(hiddenInput);
+
                 var cardInput = document.createElement('input');
                 cardInput.type = 'text';
                 cardInput.className = 'card-name-input';
@@ -87,20 +94,22 @@
                         var cardName = this.value.trim();
                         if (cardName !== '') {
                             var laneId = laneElement.getAttribute('data-lane-id');
-                            createCard(cardName, laneId, laneElement, this);
+                            var boardId = @Model.Id;
+                            createCard(cardName, laneId, laneElement, this, boardId);
                         }
                     }
                 });
             });
         });
 
-        function createCard(cardName, laneId, laneElement, inputElement) {
+        function createCard(cardName, laneId, laneElement, inputElement, boardId) {
             $.ajax({
                 url: '@Url.Action("CreateCard", "Card")',
                 type: 'POST',
                 data: {
                     name: cardName,
-                    laneId: laneId
+                    laneId: laneId,
+                    boardId: boardId
                 },
                 success: function() {
                     var newCard = document.createElement('li');
