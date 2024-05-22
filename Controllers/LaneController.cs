@@ -20,27 +20,22 @@ public class LaneController : Controller
         _userManager = userManager;
     }
     [HttpPost]
-    public async Task<bool> CreateLane(string name, int id)
+    public async Task<IActionResult> CreateLane(string name, int id)
     {
         if (string.IsNullOrEmpty(name))
         {
-            return false;
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
         }
+
         var lane = new Lane
         {
             Name = name,
             Index = 0,
             Board = await _db.Boards.FirstOrDefaultAsync(x => x.Id == id)
         };
-        if (lane.Board == null)
-        {
-            return false;
-        }
-
         _db.Add(lane);
         await _db.SaveChangesAsync();
 
-        return true;
+        return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
-
 }
