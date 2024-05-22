@@ -76,6 +76,13 @@ namespace Glimpse.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
+            [StringLength(50, ErrorMessage = "First Name is too long.")]
+            public string FirstName { get; set; }
+            [Required]
+            [StringLength(50, ErrorMessage = "Last Name is too long.")]
+            public string LastName { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -109,7 +116,7 @@ namespace Glimpse.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/Home/index");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
@@ -117,8 +124,11 @@ namespace Glimpse.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                user.IsActive = true;
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
+                Console.WriteLine(Input.FirstName + " " + Input.LastName); 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

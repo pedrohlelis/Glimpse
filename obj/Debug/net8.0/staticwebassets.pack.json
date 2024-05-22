@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Glimpse.bundle.scp.css"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\Glimpse_text_white.png",
+      "PackagePath": "staticwebassets\\Glimpse_text_white.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\Icons\\default-avatar.webp",
       "PackagePath": "staticwebassets\\Icons\\default-avatar.webp"
     },
@@ -15,6 +19,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\Icons\\vertical-dots.svg",
       "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\0710764c-c185-4364-a95e-3774fc67b3a8_lobao.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\0710764c-c185-4364-a95e-3774fc67b3a8_lobao.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\14be3588-da7c-4c90-97d4-d180d5e91d95_carcharo skull.jfif",
@@ -89,6 +97,10 @@
       "PackagePath": "staticwebassets\\css\\index.css"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\css\\register.css",
       "PackagePath": "staticwebassets\\css\\register.css"
     },
@@ -151,6 +163,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\fonts\\Fixture-Ultra-Thin.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-Thin.otf"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\google_logo_icon.png",
+      "PackagePath": "staticwebassets\\google_logo_icon.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\js\\site.js",

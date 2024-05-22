@@ -100,7 +100,7 @@ namespace Glimpse.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetCallbackAsync(string returnUrl = null, string remoteError = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Content("~/Home/index");
             if (remoteError != null)
             {
                 ErrorMessage = $"Error from external provider: {remoteError}";
@@ -108,7 +108,7 @@ namespace Glimpse.Areas.Identity.Pages.Account
             }
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
-            {
+            {   
                 ErrorMessage = "Error loading external login information.";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
@@ -162,6 +162,7 @@ namespace Glimpse.Areas.Identity.Pages.Account
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 user.FirstName = firstName;
                 user.LastName = lastName;
+                user.IsActive = true;
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
