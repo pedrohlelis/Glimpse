@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SWQgNfJFtk+aesceqSSd9uwS6aSVkRTswTbO2ay7BBA=",
+  "Hash": "x/Qi1rJ3G9vi/3f7gkP4Jgq9vipi4UdTOhh/I9ve9ds=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\board-pictures\\073572bf-9006-4e1d-9089-69ad81fdce4d-board-pic.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\board-pictures\\088c3952-8502-4733-b6eb-d03669740783-board-pic.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "board-pictures/088c3952-8502-4733-b6eb-d03669740783-board-pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\board-pictures\\088c3952-8502-4733-b6eb-d03669740783-board-pic.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\board-pictures\\16c45241-84a6-450b-a13e-eea2029a9680-board-pic.png",
@@ -2544,6 +2563,25 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\8470ccbf-b530-4dd5-bcbf-593b3d1f6c20_FDSF.png"
     },
     {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\88c1f25b-7502-4e01-8386-913e1422fa30_mermaid-diagram-2024-05-14-151659.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/88c1f25b-7502-4e01-8386-913e1422fa30_mermaid-diagram-2024-05-14-151659.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\88c1f25b-7502-4e01-8386-913e1422fa30_mermaid-diagram-2024-05-14-151659.png"
+    },
+    {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -2998,6 +3036,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserProfilePics\\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\b8ab3ae1-7979-4b24-8380-75966d2f32c9_tattoo_idea.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "UserProfilePics/b8ab3ae1-7979-4b24-8380-75966d2f32c9_tattoo_idea.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserProfilePics\\b8ab3ae1-7979-4b24-8380-75966d2f32c9_tattoo_idea.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png",

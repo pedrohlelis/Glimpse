@@ -40,20 +40,32 @@ body {
   background-clip: content-box
 }
 
+.memberSideMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  padding: .4rem .4rem;
+  background: #272727;
+  transition: all 0.5s ease;
+}
+
+.memberSideMenu.active {
+  display: block;
+  width: 250px;
+  z-index: 50;
+}
+
+
 .sideBar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 80px;
   padding: .4rem .4rem;
   background: #272727;
-  transition: all 0.5s ease;
-}
-
-.sideBar.active ~ .main-content {
-  left: 250px;
-  width: calc(100% - 250px);
   transition: all 0.5s ease;
 }
 
@@ -167,6 +179,16 @@ body {
   opacity: 1;
 }
 
+.board-main {
+  height: 80vh;
+  max-width: 1500px;
+}
+
+.lane {
+  min-width: 300px;
+  background-color: #959595;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -228,6 +250,10 @@ body {
 .main-content {
   margin-left: 90px;
   z-index: 1;
+}
+
+.add-Card-Button {
+
 }
 
 .project-card {

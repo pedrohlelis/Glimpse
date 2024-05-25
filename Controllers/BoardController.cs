@@ -21,6 +21,10 @@ public class BoardController : Controller
         _userManager = userManager;
     }
 
+    public IActionResult KanbanTest() {
+        return View();
+    }
+
     public async Task<IActionResult> GetBoardInfo(int id)
     {
         var board = _db.Boards
@@ -33,6 +37,10 @@ public class BoardController : Controller
             return NotFound();
         }
         int projectId = board.Project.Id;
+
+        List<User> members = await _db.Users
+            .Where(u => u.Projects.Any(p => p.Id == projectId))
+            .ToListAsync();
 
         List<Role> roles = await _db.Roles
             .Include(r => r.Users)
@@ -55,7 +63,8 @@ public class BoardController : Controller
             Board = board,
             ProjectRoles = roles,
             UserRole = userRole,
-            ProjectResponsibleUser = responsibleUser
+            ProjectResponsibleUser = responsibleUser,
+            Members = members
         };
 
         //ViewData["users"] = GetUsersFromBoard(board);
