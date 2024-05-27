@@ -1,15 +1,15 @@
+@using Glimpse.Models
 @using Microsoft.AspNetCore.Identity;
 @inject SignInManager<User> signInManager
 
 <ul class="navbar-nav">
     @if(signInManager.IsSignedIn(User))
     {
-        
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 @User.Identity!.Name!
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                 <li>
                     <a class="dropdown-item" asp-action="Logout" asp-controller="Account">
                         Logout
@@ -25,11 +25,17 @@
     }
     else
     {
-        <li class="nav-item">
+        @* <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        </li> *@
+        <li class="nav-item p-1">
+            <a asp-area="Identity" asp-page="/Account/Register"><button class="button-register button-style-1">Registrar</button></a>
+        </li>
+        <li class="nav-item p-1">
+            <a asp-area="Identity" asp-page="/Account/Login"><button class="button-login button-style-1">Login</button></a>
         </li>
     }
 </ul>

@@ -1,0 +1,260 @@
+<div class="board">
+    <form id="todo-form">
+        <input type="text" placeholder="New TODO..." id="todo-input" />
+        <button type="submit">Add +</button>
+    </form>
+
+    <div class="lanes">
+        <div class="swim-lane" id="todo-lane">
+        <h3 class="heading">TODO</h3>
+
+        <p class="task" draggable="true">Get groceries</p>
+        <p class="task" draggable="true">Feed the dogs</p>
+        <p class="task" draggable="true">Mow the lawn</p>
+        </div>
+
+        <div class="swim-lane">
+        <h3 class="heading">Doing</h3>
+
+        <p class="task" draggable="true">Binge 80 hours of Game of Thrones</p>
+        </div>
+
+        <div class="swim-lane">
+        <h3 class="heading">Done</h3>
+
+        <p class="task" draggable="true">
+            Watch video of a man raising a grocery store lobster as a pet
+        </p>
+        </div>
+    </div>
+</div>
+
+<div class="container d-flex overflow-visible">
+    <div class="board-main d-flex">
+        @foreach (Lane lane in Model.Board.Lanes)
+        {
+            <div style="width: 300px;" class="lane" data-lane-id="@lane.Id">
+                <div class=" lane-top-info d-flex align-content-between">
+                    <p>@lane.Name</p>
+                    <p class="number-circle">@lane.Cards.Count</p>
+                </div>
+                <ul class="card-list">
+                    @foreach (Card card in lane.Cards)
+                    {
+                        <li class="card" draggable="true">
+                            <p>@card.Name</p>
+                        </li>
+                    }
+                </ul>
+                <br>
+                <div class="new-card-btn text-white">
+                    <button class="new-lane-btn text-white" id="addLaneButton">
+                        <div class="d-flex justify-content-center align-content-center">
+                            <img class="PlusIcon" src="~/Icons/plusIcon.svg">
+                            <p class="me-auto mb-auto">Adicionar Tarefa</p>
+                        </div>
+                    </button>
+                    <img class="PlusIcon" src="~/Icons/plusIcon.svg" alt="">
+                    <a href="#" class="add-card-link">Nova Tarefa</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        }
+
+        *::-webkit-scrollbar {
+        display: none;
+        }
+
+        .board {
+        width: 100%;
+        height: 100vh;
+        overflow: scroll;
+
+        background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+        background-position: center;
+        background-size: cover;
+        }
+
+        /* ---- FORM ---- */
+        #todo-form {
+        padding: 32px 32px 0;
+        }
+
+        #todo-form input {
+        padding: 12px;
+        margin-right: 12px;
+        width: 225px;
+
+        border-radius: 4px;
+        border: none;
+
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        background: white;
+
+        font-size: 14px;
+        outline: none;
+        }
+
+        #todo-form button {
+        padding: 12px 32px;
+
+        border-radius: 4px;
+        border: none;
+
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        background: #ffffff;
+        color: black;
+
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        }
+
+        /* ---- BOARD ---- */
+        .lanes {
+        display: flex;
+        align-items: flex-start;
+        justify-content: start;
+        gap: 16px;
+
+        padding: 24px 32px;
+
+        overflow: scroll;
+        height: 100%;
+        }
+
+        .heading {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        }
+
+        .swim-lane {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        background: #f4f4f4;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+
+        padding: 12px;
+        border-radius: 4px;
+        width: 225px;
+        min-height: 120px;
+
+        flex-shrink: 0;
+        }
+
+        .task {
+        background: white;
+        color: black;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+
+        padding: 12px;
+        border-radius: 4px;
+
+        font-size: 16px;
+        cursor: move;
+        }
+
+        .is-dragging {
+        scale: 1.05;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        background: rgb(50, 50, 50);
+        color: white;
+        }
+</style>
+
+<script>
+    ////////// TO DO //////////////
+    const form = document.getElementById("todo-form");
+    const input = document.getElementById("todo-input");
+    const todoLane = document.getElementById("todo-lane");
+
+    form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const value = input.value;
+
+    if (!value) return;
+
+    const newTask = document.createElement("p");
+    newTask.classList.add("task");
+    newTask.setAttribute("draggable", "true");
+    newTask.innerText = value;
+
+    newTask.addEventListener("dragstart", () => {
+        newTask.classList.add("is-dragging");
+    });
+
+    newTask.addEventListener("dragend", () => {
+        newTask.classList.remove("is-dragging");
+    });
+
+    todoLane.appendChild(newTask);
+
+    input.value = "";
+    });
+
+    //////////DRAG //////////////
+
+    const draggables = document.querySelectorAll(".task");
+    const droppables = document.querySelectorAll(".swim-lane");
+
+    draggables.forEach((task) => {
+    task.addEventListener("dragstart", () => {
+        task.classList.add("is-dragging");
+    });
+    task.addEventListener("dragend", () => {
+        task.classList.remove("is-dragging");
+    });
+    });
+
+    droppables.forEach((zone) => {
+    zone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+
+        const bottomTask = insertAboveTask(zone, e.clientY);
+        const curTask = document.querySelector(".is-dragging");
+
+        if (!bottomTask) {
+        zone.appendChild(curTask);
+        } else {
+        zone.insertBefore(curTask, bottomTask);
+        }
+    });
+    });
+
+    const insertAboveTask = (zone, mouseY) => {
+    const els = zone.querySelectorAll(".task:not(.is-dragging)");
+
+    let closestTask = null;
+    let closestOffset = Number.NEGATIVE_INFINITY;
+
+    els.forEach((task) => {
+        const { top } = task.getBoundingClientRect();
+
+        const offset = mouseY - top;
+
+        if (offset < 0 && offset > closestOffset) {
+        closestOffset = offset;
+        closestTask = task;
+        }
+    });
+
+    return closestTask;
+    };
+
+</script>

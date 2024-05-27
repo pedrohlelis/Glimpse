@@ -20,6 +20,7 @@ public class UserController : Controller
 
     public UserController(IWebHostEnvironment hostingEnvironment, UserManager<User> userManager, SignInManager<User> signInManager)
     {
+        
         _hostingEnvironment = hostingEnvironment;
         _userManager = userManager;
         _signInManager = signInManager;

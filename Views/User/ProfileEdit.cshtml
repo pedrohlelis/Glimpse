@@ -7,6 +7,7 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath != null ? Model.PicturePath : "../Icons/default_avatar.webp")' alt="">
                 <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
+                <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                 <span class="text-black-50">@Model.Email</span>
             </div>
         </div>
@@ -21,6 +22,7 @@
                     <div class="col-md-6">
                         <label asp-for="PictureFile" class="control-label"></label>
                         <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
+                        <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
                         <span asp-validation-for="PictureFile" class="text-danger"></span>
                     </div>
 
@@ -34,14 +36,17 @@
                             <label asp-for="LastName" class="control-label"></label>
                             <input asp-for="LastName" id="LastName" name="LastName" class="form-control" placeholder="Last Name" value="@Model.LastName">
                             <span asp-validation-for="LastName" class="text-danger"></span>
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" id="firstName" name="firstName" class="form-control" placeholder="First Name" value="@Model.FirstName">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
-                        
                         <div class="col-md-6">
                             <label asp-for="LastName" class="control-label"></label>
                             <input asp-for="LastName" id="LastName" name="LastName" class="form-control" placeholder="Last Name" value="@Model.LastName">
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                     </div>
+                    
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label asp-for="Email" class="control-label"></label>
@@ -49,7 +54,7 @@
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
-                    
+                    <hr>
                     @* <div class="row mt-3">
                         <div class="col-md-12">
                             <label asp-for="Phone" class="control-label"></label>
@@ -60,44 +65,56 @@
 
                     <div class="mt-5 text-center">
                         <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
+                        <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
                     </div>
-                    </form>
+                </form>
 
-                    <div class="mt-2 text-center">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ConfirmDeleteModal">
-                        Delete Account
-                        </button>
-                    </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-labelledby="ConfirmDeleteModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="ConfirmDeleteModalLabel">Account Delete</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="mt-2 text-center">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ConfirmDeleteModal">
+                    Delete Account
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-labelledby="ConfirmDeleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ConfirmDeleteModalLabel">Account Delete</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete your account?</p>
+                            <p><strong>This action cannot be undone.</strong></p>
+                        </div>
+                        <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
                             </div>
-                            <div class="modal-body">
-                                <p>Are you sure you want to delete your account?</p>
-                                <p><strong>This action cannot be undone.</strong></p>
+                        </form>
+                        <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
                             </div>
-                            <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
-                                </div>
-                            </form>
-                            </div>
+                        </form>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
 @section Scripts
 {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+
+
 
 
 

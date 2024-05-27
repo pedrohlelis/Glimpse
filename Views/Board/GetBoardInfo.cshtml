@@ -1,45 +1,182 @@
-@model Board
+@using Glimpse.ViewModels;
+
+@model BoardVM;
 @{
-    ViewData["Title"] = "Quadro - " + Model.Name;
+    Layout = "_BasicLayout";
+    ViewData["StylesheetUrl"] = "~/css/index.css";
+    ViewData["Title"] = Model.Board.Name;
+    Console.WriteLine(Model.Board.Name);
+
 }
+<br><br>
 
-<section class="board-menu-func">
-    <div class="board-header">
-        <h3>@Model.Name</h3>
+<div class="sideBar d-flex flex-column">
+    <div class="top mb-5">
+        <div class="logo">
+            <img class="menuLogo" src="~/Icons/GlimpseLogo.svg" alt="">
+            <span class="text-white">Glimpse</span>
+        </div>
+        <box-icon name="menu" color="white" id="side-menu-btn"></box-icon>
     </div>
-</section>
+    <div class="d-flex flex-column mb-3">
+        <div class="sideBar-item">
+            <a class="button-style-2 h-100" href="">
+                <box-icon name='cog' color="white"></box-icon>
+                <span class="SB-nav-item">Settings</span>
+            </a>
+            <span class="tooltip">Settings</span>
+        </div>
+        <div class="sideBar-item" >
+            <a class="button-style-2 h-100" asp-action="MainProjects" asp-controller="Project">
+                <box-icon name='briefcase-alt' color="white"></box-icon>
+                <span class="SB-nav-item">Projects</span>
+            </a>
+            <span class="tooltip">Projects</span>
+        </div>
+        <div class="sideBar-item">
+            <a class="button-style-2  h-100" asp-action="Logout" asp-controller="Account">
+                <box-icon name='log-out' color="white"></box-icon>
+                <span class="SB-nav-item">Logout</span>
+            </a>
+            <span class="tooltip">Logout</span>
+        </div>
+    </div>
 
-<section class="board-main-layout">
-    <div class="lanes">
-        @foreach (Lane lane in Model.Lanes)
-        {
-            <div class="lane">
-                <div class="lane-name">
-                    <p>@lane.Name</p>
-                    <p class="number-circle">@lane.Cards.Count</p>
-                </div>
-                <hr>
-                <br>
-                <div class="new-card-btn">
-                    <img src="../Icons/plusIcon.svg" alt="">
-                    <a href="#">Nova Tarefa</a>
-                </div>
-                <ul>
-                    @foreach (Card card in lane.Cards)
-                    {
-                        <li>
-                            <p>@card.Name</p>
-                        </li>
-                    }
-                </ul>
+    <div class="user">
+        <a class="d-flex flex-fill" asp-action="Profile" asp-controller="User">
+            <div class="user-img-border">
+                <img class="user-img" src='@(Model.User.Picture != null ? Model.User.Picture : "~/Icons/default_avatar.webp")' alt="">
             </div>
-        }
-        <button class="new-lane-btn" id="addLaneButton">Adicionar Raia</button>
+            <div>
+                <p class="bold">@Model.User.FirstName @Model.User.LastName</p>
+                <p>@Model.User.UserName</p>
+            </div>
+        </a>
     </div>
-</section>
+</div>
+
+<div class="memberSideMenu d-flex flex-column active">
+    @foreach(User member in Model.Members)
+    {
+    <div class="memberDiv d-flex flex-fill">
+        <div class="user-img-border">
+                <img class="user-img" src='@(Model.User.Picture != null ? Model.User.Picture : "~/Icons/default_avatar.webp")' alt="">
+            </div>
+            <div>
+                <p class="bold">@Model.User.FirstName @Model.User.LastName</p>
+                <p>@Model.User.UserName</p>
+            </div>
+    </div>
+    }
+</div>
+
+<div class="main-content d-flex flex-column mx-auto">
+    <div class="d-flex container-fluid">
+        <div class="board-header">
+            <h3>@Model.Board.Name</h3>
+        </div>
+        <button class="new-lane-btn text-white .align-self-md-end" id="addLaneButton">
+            <div class="d-flex justify-content-center align-content-center">
+                <img class="PlusIcon" src="~/Icons/plusIcon.svg">
+                <p class="me-auto mb-auto">Adicionar Raia</p>
+            </div>
+        </button>
+        <div class="d-flex justify-content-center">
+            <box-icon name="group" color="white" id="member-side-menu-btn"></box-icon>
+        </div>
+    </div>
+    <br>
+    <div class="d-flex mx-auto">
+        <div class="board-main d-flex flex-row-reverse overflow-auto">
+            @foreach (Lane lane in Model.Board.Lanes)
+            {
+                <div class="lane ms-3" data-lane-id="@lane.Id">
+                    <div class=" lane-top-info d-flex align-content-between">
+                        <p>@lane.Name</p>
+                        <p class="number-circle">@lane.Cards.Count</p>
+                    </div>
+                    <ul class="card-list">
+                        @foreach (Card card in lane.Cards)
+                        {
+                            <li class="card" draggable="true">
+                                <p>@card.Name</p>
+                            </li>
+                        }
+                    </ul>
+                    <br>
+                    <div class="text-white">
+                        <button class="new-lane-btn text-white" id="addCardButton">
+                            <div class="d-flex justify-content-center align-content-center">
+                                <img class="PlusIcon" src="~/Icons/plusIcon.svg">
+                                <p class="me-auto mb-auto">Adicionar Tarefa</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+    <!-- Modal -->
+    @* <div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-labelledby="CardInfo" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ConfirmDeleteModalLabel">Account Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete your account?</p>
+                <p><strong>This action cannot be undone.</strong></p>
+            </div>
+            <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
+                </div>
+            </form>
+            <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
+                </div>
+            </form>
+        </div>
+    </div> *@
+
+</div>
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 @section Scripts {
     <script>
+        //START of sidebar menu ---------------------------
+        let memberSideMenuBtn = document.querySelector('#member-side-menu-btn')
+        let memberSideMenu = document.querySelector('.memberSideMenu')
+        let sideMenuBtn = document.querySelector('#side-menu-btn')
+        let sideBar = document.querySelector(".sideBar")
+        let mainContent = document.querySelector(".main-content")
+        let memberDivs = document.querySelectorAll(".memberDiv")
+
+        if (memberDivs.length === 0) {
+        console.error('No memberDiv elements found');
+        }
+
+
+        memberSideMenuBtn.onclick = function () {
+            memberDivs.forEach(function (div) {
+                div.classList.toggle('d-none');
+            })
+            memberSideMenu.classList.toggle('active');
+        };
+
+        sideMenuBtn.onclick = function () {
+            sideBar.classList.toggle('active')
+            mainContent.classList.toggle('opacity-50')
+        };
+        //End of sidebar menu   ---------------------------
         document.getElementById('addLaneButton').addEventListener('click', function() {
             var form = document.createElement('form');
             form.className = 'lane-form';
@@ -49,68 +186,70 @@
 
             var input = document.createElement('input');
             input.type = 'text';
-            input.name = 'name'
+            input.name = 'name';
             input.value = 'Nome da Raia';
             input.className = 'lane-name-input';
             form.appendChild(input);
 
-            var input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'id'
-            input.value = @Model.Id;
-            form.appendChild(input);
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'id';
+            hiddenInput.value = '@Model.Board.Id';
+            form.appendChild(hiddenInput);
 
             var submit = document.createElement('input');
             submit.type = 'submit';
             submit.style.visibility = 'hidden';
             form.appendChild(submit);
 
-            document.querySelector('.board-main-layout > div').appendChild(form);
+            document.querySelector('.board-main').appendChild(form);
         });
 
-        Array.from(document.getElementsByClassName('lane-name-input')).forEach(function(input) {
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    var laneName = this.value.trim();
-                    if (laneName !== '') {
-                        this.form.submit();
+        @* document.querySelectorAll('.addCardButton').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                var laneElement = this.closest('.lane');
+                var laneId = laneElement.getAttribute('data-lane-id')
+                var newCardFormDiv = document.createElement('div');
+                newCardFormDiv.innerHTML = ''
+                var cardInput = document.createElement('input');
+                cardInput.type = 'text';
+                cardInput.className = 'card-name-input';
+                cardInput.placeholder = 'Nome da Tarefa';
+                laneElement.appendChild(cardInput);
+                cardInput.focus();
+
+                cardInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        var cardName = this.value.trim();
+                        if (cardName !== '') {
+                            createCard(cardName, laneId, laneElement, this);
+                        }
                     }
-                }
+                });
             });
         });
 
-        $('.lane-form').on('submit', function(e) {
-            e.preventDefault();
-            var form = this;
-            var laneName = $(form).find('.lane-name-input').val();
-
-            // Verifica se o nome da raia não é nulo ou vazio
-            if (laneName && laneName.trim() !== '') {
-                $.ajax({
-                    url: '@Url.Action("CreateLane", "Lane")',
-                    type: 'POST',
-                    data: {
-                        name: laneName,
-                        id: '@Model.Id'
-                    },
-                    success: function() {
-                        // Cria uma nova raia com o nome fornecido e adiciona ao DOM
-                        var newLane = document.createElement('div');
-                        var laneNameElement = document.createElement('p');
-                        laneNameElement.textContent = laneName;
-                        newLane.appendChild(laneNameElement);
-
-                        // Adiciona a nova raia ao final do quadro
-                        document.querySelector('.board-main-layout > div').appendChild(newLane);
-
-                        // Limpa o campo de entrada
-                        $(form).find('.lane-name-input').val('');
-                    }
-                });
-            } else {
-                alert('O nome da raia não pode ser vazio.');
-            }
-        });
+        function createCard(cardName, laneId, laneElement, inputElement) {
+            $.ajax({
+                url: '@Url.Action("CreateCard", "Card")',
+                type: 'POST',
+                data: {
+                    name: cardName,
+                    laneId: laneId
+                },
+                success: function() {
+                    var newCard = document.createElement('li');
+                    newCard.textContent = cardName;
+                    laneElement.querySelector('.card-list').appendChild(newCard);
+                    inputElement.remove();
+                },
+                error: function() {
+                    alert('Erro ao criar a tarefa. Tente novamente.');
+                }
+            });
+        } *@
     </script>
 }

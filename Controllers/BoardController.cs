@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
+using Glimpse.ViewModels;
+using Org.BouncyCastle.Crypto.Engines;
 
 namespace Glimpse.Controllers;
 
@@ -20,46 +22,82 @@ public class BoardController : Controller
         _userManager = userManager;
     }
 
+    public IActionResult KanbanTest() {
+        return View();
+    }
+
+    [Authorize]
     public async Task<IActionResult> GetBoardInfo(int id)
     {
         var board = _db.Boards
             .Include(u => u.Lanes)
+            .Include(b => b.Project)
             .Single(u => u.Id == id);
 
         if (board == null)
         {
             return NotFound();
         }
+        int projectId = board.Project.Id;
+
+        List<User> members = await _db.Users
+            .Where(u => u.Projects.Any(p => p.Id == projectId))
+            .ToListAsync();
+
+        List<Role> roles = await _db.Roles
+            .Include(r => r.Users)
+            .Where(r => r.Project.Id == projectId)
+            .ToListAsync();
+
+        var user = await _userManager.GetUserAsync(User);
+
+        // Retrieve the user's role within the project associated with the board
+        var userRole = await _db.Roles
+            .Include(r => r.Users) // Assuming Role.Users is a collection of users with this role
+            .FirstOrDefaultAsync(r => r.Project.Id == board.Project.Id && r.Users.Any(u => u.Id == user.Id));
+
+        string responsibleUserId = board.Project.ResponsibleUserId;
+
+        User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
+        var model = new BoardVM
+        {
+            User = user,
+            Board = board,
+            ProjectRoles = roles,
+            UserRole = userRole,
+            ProjectResponsibleUser = responsibleUser,
+            Members = members
+        };
 
         //ViewData["users"] = GetUsersFromBoard(board);
         ViewData["lanes"] = board.Lanes;
         //ViewData["cards"] = 
 
-
-        return View(board);
+        return View(model);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        System.Console.WriteLine("");
         Project project = _db.Projects
-            .Include(u => u.Boards)
-            .Single(u => u.Id == id);
-        bool creator = false;
-        if (project == null || !project.IsActive )
+            .Include(p => p.Boards)
+            .Include(p => p.Users)
+            .Single(p => p.Id == id);
+
+        string userId = _userManager.GetUserId(User);
+        bool isMember = project.Users.Any(pm => pm.Id == userId);
+        bool isCreator = project.ResponsibleUserId == userId;
 
         if (project == null || project.IsActive == false)
         {
             return NotFound();
         }
-        string userId = _userManager.GetUserId(User);
 
-        if (userId == project.ResponsibleUserId)
+        if (!isMember && !isCreator)
         {
-            creator = true;
+            return Forbid(); // Return forbidden if the user is not a member or the creator
         }
 
         ViewData["Boards"] = project.Boards;
-        ViewData["Creator"] = creator;
+        ViewData["Creator"] = isCreator;
 
         return View(project);
     }

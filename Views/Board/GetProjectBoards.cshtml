@@ -19,33 +19,32 @@
     @if(creator){
         <center><a class="CTA-MODEL-01" asp-controller="Project" asp-action="Add" asp-route-projectId="@Model.Id">+ Adicionar usuários</a></center>
     }
-    
-    <section class="project-list-section">
-        <ul class="navbar-nav flex-grow-1">
-            @foreach (Board b in projectBoards) 
-            {
-                <li class="nav-item-7">
-                    <div class="project-card">
-                        <a class="sla" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@b.Id">
-                            <p>@b.Name</p>
-                        </a>
-                        <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
-                        <div>
-                        <center>
-                            <a class="sla" asp-controller="Board" asp-action="Edit" asp-route-boardId="@b.Id" asp-route-projectId="@Model.Id">editar</a>
-                        </center>
-                        <center>
-                            <a class="sla" asp-controller="Board" asp-action="Delete" asp-route-boardId="@b.Id" asp-route-projectId="@Model.Id">deletar</a>
-                        </center>
-                    </div>
-                    </div>
-                    <label class="pop-up-1" id="pop-up-@b.Id" style="display: none;">
-                        <a asp-controller="Board" asp-action="Edit" asp-route-id="@b.Id">Editar</a>
-                        <img class="normal-icon" src="../icons/edit.svg" alt="">
-                    </label>
-                    
-                </li>
-            }
-        </ul>
-    </section>
+</section>
+<section class="project-list-section">
+    <ul class="navbar-nav flex-grow-1">
+        @foreach (Board b in projectBoards) 
+        {
+            <li class="nav-item-7">
+                <div class="project-card">
+                    <a class="sla" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@b.Id">
+                        <p>@b.Name</p>
+                    </a>
+                    <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
+                    <div>
+                    <center>
+                        <a class="sla" asp-controller="Board" asp-action="Edit" asp-route-boardId="@b.Id" asp-route-projectId="@Model.Id">editar</a>
+                    </center>
+                    <center>
+                        <a class="sla" asp-controller="Board" asp-action="Delete" asp-route-boardId="@b.Id" asp-route-projectId="@Model.Id">deletar</a>
+                    </center>
+                </div>
+                </div>
+                <label class="pop-up-1" id="pop-up-@b.Id" style="display: none;">
+                    <a asp-controller="Board" asp-action="Edit" asp-route-id="@b.Id">Editar</a>
+                    <img class="normal-icon" src="../icons/edit.svg" alt="">
+                </label>
+                
+            </li>
+        }
+    </ul>
 </section>
