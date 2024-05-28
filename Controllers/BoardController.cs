@@ -23,9 +23,9 @@ public class BoardController : Controller
     public IActionResult GetBoardInfo(int id)
     {
         var board = _db.Boards
+            .Include(u => u.Project)
             .Include(u => u.Lanes)
                 .ThenInclude(l => l.Cards)
-            
             .SingleOrDefault(u => u.Id == id);
 
         if (board == null)
@@ -33,7 +33,7 @@ public class BoardController : Controller
             return NotFound();
         }
         ViewData["lanes"] = board.Lanes;
-
+        
         return View(board);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
@@ -81,19 +81,23 @@ public class BoardController : Controller
         Board.CreatorId = _userManager.GetUserAsync(User).Result.Id;
         Board.Project = _db.Projects.Find(projectId);
 
+        if (BoardImg != null && BoardImg.Length > 0)
+        {
+            string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
+            string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
+            string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                await BoardImg.CopyToAsync(stream);
+            }
+            Board.Background = "../board-pictures/" + nomeArquivo;
+        } else 
+        {
+            Board.Background = "../board-pictures/defaultBackground.jpg";
+        }
+
         if (ModelState.IsValid)
         {
-            if (BoardImg != null && BoardImg.Length > 0)
-            {
-                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
-                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
-                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-                {
-                    await BoardImg.CopyToAsync(stream);
-                }
-                Board.Background = "../board-pictures/" + nomeArquivo;
-            }
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
             var project = await _db.Projects
@@ -125,7 +129,6 @@ public class BoardController : Controller
     [HttpPost]
     public async Task<IActionResult> EditBoard(Board Board, IFormFile BoardImg, int projectId)
     {
-
         if (ModelState.IsValid)
         {
             if (BoardImg != null && BoardImg.Length > 0)
@@ -145,8 +148,6 @@ public class BoardController : Controller
             }
             catch (DbUpdateException)
             {
-                //ViewData["uniqueAlert"] = "Chassi do Board ja cadastrado";
-
                 return View("Edit", Board);
             }
             return RedirectToAction("GetProjectBoards", new { id = projectId });

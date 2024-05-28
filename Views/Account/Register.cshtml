@@ -8,13 +8,13 @@
 
 <div class="register-container">
     <div class="form-container">
-            <h2 id="Register-h2">Register</h2>
+            <h2 id="Register-h2">Registrar</h2>
             <form asp-action="Register" id="form" method="post">
                 <div asp-validation-summary="All" class="text-danger" role="alert"></div>
                 <div class="column">
                     <div class="col-8">
                         <div class="input-box mb-2">
-                            <label asp-for="FirstName" class="form-label">First Name:</label>
+                            <label asp-for="FirstName" class="form-label ">Primeiro Nome:</label>
                             <div class="input-validation">
                                 <input asp-for="FirstName" class="form-input">
                                 <span asp-validation-for="FirstName" class="validation-text"></span>
@@ -23,17 +23,12 @@
                     </div>
                     <div class="col-8">
                         <div class="input-box mb-2">
-                            <label asp-for="LastName" class="form-label">Last Name:</label>
+                            <label asp-for="LastName" class="form-label">Ultimo Name:</label>
                             <input asp-for="LastName" class="form-input">
                             <span asp-validation-for="LastName" class="validation-text"></span>
                         </div>
                     </div>
                 </div>
-                
-                @* <div class="form-floating mt-2">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div> *@
 
                 <div class="input-box mb-2">
                     <label asp-for="Email" class="form-label">E-mail:</label>
@@ -42,55 +37,25 @@
                 </div>
 
                 <div class="input-box mb-2">
-                    <label asp-for="Password" class="form-label">Password:</label>
+                    <label asp-for="Password" class="form-label">Senha:</label>
                     <input asp-for="Password" class="form-input">
                     <span asp-validation-for="Password" class="validation-text"></span>
                 </div>
                 <div class="input-box">
-                    <label asp-for="ConfirmPassword" class="form-label">Confirm your Password:</label>
+                    <label asp-for="ConfirmPassword" class="form-label">Confirme sua senha:</label>
                     <input asp-for="ConfirmPassword" class="form-input">
                     <span asp-validation-for="ConfirmPassword" class="validation-text"></span>
                 </div>
 
                 <div class="column">
                     <div class="col-8 mb-3">
-                        <a asp-action="Login" class="alreadyHaveAccount-btn">Already have an account?</a>
+                        <a asp-action="Login" class="alreadyHaveAccount-btn">Já possui uma conta?</a>
                     </div>
                     <div class="col-4">
                         <input type="submit" value="Register" class="submit-btn">
                     </div>
                 </div>
             </form>
-            @* <div class="col-md-6 col-md-offset-2">
-                <section>
-                    <h3>Use another service to register.</h3>
-                    <hr />
-                    @{
-                        if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                        {
-                            <div>
-                                <p>
-                                    There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                                    about setting up this ASP.NET application to support logging in via external services</a>.
-                                </p>
-                            </div>
-                        }
-                        else
-                        {
-                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                                <div>
-                                    <p>
-                                        @foreach (var provider in Model.ExternalLogins!)
-                                        {
-                                            <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                        }
-                                    </p>
-                                </div>
-                            </form>
-                        }
-                    }
-                </section>
-            </div> *@
     </div>
     <div class="container-sm image-container">
         <img src="../registerSideImage.svg" alt="">
@@ -101,7 +66,3 @@
 {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
-@* <Script>
-    $("#form").validate();
-</Script> *@
