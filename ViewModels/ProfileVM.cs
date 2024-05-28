@@ -17,8 +17,8 @@ public class ProfileVM
     [MaxLength(25)]
     public string? LastName { get; set; }
 
-    [Required(ErrorMessage = "Email is required.")]
-    [EmailAddress(ErrorMessage = "Invalid Email.")]
+    // [Required(ErrorMessage = "Email is required.")]
+    // [EmailAddress(ErrorMessage = "Invalid Email.")]
     public string? Email { get; set; }
 
 }
