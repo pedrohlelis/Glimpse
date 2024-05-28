@@ -13,7 +13,7 @@
 
 <div class="row row-4 flex-lg-grow-1">
     @foreach (Project p in Model) {
-        <div class="col  border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; width: 100px; height: 200px;">
+        <div class="co  border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; max-width: 300px; height: 200px;">
             <a class="text-decoration-none" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
 
                 <p class="overflow-hidden text-white">@p.Name</p>

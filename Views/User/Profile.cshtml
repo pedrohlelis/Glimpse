@@ -8,7 +8,7 @@
                 <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                        <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath != null ? Model.PicturePath : "../Icons/default_avatar.webp")' alt="">
+                        <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath ?? Url.Content("~/default-images/defaultUserPfP.png"))' alt="">
                         <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                         <span class="text-black-50">@Model.Email</span>
                     </div>

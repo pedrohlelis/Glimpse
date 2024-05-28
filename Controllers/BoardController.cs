@@ -28,9 +28,10 @@ public class BoardController : Controller
     public async Task<IActionResult> GetBoardInfo(int id)
     {
         var board = _db.Boards
+            .Include(p => p.Project)
             .Include(u => u.Lanes)
-            .Include(b => b.Project)
-            .Single(u => u.Id == id);
+            .ThenInclude(l => l.Cards)
+            .SingleOrDefault(u => u.Id == id);
 
         if (board == null)
         {
@@ -66,8 +67,6 @@ public class BoardController : Controller
             ProjectResponsibleUser = responsibleUser,
             Members = members
         };
-
-        //ViewData["users"] = GetUsersFromBoard(board);
         ViewData["lanes"] = board.Lanes;
         //ViewData["cards"] = 
 
@@ -75,28 +74,35 @@ public class BoardController : Controller
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        System.Console.WriteLine("");
-        Project project = _db.Projects
-            .Include(u => u.Boards)
-            .Single(u => u.Id == id);
-        bool creator = false;
-        if (project == null || !project.IsActive )
+        try{
+            Project project = _db.Projects
+            .Include(p => p.Boards)
+            .Include(p => p.Users)
+            .Single(p => p.Id == id);
+            string userId = _userManager.GetUserId(User);
+            bool isMember = project.Users.Any(pm => pm.Id == userId);
+            bool isCreator = project.ResponsibleUserId == userId;
 
-        if (project == null || project.IsActive == false)
+            if (project == null || project.IsActive == false)
+            {
+                return NotFound();
+            }
+
+            if (!isMember && !isCreator)
+            {
+                return Forbid();
+            }
+
+            ViewData["Boards"] = project.Boards;
+            ViewData["Creator"] = isCreator;
+
+            return View(project);
+        }
+        catch(Exception ex)
         {
             return NotFound();
         }
-        string userId = _userManager.GetUserId(User);
-
-        if (userId == project.ResponsibleUserId)
-        {
-            creator = true;
-        }
-
-        ViewData["Boards"] = project.Boards;
-        ViewData["Creator"] = creator;
-
-        return View(project);
+        
     }
 
     public IActionResult Create(int id)
