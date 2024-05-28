@@ -37,7 +37,8 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-clip: content-box
+  background-clip: content-box;
+  background: #fff;
 }
 
 .project-card {
