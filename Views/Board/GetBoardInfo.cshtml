@@ -21,13 +21,13 @@
 </section>
 <br><br><br>
 <div class="container d-flex overflow-visible">
-    <div class="board-main d-flex">
+    <div class="board-main d-flex kanban">
         @foreach (Lane lane in Model.Lanes)
         {
-            <div style="width: 300px;" class="lane" data-lane-id="@lane.Id">
+            <div style="width: 300px;" class="lane col" data-lane-id="@lane.Id">
                 <div class="d-flex align-content-center align-items-center px-1">
-                    <p class="text-uppercase fw-bold fs-6">@lane.Name</p>
-                    <p class="rounded-circle text-black bg-white">@lane.Cards.Count</p>
+                    <p class="text-uppercase fw-bold fs-6 px-1">@lane.Name</p>
+                    <p class="rounded-circle text-white px-2" style="background-color: #343434;">@lane.Cards.Count</p>
                 </div>
                 <hr>
                 <br>
@@ -50,7 +50,7 @@
                     <input name="id" value="@Model.Id" type="hidden">
                 </form>
 
-                <div class="container">
+                <div class="container card-col">
                     @foreach (Card card in lane.Cards)
                     {
                         <div class="card-link row py-3 border-bottom border-3 border-primary" 
@@ -58,7 +58,8 @@
                             data-id="@card.Id"
                             data-name="@card.Name"
                             data-description="@card.Description"
-                            data-date="@card.Date">
+                            data-date="@card.Date"
+                            draggable="true">
                             <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
                         </div>
                         <br>
@@ -155,7 +156,9 @@
         background-color: purple;
         color: white;
     }
-
+    .dragging {
+        opacity: 0.5;
+    }
 </style>
 
 @section Scripts {
@@ -217,43 +220,76 @@
             });
         });
 
+        // LOGICA DE MOVER CARDS
+        const columns = document.querySelectorAll(".card-col");
 
-        const addCardButtons = document.querySelectorAll('.add-card-button');
-        const cardForms = document.querySelectorAll('.create-card-form');
-        const cardInputs = document.querySelectorAll('.card-input');
-
-        addCardButtons.forEach((button, index) => {
-            button.addEventListener('click', function() {
-                cardForms[index].removeAttribute('hidden');
-                cardInputs[index].focus();
-            });
+        document.addEventListener("dragstart", (e) => {
+            e.target.classList.add("dragging");
         });
 
-        const addLaneButton = document.querySelector('.new-lane-btn');
-        const laneForm = document.querySelector('.create-lane-form');
-        const laneInput = document.querySelector('.lane-input');
-
-        addLaneButton.addEventListener('click', function() {
-            laneForm.removeAttribute('hidden');
-            laneInput.focus();
+        document.addEventListener("dragend", (e) => {
+            e.target.classList.remove("dragging");
+            saveCardOrder(); // Chama a função para salvar a ordem dos cards após o arrasto
         });
 
-        cardInputs.forEach((input) => {
-            input.setAttribute('autocomplete', 'off');
-        });
+        columns.forEach((item) => {
+            item.addEventListener("dragover", (e) => {
+                e.preventDefault(); // Previne o comportamento padrão
+                const dragging = document.querySelector(".dragging");
+                const applyAfter = getNewPosition(item, e.clientY);
 
-        laneInput.setAttribute('autocomplete', 'off');
-
-        document.addEventListener('click', function(event) {
-            cardForms.forEach((form, index) => {
-                if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
-                    form.setAttribute('hidden', true);
+                if (applyAfter) {
+                    applyAfter.insertAdjacentElement("afterend", dragging);
+                } else {
+                    item.prepend(dragging);
                 }
             });
-
-            if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
-                laneForm.setAttribute('hidden', true);
-            }
         });
+
+        function getNewPosition(column, posY) {
+            const cards = column.querySelectorAll(".item:not(.dragging)");
+            let result;
+
+            for (let refer_card of cards) {
+                const box = refer_card.getBoundingClientRect();
+                const boxCenterY = box.y + box.height / 2;
+
+                if (posY >= boxCenterY) result = refer_card;
+            }
+
+            return result;
+        }
+
+        function saveCardOrder() {
+            const lanesData = [];
+
+            columns.forEach((lane) => {
+                const laneId = lane.dataset.laneId;
+                const cardIds = Array.from(lane.querySelectorAll(".item")).map((card) => card.dataset.cardId);
+                lanesData.push({ laneId, cardIds });
+            });
+
+            // Enviar dados para o servidor via AJAX
+            fetch('/caminho/do/seu/controller', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ lanes: lanesData })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao salvar a ordem dos cards');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Ordem dos cards salva com sucesso:', data);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        }
+
     </script>
 }

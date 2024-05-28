@@ -129,4 +129,13 @@ public class CardController : Controller
         
         return null;
     }
+    [HttpPost]
+    public IActionResult MoveCard(int id)
+    {
+        // Lógica para mover o card na sua estrutura de dados (por exemplo, em Board ou Lane)
+
+        // Retornar um status de sucesso
+        return RedirectToAction("GetBoardInfo", "Board", new { id });
+    }
+
 }
