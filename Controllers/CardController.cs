@@ -65,7 +65,7 @@ public class CardController : Controller
     [HttpPost]
     public async Task<IActionResult> EditCard(int cardId, string name, string description, DateOnly date, int id)
     {
-        Card card = await _db.Cards.FindAsync(cardId);
+        var card = await _db.Cards.FindAsync(cardId);
         card.Name = name;
         card.Description = description;
         card.Date = date;

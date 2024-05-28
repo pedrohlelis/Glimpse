@@ -55,6 +55,7 @@
                     {
                         <div class="card-link row py-3 border-bottom border-3 border-primary" 
                             style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
+                            data-id="@card.Id"
                             data-name="@card.Name"
                             data-description="@card.Description"
                             data-date="@card.Date">
@@ -194,7 +195,7 @@
             const cards = document.querySelectorAll('.card-link');
             cards.forEach(card => {
                 card.addEventListener('click', function(event) {
-                    const cardId = card.dataset.cardId;
+                    const cardId = card.dataset.id;
                     const cardName = card.dataset.name;
                     const cardDescription = card.dataset.description;
                     const cardDate = card.dataset.date;
