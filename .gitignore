@@ -79,3 +79,6 @@ _[Ss]cripts
 *.dot[Cc]over
 obj/Debug/net8.0/Glimpse.GeneratedMSBuildEditorConfig.editorconfig
 obj/Debug/net8.0/project.razor.vscode.bin
+obj/Debug/net8.0/Glimpse.AssemblyInfo.cs
+obj/Debug/net8.0/Glimpse.AssemblyInfoInputs.cache
+obj/Debug/net8.0/project.razor.vscode.bin
