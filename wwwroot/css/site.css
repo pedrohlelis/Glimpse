@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
+@font-face {
+  font-family: "Fixture-SemiBold";
+  src: url("../fonts/Fixture-SemiBold.otf");
+}
+@font-face {
+  font-family: "Fixture-Expanded-SemiBold";
+  src: url("../fonts/Fixture-Expanded-SemiBold.otf");
+}
+@font-face {
+  font-family: "Fixture-Expanded-Light";
+  src: url("../fonts/Fixture-Expanded-Light.otf");
+}
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -11,11 +22,13 @@
   text-decoration: none;
 }
 * {
-  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  font-family: 'Fixture-Expanded-Light', sans-serif;
 }
 
 html {
-  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  font-family: 'Fixture-Expanded-Light', sans-serif;
   font-weight: 400;
   font-style: normal;
   position: relative;

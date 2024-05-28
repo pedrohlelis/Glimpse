@@ -20,33 +20,29 @@ public class BoardController : Controller
         _userManager = userManager;
     }
 
-    public async Task<IActionResult> GetBoardInfo(int id)
+    public IActionResult GetBoardInfo(int id)
     {
         var board = _db.Boards
             .Include(u => u.Lanes)
-            .Single(u => u.Id == id);
+                .ThenInclude(l => l.Cards)
+            
+            .SingleOrDefault(u => u.Id == id);
 
         if (board == null)
         {
             return NotFound();
         }
-
-        //ViewData["users"] = GetUsersFromBoard(board);
         ViewData["lanes"] = board.Lanes;
-        //ViewData["cards"] = 
-
 
         return View(board);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        System.Console.WriteLine("");
         Project project = _db.Projects
             .Include(u => u.Boards)
             .Single(u => u.Id == id);
-        bool creator = false;
-        if (project == null || !project.IsActive )
 
+        bool creator = false;
         if (project == null || project.IsActive == false)
         {
             return NotFound();
