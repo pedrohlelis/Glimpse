@@ -17,12 +17,6 @@
         <input asp-for="Color" class="form-control" />
         <span asp-validation-for="Color" class="text-danger"></span>
 
-        <label asp-for="Hierarchy">Permissão:</label>
-        <select asp-for="Hierarchy" class="form-control">
-            <option value="1">Ver</option>
-            <option value="2">Ver - Editar</option>
-            <option value="3">Ver - Editar - Comandar</option>
-        </select>
 
         <input type="hidden" id="projectId" name="projectId" class="form-control" value="@projectId"></input>
         

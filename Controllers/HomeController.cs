@@ -13,7 +13,6 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    [HttpGet("Home/index")]
     public IActionResult Index()
     {
         return View();

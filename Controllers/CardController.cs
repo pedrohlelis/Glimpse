@@ -56,8 +56,8 @@ public class CardController : Controller
             .Include(u => u.Cards)
             .SingleAsync(p => p.Id == laneId);
 
-            lane.Cards.Add(card);
-            await _db.SaveChangesAsync();
+        lane.Cards.Add(card);
+        await _db.SaveChangesAsync();
 
         return RedirectToAction("GetBoardInfo", "Board", new { id });
     }

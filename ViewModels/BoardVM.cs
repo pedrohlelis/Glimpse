@@ -9,5 +9,6 @@ public class BoardVM
     public Board? Board { get; set; }
     public Role? UserRole { get; set; }
     public List<Role>? ProjectRoles { get; set; } = new List<Role>();
+    public Dictionary<User, Role> UserRolesDictionary { get; set; }
     public User? ProjectResponsibleUser { get; set; }
 }

@@ -56,7 +56,11 @@ public class ProjectController : Controller
         project.LastEdited = DateTime.UtcNow;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
-        project.Users.Add(_userManager.GetUserAsync(User).Result);
+        
+
+        var currentUser = await _userManager.GetUserAsync(User);
+
+        project.Users.Add(currentUser);
 
         if (ModelState.IsValid)
         {
@@ -74,10 +78,36 @@ public class ProjectController : Controller
             _db.Projects.AddAsync(project);
             await _db.SaveChangesAsync();
 
+            var DefaultPORole = new Role
+            {
+                Name = "Product Owner",  // Assign a default role name or customize as needed
+                Description = "This is the default Developer role created during project creation",
+                Color = "#74B72E",  // Assign a default color or customize as needed
+                CanRemoveMember = true,  // Set default permissions as needed
+                CanInviteMember = true,
+                CanManageCards = true,
+                CanManageTags = true,
+                CanManageChecklist = true,
+                Project = project
+            };
+            var DefaultDevTeamRole = new Role
+            {
+                Name = "Developer",  // Assign a default role name or customize as needed
+                Description = "This is the default Developer role created during project creation",
+                Color = "#FF1D8E",  // Assign a default color or customize as needed
+                CanRemoveMember = false,  // Set default permissions as needed
+                CanInviteMember = false,
+                CanManageCards = true,
+                CanManageTags = true,
+                CanManageChecklist = true,
+                Project = project
+            };
+            project.Roles.Add(DefaultPORole);
+            project.Roles.Add(DefaultDevTeamRole);
             var user = await _db.Users
                 .Include(u => u.Projects)
                 .SingleAsync(u => u.Id == project.ResponsibleUserId);
-
+            user.Roles.Add(DefaultPORole);
             user.Projects.Add(project);
             await _db.SaveChangesAsync();
 
