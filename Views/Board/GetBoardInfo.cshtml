@@ -110,13 +110,18 @@
                 <ul class="list-group">
                     @foreach(var role in Model.ProjectRoles)
                     {
-                        <li data-id="@role.Id" class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #1E1E1E;">
+                        <li data-id="@role.Id" class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
                             @role.Name
                             <div>
-                                <button type="button" class="btn btn-primary btn-sm" onclick="editRole(@role.Id)">Edit</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="editRole(this)">Edit</button>
                                 <button type="button" class="btn btn-danger btn-sm" onclick="deleteRole(@role.Id)">Delete</button>
                             </div>
                         </li>
+                        <!-- Hidden input fields to store role details -->
+                        <input type="hidden" class="role-id" value="@role.Id">
+                        <input type="hidden" class="role-name" value="@role.Name">
+                        <input type="hidden" class="role-description" value="@role.Description">
+                        <!-- Add hidden input fields for other role details as needed -->
                     }
                 </ul>
             </div>
@@ -133,7 +138,7 @@
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editRoleForm">
+                <form asp-action="" id="editRoleForm" method="post">
                     
                     <input type="hidden" id="roleId" name="roleId" value="">
                     
@@ -305,7 +310,6 @@
 <div id="overlay" class="overlay" hidden>
     <form id="edit-card-form" asp-action="EditCard" asp-controller="Card" method="post">
         <div id="overlay-content" class="overlay-content">
-            
             <input type="hidden" name="cardId" id="cardId">
             <div class="d-flex overflow-auto">
                 <input class="overflow-visible text-white fs-3" type="text" name="name" id="name" style="outline: none; background-color: #131313; border: none;">
@@ -335,19 +339,21 @@
         }
 
         // Function to handle editing a role
-        function editRole(roleId) {
-
-            var listItem = document.querySelector('[data-id="' + roleId + '"]');
-
-            document.getElementById('roleId').value = roleId;
-            document.getElementById('roleName').value = roleName;
-            document.getElementById('roleDescription').value = roleDescription;
-            document.getElementById('roleColor').value = roleColor;
-            document.getElementById('canRemoveMember').checked = canRemoveMember;
-            document.getElementById('canInviteMember').checked = canInviteMember;
-            document.getElementById('canManageCards').checked = canManageCards;
-            document.getElementById('canManageTags').checked = canManageTags;
-            document.getElementById('canManageChecklist').checked = canManageChecklist;
+        function editRole(button) {
+            @* if (role) {
+                // Populate form fields with role data
+                document.getElementById('roleId').value = roleId;
+                document.getElementById('roleName').value = role.Name;
+                document.getElementById('roleDescription').value = role.Description;
+                document.getElementById('roleColor').value = role.Color;
+                document.getElementById('canRemoveMember').checked = role.CanRemoveMember;
+                document.getElementById('canInviteMember').checked = role.CanInviteMember;
+                document.getElementById('canManageCards').checked = role.CanManageCards;
+                document.getElementById('canManageTags').checked = role.CanManageTags;
+                document.getElementById('canManageChecklist').checked = role.CanManageChecklist;
+            } else {
+                console.error('Role not found for ID:', roleId);
+            } *@
             var editRoleModal = new bootstrap.Modal(document.getElementById('editRoleModal'));
             editRoleModal.show();
         }
@@ -446,8 +452,7 @@
                 }
             });
         });
-
-
+        // LOGICA DOS FORMS DE CARD E LANE
         const addCardButtons = document.querySelectorAll('.add-card-button');
         const cardForms = document.querySelectorAll('.create-card-form');
         const cardInputs = document.querySelectorAll('.card-input');

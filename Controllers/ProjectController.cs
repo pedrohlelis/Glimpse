@@ -183,16 +183,31 @@ public class ProjectController : Controller
         return View("Delete", project);
     }
 
-    public async Task<IActionResult> Add(int projectId)
+    public async Task<IActionResult> Users(int projectId)
     {
-        Project Project = await _db.Projects.FindAsync(projectId);
+        Project project = _db.Projects
+            .Include(p => p.Users)
+                .ThenInclude(u => u.Roles)
+            .Include(p => p.Roles.Where(r => r.Project.Id == projectId))
+            .Single(p => p.Id == projectId);
 
-        if (Project == null)
+        if (project == null)
         {
             return NotFound();
         }
 
-        return View(Project);
+        ICollection<User> users = [];
+        User toAddUser = new();
+        foreach (User user in project.Users)
+        {
+            toAddUser = user;
+            // toAddUser.Roles = user.Roles.Where(r => project.Roles.Any(pr => pr.Id == r.Id)).ToList();
+            users.Add(toAddUser);
+        }
+        Project viewProject = project;
+        viewProject.Users = users;
+
+        return View(viewProject);
     }
 
     public async Task<IActionResult> AddUser(int projectId, string userEmail)
@@ -210,7 +225,7 @@ public class ProjectController : Controller
         project.Users.Add(user);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("MainProjects");
+        return RedirectToAction("Users", new { projectId });
     }
 
 }

@@ -60,6 +60,6 @@ app.MapControllers();
 // Default route setup
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}");
 app.MapRazorPages();
 app.Run();
