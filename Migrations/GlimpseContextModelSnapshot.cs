@@ -95,12 +95,11 @@ namespace Glimpse.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateOnly?>("Date")
+                        .HasColumnType("date");
 
-                    b.Property<int>("Index")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LaneId")
                         .HasColumnType("int");

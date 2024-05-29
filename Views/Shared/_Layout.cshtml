@@ -10,23 +10,44 @@
     @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Glimpse.styles.css" asp-append-version="true" /> *@
 </head>
+@{
+    List<string> path = ViewData["Path"] as List<string>;
+    // NAO APAGUE
+    /*Dictionary<string, BreadCrumb> BreadCrumbs = new Dictionary<string, BreadCrumb>();
+    BreadCrumbs.Add("Projetos", new BreadCrumb("MainProjects", "Project", false));
+    BreadCrumbs.Add("Quadros", new BreadCrumb("GetProjectBoards", "Project", false));*/
+}
 <body class="bg-dark text-white">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom border-dark mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom border-info mb-3 fixed-top" style="--bs-breadcrumb-divider: '>';">
             <div class="container-sm px-5">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="navbar-collapse collapse justify-content-between">
+                    <ol class="breadcrumb" aria-label="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a class="text-white" asp-controller="Project" asp-action="MainProjects" style="text-decoration: none;">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Project" asp-action="MainProjects">Projetos</a>
-                        </li>
-                    </ul>
+                        @if (path != null)
+                        {
+                            @foreach (string i in path)   
+                            {   
+                                if (path.IndexOf(i) == path.Count - 1) 
+                                {
+                                    <li class="breadcrumb-item active" aria-current="page">@i</li>
+                                }
+                                else 
+                                {
+                                    <li class="breadcrumb-item">
+                                        <a class="text-white" style="text-decoration: none;">@i</a>
+                                    </li>
+
+                                }
+                            }
+                        }
+                    </ol>
                 </div>
                 <partial name="_LoginPartial"/>
             </div>

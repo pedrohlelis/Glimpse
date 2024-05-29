@@ -20,33 +20,29 @@ public class BoardController : Controller
         _userManager = userManager;
     }
 
-    public async Task<IActionResult> GetBoardInfo(int id)
+    public IActionResult GetBoardInfo(int id)
     {
         var board = _db.Boards
+            .Include(u => u.Project)
             .Include(u => u.Lanes)
-            .Single(u => u.Id == id);
+                .ThenInclude(l => l.Cards)
+            .SingleOrDefault(u => u.Id == id);
 
         if (board == null)
         {
             return NotFound();
         }
-
-        //ViewData["users"] = GetUsersFromBoard(board);
         ViewData["lanes"] = board.Lanes;
-        //ViewData["cards"] = 
-
-
+        
         return View(board);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        System.Console.WriteLine("");
         Project project = _db.Projects
             .Include(u => u.Boards)
             .Single(u => u.Id == id);
-        bool creator = false;
-        if (project == null || !project.IsActive )
 
+        bool creator = false;
         if (project == null || project.IsActive == false)
         {
             return NotFound();
@@ -85,19 +81,23 @@ public class BoardController : Controller
         Board.CreatorId = _userManager.GetUserAsync(User).Result.Id;
         Board.Project = _db.Projects.Find(projectId);
 
+        if (BoardImg != null && BoardImg.Length > 0)
+        {
+            string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
+            string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
+            string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                await BoardImg.CopyToAsync(stream);
+            }
+            Board.Background = "../board-pictures/" + nomeArquivo;
+        } else 
+        {
+            Board.Background = "../board-pictures/defaultBackground.jpg";
+        }
+
         if (ModelState.IsValid)
         {
-            if (BoardImg != null && BoardImg.Length > 0)
-            {
-                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
-                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
-                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-                {
-                    await BoardImg.CopyToAsync(stream);
-                }
-                Board.Background = "../board-pictures/" + nomeArquivo;
-            }
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
             var project = await _db.Projects
@@ -129,7 +129,6 @@ public class BoardController : Controller
     [HttpPost]
     public async Task<IActionResult> EditBoard(Board Board, IFormFile BoardImg, int projectId)
     {
-
         if (ModelState.IsValid)
         {
             if (BoardImg != null && BoardImg.Length > 0)
@@ -149,8 +148,6 @@ public class BoardController : Controller
             }
             catch (DbUpdateException)
             {
-                //ViewData["uniqueAlert"] = "Chassi do Board ja cadastrado";
-
                 return View("Edit", Board);
             }
             return RedirectToAction("GetProjectBoards", new { id = projectId });

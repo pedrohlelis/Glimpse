@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
+<<<<<<<< HEAD:Migrations/20240523002030_createDatabase.Designer.cs
     [Migration("20240523002030_createDatabase")]
     partial class createDatabase
+========
+    [Migration("20240528133919_CreateDatabase")]
+    partial class CreateDatabase
+>>>>>>>> origin/branch-victor:Migrations/20240528133919_CreateDatabase.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,12 +103,11 @@ namespace Glimpse.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateOnly?>("Date")
+                        .HasColumnType("date");
 
-                    b.Property<int>("Index")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LaneId")
                         .HasColumnType("int");

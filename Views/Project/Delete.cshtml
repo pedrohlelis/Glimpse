@@ -5,27 +5,27 @@
 <br><br><br>
 <center><h1 class=" display-3">Deletar projeto @Model.Name?</h1></center>
 <br><br>
-<form asp-action="DeleteProject" asp-controller="Project" method="post" enctype="multipart/form-data">
-    <input asp-for="Id" type="hidden" class="form-control"/>
-    <input asp-for="ResponsibleUserId" type="hidden" class="form-control"/>
-    <input asp-for="Name" type="hidden" class="form-control"/>
-    <input asp-for="CreationDate" type="hidden" class="form-control"/>
-    <input asp-for="Description" type="hidden" class="form-control"/>
-    <input asp-for="Picture" type="hidden" class="form-control"/>
-    <input asp-for="IsActive" type="hidden" class="form-control"/>
-    <div class="d-flex align-items-center justify-content-center">
+<div class="d-flex justify-content-center">
+    <form asp-action="DeleteProject" asp-controller="Project" method="post" enctype="multipart/form-data">
+        <input asp-for="Id" type="hidden"/>
+        <input asp-for="ResponsibleUserId" type="hidden"/>
+        <input asp-for="Name" type="hidden"/>
+        <input asp-for="CreationDate" type="hidden"/>
+        <input asp-for="Description" type="hidden"/>
+        <input asp-for="Picture" type="hidden"/>
+        <input asp-for="IsActive" type="hidden"/>
         <div class="col-lg-auto p-2">
             <a>
                 <button class="button-login button-style-1 p-3" type="submit">Deletar</button>
             </a>
         </div>
-        <div class="col-lg-auto p-2">
-            <a asp-controller="MainProjects" asp-action="Project">
-                <button class="button-register button-style-1 p-3">Cancelar</button>
-            </a>
-        </div>
+    </form>
+    <div class="col-lg-auto p-2">
+        <a asp-controller="Project" asp-action="MainProjects">
+            <button class="button-register button-style-1 p-3">Cancelar</button>
+        </a>
     </div>
-</form>
+</div>
 
 <style>
     .button-register {

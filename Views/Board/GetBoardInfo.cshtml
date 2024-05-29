@@ -1,116 +1,332 @@
 @model Board
 @{
-    ViewData["Title"] = "Quadro - " + Model.Name;
+    ViewData["Title"] = Model.Name;
+    ViewData["Path"] = new List<string> { "Projetos", "Quadros", Model.Name };
+    string color = "#000000";
 }
-
-<section class="board-menu-func">
+<br>
+<section class="container board-menu-func d-flex justify-content-between">
     <div class="board-header">
-        <h3>@Model.Name</h3>
+        <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p>
+        <h1 class="fw-bold" style="letter-spacing: 2px;">@Model.Name</h1>
+    </div>
+    <div class="row row-cols-2 align-content-center">
+        <a class="col" href="">
+            <img src="/Icons/Invite.svg" alt="">
+        </a>
+        <a class="col" href="">
+            <img src="/Icons/Notification.svg" alt="">
+        </a>
     </div>
 </section>
-
-<section class="board-main-layout">
-    <div class="lanes">
+<br><br><br>
+<div class="container d-flex overflow-visible">
+    <div class="board-main d-flex kanban">
         @foreach (Lane lane in Model.Lanes)
         {
-            <div class="lane">
-                <div class="lane-name">
-                    <p>@lane.Name</p>
-                    <p class="number-circle">@lane.Cards.Count</p>
+            <div style="width: 300px;" class="lane col" data-lane-id="@lane.Id">
+                <div class="d-flex align-content-center align-items-center px-1">
+                    <p class="text-uppercase fw-bold fs-6 px-1">@lane.Name</p>
+                    <p class="rounded-circle text-white px-2" style="background-color: #343434;">@lane.Cards.Count</p>
                 </div>
                 <hr>
                 <br>
-                <div class="new-card-btn">
-                    <img src="../Icons/plusIcon.svg" alt="">
-                    <a href="#">Nova Tarefa</a>
+
+                <div class="col d-flex task-btn">
+                    <a class="w-100 align-items-center add-card-link">
+                        <button class="button-create add-card-button">
+                            <div class="d-flex justify-content-center">
+                                <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
+                                <p class="px-1 m-0">Nova Tarefa</p>
+                            </div>
+                        </button>
+                    </a>
                 </div>
-                <ul>
+                <br>
+
+                <form class="create-card-form" asp-action="CreateCard" asp-controller="Card" method="post" hidden>
+                    <input name="name" class="w-100 py-3 border-3 border-primary text-white card-input" style="background-color: #1E1E1E; border-radius: 13px; outline: none;" placeholder="Nome do cartão" type="text">
+                    <input name="laneId" value="@lane.Id" type="hidden">
+                    <input name="id" value="@Model.Id" type="hidden">
+                </form>
+
+                <div class="container card-col">
                     @foreach (Card card in lane.Cards)
                     {
-                        <li>
-                            <p>@card.Name</p>
-                        </li>
+                        <div class="card-link row py-3 border-bottom border-3 border-primary" 
+                            style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
+                            data-id="@card.Id"
+                            data-name="@card.Name"
+                            data-description="@card.Description"
+                            data-date="@card.Date"
+                            draggable="true">
+                            <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
+                        </div>
+                        <br>
                     }
-                </ul>
+                </div>
             </div>
         }
-        <button class="new-lane-btn" id="addLaneButton">Adicionar Raia</button>
+        <form class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
+            <div style="width: 300px; height: 200px;" class="lane">
+                <div class="d-flex align-content-center align-items-center px-1">
+                    <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none;">
+                    <input name="id" value="@Model.Id" type="hidden">
+                </div>
+                <br>
+                <hr>
+            </div>
+        </form>
+        <button class="button-create new-lane-btn mx-5" style="width: 200px;">Adicionar Raia</button>
     </div>
-</section>
+</div>
+
+<div id="overlay" class="overlay" hidden>
+    <form id="edit-card-form" asp-action="EditCard" asp-controller="Card" method="post">
+        <div id="overlay-content" class="overlay-content">
+            
+            <input type="hidden" name="cardId" id="cardId">
+            <div class="d-flex overflow-auto">
+                <input class="overflow-visible text-white fs-3" type="text" name="name" id="name" style="outline: none; background-color: #131313; border: none;">
+            </div> 
+            <div class="d-flex flex-column">
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description">
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            <input type="hidden" name="id" value="@Model.Id">
+
+            <button type="submit" id="save-button" class="button-save">Salvar</button>
+        </div>
+    </form>
+</div>
+
+
+<style>
+    input:focus {
+        outline: none;
+    }
+    .create-lane-form input {
+        background-color: #131313;
+    }   
+    .button-create {
+        width: 100%;
+        height: 4em;
+        padding: 0.4em 1.2em;
+        border: none;
+        border-radius: 8px;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+        transition: all 500ms;
+        justify-content: center;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        background-color: #272727;
+        color: white;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .overlay-content {
+        margin-top: 10%;
+        width: 800px;
+        height: 600px;
+        background-color: #131313;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.103);
+    }
+    .button-save-modified {
+        background-color: purple;
+        color: white;
+    }
+    .dragging {
+        opacity: 0.5;
+    }
+</style>
 
 @section Scripts {
     <script>
-        document.getElementById('addLaneButton').addEventListener('click', function() {
-            var form = document.createElement('form');
-            form.className = 'lane-form';
-            form.method = 'post';
-            form.action = '@Url.Action("CreateLane", "Lane")';
-            form.enctype = 'multipart/form-data';
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('overlay');
+            const overlayContent = document.getElementById('overlay-content');
+            const editForm = document.getElementById('edit-card-form');
+            const saveButton = document.getElementById('save-button');
+            let isModified = false;
 
-            var input = document.createElement('input');
-            input.type = 'text';
-            input.name = 'name'
-            input.value = 'Nome da Raia';
-            input.className = 'lane-name-input';
-            form.appendChild(input);
+            // Função para mostrar o overlay
+            function showOverlay() {
+                overlay.removeAttribute('hidden');
+            }
 
-            var input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'id'
-            input.value = @Model.Id;
-            form.appendChild(input);
+            // Função para esconder o overlay
+            function hideOverlay() {
+                overlay.setAttribute('hidden', true);
+            }
 
-            var submit = document.createElement('input');
-            submit.type = 'submit';
-            submit.style.visibility = 'hidden';
-            form.appendChild(submit);
+            // Event listener para detectar mudanças nos inputs
+            overlayContent.addEventListener('input', function() {
+                isModified = true;
+                saveButton.classList.add('button-save-modified');
+            });
 
-            document.querySelector('.board-main-layout > div').appendChild(form);
+            // Event listener para o envio do formulário
+            editForm.addEventListener('submit', function(event) {
+                if (!isModified) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            // Event listener para mostrar o overlay quando um card é clicado
+            const cards = document.querySelectorAll('.card-link');
+            cards.forEach(card => {
+                card.addEventListener('click', function(event) {
+                    const cardId = card.dataset.id;
+                    const cardName = card.dataset.name;
+                    const cardDescription = card.dataset.description;
+                    const cardDate = card.dataset.date;
+
+                    document.getElementById('cardId').value = cardId;
+                    document.getElementById('name').value = cardName;
+                    document.getElementById('description').value = cardDescription;
+                    document.getElementById('date').value = cardDate;
+
+                    showOverlay();
+                });
+            });
+
+            // Event listener para esconder o overlay quando clicar fora dele
+            overlay.addEventListener('click', function(event) {
+                if (event.target === overlay || event.target.classList.contains('close-button')) {
+                    hideOverlay();
+                }
+            });
+        });
+        // LOGICA DOS FORMS DE CARD E LANE
+        const addCardButtons = document.querySelectorAll('.add-card-button');
+        const cardForms = document.querySelectorAll('.create-card-form');
+        const cardInputs = document.querySelectorAll('.card-input');
+
+        addCardButtons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                cardForms[index].removeAttribute('hidden');
+                cardInputs[index].focus();
+            });
         });
 
-        Array.from(document.getElementsByClassName('lane-name-input')).forEach(function(input) {
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    var laneName = this.value.trim();
-                    if (laneName !== '') {
-                        this.form.submit();
-                    }
+        const addLaneButton = document.querySelector('.new-lane-btn');
+        const laneForm = document.querySelector('.create-lane-form');
+        const laneInput = document.querySelector('.lane-input');
+
+        addLaneButton.addEventListener('click', function() {
+            laneForm.removeAttribute('hidden');
+            laneInput.focus();
+        });
+
+        cardInputs.forEach((input) => {
+            input.setAttribute('autocomplete', 'off');
+        });
+
+        laneInput.setAttribute('autocomplete', 'off');
+
+        document.addEventListener('click', function(event) {
+            cardForms.forEach((form, index) => {
+                if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
+                    form.setAttribute('hidden', true);
+                }
+            });
+
+            if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
+                laneForm.setAttribute('hidden', true);
+            }
+        });
+        // LOGICA DE MOVER CARDS
+        const columns = document.querySelectorAll(".card-col");
+
+        document.addEventListener("dragstart", (e) => {
+            e.target.classList.add("dragging");
+        });
+
+        document.addEventListener("dragend", (e) => {
+            e.target.classList.remove("dragging");
+            saveCardOrder(); // Chama a função para salvar a ordem dos cards após o arrasto
+        });
+
+        columns.forEach((item) => {
+            item.addEventListener("dragover", (e) => {
+                e.preventDefault(); // Previne o comportamento padrão
+                const dragging = document.querySelector(".dragging");
+                const applyAfter = getNewPosition(item, e.clientY);
+
+                if (applyAfter) {
+                    applyAfter.insertAdjacentElement("afterend", dragging);
+                } else {
+                    item.prepend(dragging);
                 }
             });
         });
 
-        $('.lane-form').on('submit', function(e) {
-            e.preventDefault();
-            var form = this;
-            var laneName = $(form).find('.lane-name-input').val();
+        function getNewPosition(column, posY) {
+            const cards = column.querySelectorAll(".item:not(.dragging)");
+            let result;
 
-            // Verifica se o nome da raia não é nulo ou vazio
-            if (laneName && laneName.trim() !== '') {
-                $.ajax({
-                    url: '@Url.Action("CreateLane", "Lane")',
-                    type: 'POST',
-                    data: {
-                        name: laneName,
-                        id: '@Model.Id'
-                    },
-                    success: function() {
-                        // Cria uma nova raia com o nome fornecido e adiciona ao DOM
-                        var newLane = document.createElement('div');
-                        var laneNameElement = document.createElement('p');
-                        laneNameElement.textContent = laneName;
-                        newLane.appendChild(laneNameElement);
+            for (let refer_card of cards) {
+                const box = refer_card.getBoundingClientRect();
+                const boxCenterY = box.y + box.height / 2;
 
-                        // Adiciona a nova raia ao final do quadro
-                        document.querySelector('.board-main-layout > div').appendChild(newLane);
-
-                        // Limpa o campo de entrada
-                        $(form).find('.lane-name-input').val('');
-                    }
-                });
-            } else {
-                alert('O nome da raia não pode ser vazio.');
+                if (posY >= boxCenterY) result = refer_card;
             }
-        });
+
+            return result;
+        }
+
+        function saveCardOrder() {
+            const lanesData = [];
+
+            columns.forEach((lane) => {
+                const laneId = lane.dataset.laneId;
+                const cardIds = Array.from(lane.querySelectorAll(".item")).map((card) => card.dataset.cardId);
+                lanesData.push({ laneId, cardIds });
+            });
+
+            // Enviar dados para o servidor via AJAX
+            fetch('/caminho/do/seu/controller', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ lanes: lanesData })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao salvar a ordem dos cards');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Ordem dos cards salva com sucesso:', data);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        }
+
     </script>
 }

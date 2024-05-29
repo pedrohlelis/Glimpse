@@ -23,7 +23,6 @@ public class ProjectController : Controller
 
     public async Task<IActionResult> MainProjects()
     {
-        // coisas aqui
         string userId = _userManager.GetUserId(User);
 
         var user = _db.Users
