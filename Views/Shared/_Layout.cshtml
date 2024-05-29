@@ -12,6 +12,10 @@
 </head>
 @{
     List<string> path = ViewData["Path"] as List<string>;
+    // NAO APAGUE
+    /*Dictionary<string, BreadCrumb> BreadCrumbs = new Dictionary<string, BreadCrumb>();
+    BreadCrumbs.Add("Projetos", new BreadCrumb("MainProjects", "Project", false));
+    BreadCrumbs.Add("Quadros", new BreadCrumb("GetProjectBoards", "Project", false));*/
 }
 <body class="bg-dark text-white">
     <header>
@@ -37,8 +41,9 @@
                                 else 
                                 {
                                     <li class="breadcrumb-item">
-                                        <a class="text-white" asp-area="" asp-controller="Project" asp-action="MainProjects" style="text-decoration: none;">@i</a>
+                                        <a class="text-white" style="text-decoration: none;">@i</a>
                                     </li>
+
                                 }
                             }
                         }

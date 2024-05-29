@@ -1,0 +1,101 @@
+@model Project
+@{
+    ViewData["Title"] = "Gerenciar Integrantes";
+}
+
+
+<section>
+    <center><a class="CTA-MODEL-01" asp-controller="Role" asp-action="ShowRoles" asp-route-projectId="@Model.Id">+ Criar cargo</a></center>
+    <form asp-action="AddUser" asp-controller="Project" asp-route-projectId="@Model.Id" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="form-group">
+                    <label for="userEmail">E-mail do usuário a ser adicionado no projeto</label>
+                    <input name="userEmail" type="text" class="form-control" required/>
+                </div>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-lg-12">
+            @Model.Roles.Count
+            <table>
+            @if(Model.Users.Count == 0) {
+                <tr><td><p>Este projeto não tem integrantes</p></td></tr>
+            }else{
+                <tr>
+                    <th>Usuários</th>
+                    <th>Cargo</th>
+                    <th>Ação</th>
+                </tr>
+                @foreach(User user in Model.Users){
+                    <tr>
+                        <td>@user.FirstName - &nbsp&nbsp&nbsp&nbsp</td>
+                        @if(user.Roles.Count() == 0)
+                        {
+                            <td>Este usuário não tem cargo&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                        }
+                        else
+                        {
+                            <td>@user.Roles.First().Name&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                        }
+                        <td>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editarCargoModal" onclick="setUserId('@user.Id')">
+                            Editar cargo
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+            </table>
+
+            <div class="modal fade" id="editarCargoModal" tabindex="-1" aria-labelledby="editarCargoModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editarCargoModalLabel">Editar cargo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form method="post" asp-action="AtribuirRole" asp-controller="Role" id="form-role" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input type="hidden" id="userId" name="userId"></input>
+                                @{
+                                    bool i = true;
+                                    if(Model.Roles.Count == 0)
+                                    {
+                                        <p>Este projeto ainda não tem cargos</p>
+                                    }else {
+                                    <label for="roleId">Cargo: </label>
+                                    <select id="roleId" name="roleId">
+                                    @foreach(Role role in Model.Roles)
+                                    {
+                                        <option value="@role.Id" selected>@role.Name</option>
+                                    }
+                                    </select>
+                                    }
+                                }
+                            
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Atribuir cargo</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</section>
+
+<script>
+    function setUserId(userId) {
+        document.getElementById('userId').value = userId;
+    }
+    
+</script>

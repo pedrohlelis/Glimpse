@@ -249,8 +249,12 @@ namespace Glimpse.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Hierarchy = table.Column<int>(type: "int", nullable: false),
-                    ProjectId = table.Column<int>(type: "int", nullable: true)
+                    ProjectId = table.Column<int>(type: "int", nullable: true),
+                    CanRemoveMember = table.Column<bool>(type: "bit", nullable: false),
+                    CanInviteMember = table.Column<bool>(type: "bit", nullable: false),
+                    CanManageCards = table.Column<bool>(type: "bit", nullable: false),
+                    CanManageTags = table.Column<bool>(type: "bit", nullable: false),
+                    CanManageChecklist = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

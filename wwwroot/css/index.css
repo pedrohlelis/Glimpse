@@ -91,6 +91,10 @@ input:focus {
     color: white;
 }
 
+.dragging {
+    opacity: 0.5;
+}
+
 .memberSideMenu {
   display: none;
   position: fixed;
@@ -107,7 +111,6 @@ input:focus {
   width: 250px;
   z-index: 50;
 }
-
 
 .sideBar {
   position: fixed;
@@ -202,25 +205,6 @@ input:focus {
   opacity: 1;
   display: block;
   transition: opacity 0.3s ease, max-height 0.3s ease;
-}
-
-.user {
-  position: absolute;
-  bottom: 0px;
-  left: 1rem;
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-  cursor: pointer;
-}
-
-.user a {
-  text-decoration: none;
-}
-
-.user p {
-  margin-left: 1rem;
-  line-height: auto;
 }
 
 .sideBar p {
@@ -546,4 +530,70 @@ ul:hover li:hover ~ li:before {
   -webkit-text-fill-color: transparent;
   letter-spacing: 0.2em;
   font-style: italic;
+}
+
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    background-color: #2c2f33;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    overflow: visible;
+}
+
+.profile-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.profile-info div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-icons {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+.profile-icons {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #bbb;
+    cursor: pointer;
+}
+
+.options-dots {
+  cursor: pointer;
+}
+
+.sideBar:not(.active) .profile-icons .options-dots {
+  display: none;
+}
+
+/* Ensure the options-dots are visible when the sidebar is active */
+.sideBar.active .profile-icons .options-dots {
+  display: inline-block; /* or display: block; */
+}
+
+.profile-container img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sideBar:not(.active) .profile-container img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-status {
+    display: flex;
+    align-items: center;
 }
