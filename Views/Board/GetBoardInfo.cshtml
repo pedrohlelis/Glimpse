@@ -324,7 +324,9 @@
             </div>
             <input type="hidden" name="id" value="@Model.Board.Id">
 
-            <button type="submit" id="save-button" class="button-save">Salvar</button>
+            @if(Model.UserRole.CanManageCards){
+                <button type="submit" id="save-button" class="button-save">Salvar</button>
+            }
         </div>
     </form>
 </div>
