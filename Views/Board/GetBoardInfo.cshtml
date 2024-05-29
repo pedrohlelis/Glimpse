@@ -219,7 +219,44 @@
                 }
             });
         });
+        // LOGICA DOS FORMS DE CARD E LANE
+        const addCardButtons = document.querySelectorAll('.add-card-button');
+        const cardForms = document.querySelectorAll('.create-card-form');
+        const cardInputs = document.querySelectorAll('.card-input');
 
+        addCardButtons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                cardForms[index].removeAttribute('hidden');
+                cardInputs[index].focus();
+            });
+        });
+
+        const addLaneButton = document.querySelector('.new-lane-btn');
+        const laneForm = document.querySelector('.create-lane-form');
+        const laneInput = document.querySelector('.lane-input');
+
+        addLaneButton.addEventListener('click', function() {
+            laneForm.removeAttribute('hidden');
+            laneInput.focus();
+        });
+
+        cardInputs.forEach((input) => {
+            input.setAttribute('autocomplete', 'off');
+        });
+
+        laneInput.setAttribute('autocomplete', 'off');
+
+        document.addEventListener('click', function(event) {
+            cardForms.forEach((form, index) => {
+                if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
+                    form.setAttribute('hidden', true);
+                }
+            });
+
+            if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
+                laneForm.setAttribute('hidden', true);
+            }
+        });
         // LOGICA DE MOVER CARDS
         const columns = document.querySelectorAll(".card-col");
 
