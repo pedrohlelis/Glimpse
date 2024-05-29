@@ -25,6 +25,9 @@
 }
 * {
   font-family: 'Fixture-Expanded-Light', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -35,6 +38,196 @@ html {
 body {
   margin-bottom: 60px;
   background-clip: content-box
+}
+
+.sideBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80px;
+  padding: .4rem .4rem;
+  background: #272727;
+  transition: all 0.5s ease;
+}
+
+.sideBar.active ~ .main-content {
+  left: 250px;
+  width: calc(100% - 250px);
+  transition: all 0.5s ease;
+}
+
+.sideBar.active {
+  width: 250px;
+  z-index: 50;
+}
+.sideBar .menuLogo {
+  max-height: 35px;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.sideBar #side-menu-btn {
+  position: absolute;
+  background-color: #272727;
+  border: none;
+  top: .8rem;
+  left: 50%;
+  line-height: 50px;
+  transform: translate(-50%);
+  cursor: pointer;
+}
+.sideBar.active #side-menu-btn {
+  left: 90%;
+}
+
+.sideBar .top .logo {
+  display: flex;
+  gap: 8px;
+  height: 50px;
+  align-items: center;
+  opacity: 0;
+}
+.sideBar.active .top .logo {
+  transition: right .5s ease;
+  opacity: 1;
+}
+
+.menuLogo {
+  margin-left: 35px;
+  max-width: 30%;
+}
+
+.sideBar-item {
+  position: relative;
+  height: 50px;
+  align-items: center;
+  width: 100%;
+  margin: 0.8rem auto;
+  line-height: 50px;
+  background-color: #131313;
+  border-radius: 25%;
+  z-index: 2;
+}
+.sideBar.active .sideBar-item {
+  border-radius: 0%;
+  transition: all 0.3s ease;
+}
+
+.sideBar-item a {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.sideBar-item a box-icon {
+  min-width: 30px;
+  width: 30px;
+  min-height: 30px;
+  align-self: center;
+  opacity: 1;
+}
+
+.sideBar .SB-nav-item {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+.sideBar.active .SB-nav-item {
+  opacity: 1;
+  display: block;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.user {
+  position: absolute;
+  bottom: 0px;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.user a {
+  text-decoration: none;
+}
+
+.user p {
+  margin-left: 1rem;
+  line-height: auto;
+}
+
+.sideBar p {
+  opacity: 0;
+}
+.sideBar.active p {
+  opacity: 1;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.user-img-border {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #6600eb);
+  padding: 3px; /* Border width */
+  box-sizing: border-box;
+}
+
+.user-img-border::before {
+  content: '';
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #6600eb);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.user-img {
+  width: auto;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.button-style-2:hover {
+  z-index: -1;
+  transform: scale(1.05);
+  color: white;
+}
+
+.button-style-2::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#6600eb);
+  box-shadow: 2px 3px 8px -2px #9442ff;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 500ms;
+}
+
+.button-style-2:hover::before {
+  width: 200%;
+  z-index: -1;
+}
+
+.main-content {
+  margin-left: 90px;
+  z-index: 1;
 }
 
 .project-card {
@@ -105,6 +298,11 @@ body {
   justify-content: space-between;
   border-radius: 0.8vw;
   width: 14vw;
+  background-color: #1E1E1E;
+}
+
+.lane-top-info {
+  gap: 8px;
 }
 
 .lane-name {
@@ -125,7 +323,7 @@ hr {
 }
 
 .number-circle {
-  background-color: #e2e2e2;
+  background-color: #272727;
   border-radius: 50%;
   width: 1.2vw;
   text-align: center;
@@ -145,12 +343,17 @@ hr {
   align-content: center;
 }
 
+.PlusIcon {
+  height: 25px;
+}
+
 .new-lane-btn {
-  width: 12%;
+  width: auto;
   height: 6vh;
   border-radius: 0.4vw;
   align-content: center;
   border: none;
+  background-color: #272727;
 }
 
 .nav-item-index {

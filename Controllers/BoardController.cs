@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
+using Glimpse.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace Glimpse.Controllers;
 
@@ -24,19 +26,43 @@ public class BoardController : Controller
     {
         var board = _db.Boards
             .Include(u => u.Lanes)
+            .Include(b => b.Project)
             .Single(u => u.Id == id);
 
         if (board == null)
         {
             return NotFound();
         }
+        int projectId = board.Project.Id;
+
+        List<Role> roles = await _db.Roles
+            .Include(r => r.Users)
+            .Where(r => r.Project.Id == projectId)
+            .ToListAsync();
+
+        var user = await _userManager.GetUserAsync(User);
+        // Retrieve the user's role within the project associated with the board
+        var userRole = await _db.Roles
+            .Include(r => r.Users) // Assuming Role.Users is a collection of users with this role
+            .FirstOrDefaultAsync(r => r.Project.Id == board.Project.Id && r.Users.Any(u => u.Id == user.Id));
+
+        string responsibleUserId = board.Project.ResponsibleUserId;
+
+        User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
+        var model = new BoardVM
+        {
+            User = user,
+            Board = board,
+            ProjectRoles = roles,
+            UserRole = userRole,
+            ProjectResponsibleUser = responsibleUser
+        };
 
         //ViewData["users"] = GetUsersFromBoard(board);
         ViewData["lanes"] = board.Lanes;
         //ViewData["cards"] = 
 
-
-        return View(board);
+        return View(model);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
