@@ -66,9 +66,12 @@ public class CardController : Controller
     public async Task<IActionResult> EditCard(int cardId, string name, string description, DateOnly date, int id)
     {
         var card = await _db.Cards.FindAsync(cardId);
+
         card.Name = name;
         card.Description = description;
         card.Date = date;
+
+        _db.Entry(card);
 
         if (ModelState.IsValid)
         {
