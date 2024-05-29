@@ -15,9 +15,8 @@
         </ul>
     </div>
     <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@Model.Id">+ Criar Quadro</a></center>
-    <center><a class="CTA-MODEL-01" asp-controller="Role" asp-action="ShowRoles" asp-route-projectId="@Model.Id">+ Ver Cargos</a></center>
     @if(creator){
-        <center><a class="CTA-MODEL-01" asp-controller="Project" asp-action="Add" asp-route-projectId="@Model.Id">+ Adicionar usuários</a></center>
+        <center><a class="CTA-MODEL-01" asp-controller="Project" asp-action="Users" asp-route-projectId="@Model.Id">+ Gerenciar integrantes</a></center>
     }
 </section>
 

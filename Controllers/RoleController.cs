@@ -137,12 +137,24 @@ public class RoleController : Controller
         Role role = _db.Roles
             .Include(r => r.Project)
             .Single(r => r.Id == roleId);
-        User user = _db.Users.Find(userId);
+        User user = _db.Users
+            .Include(u => u.Roles)
+            .Single(u => u.Id == userId);
         int projectId = role.Project.Id;
-        role.Users.Add(user);
+        var existingUserRoleInProject = user.Roles.FirstOrDefault(ur => ur.Project.Id == role.Project.Id);
+        if (existingUserRoleInProject != null)
+        {
+            user.Roles.Remove(existingUserRoleInProject);
+            user.Roles.Add(role);
+        }
+        else
+        {
+            // Adiciona o novo papel ao usuário
+            user.Roles.Add(role);
+        }
         await _db.SaveChangesAsync();
         
-        return RedirectToAction("ShowRoles", new { projectId });
+        return RedirectToAction("Users", "Project", new { projectId });
     }
 
     public async Task<IActionResult> UserRoles(int projectId)

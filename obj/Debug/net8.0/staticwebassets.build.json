@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qk4QT/ljZykDVT/cxSERvN8LUkH/oAlVfkFBy8s4Tdc=",
+  "Hash": "VnLGrbfpTp8yfUh2yu8eW7bBJu8JBUz6kZ6kdfBZu3o=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -3247,6 +3247,25 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg"
     },
     {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\wwwroot\\project-pictures\\4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg"
+    },
+    {
       "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\wwwroot\\project-pictures\\45b915d1-81e8-450b-b33b-48cf6ae1b1e2_Conceitual_02.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -3416,6 +3435,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\wwwroot\\project-pictures\\a626eef8-d81e-4066-ab21-c12dc800e2cb_Questao4.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/a626eef8-d81e-4066-ab21-c12dc800e2cb_Questao4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\a626eef8-d81e-4066-ab21-c12dc800e2cb_Questao4.png"
     },
     {
       "Identity": "C:\\Users\\patum\\OneDrive - Grupo Marista\\Programação\\PUC\\Projeto Glimpse\\Glimpse-1\\wwwroot\\project-pictures\\a781db54-2ef5-43e7-aded-507ed49c8565_Conceitual-Glimpse.png",

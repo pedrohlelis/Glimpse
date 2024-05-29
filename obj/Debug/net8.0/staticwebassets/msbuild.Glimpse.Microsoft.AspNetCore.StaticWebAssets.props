@@ -1744,6 +1744,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>project-pictures/4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\45b915d1-81e8-450b-b33b-48cf6ae1b1e2_Conceitual_02.png))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
@@ -1887,6 +1903,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\a626eef8-d81e-4066-ab21-c12dc800e2cb_Questao4.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>project-pictures/a626eef8-d81e-4066-ab21-c12dc800e2cb_Questao4.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\a626eef8-d81e-4066-ab21-c12dc800e2cb_Questao4.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\a781db54-2ef5-43e7-aded-507ed49c8565_Conceitual-Glimpse.png))">
       <SourceType>Package</SourceType>

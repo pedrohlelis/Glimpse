@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
-    [Migration("20240515221036_createDatabase")]
+    [Migration("20240523002030_createDatabase")]
     partial class createDatabase
     {
         /// <inheritdoc />
@@ -216,6 +216,9 @@ namespace Glimpse.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Fruta")
+                        .HasColumnType("int");
 
                     b.Property<int>("Hierarchy")
                         .HasColumnType("int");

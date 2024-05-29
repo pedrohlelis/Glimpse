@@ -14,7 +14,7 @@ public class User : IdentityUser
     // card x user
     public virtual ICollection<Card> Cards { get; } = [];
     // cargo x user
-    public virtual ICollection<Role> Roles { get; } = [];
+    public virtual ICollection<Role> Roles { get; set; } = [];
     // projeto x user
     public virtual ICollection<Project> Projects { get; } = [];
 }
