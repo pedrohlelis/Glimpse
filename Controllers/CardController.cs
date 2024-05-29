@@ -35,90 +35,49 @@ public class CardController : Controller
 
         return View(Card);
     }
-    /*public async Task<IActionResult> GetlaneCards(int id)
-    {
-        System.Console.WriteLine("");
-        lane lane = _db.lanes
-            .Include(u => u.Cards)
-            .Single(u => u.Id == id);
-        bool creator = false;
-        if (lane == null || !lane.IsActive )
-
-        if (lane == null || lane.IsActive == false)
-        {
-            return NotFound();
-        }
-        string userId = _userManager.GetUserId(User);
-
-        if (userId == lane.ResponsibleUserId)
-        {
-            creator = true;
-        }
-
-        ViewData["Cards"] = lane.Cards;
-        ViewData["Creator"] = creator;
-
-        return View(lane);
-    }*/
 
     [HttpPost]
-    public async Task<IActionResult> CreateCard(Card Card, int laneId, int boardId)
+    public async Task<IActionResult> CreateCard(string name, int laneId, int id)
     {
-        var car = new Card
+        if (string.IsNullOrEmpty(name))
         {
-            Name = Card.Name,
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
+        }
+
+        var card = new Card
+        {
+            Name = name,
             Lane = await _db.Lanes.FirstOrDefaultAsync(x => x.Id == laneId)
         };
-        if (ModelState.IsValid)
-        {
-            _db.Cards.Add(Card);
+
+        _db.Cards.Add(card);
+        await _db.SaveChangesAsync();
+        var lane = await _db.Lanes
+            .Include(u => u.Cards)
+            .SingleAsync(p => p.Id == laneId);
+
+            lane.Cards.Add(card);
             await _db.SaveChangesAsync();
-            var lane = await _db.Lanes
-                .Include(u => u.Cards)
-                .SingleAsync(p => p.Id == laneId);
 
-            lane.Cards.Add(Card);
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction("GetBoardInfo", new { boardId });
-        }
-
-        return View("GetBoardInfo", Card);
-    }
-
-    public async Task<IActionResult> Edit(int laneId, int CardId)
-    {
-        var Card = await _db.Cards.FindAsync(CardId);
-
-        if (Card == null)
-        {
-            return NotFound();
-        }
-
-        ViewData["laneId"] = laneId;
-
-        return View(Card);
+        return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditCard(Card Card, IFormFile CardImg, int laneId)
+    public async Task<IActionResult> EditCard(int cardId, string name, string description, DateOnly date, int id)
     {
+        var card = await _db.Cards.FindAsync(cardId);
+        card.Name = name;
+        card.Description = description;
+        card.Date = date;
+
         if (ModelState.IsValid)
         {
-            try
-            {
-                await _db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                //ViewData["uniqueAlert"] = "Chassi do Card ja cadastrado";
+            await _db.SaveChangesAsync();
 
-                return View("Edit", Card);
-            }
-            return RedirectToAction("GetlaneCards", new { id = laneId });
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
         }
 
-        return View("Edit", Card);
+        return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
 
     public async Task<IActionResult> Delete(int laneId, int CardId)

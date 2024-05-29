@@ -1,11 +1,11 @@
 @using Glimpse.ViewModels;
 @model ProfileVM;
 
-<div class="container rounded bg-white mt-5 mb-5">
+<div class="container rounded bg-dark mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath != null ? Model.PicturePath : "../Icons/default_avatar.webp")' alt="">
+                <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath ?? Url.Content("~/default-images/defaultUserPfP.png"))' alt="">
                 <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                 <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
                 <span class="text-black-50">@Model.Email</span>
@@ -22,7 +22,6 @@
                     <div class="col-md-6">
                         <label asp-for="PictureFile" class="control-label"></label>
                         <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
-                        <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
                         <span asp-validation-for="PictureFile" class="text-danger"></span>
                     </div>
 
@@ -36,24 +35,16 @@
                             <label asp-for="LastName" class="control-label"></label>
                             <input asp-for="LastName" id="LastName" name="LastName" class="form-control" placeholder="Last Name" value="@Model.LastName">
                             <span asp-validation-for="LastName" class="text-danger"></span>
-                            <label asp-for="FirstName" class="control-label"></label>
-                            <input asp-for="FirstName" id="firstName" name="firstName" class="form-control" placeholder="First Name" value="@Model.FirstName">
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-6">
-                            <label asp-for="LastName" class="control-label"></label>
-                            <input asp-for="LastName" id="LastName" name="LastName" class="form-control" placeholder="Last Name" value="@Model.LastName">
-                            <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                     </div>
                     
-                    <div class="row mt-3">
+                    @* <div class="row mt-3">
                         <div class="col-md-12">
                             <label asp-for="Email" class="control-label"></label>
                             <input asp-for="Email" id="Email" name="Email" class="form-control" placeholder="Email" value="@Model.Email">
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
-                    </div>
+                    </div> *@
                     <hr>
                     @* <div class="row mt-3">
                         <div class="col-md-12">
@@ -64,7 +55,6 @@
                     </div> *@
 
                     <div class="mt-5 text-center">
-                        <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
                         <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
                     </div>
                 </form>

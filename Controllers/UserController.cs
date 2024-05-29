@@ -53,7 +53,7 @@ public class UserController : Controller
             PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Email = user.Email,
+            // Email = user.Email,
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);
@@ -67,16 +67,16 @@ public class UserController : Controller
         {
             var user = _userManager.GetUserAsync(User).Result;
 
-            var existingUser = await _userManager.FindByEmailAsync(profileVM.Email);
-            if (existingUser != null && existingUser.Id != user.Id)
-            {
-                ModelState.AddModelError("Email", "This email is already taken by another user.");
-                return View("ProfileEdit", profileVM);
-            }
-            else
-            {
-                profileVM.Email = user.Email;
-            }
+            // var existingUser = await _userManager.FindByEmailAsync(profileVM.Email);
+            // if (existingUser != null && existingUser.Id != user.Id)
+            // {
+            //     ModelState.AddModelError("Email", "This email is already taken by another user.");
+            //     return View("ProfileEdit", profileVM);
+            // }
+            // else
+            // {
+            //     profileVM.Email = user.Email;
+            // }
 
             var profilePicture = profileVM.PictureFile;
             if (profilePicture != null && profilePicture.Length > 0)
@@ -85,8 +85,8 @@ public class UserController : Controller
                 user!.Picture = FileHandlingHelper.UploadFile(profilePicture, _profilePicFolderName, _hostingEnvironment);
             }
             else { user!.Picture = null; }
-            user.Email = profileVM.Email;
-            user.UserName = profileVM.Email;
+            // user.Email = profileVM.Email;
+            // user.UserName = profileVM.Email;
             user.FirstName = profileVM.FirstName;
             user.LastName = profileVM.LastName;
             var result = await _userManager.UpdateAsync(user);
