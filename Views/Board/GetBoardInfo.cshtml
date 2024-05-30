@@ -8,8 +8,6 @@
 }
 <br><br>
 
-
-
 <div class="sideBar d-flex flex-column">
     <div class="top mb-5">
         <div class="logo">
@@ -110,18 +108,21 @@
                 <ul class="list-group">
                     @foreach(var role in Model.ProjectRoles)
                     {
-                        <li data-id="@role.Id" class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
+                        <li data-id="@role.Id"
+                            data-name="@role.Name"
+                            data-description="@role.Description"
+                            data-color="@role.Color"
+                            data-MngMembers="@role.CanManageMembers"
+                            data-MngCards="@role.CanManageCards"
+                            data-MngTags="@role.CanManageTags"
+                            data-MngChecklist="@role.CanManageChecklist"
+                            class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
                             @role.Name
                             <div>
                                 <button type="button" class="btn btn-primary btn-sm" onclick="editRole(this)">Edit</button>
                                 <button type="button" class="btn btn-danger btn-sm" onclick="deleteRole(@role.Id)">Delete</button>
                             </div>
                         </li>
-                        <!-- Hidden input fields to store role details -->
-                        <input type="hidden" class="role-id" value="@role.Id">
-                        <input type="hidden" class="role-name" value="@role.Name">
-                        <input type="hidden" class="role-description" value="@role.Description">
-                        <!-- Add hidden input fields for other role details as needed -->
                     }
                 </ul>
             </div>
@@ -198,7 +199,7 @@
     </div>
 </div>
 
-<section class="container board-menu-func d-flex justify-content-center mx-5">
+<section class="container board-menu-func d-flex justify-content-between mx-5" style="background-image: url(@Model.Board.Background)">
     <div class="board-header">
         <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p>
         <h1 class="fw-bold" style="letter-spacing: 2px;">@Model.Board.Name</h1>
@@ -318,9 +319,25 @@
             </div>
             <input type="hidden" name="id" value="@Model.Board.Id">
 
-            <button type="submit" id="save-button" class="button-save">Salvar</button>
+            @if(Model.UserRole.CanManageCards){
+                <button type="submit" id="save-button" class="button-save">Salvar</button>
+            }
         </div>
     </form>
+    <div class="createCheckbox">
+        <button id="show-checkbox-form-button" class="button-create">Adicionar Checkbox</button>
+        <form id="create-checkbox-form" asp-action="CreateCheckbox" asp-controller="Checkbox" enctype="multipart/form-data" method="post" hidden>
+            <input type="checkbox" name="finished">
+            <input type="text" name="name" placeholder="Nome do checkbox">
+            <input type="date" name="date">
+            <input type="hidden" name="cardId" id="checkbox-cardId">
+
+            <button type="submit" id="save-checkbox-button" class="button-save">Salvar</button>
+        </form>
+    </div>
+    <div id="checkbox-list" class="checkbox-list">
+        
+    </div>
 </div>
 
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -334,20 +351,18 @@
 
         // Function to handle editing a role
         function editRole(button) {
-            @* if (role) {
-                // Populate form fields with role data
-                document.getElementById('roleId').value = roleId;
-                document.getElementById('roleName').value = role.Name;
-                document.getElementById('roleDescription').value = role.Description;
-                document.getElementById('roleColor').value = role.Color;
-                document.getElementById('canRemoveMember').checked = role.CanRemoveMember;
-                document.getElementById('canInviteMember').checked = role.CanInviteMember;
-                document.getElementById('canManageCards').checked = role.CanManageCards;
-                document.getElementById('canManageTags').checked = role.CanManageTags;
-                document.getElementById('canManageChecklist').checked = role.CanManageChecklist;
-            } else {
-                console.error('Role not found for ID:', roleId);
-            } *@
+
+            var listItem = button.closest('li');
+
+            document.getElementById('roleId').value = listItem.dataset.id;
+            document.getElementById('roleName').value = listItem.dataset.name;
+            document.getElementById('roleDescription').value = listItem.dataset.description;
+            document.getElementById('roleColor').value = listItem.dataset.color;
+            document.getElementById('canRemoveMember').checked = listItem.dataset.MngMembers;
+            document.getElementById('canInviteMember').checked = listItem.dataset.MngCards;
+            document.getElementById('canManageCards').checked = listItem.dataset.MngTags;
+            document.getElementById('canManageTags').checked = listItem.dataset.MngChecklist;
+            
             var editRoleModal = new bootstrap.Modal(document.getElementById('editRoleModal'));
             editRoleModal.show();
         }
@@ -435,9 +450,30 @@
                     document.getElementById('description').value = cardDescription;
                     document.getElementById('date').value = cardDate;
 
+                    fetchCheckboxes(cardId);
+
                     showOverlay();
                 });
             });
+
+            function fetchCheckboxes(cardId) {
+                fetch(`/Checkbox/GetCheckboxes?cardId=${cardId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const checkboxList = document.getElementById('checkbox-list');
+                    checkboxList.innerHTML = '';
+                    data.forEach(checkbox => {
+                        const checkboxItem = document.createElement('div');
+                        checkboxItem.classList.add('checkbox-item');
+                        checkboxItem.innerHTML = `
+                            <input type="checkbox" ${checkbox.finished ? 'checked' : ''}>
+                            <input type="text" value="${checkbox.name}">
+                            <input type="date" value="${checkbox.date}">
+                        `;
+                        checkboxList.appendChild(checkboxItem);
+                    });
+                });
+            }
 
             // Event listener para esconder o overlay quando clicar fora dele
             overlay.addEventListener('click', function(event) {

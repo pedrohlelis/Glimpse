@@ -56,7 +56,6 @@ public class ProjectController : Controller
         project.LastEdited = DateTime.UtcNow;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
-        
 
         var currentUser = await _userManager.GetUserAsync(User);
 
@@ -83,8 +82,7 @@ public class ProjectController : Controller
                 Name = "Product Owner",  // Assign a default role name or customize as needed
                 Description = "This is the default Developer role created during project creation",
                 Color = "#74B72E",  // Assign a default color or customize as needed
-                CanRemoveMember = true,  // Set default permissions as needed
-                CanInviteMember = true,
+                CanManageMembers = true,
                 CanManageCards = true,
                 CanManageTags = true,
                 CanManageChecklist = true,
@@ -95,8 +93,7 @@ public class ProjectController : Controller
                 Name = "Developer",  // Assign a default role name or customize as needed
                 Description = "This is the default Developer role created during project creation",
                 Color = "#FF1D8E",  // Assign a default color or customize as needed
-                CanRemoveMember = false,  // Set default permissions as needed
-                CanInviteMember = false,
+                CanManageMembers = true,
                 CanManageCards = true,
                 CanManageTags = true,
                 CanManageChecklist = true,

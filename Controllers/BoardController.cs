@@ -58,7 +58,6 @@ public class BoardController : Controller
         User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
 
         // Create a dictionary to store users and their roles
-        
 
         // Retrieve all roles associated with the project
         List<Role> roles = await _db.Roles

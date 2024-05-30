@@ -46,7 +46,7 @@ public class RoleController : Controller
     public async Task<IActionResult> CreateRole(Role role, int projectId)
     {
 
-        Project project = _db.Projects.Find(projectId);
+        Project project = _db.Projects.FirstOrDefault(p => p.Id == projectId);
         role.Project = project;
         // Lista de todos os roles
         _db.Roles.Add(role);
@@ -110,7 +110,6 @@ public class RoleController : Controller
             .Include(p => p.Users)
             .Single(p => p.Id == projectId);
 
-
         ICollection<User> projectUsers = [];
         foreach (User user in project.Users)
         {
@@ -134,19 +133,28 @@ public class RoleController : Controller
             .Include(u => u.Roles)
             .Single(u => u.Id == userId);
         int projectId = role.Project.Id;
-        var existingUserRoleInProject = user.Roles.FirstOrDefault(ur => ur.Project.Id == role.Project.Id);
-        if (existingUserRoleInProject != null)
-        {
+        try{
+            var existingUserRoleInProject = user.Roles.FirstOrDefault(ur => ur.Project.Id == role.Project.Id);
             user.Roles.Remove(existingUserRoleInProject);
             user.Roles.Add(role);
-        }
-        else
+            await _db.SaveChangesAsync();
+        }catch (Exception e)
         {
-            // Adiciona o novo papel ao usuário
+            Console.WriteLine(e.Message);
             user.Roles.Add(role);
+            await _db.SaveChangesAsync();
         }
-        await _db.SaveChangesAsync();
         
+        // if (existingUserRoleInProject != null)
+        // {
+        //     user.Roles.Remove(existingUserRoleInProject);
+        //     user.Roles.Add(role);
+        // }
+        // else
+        // {
+        //     // Adiciona o novo papel ao usuário
+        //     user.Roles.Add(role);
+        // }
         return RedirectToAction("Users", "Project", new { projectId });
     }
 

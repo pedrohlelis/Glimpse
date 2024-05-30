@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
-    [Migration("20240529181623_createDatabase")]
+    [Migration("20240529221817_createDatabase")]
     partial class createDatabase
     {
         /// <inheritdoc />
@@ -210,19 +210,16 @@ namespace Glimpse.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("CanInviteMember")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("CanManageCards")
                         .HasColumnType("bit");
 
                     b.Property<bool>("CanManageChecklist")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("CanManageTags")
+                    b.Property<bool>("CanManageMembers")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("CanRemoveMember")
+                    b.Property<bool>("CanManageTags")
                         .HasColumnType("bit");
 
                     b.Property<string>("Color")

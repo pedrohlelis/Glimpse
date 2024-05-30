@@ -207,19 +207,16 @@ namespace Glimpse.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("CanInviteMember")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("CanManageCards")
                         .HasColumnType("bit");
 
                     b.Property<bool>("CanManageChecklist")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("CanManageTags")
+                    b.Property<bool>("CanManageMembers")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("CanRemoveMember")
+                    b.Property<bool>("CanManageTags")
                         .HasColumnType("bit");
 
                     b.Property<string>("Color")

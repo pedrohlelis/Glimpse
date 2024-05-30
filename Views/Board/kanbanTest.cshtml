@@ -31,20 +31,15 @@
 
 <div class="container d-flex overflow-visible">
     <div class="board-main d-flex">
-        @foreach (Lane lane in Model.Board.Lanes)
-        {
-            <div style="width: 300px;" class="lane" data-lane-id="@lane.Id">
+            <div style="width: 300px;" class="lane" data-lane-id="">
                 <div class=" lane-top-info d-flex align-content-between">
-                    <p>@lane.Name</p>
-                    <p class="number-circle">@lane.Cards.Count</p>
+                    <p>Nome</p>
+                    <p class="number-circle"></p>
                 </div>
                 <ul class="card-list">
-                    @foreach (Card card in lane.Cards)
-                    {
                         <li class="card" draggable="true">
-                            <p>@card.Name</p>
+                            <p></p>
                         </li>
-                    }
                 </ul>
                 <br>
                 <div class="new-card-btn text-white">
@@ -58,7 +53,6 @@
                     <a href="#" class="add-card-link">Nova Tarefa</a>
                 </div>
             </div>
-        }
     </div>
 </div>
 
