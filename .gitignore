@@ -26,6 +26,8 @@ _UpgradeReport_Files/
 ###############
 # Directories #
 ###############
+.bin
+.obj
 bin/
 obj/
 TestResults/
@@ -78,4 +80,10 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 obj/Debug/net8.0/Glimpse.GeneratedMSBuildEditorConfig.editorconfig
+<<<<<<< HEAD
 obj/Debug/net8.0/project.razor.vscode.bin
+obj/Debug/net8.0/Glimpse.AssemblyInfo.cs
+obj/Debug/net8.0/Glimpse.AssemblyInfoInputs.cache
+obj/Debug/net8.0/project.razor.vscode.bin
+=======
+>>>>>>> cde52c94532f9534023b1c28a300de43938657af

@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Quadros do projeto";
     var projectBoards = ViewData["Boards"] as List<Board>;
+    ViewData["Path"] = new List<string> { "Projetos", Model.Name };
     bool? creatorR = ViewData["Creator"] as bool?;
     bool creator = creatorR ?? false;
 }
@@ -15,9 +16,8 @@
         </ul>
     </div>
     <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@Model.Id">+ Criar Quadro</a></center>
-    <center><a class="CTA-MODEL-01" asp-controller="Role" asp-action="ShowRoles" asp-route-projectId="@Model.Id">+ Ver Cargos</a></center>
     @if(creator){
-        <center><a class="CTA-MODEL-01" asp-controller="Project" asp-action="Add" asp-route-projectId="@Model.Id">+ Adicionar usuários</a></center>
+        <center><a class="CTA-MODEL-01" asp-controller="Project" asp-action="Users" asp-route-projectId="@Model.Id">+ Gerenciar integrantes</a></center>
     }
 </section>
 <section class="project-list-section">
@@ -27,7 +27,7 @@
             <li class="nav-item-7">
                 <div class="project-card">
                     <a class="sla" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@b.Id">
-                        <p>@b.Name</p>
+                        <p class="text-white">@b.Name</p>
                     </a>
                     <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
                     <div>
@@ -48,3 +48,8 @@
         }
     </ul>
 </section>
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>

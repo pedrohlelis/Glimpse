@@ -23,7 +23,6 @@ public class ProjectController : Controller
 
     public async Task<IActionResult> MainProjects()
     {
-        // coisas aqui
         string userId = _userManager.GetUserId(User);
 
         var user = _db.Users
@@ -57,7 +56,11 @@ public class ProjectController : Controller
         project.LastEdited = DateTime.UtcNow;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
-        project.Users.Add(_userManager.GetUserAsync(User).Result);
+        
+
+        var currentUser = await _userManager.GetUserAsync(User);
+
+        project.Users.Add(currentUser);
 
         if (ModelState.IsValid)
         {
@@ -75,10 +78,34 @@ public class ProjectController : Controller
             _db.Projects.AddAsync(project);
             await _db.SaveChangesAsync();
 
+            var DefaultPORole = new Role
+            {
+                Name = "Product Owner",  // Assign a default role name or customize as needed
+                Description = "This is the default Developer role created during project creation",
+                Color = "#74B72E",  // Assign a default color or customize as needed
+                CanManageMembers = true,
+                CanManageCards = true,
+                CanManageTags = true,
+                CanManageChecklist = true,
+                Project = project
+            };
+            var DefaultDevTeamRole = new Role
+            {
+                Name = "Developer",  // Assign a default role name or customize as needed
+                Description = "This is the default Developer role created during project creation",
+                Color = "#FF1D8E",  // Assign a default color or customize as needed
+                CanManageMembers = true,
+                CanManageCards = true,
+                CanManageTags = true,
+                CanManageChecklist = true,
+                Project = project
+            };
+            project.Roles.Add(DefaultPORole);
+            project.Roles.Add(DefaultDevTeamRole);
             var user = await _db.Users
                 .Include(u => u.Projects)
                 .SingleAsync(u => u.Id == project.ResponsibleUserId);
-
+            user.Roles.Add(DefaultPORole);
             user.Projects.Add(project);
             await _db.SaveChangesAsync();
 
@@ -154,16 +181,31 @@ public class ProjectController : Controller
         return View("Delete", project);
     }
 
-    public async Task<IActionResult> Add(int projectId)
+    public async Task<IActionResult> Users(int projectId)
     {
-        Project Project = await _db.Projects.FindAsync(projectId);
+        Project project = _db.Projects
+            .Include(p => p.Users)
+                .ThenInclude(u => u.Roles)
+            .Include(p => p.Roles.Where(r => r.Project.Id == projectId))
+            .Single(p => p.Id == projectId);
 
-        if (Project == null)
+        if (project == null)
         {
             return NotFound();
         }
 
-        return View(Project);
+        ICollection<User> users = [];
+        User toAddUser = new();
+        foreach (User user in project.Users)
+        {
+            toAddUser = user;
+            // toAddUser.Roles = user.Roles.Where(r => project.Roles.Any(pr => pr.Id == r.Id)).ToList();
+            users.Add(toAddUser);
+        }
+        Project viewProject = project;
+        viewProject.Users = users;
+
+        return View(viewProject);
     }
 
     public async Task<IActionResult> AddUser(int projectId, string userEmail)
@@ -181,7 +223,7 @@ public class ProjectController : Controller
         project.Users.Add(user);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("MainProjects");
+        return RedirectToAction("Users", new { projectId });
     }
 
 }

@@ -30,23 +30,21 @@ public class BoardController : Controller
     public async Task<IActionResult> GetBoardInfo(int id)
     {
         var board = _db.Boards
+            .Include(p => p.Project)
             .Include(u => u.Lanes)
-            .Include(b => b.Project)
-            .Single(u => u.Id == id);
+            .ThenInclude(l => l.Cards)
+            .SingleOrDefault(u => u.Id == id);
 
         if (board == null)
         {
             return NotFound();
         }
+
         int projectId = board.Project.Id;
 
+        // Retrieve all members associated with the project
         List<User> members = await _db.Users
             .Where(u => u.Projects.Any(p => p.Id == projectId))
-            .ToListAsync();
-
-        List<Role> roles = await _db.Roles
-            .Include(r => r.Users)
-            .Where(r => r.Project.Id == projectId)
             .ToListAsync();
 
         var user = await _userManager.GetUserAsync(User);
@@ -58,7 +56,34 @@ public class BoardController : Controller
 
         string responsibleUserId = board.Project.ResponsibleUserId;
 
+        // Retrieve the responsible user for the project
         User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
+
+        // Create a dictionary to store users and their roles
+        
+
+        // Retrieve all roles associated with the project
+        List<Role> roles = await _db.Roles
+            .Include(r => r.Users)
+            .Where(r => r.Project.Id == projectId)
+            .ToListAsync();
+        foreach (Role role in roles) {
+            Console.WriteLine(role.Name);
+        }
+
+        Dictionary<User, Role> userRoles = new Dictionary<User, Role>();
+
+        // Iterate through each member and find their corresponding role
+        foreach (var member in members)
+        {
+            // Find the role of the member within the roles associated with the project
+            var memberRole = roles.FirstOrDefault(r => r.Users.Any(u => u.Id == member.Id));
+
+            // Add the member and their role to the dictionary
+            userRoles.Add(member, memberRole);
+
+        }
+
         var model = new BoardVM
         {
             User = user,
@@ -66,40 +91,45 @@ public class BoardController : Controller
             ProjectRoles = roles,
             UserRole = userRole,
             ProjectResponsibleUser = responsibleUser,
-            Members = members
+            Members = members,
+            UserRolesDictionary = userRoles // Add the dictionary to the model
         };
 
-        //ViewData["users"] = GetUsersFromBoard(board);
         ViewData["lanes"] = board.Lanes;
-        //ViewData["cards"] = 
 
         return View(model);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        Project project = _db.Projects
-            .Include(p => p.Boards)
-            .Include(p => p.Users)
-            .Single(p => p.Id == id);
+        try {
+            Project project = _db.Projects
+                .Include(p => p.Boards)
+                .Include(p => p.Users)
+                .Single(p => p.Id == id);
 
-        string userId = _userManager.GetUserId(User);
-        bool isMember = project.Users.Any(pm => pm.Id == userId);
-        bool isCreator = project.ResponsibleUserId == userId;
+            string userId = _userManager.GetUserId(User);
+            bool isMember = project.Users.Any(pm => pm.Id == userId);
+            bool isCreator = project.ResponsibleUserId == userId;
 
-        if (project == null || project.IsActive == false)
+            if (project == null || project.IsActive == false)
+            {
+                return NotFound();
+            }
+
+            if (!isMember && !isCreator)
+            {
+                return Forbid(); // Return forbidden if the user is not a member or the creator
+            }
+
+            ViewData["Boards"] = project.Boards;
+            ViewData["Creator"] = isCreator;
+
+            return View(project);
+        }
+        catch(Exception ex)
         {
             return NotFound();
         }
-
-        if (!isMember && !isCreator)
-        {
-            return Forbid(); // Return forbidden if the user is not a member or the creator
-        }
-
-        ViewData["Boards"] = project.Boards;
-        ViewData["Creator"] = isCreator;
-
-        return View(project);
     }
 
     public IActionResult Create(int id)
@@ -123,19 +153,23 @@ public class BoardController : Controller
         Board.CreatorId = _userManager.GetUserAsync(User).Result.Id;
         Board.Project = _db.Projects.Find(projectId);
 
+        if (BoardImg != null && BoardImg.Length > 0)
+        {
+            string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
+            string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
+            string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                await BoardImg.CopyToAsync(stream);
+            }
+            Board.Background = "../board-pictures/" + nomeArquivo;
+        } else 
+        {
+            Board.Background = "../board-pictures/defaultBackground.jpg";
+        }
+
         if (ModelState.IsValid)
         {
-            if (BoardImg != null && BoardImg.Length > 0)
-            {
-                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "board-pictures");
-                string nomeArquivo = Guid.NewGuid() + "-board-pic.png";
-                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
-                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-                {
-                    await BoardImg.CopyToAsync(stream);
-                }
-                Board.Background = "../board-pictures/" + nomeArquivo;
-            }
             _db.Boards.Add(Board);
             await _db.SaveChangesAsync();
             var project = await _db.Projects
@@ -167,7 +201,6 @@ public class BoardController : Controller
     [HttpPost]
     public async Task<IActionResult> EditBoard(Board Board, IFormFile BoardImg, int projectId)
     {
-
         if (ModelState.IsValid)
         {
             if (BoardImg != null && BoardImg.Length > 0)
@@ -187,8 +220,6 @@ public class BoardController : Controller
             }
             catch (DbUpdateException)
             {
-                //ViewData["uniqueAlert"] = "Chassi do Board ja cadastrado";
-
                 return View("Edit", Board);
             }
             return RedirectToAction("GetProjectBoards", new { id = projectId });

@@ -25,7 +25,7 @@ public class LaneController : Controller
         if (string.IsNullOrEmpty(name))
         {
             return RedirectToAction("GetBoardInfo", "Board", new { id });
-        }
+        }  
 
         var lane = new Lane
         {
@@ -33,7 +33,7 @@ public class LaneController : Controller
             Index = 0,
             Board = await _db.Boards.FirstOrDefaultAsync(x => x.Id == id)
         };
-        _db.Add(lane);
+        _db.Lanes.Add(lane);
         await _db.SaveChangesAsync();
 
         return RedirectToAction("GetBoardInfo", "Board", new { id });

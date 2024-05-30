@@ -13,33 +13,38 @@
 
 <div class="row row-4 flex-lg-grow-1">
     @foreach (Project p in Model) {
-        <div class="col  border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; width: 100px; height: 200px;">
+        <div class="col d-flex border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; max-width: 300px; height: 200px;">
             <a class="text-decoration-none" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
 
                 <p class="overflow-hidden text-white">@p.Name</p>
 
                 <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
 
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="project-dropdown">
-                    <li>
-                        <a class="text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@p.Id">
-                            Editar
-                        </a>
-                    </li>
-                    <li>
-                        <a class="text-white" asp-controller="Project" asp-action="Delete" asp-route-id="@p.Id">
-                            Deletar
-                        </a>
-                    </li>
-                </ul>
                 <br><br>
                 <p class="text-muted overflow-hidden" style="font-size: smaller;">@p.Description</p>
             </a>
+            <button class="dropdown-toggle text-white" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
+            <ul class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
+                <li>
+                    <a class="text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@p.Id">
+                        Editar
+                    </a>
+                </li>
+                <li>
+                    <a class="text-white" asp-controller="Project" asp-action="Delete" asp-route-id="@p.Id">
+                        Deletar
+                    </a>
+                </li>
+            </ul>
         </div>
     }
 </div>
 
 <style>
+    a {
+        text-decoration: none;
+
+    }
     .button-create {
         padding: 0.4em 1.2em;
         border: none;
@@ -57,14 +62,14 @@
         color: white;
     }
 
-    button:hover {
+    .button-create:hover {
         transform: scale(1.05);
         outline: 2px solid #6600eb;
         box-shadow: 2px 3px 10px -2px #6600eb;
         color: white;
     }
 
-    button::before {
+    .button-create::before {
         content: "";
         position: absolute;
         left: -50px;
@@ -77,7 +82,7 @@
         transition: width 500ms;
     }
 
-    button:hover::before {
+    .button-create:hover::before {
         width: 200%;
     }
 

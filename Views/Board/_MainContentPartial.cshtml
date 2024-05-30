@@ -1,0 +1,65 @@
+@using Glimpse.ViewModels;
+@model BoardVM;
+
+<div class="main-content d-flex flex-column mx-auto">
+    <br>
+    <div class="d-flex mx-auto">
+        <div class="board-main d-flex flex-row overflow-auto kanban" style="max-width: 1200px;">
+            @foreach (Lane lane in Model.Board.Lanes)
+            {
+                <div style="width: 300px;" class="lane col lane mx-3" data-lane-id="@lane.Id">
+                    <div class="d-flex align-content-center align-items-center px-1">
+                        <p class="text-uppercase fw-bold fs-6">@lane.Name</p>
+                        <p class="rounded-circle text-black bg-white">@lane.Cards.Count</p>
+                    </div>
+                    <hr>
+                    <br>
+
+                    <div class="col d-flex task-btn">
+                        <a class="w-100 align-items-center add-card-link">
+                            <button class="button-create add-card-button">
+                                <div class="d-flex justify-content-center">
+                                    <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
+                                    <p class="px-1 m-0">Nova Tarefa</p>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                    <br>
+
+                    <form class="create-card-form" asp-action="CreateCard" asp-controller="Card" method="post" hidden>
+                        <input name="name" class="w-100 py-3 border-3 border-primary text-white card-input" style="background-color: #1E1E1E; border-radius: 13px; outline: none;" placeholder="Nome do cartão" type="text">
+                        <input name="laneId" value="@lane.Id" type="hidden">
+                        <input name="id" value="@Model.Board.Id" type="hidden">
+                    </form>
+
+                    <div class="container card-col">
+                        @foreach (Card card in lane.Cards)
+                        {
+                            <div class="card-link row py-3 border-bottom border-3 border-primary" 
+                                style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
+                                data-id="@card.Id"
+                                data-name="@card.Name"
+                                data-description="@card.Description"
+                                data-date="@card.Date"
+                                draggable="true">
+                                <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
+                            </div>
+                            <br>
+                        }
+                    </div>
+                </div>
+            }
+            <form class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
+                <div style="width: 300px; height: 200px;" class="lane">
+                    <div class="d-flex align-content-center align-items-center px-1">
+                        <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none;">
+                        <input name="id" value="@Model.Board.Id" type="hidden">
+                    </div>
+                    <br>
+                    <hr>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
