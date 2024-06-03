@@ -1,0 +1,141 @@
+@using Glimpse.ViewModels;
+@model BoardVM;
+
+<div class="memberSideMenu d-flex flex-column active">
+    @foreach (var role in Model.ProjectRoles)
+    {
+        <div class="role-container mt-4">
+            <h5>@role.Name</h5>
+            @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == role))
+            {
+                var user = kvp.Key;
+                <div class="member-div container mt-3">
+                    <div class="profile-container">
+                        <img class="user-img" src='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' alt="">
+                        <div class="profile-info">
+                            <div>@user.FirstName @user.LastName</div>
+                            <div class="profile-status" data-bs-toggle="tooltip" data-bs-placement="top" title="@user.UserName">
+                                <div>@user.UserName</div>
+                            </div>
+                        </div>
+                        <div class="profile-icons">
+                            <div class="dropup">
+                                <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
+                                    <a class="dropdown-item" asp-action="Profile" asp-controller="User">Profile</a>
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<div class="modal fade" id="rolesModal" tabindex="-1" aria-labelledby="rolesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rolesModalLabel">Project Roles</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    @foreach(var role in Model.ProjectRoles)
+                    {
+                        <li data-id="@role.Id"
+                            data-name="@role.Name"
+                            data-description="@role.Description"
+                            data-Color="@role.Color"
+                            data-MngMembers="@role.CanManageMembers"
+                            data-MngCards="@role.CanManageCards"
+                            data-MngTags="@role.CanManageTags"
+                            data-MngChecklist="@role.CanManageChecklist"
+                        class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
+                            @role.Name
+                            <div>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="editRole(this)">Edit</button>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteRole(@role.Id)">Delete</button>
+                            </div>
+                        </li>
+                        <!-- Hidden input fields to store role details -->
+                        <input type="hidden" class="role-id" value="@role.Id">
+                        <input type="hidden" class="role-name" value="@role.Name">
+                        <input type="hidden" class="role-description" value="@role.Description">
+                        <!-- Add hidden input fields for other role details as needed -->
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editRoleModal" tabindex="-1" aria-labelledby="editRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRoleModalLabel">Edit Role</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="" id="editRoleForm" method="post">
+                    
+                    <input type="hidden" id="roleId" name="roleId" value="">
+                    
+                    <div class="mb-3">
+                        <label for="roleName" class="form-label text-light">Name</label>
+                        <input type="text" class="form-control" id="roleName" name="roleName" value="">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="roleDescription" class="form-label text-light">Description</label>
+                        <textarea class="form-control" id="roleDescription" name="roleDescription" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="roleColor" class="form-label text-light">Color</label>
+                        <input type="color" class="form-control" id="roleColor" name="roleColor" value="">
+                    </div>
+                    <!-- Permissions -->
+                    <div class="mb-3">
+                        <label class="form-label text-light">Permissions</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="canRemoveMember" name="canRemoveMember">
+                            <label class="form-check-label text-light" for="canRemoveMember">
+                                Can Remove Member
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="canInviteMember" name="canInviteMember">
+                            <label class="form-check-label text-light" for="canInviteMember">
+                                Can Invite Member
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="canManageCards" name="canManageCards">
+                            <label class="form-check-label text-light" for="canManageCards">
+                                Can Manage Cards
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="canManageTags" name="canManageTags">
+                            <label class="form-check-label text-light" for="canManageTags">
+                                Can Manage Tags
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="canManageChecklist" name="canManageChecklist">
+                            <label class="form-check-label text-light" for="canManageChecklist">
+                                Can Manage Checklist
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

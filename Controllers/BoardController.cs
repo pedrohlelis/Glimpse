@@ -26,6 +26,7 @@ public class BoardController : Controller
         return View();
     }
 
+    [Authorize]
     public async Task<IActionResult> GetBoardInfo(int id)
     {
         var board = _db.Boards
@@ -98,11 +99,12 @@ public class BoardController : Controller
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        try{
+        try {
             Project project = _db.Projects
-            .Include(p => p.Boards)
-            .Include(p => p.Users)
-            .Single(p => p.Id == id);
+                .Include(p => p.Boards)
+                .Include(p => p.Users)
+                .Single(p => p.Id == id);
+
             string userId = _userManager.GetUserId(User);
             bool isMember = project.Users.Any(pm => pm.Id == userId);
             bool isCreator = project.ResponsibleUserId == userId;
@@ -114,7 +116,7 @@ public class BoardController : Controller
 
             if (!isMember && !isCreator)
             {
-                return Forbid();
+                return Forbid(); // Return forbidden if the user is not a member or the creator
             }
 
             ViewData["Boards"] = project.Boards;
@@ -126,7 +128,6 @@ public class BoardController : Controller
         {
             return NotFound();
         }
-        
     }
 
     public IActionResult Create(int id)
