@@ -3,7 +3,6 @@
     ViewData["Title"] = "Gerenciar Integrantes";
 }
 
-
 <section>
     <center><a class="CTA-MODEL-01" asp-controller="Role" asp-action="ShowRoles" asp-route-projectId="@Model.Id">+ Criar cargo</a></center>
     <form asp-action="AddUser" asp-controller="Project" asp-route-projectId="@Model.Id" method="post" enctype="multipart/form-data">
@@ -87,7 +86,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
     

@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\00c31214-3447-4460-9a1b-b6d806d9db1b_pachy head.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\00c31214-3447-4460-9a1b-b6d806d9db1b_pachy head.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\0710764c-c185-4364-a95e-3774fc67b3a8_lobao.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\0710764c-c185-4364-a95e-3774fc67b3a8_lobao.png"
     },
@@ -45,8 +49,16 @@
       "PackagePath": "staticwebassets\\UserProfilePics\\305c1858-e7c4-41a2-a14c-b453f9cc9080_tattoo_idea.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\4acc7e43-d4d1-4139-960d-a0f0f098c78c_Itabar logo.jpeg",
+      "PackagePath": "staticwebassets\\UserProfilePics\\4acc7e43-d4d1-4139-960d-a0f0f098c78c_Itabar logo.jpeg"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\4c671b91-0649-417a-a599-a86076384322_tattoo_idea.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\4c671b91-0649-417a-a599-a86076384322_tattoo_idea.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\4ecadc2e-da03-4668-b6e2-0fff7735d0fd_racoes pet.webp",
+      "PackagePath": "staticwebassets\\UserProfilePics\\4ecadc2e-da03-4668-b6e2-0fff7735d0fd_racoes pet.webp"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\4f1635a9-8429-4370-85c8-a942dc027bfe_tattoo_idea.png",
@@ -55,6 +67,14 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\55ce7c1e-3615-4a0c-b795-55580875aaa2_Questao4.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\55ce7c1e-3615-4a0c-b795-55580875aaa2_Questao4.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\581faf62-68e2-4b15-8bc5-5883f8829aaa_Icon Glimpse 02.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\581faf62-68e2-4b15-8bc5-5883f8829aaa_Icon Glimpse 02.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\6c3f39d2-abb9-4bf0-8646-59f5c8f56340_tattoo_idea.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\6c3f39d2-abb9-4bf0-8646-59f5c8f56340_tattoo_idea.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\7469fd8e-2f3d-4301-846b-a091e22282d2_TurnCoffeeIntoCode.jpg",
@@ -71,6 +91,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\9365e39c-0b32-444b-8f33-9c5b75c909f2_tattoo_idea.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\b1cd45bf-c137-4e3a-bdba-c650daefc4ed_tattoo_idea.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\b1cd45bf-c137-4e3a-bdba-c650daefc4ed_tattoo_idea.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\b2f5a12a-2ce1-4a56-90e6-b1f6b58ad360_Itabarlogo.jpeg",
@@ -97,6 +121,10 @@
       "PackagePath": "staticwebassets\\UserProfilePics\\cb5b9510-538c-4c22-9fda-19cd2576b1df_tattoo_idea.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\d04d8126-c366-45c4-b210-b05effc65456_vet.jfif",
+      "PackagePath": "staticwebassets\\UserProfilePics\\d04d8126-c366-45c4-b210-b05effc65456_vet.jfif"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\da3a68cb-d5b4-4231-99da-6deeb36a484f_tattoo_idea.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\da3a68cb-d5b4-4231-99da-6deeb36a484f_tattoo_idea.png"
     },
@@ -105,12 +133,20 @@
       "PackagePath": "staticwebassets\\UserProfilePics\\ddab223c-ac1c-4cc2-a874-8dc39da2d383_tattoo_idea.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\068e0ae9-0104-43a9-a88b-608672b4926b-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\068e0ae9-0104-43a9-a88b-608672b4926b-board-pic.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\073572bf-9006-4e1d-9089-69ad81fdce4d-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\073572bf-9006-4e1d-9089-69ad81fdce4d-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\088c3952-8502-4733-b6eb-d03669740783-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\088c3952-8502-4733-b6eb-d03669740783-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\14e0e27b-3239-4209-9941-afda78dd7492-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\14e0e27b-3239-4209-9941-afda78dd7492-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\16c45241-84a6-450b-a13e-eea2029a9680-board-pic.png",
@@ -123,6 +159,14 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\238e154e-cc16-4fd3-8e3a-21170f5e0171-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\238e154e-cc16-4fd3-8e3a-21170f5e0171-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\2679f5a6-0f9e-4f11-8d62-edfa3250d0ed-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\2679f5a6-0f9e-4f11-8d62-edfa3250d0ed-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\309df083-089f-44f0-887b-0b42f28faf09-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\309df083-089f-44f0-887b-0b42f28faf09-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\31f1de47-0777-4035-bd73-739f333d9ad0-board-pic.png",
@@ -153,12 +197,32 @@
       "PackagePath": "staticwebassets\\board-pictures\\4bac35a4-8d43-4e41-9bce-920579ac2b80-board-pic.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\4e55d9d6-442b-48a2-ad52-72f32398a9dd-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\4e55d9d6-442b-48a2-ad52-72f32398a9dd-board-pic.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\4ebf3385-854f-4ba9-953c-0f3fb7756cfd-board-pic.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\5d96d253-ccc0-4e35-961c-084c18c429c6-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\5d96d253-ccc0-4e35-961c-084c18c429c6-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\5ffed774-46de-43c1-8ee5-e5e3c6efbec9-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\5ffed774-46de-43c1-8ee5-e5e3c6efbec9-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\6541242c-30d5-4238-8d5d-c0dfc4d724f8-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\6541242c-30d5-4238-8d5d-c0dfc4d724f8-board-pic.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\65e1cc0a-979c-4c34-898f-5b59697cadae-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\65e1cc0a-979c-4c34-898f-5b59697cadae-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\6af5d131-9393-428d-b041-71b8d0fb1536-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\6af5d131-9393-428d-b041-71b8d0fb1536-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\6e54e289-0e86-4ad8-93a4-79da17e7d1ca-board-pic.png",
@@ -167,6 +231,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\721587b1-d7e7-457c-9664-bf002cb8076f-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\721587b1-d7e7-457c-9664-bf002cb8076f-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\758fd658-56f9-4df2-9d5a-7a2751c74833-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\758fd658-56f9-4df2-9d5a-7a2751c74833-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\7bd7f130-14b6-49b4-b76b-bf4af189fcef-board-pic.png",
@@ -179,6 +247,14 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\8135f9cf-e997-46df-bd2c-221cd9a5bc58-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\8135f9cf-e997-46df-bd2c-221cd9a5bc58-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\9cb93425-b3c5-4801-a05e-2cf4847ae163-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\9cb93425-b3c5-4801-a05e-2cf4847ae163-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\9f9cd84e-2835-4513-af3f-459e3f5d1033-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\9f9cd84e-2835-4513-af3f-459e3f5d1033-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\a4ac562c-ad32-4f66-8249-4be293f6a1dd-board-pic.png",
@@ -201,6 +277,10 @@
       "PackagePath": "staticwebassets\\board-pictures\\b0e5d5e7-d353-4ef8-aaf2-802814c3c3db-board-pic.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\b3575b48-6e0d-4eae-bb29-0a2a756e9312-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\b3575b48-6e0d-4eae-bb29-0a2a756e9312-board-pic.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\b391f4bd-3e85-4927-92d7-d67ab1023357-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\b391f4bd-3e85-4927-92d7-d67ab1023357-board-pic.png"
     },
@@ -209,12 +289,24 @@
       "PackagePath": "staticwebassets\\board-pictures\\b7dc18d6-74a0-4d07-b09c-e152ad842975-board-pic.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\b84e6af0-8acf-4166-8a7f-701855bcd553-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\b84e6af0-8acf-4166-8a7f-701855bcd553-board-pic.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\d072e565-7147-4276-8e1b-9eeacd7aa63b-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\d072e565-7147-4276-8e1b-9eeacd7aa63b-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\d584e464-3fc3-4838-88a3-3c23a29c8629-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\db2f9f6b-2bef-4ecb-a38a-71b64bd6cbe9-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\db2f9f6b-2bef-4ecb-a38a-71b64bd6cbe9-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\f5536d71-b639-42e0-8e12-9d8352e3d149-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\f5536d71-b639-42e0-8e12-9d8352e3d149-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\fc5efbf9-ec28-4115-8313-e71bc555048c-board-pic.png",
@@ -303,6 +395,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\google_logo_icon.png",
       "PackagePath": "staticwebassets\\google_logo_icon.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\js\\board-info.js",
+      "PackagePath": "staticwebassets\\js\\board-info.js"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\js\\site.js",
@@ -605,6 +701,18 @@
       "PackagePath": "staticwebassets\\project-pictures\\03474d05-d9a9-4291-b0a4-1c08c2855360_Questao2.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\0d338de8-5260-4c25-abcf-f154223ce616_Itabarlogo.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\0d338de8-5260-4c25-abcf-f154223ce616_Itabarlogo.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\0da8add8-119a-41b0-a6c7-8107ea2a3647_Untitled diagram-2024-05-29-012423.png",
+      "PackagePath": "staticwebassets\\project-pictures\\0da8add8-119a-41b0-a6c7-8107ea2a3647_Untitled diagram-2024-05-29-012423.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\0ec6bad1-39f6-44e4-9e47-3e630035253d_GlimpseComponentDiagram.drawio.png",
+      "PackagePath": "staticwebassets\\project-pictures\\0ec6bad1-39f6-44e4-9e47-3e630035253d_GlimpseComponentDiagram.drawio.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\1679db0f-dacd-4f99-9228-05ebf0c70f83_Captura de tela 2024-05-20 141707.png",
       "PackagePath": "staticwebassets\\project-pictures\\1679db0f-dacd-4f99-9228-05ebf0c70f83_Captura de tela 2024-05-20 141707.png"
     },
@@ -637,12 +745,32 @@
       "PackagePath": "staticwebassets\\project-pictures\\249b9061-853a-41c0-9ba5-5e14bdb25fb5_pachy head.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\25d23ad5-0fe6-4328-9fc3-5e84718363e3_default_pfp.png",
+      "PackagePath": "staticwebassets\\project-pictures\\25d23ad5-0fe6-4328-9fc3-5e84718363e3_default_pfp.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\284466d0-3b1d-4167-bbfa-550000db0906_Untitled diagram-2024-05-29-012423.png",
+      "PackagePath": "staticwebassets\\project-pictures\\284466d0-3b1d-4167-bbfa-550000db0906_Untitled diagram-2024-05-29-012423.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\2e6b7a29-85e6-42b7-94f2-50fb0b79e55f_GlimpseComponentDiagram.drawio.png",
+      "PackagePath": "staticwebassets\\project-pictures\\2e6b7a29-85e6-42b7-94f2-50fb0b79e55f_GlimpseComponentDiagram.drawio.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg",
       "PackagePath": "staticwebassets\\project-pictures\\2f5cbea5-75df-4386-a776-b349ef94e0e3_rh.jpg"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\35f00a52-9c31-4cb3-b507-9b0170ddc0dd_threeDimensionsSecurity.png",
+      "PackagePath": "staticwebassets\\project-pictures\\35f00a52-9c31-4cb3-b507-9b0170ddc0dd_threeDimensionsSecurity.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\36cbc959-cb8e-4af7-a029-fb5b19654a44_inicializacao_Windows_imagem.png",
       "PackagePath": "staticwebassets\\project-pictures\\36cbc959-cb8e-4af7-a029-fb5b19654a44_inicializacao_Windows_imagem.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\3c0d705c-9a03-417a-971a-e216ab71099e_Icon Glimpse 02.png",
+      "PackagePath": "staticwebassets\\project-pictures\\3c0d705c-9a03-417a-971a-e216ab71099e_Icon Glimpse 02.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg",
@@ -653,6 +781,10 @@
       "PackagePath": "staticwebassets\\project-pictures\\45b915d1-81e8-450b-b33b-48cf6ae1b1e2_Conceitual_02.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\4aeecb50-027d-421c-ad05-57b542b4001f_Icon Glimpse 02.png",
+      "PackagePath": "staticwebassets\\project-pictures\\4aeecb50-027d-421c-ad05-57b542b4001f_Icon Glimpse 02.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\4c764ad1-1662-485f-947d-1501a54cb52f_clowned (1).jpg",
       "PackagePath": "staticwebassets\\project-pictures\\4c764ad1-1662-485f-947d-1501a54cb52f_clowned (1).jpg"
     },
@@ -661,12 +793,20 @@
       "PackagePath": "staticwebassets\\project-pictures\\4e69c66b-94ea-47d5-a668-710b496b78f5_clowned (1).jpg"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\50931939-b52c-433c-9761-8ebe58a7f0f2_Untitled diagram-2024-05-29-011400.png",
+      "PackagePath": "staticwebassets\\project-pictures\\50931939-b52c-433c-9761-8ebe58a7f0f2_Untitled diagram-2024-05-29-011400.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\5e171208-3a4d-4767-82e2-91bdc943aa1a_Itabarlogo.jpeg",
       "PackagePath": "staticwebassets\\project-pictures\\5e171208-3a4d-4767-82e2-91bdc943aa1a_Itabarlogo.jpeg"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\5f436f9c-39a6-4eb4-a65d-908cc057141d_devsecops-controls.png",
       "PackagePath": "staticwebassets\\project-pictures\\5f436f9c-39a6-4eb4-a65d-908cc057141d_devsecops-controls.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\6162787e-42e0-4a18-ac50-5b181675a3fa_Icon Glimpse 02.png",
+      "PackagePath": "staticwebassets\\project-pictures\\6162787e-42e0-4a18-ac50-5b181675a3fa_Icon Glimpse 02.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\68feb401-70dd-4cc9-8483-3e4f6633b139_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
@@ -683,6 +823,14 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\6c1b87a8-1faf-4c55-8695-f4b96bf0bc68_Conceitual_02.png",
       "PackagePath": "staticwebassets\\project-pictures\\6c1b87a8-1faf-4c55-8695-f4b96bf0bc68_Conceitual_02.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\7179ef2a-ad1c-43ae-88c0-cbd4917da1c4_PBB Glimpse.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\7179ef2a-ad1c-43ae-88c0-cbd4917da1c4_PBB Glimpse.jpg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\717c93ba-b7ec-497c-b561-e35a769aa44d_Itabarlogo.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\717c93ba-b7ec-497c-b561-e35a769aa44d_Itabarlogo.jpeg"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\71a064d9-8a6b-4270-be76-12c1ed575cec_mermaid-diagram-2024-05-14-151659.png",
@@ -705,12 +853,24 @@
       "PackagePath": "staticwebassets\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\8de4746c-ff1f-4cc5-926c-affd76f35e6f_Itabarlogo.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\8de4746c-ff1f-4cc5-926c-affd76f35e6f_Itabarlogo.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\8e20853a-8efd-400c-9a67-ff96d2ade3d4_pachy head.png",
+      "PackagePath": "staticwebassets\\project-pictures\\8e20853a-8efd-400c-9a67-ff96d2ade3d4_pachy head.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\900c1552-642b-475f-863f-ec2269a5105b_pachy head.png",
       "PackagePath": "staticwebassets\\project-pictures\\900c1552-642b-475f-863f-ec2269a5105b_pachy head.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\95378be4-d4cf-447c-aca4-933a69e7d1a9_Captura de tela 2024-05-20 141707.png",
       "PackagePath": "staticwebassets\\project-pictures\\95378be4-d4cf-447c-aca4-933a69e7d1a9_Captura de tela 2024-05-20 141707.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\98fe6394-eba0-4a10-9e5b-eab0b20b28aa_pachy head.png",
+      "PackagePath": "staticwebassets\\project-pictures\\98fe6394-eba0-4a10-9e5b-eab0b20b28aa_pachy head.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\9b7f66cd-6d3d-4c4c-b5a2-e4e5da5d9628_roblok 2.jpg",
@@ -737,28 +897,56 @@
       "PackagePath": "staticwebassets\\project-pictures\\ab553513-3e61-4b22-9061-ef54fc9c0545_banana.jpeg"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\af8b5f8f-218d-470f-aab5-363fc7bda7b7_vet.jfif",
+      "PackagePath": "staticwebassets\\project-pictures\\af8b5f8f-218d-470f-aab5-363fc7bda7b7_vet.jfif"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\b17d3f89-b8dc-4662-a487-a7168e36de23_WhatsApp Image 2024-05-14 at 17.18.16.jpeg",
       "PackagePath": "staticwebassets\\project-pictures\\b17d3f89-b8dc-4662-a487-a7168e36de23_WhatsApp Image 2024-05-14 at 17.18.16.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\b310b910-3f41-4d8b-b52c-fbb0708a02ad_threeDimensionsSecurity.png",
+      "PackagePath": "staticwebassets\\project-pictures\\b310b910-3f41-4d8b-b52c-fbb0708a02ad_threeDimensionsSecurity.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg",
       "PackagePath": "staticwebassets\\project-pictures\\ba1d66f3-6707-471e-806e-61bc27ca457b_roblok 2.jpg"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ba4efe20-10f8-449f-ada3-569e418cda3b_GlimpseComponentDiagram.drawio.png",
+      "PackagePath": "staticwebassets\\project-pictures\\ba4efe20-10f8-449f-ada3-569e418cda3b_GlimpseComponentDiagram.drawio.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg",
       "PackagePath": "staticwebassets\\project-pictures\\bbccb2ef-b49a-4f1a-8e8e-3e60a56684de_WhatsApp Image 2024-04-16 at 23.47.07.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\bc05b160-8d5b-4c44-b2ed-fb59170e33ca_GlimpseComponentDiagram.drawio.png",
+      "PackagePath": "staticwebassets\\project-pictures\\bc05b160-8d5b-4c44-b2ed-fb59170e33ca_GlimpseComponentDiagram.drawio.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\c13608c4-716e-485d-a49c-569097907597_Conceitual_01.png",
       "PackagePath": "staticwebassets\\project-pictures\\c13608c4-716e-485d-a49c-569097907597_Conceitual_01.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\c6e0ce75-3bd5-4716-9a9f-85192121abe6_Untitled diagram-2024-05-29-011041.png",
+      "PackagePath": "staticwebassets\\project-pictures\\c6e0ce75-3bd5-4716-9a9f-85192121abe6_Untitled diagram-2024-05-29-011041.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\c87c235c-df4b-4ed9-8926-5961abefb038_Icon Glimpse 02.png",
       "PackagePath": "staticwebassets\\project-pictures\\c87c235c-df4b-4ed9-8926-5961abefb038_Icon Glimpse 02.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ccb85467-1189-47c4-aa1e-9d18a0f5a527_U9_Carch1.png",
+      "PackagePath": "staticwebassets\\project-pictures\\ccb85467-1189-47c4-aa1e-9d18a0f5a527_U9_Carch1.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ce545407-92a1-432a-8086-6775f94f03ba_Questao4.png",
       "PackagePath": "staticwebassets\\project-pictures\\ce545407-92a1-432a-8086-6775f94f03ba_Questao4.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ceaef817-543f-45c8-92ce-87042cc0faa0_Icon Glimpse 02.png",
+      "PackagePath": "staticwebassets\\project-pictures\\ceaef817-543f-45c8-92ce-87042cc0faa0_Icon Glimpse 02.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\d8af1c0d-c824-4cef-b2b9-a17f9a26bc94_messi pfp.jpg",
@@ -773,8 +961,16 @@
       "PackagePath": "staticwebassets\\project-pictures\\df832af1-f185-4d35-9c40-f4f0b083c71f_Captura de tela 2024-05-20 141707.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\e3948f68-4dca-49e7-b04c-94ee4e468fdb_default_pfp.png",
+      "PackagePath": "staticwebassets\\project-pictures\\e3948f68-4dca-49e7-b04c-94ee4e468fdb_default_pfp.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\e631938f-91dd-447f-bcf0-7dd388434c76_ConceitualHotelimagem.png",
       "PackagePath": "staticwebassets\\project-pictures\\e631938f-91dd-447f-bcf0-7dd388434c76_ConceitualHotelimagem.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\ea02588c-cb64-446e-9add-aa0155edd225_pachy head.png",
+      "PackagePath": "staticwebassets\\project-pictures\\ea02588c-cb64-446e-9add-aa0155edd225_pachy head.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\eb871c54-b6df-4d01-a324-9cbf9a598b93_arquitetura_basica_Windows.png",

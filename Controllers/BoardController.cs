@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
 using Glimpse.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace Glimpse.Controllers;
 
@@ -25,6 +26,7 @@ public class BoardController : Controller
         return View();
     }
 
+    [Authorize]
     public async Task<IActionResult> GetBoardInfo(int id)
     {
         var board = _db.Boards
@@ -46,7 +48,6 @@ public class BoardController : Controller
             .ToListAsync();
 
         var user = await _userManager.GetUserAsync(User);
-
         // Retrieve the user's role within the project associated with the board
         var userRole = await _db.Roles
             .Include(r => r.Users) // Assuming Role.Users is a collection of users with this role
@@ -58,7 +59,6 @@ public class BoardController : Controller
         User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
 
         // Create a dictionary to store users and their roles
-        
 
         // Retrieve all roles associated with the project
         List<Role> roles = await _db.Roles
@@ -99,11 +99,12 @@ public class BoardController : Controller
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        try{
+        try {
             Project project = _db.Projects
-            .Include(p => p.Boards)
-            .Include(p => p.Users)
-            .Single(p => p.Id == id);
+                .Include(p => p.Boards)
+                .Include(p => p.Users)
+                .Single(p => p.Id == id);
+
             string userId = _userManager.GetUserId(User);
             bool isMember = project.Users.Any(pm => pm.Id == userId);
             bool isCreator = project.ResponsibleUserId == userId;
@@ -115,7 +116,7 @@ public class BoardController : Controller
 
             if (!isMember && !isCreator)
             {
-                return Forbid();
+                return Forbid(); // Return forbidden if the user is not a member or the creator
             }
 
             ViewData["Boards"] = project.Boards;
@@ -127,7 +128,6 @@ public class BoardController : Controller
         {
             return NotFound();
         }
-        
     }
 
     public IActionResult Create(int id)

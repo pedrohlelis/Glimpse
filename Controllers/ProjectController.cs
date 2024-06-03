@@ -56,7 +56,6 @@ public class ProjectController : Controller
         project.LastEdited = DateTime.UtcNow;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
-        
 
         var currentUser = await _userManager.GetUserAsync(User);
 
@@ -78,12 +77,44 @@ public class ProjectController : Controller
             _db.Projects.AddAsync(project);
             await _db.SaveChangesAsync();
 
+            var DefaultBoard = new Board 
+            {
+                Name = "Meu_Quadro",
+                CreationDate = DateOnly.FromDateTime(DateTime.UtcNow),
+                IsActive = true,
+                CreatorId = currentUser.Id,
+                Project = project,
+            };
+            var BacklogLane = new Lane
+            {
+                Name = "BackLog",
+                Board = DefaultBoard,
+                Index = 0,
+            };
+            var ToDoLane = new Lane
+            {
+                Name = "To Do",
+                Board = DefaultBoard,
+                Index = 1,
+            };
+            var DoneLane = new Lane
+            {
+                Name = "Done",
+                Board = DefaultBoard,
+                Index = 2,
+            };
+            DefaultBoard.Lanes.Add(BacklogLane);
+            DefaultBoard.Lanes.Add(ToDoLane);
+            DefaultBoard.Lanes.Add(DoneLane);
+            project.Boards.Add(DefaultBoard);
+
             var DefaultPORole = new Role
             {
                 Name = "Product Owner",  // Assign a default role name or customize as needed
                 Description = "This is the default Developer role created during project creation",
                 Color = "#74B72E",  // Assign a default color or customize as needed
                 CanManageMembers = true,
+                CanManageRoles = true,
                 CanManageCards = true,
                 CanManageTags = true,
                 CanManageChecklist = true,
@@ -94,7 +125,8 @@ public class ProjectController : Controller
                 Name = "Developer",  // Assign a default role name or customize as needed
                 Description = "This is the default Developer role created during project creation",
                 Color = "#FF1D8E",  // Assign a default color or customize as needed
-                CanManageMembers = true,
+                CanManageMembers = false,
+                CanManageRoles = true,
                 CanManageCards = true,
                 CanManageTags = true,
                 CanManageChecklist = true,
@@ -109,7 +141,7 @@ public class ProjectController : Controller
             user.Projects.Add(project);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("MainProjects");
+            return RedirectToAction("GetBoardInfo", "Board", new { id = DefaultBoard.Id });
         }
 
         return View("Create", project);
