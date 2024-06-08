@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 namespace Glimpse.Controllers;
 
 [Authorize]
+[Route("Glimpse/[controller]")]
 public class CardController : Controller
 {
     private readonly GlimpseContext _db;
@@ -133,11 +134,11 @@ public class CardController : Controller
         return null;
     }
     [HttpPost]
-    public IActionResult MoveCard(int id)
+    public IActionResult SaveCardOrder([FromBody] List<int> cardIds, int id)
     {
-        // Lógica para mover o card na sua estrutura de dados (por exemplo, em Board ou Lane)
+        // Your logic to save the card order based on the cardIds list
+        // ...
 
-        // Retornar um status de sucesso
         return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
 

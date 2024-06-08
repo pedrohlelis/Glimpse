@@ -5,6 +5,7 @@
     Layout = "_BasicLayout";
     ViewData["StylesheetUrl"] = "~/css/index.css";
     ViewData["Title"] = Model.Board.Name;
+    
 }
 <br><br>
 
@@ -30,7 +31,7 @@
             </div>
             <input type="hidden" name="id" value="@Model.Board.Id">
 
-            @if (Model.UserRole.CanManageCards) {
+            @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
                 <button type="submit" id="save-button" class="button-save">Salvar</button>
             }
         </div>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Glimpse.Controllers;
 
 [Authorize]
+[Route("Glimpse/[controller]")]
 public class EmailController : ControllerBase
 {
     private readonly IEmailSender _emailSender;

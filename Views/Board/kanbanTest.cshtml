@@ -1,4 +1,4 @@
-<div class="board">
+@* <div class="board">
     <form id="todo-form">
         <input type="text" placeholder="New TODO..." id="todo-input" />
         <button type="submit">Add +</button>
@@ -251,4 +251,84 @@
     return closestTask;
     };
 
+</script> *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nested Dropdown Example</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .dropdown-menu-dark .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    }
+
+    .dropdown-menu-dark .show > .dropdown-menu {
+    display: block;
+    }
+</style>
+</head>
+<body>
+<div class="dropup">
+    <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
+    <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
+    <a class="dropdown-item" href="#" onclick="toggleNestedDropdown(event)">Manage</a>
+    <div class="dropdown-menu dropdown-menu-left dropdown-menu-dark nested-dropdown">
+        <form method="post" asp-action="AtribuirRole" asp-controller="Role" id="form-role" enctype="multipart/form-data">
+        <div class="modal-body">
+            <input type="hidden" id="userId" name="userId">
+            @{
+            bool i = true;
+            if (Model.ProjectRoles.Count == 0) {
+                <p>Este projeto ainda não tem cargos</p>
+            } else {
+                <label for="roleId">Cargo: </label>
+                <select id="roleId" name="roleId">
+                @foreach (Role projectRole in Model.ProjectRoles) {
+                    <option value="@projectRole.Id" selected>@projectRole.Name</option>
+                }
+                </select>
+            }
+            }
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Atribuir cargo</button>
+        </div>
+        </form>
+    </div>
+    <hr class="dropdown-divider">
+    <a class="dropdown-item" asp-action="Profile" asp-controller="User">Profile</a>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    function toggleNestedDropdown(event) {
+    event.preventDefault();
+    var parent = event.target.closest('.dropdown-item');
+    var nestedDropdown = parent.nextElementSibling;
+    nestedDropdown.classList.toggle('show');
+    }
+
+    // Close nested dropdown if clicking outside
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-item')) {
+        var nestedDropdowns = document.getElementsByClassName('nested-dropdown');
+        for (var i = 0; i < nestedDropdowns.length; i++) {
+        var openNestedDropdown = nestedDropdowns[i];
+        if (openNestedDropdown.classList.contains('show')) {
+            openNestedDropdown.classList.remove('show');
+        }
+        }
+    }
+    }
 </script>
+</body>
+</html>

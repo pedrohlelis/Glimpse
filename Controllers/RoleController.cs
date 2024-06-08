@@ -43,7 +43,7 @@ public class RoleController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateRole(Role role, int projectId)
+    public async Task<IActionResult> CreateRole(Role role, int boardId, int projectId)
     {
 
         Project project = _db.Projects.FirstOrDefault(p => p.Id == projectId);
@@ -52,10 +52,8 @@ public class RoleController : Controller
         _db.Roles.Add(role);
         project.Roles.Add(role);
         await _db.SaveChangesAsync();
-        return RedirectToAction("ShowRoles", new { projectId });
-        
 
-        // return RedirectToAction("Create", new { projectId });
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
 
     // UPDATE
@@ -66,42 +64,49 @@ public class RoleController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditRole(Role role, int projectId)
+    public async Task<IActionResult> EditRole(Role role, int boardId)
     {
-        try
-        {
-            Role toEditRole = _db.Roles.Find(role.Id);
-            _db.Entry(toEditRole).CurrentValues.SetValues(role);
-            await _db.SaveChangesAsync();
-        }
-        catch (DbUpdateException)
-        {
-            return RedirectToAction("Edit", new {role.Id, projectId});
-        }
-        return RedirectToAction("ShowRoles", new {projectId});
+        // Retrieve the existing role from the database
+        Role toEditRole = await _db.Roles.FindAsync(role.Id);
 
-        // return RedirectToAction("Edit", new {role.Id, projectId});
+        // Update the role properties with the submitted form data
+        toEditRole.Name = role.Name;
+        toEditRole.Description = role.Description;
+        toEditRole.Color = role.Color;
+        toEditRole.CanManageMembers = role.CanManageMembers;
+        toEditRole.CanManageRoles = role.CanManageRoles;
+        toEditRole.CanManageCards = role.CanManageCards;
+        toEditRole.CanManageTags = role.CanManageTags;
+        toEditRole.CanManageChecklist = role.CanManageChecklist;
+
+        Console.WriteLine(role.CanManageMembers);
+
+        // Save changes to the database
+        await _db.SaveChangesAsync();
+
+        // Redirect to the appropriate action with the boardId parameter
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
 
     // DELETE
-    public async Task<IActionResult> Delete(int projectId, int roleId)
-    {
-        Role role = await _db.Roles.FindAsync(roleId);
-
-        ViewData["projectId"] = projectId;
-
-        return View(role);
-    }
-
     [HttpPost]
-    public async Task<IActionResult> DeleteRole(Role role)
+    public async Task<IActionResult> DeleteRole(int roleToDeleteId, int id)
     {
-        Role toDeleteRole = await _db.Roles.FindAsync(role.Id);
-        _db.Roles.Remove(toDeleteRole);
+        Role role = await _db.Roles.FindAsync(roleToDeleteId);
+        _db.Roles.Remove(role);
         await _db.SaveChangesAsync();
-
-        return RedirectToAction("Get");
+        return RedirectToAction("GetBoardInfo", "Board", new { id = id });
     }
+
+    // [HttpPost]
+    // public async Task<IActionResult> DeleteRole(Role role)
+    // {
+    //     Role toDeleteRole = await _db.Roles.FindAsync(role.Id);
+    //     _db.Roles.Remove(toDeleteRole);
+    //     await _db.SaveChangesAsync();
+
+    //     return RedirectToAction("Get");
+    // }
 
     public async Task<IActionResult> Assign(int roleId, int projectId)
     {

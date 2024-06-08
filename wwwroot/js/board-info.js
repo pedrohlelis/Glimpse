@@ -3,6 +3,11 @@ function openRolesModal() {
     myModal.show();
 }
 
+function createRole() {
+    var createRoleModal = new bootstrap.Modal(document.getElementById('createRoleModal'));
+    createRoleModal.show();
+}
+
 // Function to handle editing a role
 function editRole(button) {
 
@@ -12,19 +17,23 @@ function editRole(button) {
     document.getElementById('roleName').value = listItem.dataset.name;
     document.getElementById('roleDescription').value = listItem.dataset.description;
     document.getElementById('roleColor').value = listItem.dataset.color;
-    document.getElementById('canRemoveMember').checked = listItem.dataset.MngMembers;
-    document.getElementById('canInviteMember').checked = listItem.dataset.MngCards;
-    document.getElementById('canManageCards').checked = listItem.dataset.MngTags;
-    document.getElementById('canManageTags').checked = listItem.dataset.MngChecklist;
+    document.getElementById('canManageMembers').checked = listItem.dataset.mngMembers  === 'True';
+    document.getElementById('canManageRoles').checked = (listItem.dataset.mngRoles === 'True');
+    document.getElementById('canManageCards').checked = listItem.dataset.mngCards === "True";
+    document.getElementById('canManageTags').checked = listItem.dataset.mngTags === 'True';
+    document.getElementById('canManageChecklist').checked = listItem.dataset.mngChecklist === "True";
 
     var editRoleModal = new bootstrap.Modal(document.getElementById('editRoleModal'));
     editRoleModal.show();
 }
 
 // Function to handle deleting a role
-function deleteRole(roleId) {
-    // Implement your logic to handle deletion here
-    console.log("Deleting role with ID: " + roleId);
+function deleteRole(button) {
+    var listItem = button.closest('li');
+    document.getElementById('roleToDeleteId').value = listItem.dataset.id;
+
+    var deleteRoleModal = new bootstrap.Modal(document.getElementById('ConfirmDeleteRoleModal'));
+    deleteRoleModal.show();
 }
 
 // Event listener to open the modal when the icon is clicked
@@ -38,6 +47,7 @@ let sideBar = document.querySelector(".sideBar")
 let mainContent = document.querySelector(".main-content")
 let memberDivs = document.querySelectorAll(".member-div")
 let rolesDivs = document.querySelectorAll(".role-container")
+let invButton = document.querySelector(".invite-btn")
 
 if (memberDivs.length === 0) {
 console.error('No memberDiv elements found');
@@ -50,6 +60,7 @@ memberSideMenuBtn.onclick = function () {
     rolesDivs.forEach(function (div){
         div.classList.toggle('d-none');
     })
+    invButton.classList.toggle('d-none');
     memberSideMenu.classList.toggle('active');
 };
 
@@ -60,6 +71,129 @@ sideMenuBtn.onclick = function () {
 //END of sidebar menu   ---------------------------
 
 document.addEventListener('DOMContentLoaded', function() {
+    //CARDS E LANES DRAG&DROP
+    const board = document.querySelector(".board-main");
+
+    document.addEventListener("dragstart", (e) => {
+        if (e.target.classList.contains("lane")) {
+            e.target.classList.add("dragging-lane");
+        } else if (e.target.classList.contains("card-link")) {
+            e.target.classList.add("dragging-card");
+        }
+    });
+
+    document.addEventListener("dragend", (e) => {
+        if (e.target.classList.contains("lane")) {
+            e.target.classList.remove("dragging-lane");
+            saveLaneOrder(); // Save the lane order after dragging
+        } else if (e.target.classList.contains("card-link")) {
+            e.target.classList.remove("dragging-card");
+            saveCardOrder(); // Save the card order after dragging
+        }
+    });
+
+    board.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        const draggingLane = document.querySelector(".dragging-lane");
+        const draggingCard = document.querySelector(".dragging-card");
+
+        if (draggingLane) {
+            const lanes = [...board.querySelectorAll(".lane:not(.dragging-lane)")];
+            const afterElement = getDragAfterElement(lanes, e.clientX);
+            if (afterElement == null) {
+                board.appendChild(draggingLane);
+            } else {
+                board.insertBefore(draggingLane, afterElement);
+            }
+        }
+    });
+
+    function getDragAfterElement(elements, x) {
+        return elements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = x - box.left - box.width / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    // Handle dragging cards over the correct lane
+    const lanes = document.querySelectorAll(".lane");
+    lanes.forEach((lane) => {
+        const cardContainer = lane.querySelector(".card-col");
+
+        cardContainer.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            const dragging = document.querySelector(".dragging-card");
+            if (dragging) {
+                const afterElement = getCardAfterElement(cardContainer, e.clientY);
+
+                if (afterElement) {
+                    afterElement.insertAdjacentElement("afterend", dragging);
+                } else {
+                    cardContainer.prepend(dragging);
+                }
+            }
+        });
+    });
+
+    function getCardAfterElement(container, y) {
+        const cards = [...container.querySelectorAll(".card-link:not(.dragging-card)")];
+        return cards.reduce((closest, card) => {
+            const box = card.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: card };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    // function getCardAfterElement(elements, y) {
+    //     return elements.reduce((closest, child) => {
+    //         const box = child.getBoundingClientRect();
+    //         const offset = x - box.left - box.width / 2;
+    //         if (offset < 0 && offset > closest.offset) {
+    //             return { offset: offset, element: child };
+    //         } else {
+    //             return closest;
+    //         }
+    //     }, { offset: Number.NEGATIVE_INFINITY }).element;
+    // }
+
+    function saveLaneOrder() {
+        // Your logic to save lane order goes here
+        console.log("Lane order saved");
+    }
+
+    function saveCardOrder() {
+        const cardOrder = [];
+        document.querySelectorAll(".card-link").forEach(card => {
+            cardOrder.push(card.getAttribute("data-id"));
+        });
+        console.log(cardOrder)
+    
+        fetch('/Card/SaveCardOrder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cardOrder)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message); // Success message from the server
+        })
+        .catch(error => {
+            console.error('Error saving card order:', error);
+        });
+    }
+    
+
     const overlay = document.getElementById('overlay');
     const overlayContent = document.getElementById('overlay-content');
     const editForm = document.getElementById('edit-card-form');

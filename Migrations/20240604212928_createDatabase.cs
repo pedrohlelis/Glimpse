@@ -251,6 +251,7 @@ namespace Glimpse.Migrations
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProjectId = table.Column<int>(type: "int", nullable: true),
                     CanManageMembers = table.Column<bool>(type: "bit", nullable: false),
+                    CanManageRoles = table.Column<bool>(type: "bit", nullable: false),
                     CanManageCards = table.Column<bool>(type: "bit", nullable: false),
                     CanManageTags = table.Column<bool>(type: "bit", nullable: false),
                     CanManageChecklist = table.Column<bool>(type: "bit", nullable: false)
@@ -271,7 +272,7 @@ namespace Glimpse.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BoardId = table.Column<int>(type: "int", nullable: true),
                     Index = table.Column<int>(type: "int", nullable: false)
                 },

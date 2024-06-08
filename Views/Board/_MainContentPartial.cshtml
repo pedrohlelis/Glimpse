@@ -7,10 +7,9 @@
         <div class="board-main d-flex flex-row overflow-auto kanban" style="max-width: 1200px;">
             @foreach (Lane lane in Model.Board.Lanes)
             {
-                <div style="width: 300px;" class="lane col lane mx-3" data-lane-id="@lane.Id">
-                    <div class="d-flex align-content-center align-items-center px-1">
-                        <p class="text-uppercase fw-bold fs-6">@lane.Name</p>
-                        <p class="rounded-circle text-black bg-white">@lane.Cards.Count</p>
+                <div style="width: 300px;" class="lane col lane mx-3" data-lane-id="@lane.Id" draggable="true">
+                    <div class="d-flex  px-1">
+                        <p class="text-uppercase fw-bold fs-6">@lane.Name <span class="badge bg-secondary text-black">@lane.Cards.Count</span></p>
                     </div>
                     <hr>
                     <br>
