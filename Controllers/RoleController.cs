@@ -53,7 +53,7 @@ public class RoleController : Controller
         project.Roles.Add(role);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = true });
     }
 
     // UPDATE
@@ -85,7 +85,7 @@ public class RoleController : Controller
         await _db.SaveChangesAsync();
 
         // Redirect to the appropriate action with the boardId parameter
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = true });
     }
 
     // DELETE
@@ -95,7 +95,7 @@ public class RoleController : Controller
         Role role = await _db.Roles.FindAsync(roleToDeleteId);
         _db.Roles.Remove(role);
         await _db.SaveChangesAsync();
-        return RedirectToAction("GetBoardInfo", "Board", new { id = id });
+        return RedirectToAction("GetBoardInfo", "Board", new { id = id, IsMemberSideBarActive = true });
     }
 
     // [HttpPost]

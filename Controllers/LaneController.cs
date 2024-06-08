@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json;
+using Glimpse.ViewModels;
 
 namespace Glimpse.Controllers;
 
@@ -37,5 +39,22 @@ public class LaneController : Controller
         await _db.SaveChangesAsync();
 
         return RedirectToAction("GetBoardInfo", "Board", new { id });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> SaveLaneOrder([FromForm] string laneIndexDictionary, int id, bool isMemberSideBarActive)
+    {
+        Console.WriteLine(laneIndexDictionary);
+        // Deserialize the JSON strings back into structured data
+        var laneIndexDictionaryDeserialized = JsonSerializer.Deserialize<Dictionary<string, int>>(laneIndexDictionary);
+
+        foreach (var kvp in laneIndexDictionaryDeserialized)
+        {
+            Lane lane = await _db.Lanes.FirstOrDefaultAsync(x => x.Id == int.Parse(kvp.Key));
+            lane.Index = kvp.Value;
+            await _db.SaveChangesAsync();
+        }
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id, isMemberSideBarActive });
     }
 }

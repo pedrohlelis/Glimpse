@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace Glimpse.Controllers;
 
+
 [Authorize]
 public class BoardController : Controller
 {
@@ -27,7 +28,7 @@ public class BoardController : Controller
     }
 
     [Authorize]
-    public async Task<IActionResult> GetBoardInfo(int id)
+    public async Task<IActionResult> GetBoardInfo(int id, bool IsMemberSideBarActive)
     {
         var board = _db.Boards
             .Include(p => p.Project)
@@ -59,14 +60,17 @@ public class BoardController : Controller
         User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
 
         // Create a dictionary to store users and their roles
-
+        List<Role> canManageRoles = new List<Role>();
         // Retrieve all roles associated with the project
         List<Role> roles = await _db.Roles
             .Include(r => r.Users)
             .Where(r => r.Project.Id == projectId)
             .ToListAsync();
         foreach (Role role in roles) {
-            Console.WriteLine(role.Name);
+            if(role.CanManageRoles)
+            {
+                canManageRoles.Add(role);
+            }
         }
 
         Dictionary<User, Role> userRoles = new Dictionary<User, Role>();
@@ -79,7 +83,6 @@ public class BoardController : Controller
 
             // Add the member and their role to the dictionary
             userRoles.Add(member, memberRole);
-
         }
 
         var model = new BoardVM
@@ -90,7 +93,9 @@ public class BoardController : Controller
             UserRole = userRole,
             ProjectResponsibleUser = responsibleUser,
             Members = members,
-            UserRolesDictionary = userRoles // Add the dictionary to the model
+            UserRolesDictionary = userRoles, // Add the dictionary to the model
+            CanManageRoles = canManageRoles,
+            IsMemberSideBarActive = IsMemberSideBarActive
         };
 
         ViewData["lanes"] = board.Lanes;

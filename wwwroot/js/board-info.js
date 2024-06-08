@@ -40,6 +40,7 @@ function deleteRole(button) {
 document.getElementById('project-roles-btn').addEventListener('click', openRolesModal);
 
 //START of sidebar menu ---------------------------
+
 let memberSideMenuBtn = document.querySelector('#member-side-menu-btn')
 let memberSideMenu = document.querySelector('.memberSideMenu')
 let sideMenuBtn = document.querySelector('#side-menu-btn')
@@ -47,20 +48,34 @@ let sideBar = document.querySelector(".sideBar")
 let mainContent = document.querySelector(".main-content")
 let memberDivs = document.querySelectorAll(".member-div")
 let rolesDivs = document.querySelectorAll(".role-container")
+let invButton = document.querySelector(".invite-btn")
+let IsMemberSideBarActive = document.querySelector('.IsMemberSideBarActive')
 
 if (memberDivs.length === 0) {
 console.error('No memberDiv elements found');
 }
 
 memberSideMenuBtn.onclick = function () {
+    ToggleMemberSideBar()
+};
+
+
+function ToggleMemberSideBar() {
     memberDivs.forEach(function (div) {
         div.classList.toggle('d-none');
     })
     rolesDivs.forEach(function (div){
         div.classList.toggle('d-none');
     })
+    invButton.classList.toggle('d-none');
     memberSideMenu.classList.toggle('active');
-};
+
+    if(memberSideMenu.classList.contains('active')){
+        IsMemberSideBarActive.value = 'true'
+    }else{
+        IsMemberSideBarActive.value = 'false'
+    }
+}
 
 sideMenuBtn.onclick = function () {
     sideBar.classList.toggle('active')
@@ -68,7 +83,237 @@ sideMenuBtn.onclick = function () {
 };
 //END of sidebar menu   ---------------------------
 
+let toggleMemberBarDiv = document.querySelector('.toggleMemberBarDiv');
+if (toggleMemberBarDiv != null)
+{
+    ToggleMemberSideBar()
+};
+
 document.addEventListener('DOMContentLoaded', function() {
+    // CARDS AND LANES DRAG&DROP
+    const board = document.querySelector(".lanes");
+
+    const saveCardOrderForm = document.querySelector('.save-card-order-form');
+    const cardOrderInput = saveCardOrderForm.querySelector('input[name="taskIndexDictionary"]');
+
+    const saveLaneOrderForm = document.querySelector('.save-lane-order-form');
+    const laneOrderInput = saveLaneOrderForm.querySelector('input[name="laneIndexDictionary"]');
+
+    saveCardOrderForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        
+        const formData = new FormData(saveCardOrderForm);
+
+        // Send the form data using an AJAX request
+        fetch(saveCardOrderForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                // Optionally handle success response
+                console.log('Card order saved successfully!');
+                // Reload the page or update specific parts of the page with the new data
+                location.reload(); // Reload the page to reflect changes
+            } else {
+                // Optionally handle error response
+                console.error('Failed to save card order.');
+            }
+        })
+        .catch(error => {
+            console.error('An error occurred:', error);
+        });
+    });
+
+    saveLaneOrderForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        
+        const formData = new FormData(saveLaneOrderForm);
+
+        // Send the form data using an AJAX request
+        fetch(saveLaneOrderForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                // Optionally handle success response
+                console.log('Lane order saved successfully!');
+                // Reload the page or update specific parts of the page with the new data
+                location.reload(); // Reload the page to reflect changes
+            } else {
+                // Optionally handle error response
+                console.error('Failed to save card order.');
+            }
+        })
+        .catch(error => {
+            console.error('An error occurred:', error);
+        });
+    });
+
+    // Function to update the card order input value
+    function updateCardOrderInput() {
+        const swimLanes = document.querySelectorAll('.swim-lane');
+        let isMemberSideBarActive = saveCardOrderForm.querySelector('input[name=IsMemberSideBarActive]')
+        let taskIndexDictionary = {}; // Initialize an empty object to store the task index for each task ID
+
+        swimLanes.forEach((lane) => {
+            const laneId = lane.dataset.id;
+            const cards = lane.querySelectorAll('.task');
+
+            cards.forEach((card, index) => {
+                const taskId = card.dataset.id;
+                const indexPosition = index + 1;
+                
+                // If the task ID doesn't exist in the dictionary, initialize it with an empty list
+                if (!taskIndexDictionary[taskId]) {
+                    taskIndexDictionary[taskId] = [];
+                }
+
+                // Add lane ID and task index to the list for this task ID
+                taskIndexDictionary[taskId].push(String(laneId), String(indexPosition));
+            });
+        });
+
+        // Convert the object to JSON and assign it to the cardOrderInput value
+        if(memberSideMenu.classList.contains('active')){
+            isMemberSideBarActive.value = true;
+        }
+        else{
+            isMemberSideBarActive.value = false;
+        }
+        cardOrderInput.value = JSON.stringify(taskIndexDictionary);
+    }
+
+    function updateLaneOrderInput() {
+        const lanes = document.querySelectorAll('.lanes');
+        let isMemberSideBarActive = saveLaneOrderForm.querySelector('input[name=IsMemberSideBarActive]')
+        let laneIndexDictionary = {}; // Initialize an empty object to store the task index for each task ID
+
+        lanes.forEach((lane) => {
+            const swimLanes = lane.querySelectorAll('.swim-lane');
+
+            swimLanes.forEach((swimLane, index) => {
+                const swimLaneId = swimLane.dataset.id;
+                const indexPosition = index + 1;
+
+                // Store the task index in the taskIndexDictionary using the task ID as the key
+                laneIndexDictionary[swimLaneId] = indexPosition;
+            });
+        });
+        // Convert the array to JSON and assign it to the cardOrderInput value
+        if(memberSideMenu.classList.contains('active')){
+            isMemberSideBarActive.value = true;
+        }
+        else{
+            isMemberSideBarActive.value = false;
+        }
+        laneOrderInput.value = JSON.stringify(laneIndexDictionary);
+    }
+
+    // Drag and drop functionality for tasks
+    const draggables = document.querySelectorAll(".task");
+    const droppables = document.querySelectorAll(".swim-lane");
+
+    draggables.forEach((task) => {
+        task.addEventListener("dragstart", () => {
+            task.classList.add("is-dragging");
+        });
+        task.addEventListener("dragend", () => {
+            task.classList.remove("is-dragging");
+            updateCardOrderInput()
+            saveCardOrderForm.submit()
+        });
+    });
+
+    droppables.forEach((zone) => {
+        zone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+
+            const bottomTask = insertAboveTask(zone, e.clientY);
+            const curTask = document.querySelector(".is-dragging");
+
+            if (!bottomTask) {
+                zone.appendChild(curTask);
+            } else {
+                zone.insertBefore(curTask, bottomTask);
+            }
+        });
+    });
+
+    const insertAboveTask = (zone, mouseY) => {
+        const els = zone.querySelectorAll(".task:not(.is-dragging)");
+
+        let closestTask = null;
+        let closestOffset = Number.NEGATIVE_INFINITY;
+
+        els.forEach((task) => {
+            const { top } = task.getBoundingClientRect();
+            const offset = mouseY - top;
+
+            if (offset < 0 && offset > closestOffset) {
+                closestOffset = offset;
+                closestTask = task;
+            }
+        });
+
+        return closestTask;
+    };
+
+    // Drag and drop functionality for lanes
+const lanes = document.querySelectorAll(".swim-lane");
+
+lanes.forEach((lane) => {
+    // Drag start for lanes
+    lane.addEventListener("dragstart", (e) => {
+        if (e.target.classList.contains("swim-lane")) {
+            lane.classList.add("is-dragging-lane");
+        }
+        e.stopPropagation(); // Prevent triggering dragstart on parent elements
+    });
+
+    // Drag end for lanes
+    lane.addEventListener("dragend", (e) => {
+        if (e.target.classList.contains("swim-lane")) {
+            lane.classList.remove("is-dragging-lane");
+            updateLaneOrderInput();
+            saveLaneOrderForm.submit();
+        }
+        e.stopPropagation(); // Prevent triggering dragend on parent elements
+    });
+})
+
+    board.addEventListener("dragover", (e) => {
+        e.preventDefault();
+
+        const draggingLane = document.querySelector(".is-dragging-lane");
+        const afterElement = getDragAfterElement(board, e.clientX);
+
+        if (draggingLane) {
+            if (afterElement == null) {
+                board.appendChild(draggingLane);
+            } else {
+                board.insertBefore(draggingLane, afterElement);
+            }
+        }
+    });
+
+    function getDragAfterElement(container, x) {
+        const draggableElements = [...container.querySelectorAll('.swim-lane:not(.is-dragging-lane)')];
+
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = x - box.left - box.width / 2;
+
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+
     const overlay = document.getElementById('overlay');
     const overlayContent = document.getElementById('overlay-content');
     const editForm = document.getElementById('edit-card-form');
@@ -100,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Event listener para mostrar o overlay quando um card é clicado
-    const cards = document.querySelectorAll('.card-link');
+    const cards = document.querySelectorAll('.task');
     cards.forEach(card => {
         card.addEventListener('click', function(event) {
             const cardId = card.dataset.id;
@@ -136,6 +381,12 @@ addCardButtons.forEach((button, index) => {
     });
 });
 
+// cardForms.addEventListener('submit', function(event) {
+//         event.preventDefault()
+//         cardForms.querySelector('input[name=IsMemberSideBarActive]').value = IsMemberSideBarActive.value;
+//         cardForms.submit();
+//     });
+
 const addLaneButton = document.querySelector('.new-lane-btn');
 const laneForm = document.querySelector('.create-lane-form');
 const laneInput = document.querySelector('.lane-input');
@@ -162,73 +413,3 @@ document.addEventListener('click', function(event) {
         laneForm.setAttribute('hidden', true);
     }
 });
-// LOGICA DE MOVER CARDS
-const columns = document.querySelectorAll(".card-col");
-
-document.addEventListener("dragstart", (e) => {
-    e.target.classList.add("dragging");
-});
-
-document.addEventListener("dragend", (e) => {
-    e.target.classList.remove("dragging");
-    saveCardOrder(); // Chama a função para salvar a ordem dos cards após o arrasto
-});
-
-columns.forEach((item) => {
-    item.addEventListener("dragover", (e) => {
-        e.preventDefault(); // Previne o comportamento padrão
-        const dragging = document.querySelector(".dragging");
-        const applyAfter = getNewPosition(item, e.clientY);
-
-        if (applyAfter) {
-            applyAfter.insertAdjacentElement("afterend", dragging);
-        } else {
-            item.prepend(dragging);
-        }
-    });
-});
-
-function getNewPosition(column, posY) {
-    const cards = column.querySelectorAll(".item:not(.dragging)");
-    let result;
-
-    for (let refer_card of cards) {
-        const box = refer_card.getBoundingClientRect();
-        const boxCenterY = box.y + box.height / 2;
-
-        if (posY >= boxCenterY) result = refer_card;
-    }
-
-    return result;
-}
-
-function saveCardOrder() {
-    const lanesData = [];
-
-    columns.forEach((lane) => {
-        const laneId = lane.dataset.laneId;
-        const cardIds = Array.from(lane.querySelectorAll(".item")).map((card) => card.dataset.cardId);
-        lanesData.push({ laneId, cardIds });
-    });
-
-    // Enviar dados para o servidor via AJAX
-    fetch('/caminho/do/seu/controller', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ lanes: lanesData })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao salvar a ordem dos cards');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Ordem dos cards salva com sucesso:', data);
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
-}

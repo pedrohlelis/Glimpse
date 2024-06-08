@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json;
 
 namespace Glimpse.Controllers;
 
 [Authorize]
+
 public class CardController : Controller
 {
     private readonly GlimpseContext _db;
@@ -37,7 +39,7 @@ public class CardController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateCard(string name, int laneId, int id)
+    public async Task<IActionResult> CreateCard(string name, int laneId, int id, bool IsMemberSideBarActive)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -59,7 +61,7 @@ public class CardController : Controller
         lane.Cards.Add(card);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id });
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
     }
 
     [HttpPost]
@@ -77,10 +79,10 @@ public class CardController : Controller
         {
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("GetBoardInfo", "Board", new { id });
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
         }
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id });
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
     }
 
     public async Task<IActionResult> Delete(int laneId, int CardId)
@@ -132,13 +134,53 @@ public class CardController : Controller
         
         return null;
     }
+
     [HttpPost]
-    public IActionResult MoveCard(int id)
+    public async Task<IActionResult> SaveCardOrder([FromForm] string taskIndexDictionary, int id, bool IsMemberSideBarActive)
     {
-        // Lógica para mover o card na sua estrutura de dados (por exemplo, em Board ou Lane)
+        // Deserialize the JSON strings back into structured data
+        Console.WriteLine(taskIndexDictionary);
+        try
+        {
+            // Deserialize the JSON strings back into structured data
+            var taskIndexDictionaryDeserialized = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(taskIndexDictionary);
 
-        // Retornar um status de sucesso
-        return RedirectToAction("GetBoardInfo", "Board", new { id });
+            foreach (var kvp in taskIndexDictionaryDeserialized)
+            {
+                Card card = await _db.Cards.FirstOrDefaultAsync(x => x.Id == int.Parse(kvp.Key));
+                if (card != null)
+                {
+                    if (int.TryParse(kvp.Value[1], out int newIndex))
+                    {
+                        Lane lane = await _db.Lanes.FirstOrDefaultAsync(l => l.Id == int.Parse(kvp.Value[0]));
+                        card.Index = newIndex;
+                        card.Lane = lane;
+                        lane.Cards.Add(card);
+                    }
+                    else
+                    {
+                        // Handle invalid index format
+                    }
+
+                    await _db.SaveChangesAsync();
+                }
+                else
+                {
+                    // Handle card not found
+                }
+            }
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive });
+        }
+        catch (JsonException ex)
+        {
+            // Handle JSON deserialization error
+            return BadRequest("Invalid JSON format: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            // Handle other exceptions
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred: " + ex.Message);
+        }
     }
-
 }
+

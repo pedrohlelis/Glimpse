@@ -5,18 +5,16 @@
     <div class="board-header">
         <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p>
         <h1 class="fw-bold" style="letter-spacing: 2px;">@Model.Board.Name</h1>
-        <div class="text-white">
+        @* <div class="text-white">
             @foreach (var kvp in Model.UserRolesDictionary)
             {
                 <p >User: @kvp.Key.FirstName @kvp.Key.LastName | Role: @kvp.Value.Name</p>
             }
-        </div>
+        </div> *@
     </div>
-    <button class="button-create new-lane-btn mx-5" style="width: 200px;">Adicionar Raia</button>
     <div class="d-flex justify-content-center">
-        <box-icon name='hard-hat' type='solid' color="white" id="project-roles-btn"></box-icon>
-        <box-icon name='bell' color="white"></box-icon>
-        <box-icon name='user-plus' type='solid' color="white" ></box-icon>
-        <box-icon name="group" color="white" id="member-side-menu-btn"></box-icon>
+        <box-icon class="mx-1" name='hard-hat' type='solid' color="white" id="project-roles-btn"></box-icon>
+        <box-icon class="mx-1" name='bell' color="white"></box-icon>
+        <box-icon onclick="ToggleMemberSideBar()" class="mx-1" name="group" color="white" id="member-side-menu-btn"></box-icon>
     </div>
 </section>

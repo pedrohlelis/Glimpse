@@ -141,7 +141,7 @@ public class ProjectController : Controller
             user.Projects.Add(project);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("GetBoardInfo", "Board", new { id = DefaultBoard.Id });
+            return RedirectToAction("GetBoardInfo", "Board", new { id = DefaultBoard.Id, IsMemberSideBarActive = true });
         }
 
         return View("Create", project);

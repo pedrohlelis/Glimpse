@@ -3,9 +3,13 @@
 
 @{
     var roleEditModel = new BoardVM.RoleEditInputModel();
+    List<User> unemployed = new List<User>();
 }
 
-<div class="memberSideMenu d-flex flex-column active">
+<div class="memberSideMenu d-flex flex-column overflow-y active">
+    <div class="mt-4 mx-auto">
+        <button class="invite-btn btn btn-danger text-white"><box-icon name='user-plus' type='solid' color="white" ></box-icon> Invite Member</button>
+    </div>
     @foreach (var role in Model.ProjectRoles)
     {
         <div class="role-container mt-4">
@@ -64,9 +68,71 @@
             }
         </div>
     }
+    <div class="role-container mt-4">
+        Sem Cargo
+        @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == null)){
+            var user = kvp.Key;
+            <div class="member-div container mt-3">
+                <div class="profile-container">
+                    <img class="user-img" src='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' alt="">
+                    <div class="profile-info">
+                        <div>@user.FirstName @user.LastName</div>
+                        <div class="profile-status" data-bs-toggle="tooltip" data-bs-placement="top" title="@user.UserName">
+                            <div>@user.UserName</div>
+                        </div>
+                    </div>
+                    <div class="profile-icons">
+                        <div class="dropup">
+                            <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
+                                <a class="dropdown-item" data-bs-toggle="dropdown" aria-expanded="true" color="white">Manage</a>
+                                <div class="dropdown-menu dropdown-menu-left dropdown-menu-dark">
+                                    @* <form method="post" asp-action="AtribuirRole" asp-controller="Role" id="form-role" enctype="multipart/form-data">
+                                        <div class="modal-body">
+                                            <input type="hidden" id="userId" name="userId"></input>
+                                                @{
+                                                    bool i = true;
+                                                    if(Model.ProjectRoles.Count == 0)
+                                                    {
+                                                        <p>Este projeto ainda não tem cargos</p>
+                                                    }else {
+                                                    <label for="roleId">Cargo: </label>
+                                                    <select id="roleId" name="roleId">
+                                                    @foreach(Role projectRole in Model.ProjectRoles)
+                                                    {
+                                                        <option value="@projectRole.Id" selected>@projectRole.Name</option>
+                                                    }
+                                                    </select>
+                                                    }
+                                                }
+                                        </div>
+                                        
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success">Atribuir cargo</button>
+                                        </div>
+                                    </form> *@
+                                </div>
+                                <hr class="dropdown-divider">
+                                <a class="dropdown-item" asp-action="Profile" asp-controller="User">Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
 
-<div class="modal fade" id="rolesModal" tabindex="-1" aria-labelledby="rolesModalLabel" aria-hidden="true">
+@if(Model.IsMemberSideBarActive != null && Model.IsMemberSideBarActive == false){
+    <div class="toggleMemberBarDiv"></div>
+    <script>
+        ToggleMemberSideBar();
+    </script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}
+
+<div class="modal fade h-75" id="rolesModal" tabindex="-1" aria-labelledby="rolesModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
@@ -74,7 +140,7 @@
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @if (Model.UserRole.CanManageRoles || Model.ProjectResponsibleUser.Id == Model.User.Id) {
+                @if (Model.UserRole != null && (Model.UserRole.CanManageRoles || Model.ProjectResponsibleUser.Id == Model.User.Id)) {
                     <button class="button-success" onclick="createRole()">
                         <div class="d-flex justify-content-center">
                             <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
@@ -89,7 +155,8 @@
                         </div>
                     </button>
                 }
-                <ul class="list-group">
+                <div class="overflow-y">
+                    <ul class="list-group">
                     @foreach(var role in Model.ProjectRoles)
                     {
                         <li data-id="@role.Id"
@@ -104,7 +171,7 @@
                         class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
                             @role.Name
                             <div>
-                                @if (Model.UserRole.CanManageRoles || Model.ProjectResponsibleUser.Id == Model.User.Id) {
+                                @if (Model.UserRole != null && (Model.UserRole.CanManageRoles || Model.ProjectResponsibleUser.Id == Model.User.Id)) {
                                     <button type="button" class="btn btn-primary btn-sm" onclick="editRole(this)">Edit</button>
                                     <button type="button" class="btn btn-danger btn-sm" onclick="deleteRole(this)">Delete</button>
                                 }else {
@@ -114,9 +181,19 @@
                             </div>
                         </li>
                     }
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
 </div>
 
