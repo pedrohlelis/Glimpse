@@ -5,7 +5,8 @@
 
 
 <section>
-    <center><a class="CTA-MODEL-01" asp-controller="Role" asp-action="ShowRoles" asp-route-projectId="@Model.Id">+ Criar cargo</a></center>
+    <br>
+    <br>
     <form asp-action="AddUser" asp-controller="Project" asp-route-projectId="@Model.Id" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-12">
@@ -20,36 +21,37 @@
     </form>
     <div class="row">
         <div class="col-lg-12">
-            @Model.Roles.Count
-            <table>
+            <center><a class="CTA-MODEL-01" asp-controller="Role" asp-action="ShowRoles" asp-route-projectId="@Model.Id">+ Criar cargo</a></center>
+            
             @if(Model.Users.Count == 0) {
-                <tr><td><p>Este projeto não tem integrantes</p></td></tr>
+                <div class="row">
+                <div>Este projeto não tem integrantes</div>
+                </div>
             }else{
-                <tr>
-                    <th>Usuários</th>
-                    <th>Cargo</th>
-                    <th>Ação</th>
-                </tr>
+                <div class="row">
+                    <div class="col-lg-4">Usuários</div>
+                    <div class="col-lg-8">Cargo</div>
+                    <div class="col-lg-12">Ação</div>
+                    </div>
                 @foreach(User user in Model.Users){
-                    <tr>
-                        <td>@user.FirstName - &nbsp&nbsp&nbsp&nbsp</td>
+                    <div class="row">
+                        <div class="col-lg-12">@user.FirstName - &nbsp&nbsp&nbsp&nbsp</div>
                         @if(user.Roles.Count() == 0)
                         {
-                            <td>Este usuário não tem cargo&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                            <div class="col-lg-12">Este usuário não tem cargo&nbsp&nbsp&nbsp&nbsp&nbsp</div>
                         }
                         else
                         {
-                            <td>@user.Roles.First().Name&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                            <div class="col-lg-12">@user.Roles.First().Name&nbsp&nbsp&nbsp&nbsp&nbsp</div>
                         }
-                        <td>
+                        <div class="col-lg-12">
                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editarCargoModal" onclick="setUserId('@user.Id')">
                             Editar cargo
                             </button>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 }
             }
-            </table>
 
             <div class="modal fade" id="editarCargoModal" tabindex="-1" aria-labelledby="editarCargoModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

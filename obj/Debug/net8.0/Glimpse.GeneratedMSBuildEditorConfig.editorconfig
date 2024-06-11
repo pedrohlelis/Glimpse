@@ -254,10 +254,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse-1/Views/Role/Assign.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBc3NpZ24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse-1/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -272,10 +268,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse-1/Views/Role/ShowRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxTaG93Um9sZXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse-1/Views/Role/UserRoles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxVc2VyUm9sZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/patum/OneDrive - Grupo Marista/Programação/PUC/Projeto Glimpse/Glimpse-1/Views/Shared/Error.cshtml]
