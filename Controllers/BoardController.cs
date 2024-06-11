@@ -43,12 +43,26 @@ public class BoardController : Controller
 
         int projectId = board.Project.Id;
 
+        var project = _db.Projects.FirstOrDefault(p => p.Id == projectId);
+
+        if(!project.IsActive) {
+            return NotFound();
+        }
+
         // Retrieve all members associated with the project
         List<User> members = await _db.Users
             .Where(u => u.Projects.Any(p => p.Id == projectId))
             .ToListAsync();
 
-        var user = await _userManager.GetUserAsync(User);
+        var currentUser = await _userManager.GetUserAsync(User);
+
+        var user = _db.Users
+        .Include(u => u.Projects)
+        .FirstOrDefault(u => u.Id == currentUser.Id);
+
+        if (!user.Projects.Contains(board.Project)){
+            return Forbid();
+        }
         // Retrieve the user's role within the project associated with the board
         var userRole = await _db.Roles
             .Include(r => r.Users) // Assuming Role.Users is a collection of users with this role
@@ -181,7 +195,7 @@ public class BoardController : Controller
 
             project.Boards.Add(Board);
             await _db.SaveChangesAsync();
-            return RedirectToAction("GetBoardInfo", new { id = Board.Id });
+            return RedirectToAction("GetBoardInfo", new { id = Board.Id, IsMemberSideBarActive = true });
         }
 
         return View("Create", Board);

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Glimpse.Helpers;
 using Microsoft.AspNetCore.Identity;
+using Glimpse.ViewModels;
 
 namespace Glimpse.Controllers;
 
@@ -29,18 +30,25 @@ public class ProjectController : Controller
             .Include(u => u.Projects)
             .Single(u => u.Id == userId);
 
-        var userProjects = user.Projects;
-        ICollection<Project> activeUserProjects = [];
-        foreach(Project project in userProjects)
+        Dictionary<Project, User> activeUserProjects = new Dictionary<Project, User>();
+        foreach (Project project in user.Projects)
         {
-            if(project.IsActive)
+            if (project.IsActive)
             {
-                activeUserProjects.Add(project);
+                var responsibleUser = _db.Users.FirstOrDefault(u => u.Id == project.ResponsibleUserId);
+                activeUserProjects[project] = responsibleUser;
             }
         }
+        var model = new ProjectsVM
+        {
+            User = user,
+            Projects = user.Projects,
+            ActiveProjects = activeUserProjects
+        };
+        
         ViewData["UserName"] = user.FirstName + " " + user.LastName;
 
-        return View(activeUserProjects);
+        return View(model);
     }
 
     // CREATE
@@ -147,10 +155,56 @@ public class ProjectController : Controller
         return View("Create", project);
     }
 
+    [HttpPost]
+    public async Task<IActionResult> LeaveProject(int projectToLeaveId) 
+    {
+        var currentUser = await _userManager.GetUserAsync(User);
+
+        Project Project = await _db.Projects
+        .Include(p => p.Users)
+        .SingleAsync(p => p.Id == projectToLeaveId);
+
+        var user = _db.Users
+        .Include(u => u.Projects)
+        .FirstOrDefault(u => u.Id == currentUser.Id);
+
+        user.Projects.Remove(Project);
+        Project.Users.Remove(user);
+
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction("MainProjects");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RemoveFromProject(int id, string userId, int projectId)
+    {
+        Console.WriteLine(userId);
+        Project Project = await _db.Projects
+        .Include(p => p.Users)
+        .SingleAsync(p => p.Id == projectId);
+
+        var user = _db.Users
+        .Include(u => u.Projects)
+        .FirstOrDefault(u => u.Id == userId);
+
+        user.Projects.Remove(Project);
+        Project.Users.Remove(user);
+
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+    }
+
     public async Task<IActionResult> Edit(int id)
     {
         Project Project = await _db.Projects.FindAsync(id);
+        var currentUser = await _userManager.GetUserAsync(User);
 
+        if (currentUser.Id != Project.ResponsibleUserId){
+            return Forbid();
+        }
+        
         if (Project == null)
         {
             return NotFound();
@@ -213,49 +267,58 @@ public class ProjectController : Controller
         return View("Delete", project);
     }
 
-    public async Task<IActionResult> Users(int projectId)
+    // public async Task<IActionResult> Users(int projectId)
+    // {
+    //     Project project = _db.Projects
+    //         .Include(p => p.Users)
+    //             .ThenInclude(u => u.Roles)
+    //         .Include(p => p.Roles.Where(r => r.Project.Id == projectId))
+    //         .Single(p => p.Id == projectId);
+
+    //     if (project == null)
+    //     {
+    //         return NotFound();
+    //     }
+
+    //     ICollection<User> users = [];
+    //     User toAddUser = new();
+    //     foreach (User user in project.Users)
+    //     {
+    //         toAddUser = user;
+    //         // toAddUser.Roles = user.Roles.Where(r => project.Roles.Any(pr => pr.Id == r.Id)).ToList();
+    //         users.Add(toAddUser);
+    //     }
+    //     Project viewProject = project;
+    //     viewProject.Users = users;
+
+    //     return View(viewProject);
+    // }
+
+    public async Task<IActionResult> AddUser(int id, int projectId, string userEmail)
     {
-        Project project = _db.Projects
+        var project = _db.Projects
             .Include(p => p.Users)
-                .ThenInclude(u => u.Roles)
-            .Include(p => p.Roles.Where(r => r.Project.Id == projectId))
             .Single(p => p.Id == projectId);
-
-        if (project == null)
-        {
-            return NotFound();
-        }
-
-        ICollection<User> users = [];
-        User toAddUser = new();
-        foreach (User user in project.Users)
-        {
-            toAddUser = user;
-            // toAddUser.Roles = user.Roles.Where(r => project.Roles.Any(pr => pr.Id == r.Id)).ToList();
-            users.Add(toAddUser);
-        }
-        Project viewProject = project;
-        viewProject.Users = users;
-
-        return View(viewProject);
-    }
-
-    public async Task<IActionResult> AddUser(int projectId, string userEmail)
-    {
-        Project project = await _db.Projects.FindAsync(projectId);
         if (project == null)
         {
             return NotFound("Projeto não existe");
         }
         var user = await _userManager.FindByNameAsync(userEmail);
-        if (project == null)
+        if (user == null)
         {
             return NotFound("Email digitado não pertence a nenhum usuário");
         }
+
+        if (project.Users.Contains(user)){
+            return Forbid();
+            // return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+        }
+
         project.Users.Add(user);
+        user.Projects.Add(project);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("Users", new { projectId });
+        return RedirectToAction("GetBoardInfo", "Board", new {id, IsMemberSideBarActive = true });
     }
 
 }

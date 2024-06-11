@@ -39,8 +39,6 @@ html::-webkit-scrollbar-track {
   background-color: #27272755;
 }
 
-
-
 .lanes::-webkit-scrollbar {
   height: 10px;
 }
@@ -158,6 +156,24 @@ input:focus {
 
 .dragging {
     opacity: 0.5;
+}
+
+.form-input {
+    background-color: #131313;
+    border-radius: 5px;
+    border-color: #9531FF;
+    border-width: 1px;
+}
+
+.form-input:not(:placeholder-shown) {
+    background-color: #131313;
+    color: #fff; /* Same as default background color */
+}
+
+.form-input:focus {
+    background-color: #131313; /* Same as default background color */
+    border-color: #9531FF; /* Update border color when focused */
+    outline: none; /* Remove default focus outline */
 }
 
 .memberSideMenu {

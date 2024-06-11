@@ -22,7 +22,7 @@ public class LaneController : Controller
         _userManager = userManager;
     }
     [HttpPost]
-    public async Task<IActionResult> CreateLane(string name, int id)
+    public async Task<IActionResult> CreateLane(string name, int id, bool IsMemberSideBarActive)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -38,7 +38,7 @@ public class LaneController : Controller
         _db.Lanes.Add(lane);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id });
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
     }
 
     [HttpPost]

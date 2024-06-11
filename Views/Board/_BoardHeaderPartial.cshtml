@@ -3,8 +3,10 @@
 
 <section class="container board-menu-func d-flex justify-content-center">
     <div class="board-header">
-        <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p>
-        <h1 class="fw-bold" style="letter-spacing: 2px;">@Model.Board.Name</h1>
+        <div>
+            <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p>
+            <h1 class="fw-bold" style="letter-spacing: 2px;">@Model.Board.Name</h1>
+        </div>
         @* <div class="text-white">
             @foreach (var kvp in Model.UserRolesDictionary)
             {
@@ -13,8 +15,9 @@
         </div> *@
     </div>
     <div class="d-flex justify-content-center">
-        <box-icon class="mx-1" name='hard-hat' type='solid' color="white" id="project-roles-btn"></box-icon>
-        <box-icon class="mx-1" name='bell' color="white"></box-icon>
-        <box-icon onclick="ToggleMemberSideBar()" class="mx-1" name="group" color="white" id="member-side-menu-btn"></box-icon>
+        <box-icon class="mx-1" name='hard-hat' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Cargos" type='solid' color="white" id="project-roles-btn" style="cursor: pointer;"></box-icon>
+        <box-icon class="mx-1" name='bell' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Notificações" style="cursor: pointer;" color="white"></box-icon>
+        <box-icon class="mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Membros" name="group" color="white" id="member-side-menu-btn" style="cursor: pointer;" onclick="ToggleMemberSideBar()"></box-icon>
     </div>
+
 </section>

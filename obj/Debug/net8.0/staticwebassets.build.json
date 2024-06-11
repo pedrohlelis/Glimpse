@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z9XI3pQ/rRCgT8Mw+K+aDFfTZD+j3nsoJGVooPMngpA=",
+  "Hash": "mIUoM0UJYf4t2KS1bhqixFrlkHXUCUxCijqNhd5K6do=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -4499,6 +4499,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserProfilePics\\305c1858-e7c4-41a2-a14c-b453f9cc9080_tattoo_idea.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\37b7c8c7-f00d-4731-a874-0ac25442477d_Itabarlogo.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "UserProfilePics/37b7c8c7-f00d-4731-a874-0ac25442477d_Itabarlogo.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserProfilePics\\37b7c8c7-f00d-4731-a874-0ac25442477d_Itabarlogo.jpeg"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\4acc7e43-d4d1-4139-960d-a0f0f098c78c_Itabar logo.jpeg",

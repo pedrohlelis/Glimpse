@@ -1,6 +1,20 @@
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+const IsMemberSideBarActiveInputs = document.querySelectorAll('.IsMemberSideBarActiveInput');
+
 function openRolesModal() {
     var myModal = new bootstrap.Modal(document.getElementById('rolesModal'));
     myModal.show();
+}
+
+function openManageUserModal(button) {
+    // let form =  document.getElementById('form-role');
+
+    document.getElementById('ManagedUserName').innerText = button.dataset.name;
+    document.getElementById('ManagedUserEmail').innerText = button.dataset.email;
+    document.getElementById('userPicture').src = button.dataset.picture;
+    document.getElementById('userId').value = button.dataset.id;
 }
 
 function createRole() {
@@ -13,7 +27,7 @@ function editRole(button) {
 
     var listItem = button.closest('li');
 
-    document.getElementById('roleId').value = listItem.dataset.id;
+    document.getElementById('roleToEditId').value = listItem.dataset.id;
     document.getElementById('roleName').value = listItem.dataset.name;
     document.getElementById('roleDescription').value = listItem.dataset.description;
     document.getElementById('roleColor').value = listItem.dataset.color;
@@ -34,6 +48,13 @@ function deleteRole(button) {
 
     var deleteRoleModal = new bootstrap.Modal(document.getElementById('ConfirmDeleteRoleModal'));
     deleteRoleModal.show();
+}
+
+function removeUser(button) {
+    document.getElementById('userId').value = button.dataset.id;
+
+    var removeMemberModal = new bootstrap.Modal(document.getElementById('expulsarMembroModal'));
+    removeMemberModal.show();
 }
 
 // Event listener to open the modal when the icon is clicked
@@ -61,6 +82,8 @@ memberSideMenuBtn.onclick = function () {
 
 
 function ToggleMemberSideBar() {
+    let invDiv = document.querySelector(".invite-member-div")
+
     memberDivs.forEach(function (div) {
         div.classList.toggle('d-none');
     })
@@ -69,8 +92,11 @@ function ToggleMemberSideBar() {
     })
     invButton.classList.toggle('d-none');
     memberSideMenu.classList.toggle('active');
-
+    invDiv.classList.toggle('d-none');
     if(memberSideMenu.classList.contains('active')){
+        IsMemberSideBarActiveInputs.forEach(function(input) {
+            input.value = 'true';
+        });
         IsMemberSideBarActive.value = 'true'
     }else{
         IsMemberSideBarActive.value = 'false'

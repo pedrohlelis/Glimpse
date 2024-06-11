@@ -14,7 +14,7 @@ public class Project
     public string? Description { get; set; }
     public string? Picture { get; set; }
     public bool IsActive { get; set; }
-    public virtual ICollection<Board> Boards { get; set; } = [];
-    public virtual ICollection<Role> Roles { get; set; } = [];
-    public virtual ICollection<User> Users { get; set; } = [];
+    public virtual List<Board> Boards { get; set; } = [];
+    public virtual List<Role> Roles { get; set; } = [];
+    public virtual List<User> Users { get; set; } = [];
 }
