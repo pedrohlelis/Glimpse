@@ -81,6 +81,12 @@
                         data-user='@userJson'
                         data-checkboxes='@checkboxesJson'
                         draggable="true">
+                        <div>
+                            @foreach(Tag tag in Model.Tags)
+                            {
+                                
+                            }
+                        </div>
                         <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
                         @if(card.User == null)
                         {
