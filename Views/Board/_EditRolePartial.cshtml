@@ -254,7 +254,6 @@
                 <form method="post" data-id="" asp-action="AtribuirRole" asp-controller="Role" id="form-role" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="@Model.Board.Id">
                     <input type="hidden" name="userId" id="userId" value="">
-                    <input type="hidden" class="IsMemberSideBarActiveInput" name="IsMemberSideBarActive">
                     @if (Model.ProjectRoles.Count == 0)
                     {
                         <p>Este projeto ainda não tem cargos</p>
@@ -408,7 +407,6 @@
                             </label>
                         </div>
                     </div>
-                    <!-- Submit button -->
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                     } else {
                         <div class="mb-3">

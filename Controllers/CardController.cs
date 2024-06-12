@@ -61,7 +61,7 @@ public class CardController : Controller
         lane.Cards.Add(card);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
     }
 
     [HttpPost]

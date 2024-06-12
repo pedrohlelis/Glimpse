@@ -26,7 +26,7 @@
         
         @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
         {
-            <div class="swim-lane col mx-3 overflow-y bg-dark" style="min-width: 250px; max-height: 600px;" data-id="@lane.Id" draggable="true">
+            <div class="swim-lane col mx-3 overflow-y" style="min-width: 250px; max-height: 600px; background-color: #353535 ;" data-id="@lane.Id" draggable="true">
                 <div class="d-flex  px-1">
                     <p class="text-uppercase fw-bold fs-6">@lane.Name <span class="badge bg-secondary text-black">@lane.Cards.Count</span></p>
                 </div>
