@@ -4,7 +4,7 @@
 
 <input name="IsMemberSideBarActive" type="hidden">
 
-<div class="lanes text-white" style="max-width: 1250px; max-height: 800px;">
+<div class="lanes text-white" style="z-index: -1; max-width: 1250px; max-height: 1000px; min-height: 600px;">
     <div>
         <button id="add-lane-button" class="button-create new-lane-btn mx-5" style="width: 200px;">
             Adicionar Lane
@@ -66,7 +66,6 @@
                 <input name="id" value="@Model.Board.Id" type="hidden">
                 <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
             </form>
-        </div>
         <form class="save-card-order-form" asp-action="SaveCardOrder" asp-controller="Card" method="post" hidden>
             <input type="text" name="taskIndexDictionary">
             <input name="id" value="@Model.Board.Id" type="hidden">
@@ -112,6 +111,7 @@
                 }
             </div>
         }
+        </div>
     }
 </div>
 <style>
