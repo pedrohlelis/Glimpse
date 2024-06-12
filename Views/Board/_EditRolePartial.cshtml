@@ -281,6 +281,116 @@
     </div>
 </div>
 
+<div class="modal fade h-75" id="tagsModal" tabindex="-1" aria-labelledby="tagsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tagsModalLabel">Project Tags</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if ((Model.UserRole != null && Model.UserRole.CanManageTags) || Model.User == Model.ProjectResponsibleUser) {
+                    <button class=" btn btn-info text-white" onclick="createTag()">
+                        <div class="d-flex justify-content-center">
+                            <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
+                            <p class="px-1 m-0">Nova Tag</p>
+                        </div>
+                    </button>
+                }
+                <div class="overflow-y">
+                    <ul class="list-group">
+                    @foreach(var tag in Model.Tags)
+                    {
+                        <li data-id="@tag.Id"
+                            data-name="@tag.Name"
+                            data-Color="@tag.Color"
+                        class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
+                            
+                            <span class="badge" style="background-color: @tag.Color;">@tag.Name</span>
+
+                            <div class="d-flex">
+                                @if ((Model.UserRole != null && Model.UserRole.CanManageTags) || Model.User == Model.ProjectResponsibleUser) {
+                                    <button type="button" class="btn btn-primary btn-sm mx-1 d-flex align-items-center" onclick="editTag(this)">
+                                        <box-icon type='solid' name='edit' color="white" style="height: 16px; width: 16px;"></box-icon>
+                                        <span class="ms-1">Edit</span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm d-flex align-items-center" onclick="deleteTag(this)">
+                                        <span>Delete</span>
+                                    </button>
+                                }else {
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="editTag(this)">View</button>
+                                }
+                            </div>
+                        </li>
+                    }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createTagModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createTagModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #131313;">
+        <div class="modal-header">
+            <h5 class="modal-title" id="createTagModalLabel">Criar nova tag</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form asp-action="CreateTag" asp-controller="Tag" method="post">
+                <input type="hidden" name="id" value="@Model.Board.Id">
+                <label for="tagName" class="form-label">Nome:</label>
+                <input type="text" name="tagName" id="tagName">
+                <label for="color" class="form-label">Cor:</label>
+                <input type="color" name="color" id="color">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Criar</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editTagModal" tabindex="-1" aria-labelledby="editTagModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRoleModalLabel">Edit Tag</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> 
+            <div class="modal-body">
+                <form asp-action="EditTag" asp-controller="Tag" id="editTagForm" method="post">
+                    
+                    <input type="hidden" id="tagToEditId" name="tagId" value="">
+                    <input type="hidden" id="boardId" name="boardId" value="@Model.Board.Id">
+                    <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                    
+                    <div class="mb-3">
+                        <label for="tagEditName" class="form-label text-light">Name</label>
+                        <input type="text" class="form-input form-control" id="tagEditName" name="Name" value="">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="tagEditColor" class="form-label text-light">Color</label>
+                        <input type="color" class="form-input form-control" id="tagEditColor" name="Color" value="">
+                    </div>
+                    <!-- Permissions -->
+                    @if ((Model.UserRole != null && Model.UserRole.CanManageTags) || Model.User == Model.ProjectResponsibleUser) {
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    } 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ========================== ROLES ============================== *@
+
 <div class="modal fade h-75" id="rolesModal" tabindex="-1" aria-labelledby="rolesModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
@@ -333,16 +443,6 @@
         </div>
     </div>
 </div>
-
-<div class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-            <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-</div>
-
 
 <div class="modal fade" id="editRoleModal" tabindex="-1" aria-labelledby="editRoleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

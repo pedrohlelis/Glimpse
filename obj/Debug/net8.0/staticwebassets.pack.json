@@ -93,7 +93,15 @@
       "PackagePath": "staticwebassets\\UserProfilePics\\b8ab3ae1-7979-4b24-8380-75966d2f32c9_tattoo_idea.png"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png",
+=======
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\b947749f-34c7-4163-a1e6-13bf78bc3499_tattoo_idea.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\b947749f-34c7-4163-a1e6-13bf78bc3499_tattoo_idea.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png",
+>>>>>>> 687193a30f72638a8cf2aea01527494c0aa05b56
       "PackagePath": "staticwebassets\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png"
     },
     {
@@ -917,7 +925,15 @@
       "PackagePath": "staticwebassets\\project-pictures\\88c1f25b-7502-4e01-8386-913e1422fa30_mermaid-diagram-2024-05-14-151659.png"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png",
+=======
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg",
+      "PackagePath": "staticwebassets\\project-pictures\\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png",
+>>>>>>> 687193a30f72638a8cf2aea01527494c0aa05b56
       "PackagePath": "staticwebassets\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png"
     },
     {

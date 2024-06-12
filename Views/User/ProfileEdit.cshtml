@@ -71,17 +71,11 @@
                             <h5 class="modal-title" id="ConfirmDeleteModalLabel">Account Delete</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body bg-dark">
                             <p>Are you sure you want to delete your account?</p>
                             <p><strong>This action cannot be undone.</strong></p>
                         </div>
-                        <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
-                            </div>
-                        </form>
-                        <form method="post" asp-action="DeleteProfile" id="form-delete" enctype="multipart/form-data">
+                        <form method="post" asp-action="DeleteAccount" asp-controller="Account" id="form-delete" enctype="multipart/form-data">
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>

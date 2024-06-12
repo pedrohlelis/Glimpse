@@ -3,6 +3,26 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 const IsMemberSideBarActiveInputs = document.querySelectorAll('.IsMemberSideBarActiveInput');
 
+function openTagsModal() {
+    var tagsModal = new bootstrap.Modal(document.getElementById('tagsModal'));
+    tagsModal.show();
+}
+
+function createTag() {
+    var createTagModal = new bootstrap.Modal(document.getElementById('createTagModal'));
+    createTagModal.show();
+}
+
+function editTag(button) {
+        var listitem = button.closest('li');
+        document.getElementById('tagToEditId').value = listitem.dataset.id;
+        document.getElementById('tagEditName').value = listitem.dataset.name;
+        document.getElementById('tagEditColor').value = listitem.dataset.color;
+
+        var editTagModal = new bootstrap.Modal(document.getElementById('editTagModal'));
+        editTagModal.show();
+    }
+
 function openRolesModal() {
     var myModal = new bootstrap.Modal(document.getElementById('rolesModal'));
     myModal.show();
@@ -595,8 +615,10 @@ function isDarkColor(color) {
 const addLaneButton = document.querySelector('.new-lane-btn');
 const laneForm = document.querySelector('.create-lane-form');
 const laneInput = document.querySelector('.lane-input');
+const cardForms = document.querySelectorAll('.create-card-form'); // Assuming this is defined elsewhere
 
-addLaneButton.addEventListener('click', function() {
+addLaneButton.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevent propagation to the document
     laneForm.removeAttribute('hidden');
     laneInput.focus();
 });
@@ -604,18 +626,20 @@ addLaneButton.addEventListener('click', function() {
 laneInput.setAttribute('autocomplete', 'off');
 
 document.addEventListener('click', function(event) {
-    cardForms.forEach((form, index) => {
+    // Hide card forms if clicking outside
+    cardForms.forEach((form) => {
         if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
             form.setAttribute('hidden', true);
-        }})
+        }
+    });
 
+    // Check if clicking outside the lane form and the new lane button
     if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
         laneForm.setAttribute('hidden', true);
     }
 });
 
     const addCardButtons = document.querySelectorAll('.add-card-button');
-    const cardForms = document.querySelectorAll('.create-card-form');
     const cardInputs = document.querySelectorAll('.card-input');
 
     addCardButtons.forEach((button, index) => {
@@ -630,17 +654,17 @@ document.addEventListener('click', function(event) {
     });
 
 
-    document.addEventListener('click', function(event) {
-        cardForms.forEach((form, index) => {
-            if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
-                form.setAttribute('hidden', true);
-            }
-        });
+    // document.addEventListener('click', function(event) {
+    //     cardForms.forEach((form, index) => {
+    //         if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
+    //             form.setAttribute('hidden', true);
+    //         }
+    //     });
 
-        if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
-            laneForm.setAttribute('hidden', true);
-        }
-    });
+    //     if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
+    //         laneForm.setAttribute('hidden', true);
+    //     }
+    // });
 
     const columns = document.querySelectorAll(".card-col");
 
