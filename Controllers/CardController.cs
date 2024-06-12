@@ -90,7 +90,13 @@ public class CardController : Controller
     {
         try
         {
-            var card = await _db.Cards.FindAsync(deleteCardId);
+            var card = await _db.Cards
+                .Include(u => u.Checkboxes)
+                .SingleAsync(p => p.Id == deleteCardId);
+
+            card.Checkboxes.Clear();
+            await _db.SaveChangesAsync();
+
             _db.Cards.Remove(card);
             await _db.SaveChangesAsync();
         }

@@ -9,8 +9,6 @@ function openRolesModal() {
 }
 
 function openManageUserModal(button) {
-    // let form =  document.getElementById('form-role');
-
     document.getElementById('ManagedUserName').innerText = button.dataset.name;
     document.getElementById('ManagedUserEmail').innerText = button.dataset.email;
     document.getElementById('userPicture').src = button.dataset.picture;
@@ -116,7 +114,6 @@ if (toggleMemberBarDiv != null)
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    // CARDS AND LANES DRAG&DROP
     const board = document.querySelector(".lanes");
 
     const saveCardOrderForm = document.querySelector('.save-card-order-form');
@@ -126,23 +123,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const laneOrderInput = saveLaneOrderForm.querySelector('input[name="laneIndexDictionary"]');
 
     saveCardOrderForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
+        event.preventDefault();
         
         const formData = new FormData(saveCardOrderForm);
 
-        // Send the form data using an AJAX request
         fetch(saveCardOrderForm.action, {
             method: 'POST',
             body: formData
         })
         .then(response => {
             if (response.ok) {
-                // Optionally handle success response
                 console.log('Card order saved successfully!');
-                // Reload the page or update specific parts of the page with the new data
-                location.reload(); // Reload the page to reflect changes
+                location.reload();
             } else {
-                // Optionally handle error response
                 console.error('Failed to save card order.');
             }
         })
@@ -152,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     saveLaneOrderForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
+        event.preventDefault();
         
         const formData = new FormData(saveLaneOrderForm);
 
@@ -166,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Optionally handle success response
                 console.log('Lane order saved successfully!');
                 // Reload the page or update specific parts of the page with the new data
-                location.reload(); // Reload the page to reflect changes
+                location.reload();
             } else {
                 // Optionally handle error response
                 console.error('Failed to save card order.');
@@ -339,7 +332,7 @@ lanes.forEach((lane) => {
         }, { offset: Number.NEGATIVE_INFINITY }).element;
     }
 
-
+    // OVERLAY SECTION
     const overlay = document.getElementById('overlay');
     const addUserToCardForm = document.getElementById('addUserToCardForm');
     const overlayContent = document.getElementById('overlay-content');
@@ -372,6 +365,9 @@ lanes.forEach((lane) => {
     // const cards = document.querySelectorAll('.card-link');
     cards.forEach(card => {
         card.addEventListener('click', function(event) {
+
+            // RECEBE OS VALORES DO MAIN CONTENT PARTIAL
+            let boardId = card.dataset.boardid;
             const cardId = card.dataset.id;
             const cardName = card.dataset.name;
             const cardDescription = card.dataset.description;
@@ -395,11 +391,12 @@ lanes.forEach((lane) => {
             } catch (error) {
                 cardCheckboxes = [];
             }
-            console.log(cardCheckboxes);
+
             const [day, month, year] = cardDate.split('/');
             const formattedDate = `${year}-${month}-${day}`;
             const dateObject = new Date(formattedDate);
-
+            
+            // DA OS VALORES PARA OS ELEMENTOS
             document.getElementById('cardId').value = cardId;
             document.getElementById('tagCardId').value = cardId;
             document.getElementById('userCardId').value = cardId;
@@ -407,7 +404,8 @@ lanes.forEach((lane) => {
             document.getElementById('deleteCardId').value = cardId;
             document.getElementById('description').value = cardDescription;
             document.getElementById('date').valueAsDate = dateObject;
-
+            
+            // GERA AS TAGS DENTRO DO CARD
             const tagsContainer = document.getElementById('tags');
             tagsContainer.innerHTML = '';
             cardTags.forEach(tag => {
@@ -420,18 +418,127 @@ lanes.forEach((lane) => {
                 tagElement.style.marginRight = '4px';
                 tagsContainer.appendChild(tagElement);
             });
+
+            // Função para criar o botão de deletar e adicionar ao formulário
+            function addDeleteButton(form) {
+                const deleteButton = document.createElement('button');
+                deleteButton.type = 'button'; // Definir tipo como button para evitar submissão do formulário
+                deleteButton.textContent = 'Deletar';
+                deleteButton.classList.add('delete-button');
+
+                // Adicionar evento de clique para deletar o checkbox
+                deleteButton.addEventListener('click', function() {
+                    const checkboxId = form.querySelector('input[name="checkboxId"]').value;
+                    const boardId = form.querySelector('input[name="boardId"]').value;
+                    deleteCheckbox(checkboxId, boardId);
+                });
+
+                form.appendChild(deleteButton);
+            }
+
+            // Função para deletar um checkbox com base no ID
+            async function deleteCheckbox(checkboxId, boardId) {
+                console.log(checkboxId, boardId);
+                
+                try {
+                    const response = await fetch('/Checkbox/DeleteCheckbox', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ checkboxId, boardId })
+                    });
+            
+                    if (!response.ok) {
+                        throw new Error('Falha ao deletar o checkbox.');
+                    }
+            
+                    window.location.href = `/Board/GetBoardInfo?id=${boardId}`;
+                } catch (error) {
+                    console.error('Erro:', error);
+                    alert('Falha ao deletar o checkbox.');
+                }
+            }
+
+            // GERA OS CHECKBOXES DENTRO DO CARD
             const checkboxesContainer = document.getElementById('checkbox-list');
+            checkboxesContainer.innerHTML = '';
+
             cardCheckboxes.forEach(checkbox => {
-                console.log(checkbox.Name);
-                const checkboxElement = document.createElement('p');
-                checkboxElement.textContent = checkbox.Name;
-                checkboxElement.style.color = 'white';
-                checkboxElement.style.backgroundColor = '#272727';
-                checkboxElement.style.borderRadius = 8;
-                checkboxElement.classList.add('px-3', 'py-1', 'my-1', 'align-content-center');
-                checkboxesContainer.appendChild(checkboxElement);
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/Checkbox/Edit';
+                form.classList.add('checkbox-form');
+
+                const finishedInput = document.createElement('input');
+                finishedInput.type = 'checkbox';
+                finishedInput.name = 'finished';
+                finishedInput.checked = checkbox.Finished;
+                form.appendChild(finishedInput);
+
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.name = 'name';
+                nameInput.value = checkbox.Name;
+                form.appendChild(nameInput);
+
+                const checkboxIdInput = document.createElement('input');
+                checkboxIdInput.type = 'hidden';
+                checkboxIdInput.name = 'checkboxId';
+                checkboxIdInput.value = checkbox.Id;
+                form.appendChild(checkboxIdInput);
+
+                const boardIdInput = document.createElement('input');
+                boardIdInput.type = 'hidden';
+                boardIdInput.name = 'boardId';
+                boardIdInput.value = boardId;
+                form.appendChild(boardIdInput);
+
+                const submitButton = document.createElement('button');
+                submitButton.type = 'submit';
+                submitButton.textContent = 'Salvar';
+                form.appendChild(submitButton);
+
+                // Adicionar o botão de deletar ao formulário
+                addDeleteButton(form);
+
+                checkboxesContainer.appendChild(form);
             });
 
+            document.querySelectorAll('.checkbox-form').forEach(form => {
+                form.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+                    const formData = new FormData(form);
+                    const jsonData = {};
+            
+                    formData.forEach((value, key) => {
+                        if (key === 'finished') {
+                            jsonData[key] = value === 'on' ? true : false;
+                        } else {
+                            jsonData[key] = value;
+                        }
+                    });
+            
+                    try {
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(jsonData)
+                        });
+            
+                        if (!response.ok) {
+                            const errorText = await response.text();
+                            throw new Error(`Failed to submit form: ${response.status} ${response.statusText} - ${errorText}`);
+                        }
+                        location.reload();
+                    } catch (error) {
+                        console.error('An error occurred:', error);
+                    }
+                });
+            });            
+            
             const userContainer = document.getElementById('user');
             userContainer.innerHTML = '';
             if (cardUser) {
@@ -468,14 +575,10 @@ lanes.forEach((lane) => {
     overlay.addEventListener('click', function(event) {
         if (event.target === overlay || event.target.classList.contains('close-button')) {
             hideOverlay();
+            location.reload();
         }
     });
 
-// cardForms.addEventListener('submit', function(event) {
-//         event.preventDefault()
-//         cardForms.querySelector('input[name=IsMemberSideBarActive]').value = IsMemberSideBarActive.value;
-//         cardForms.submit();
-//     });
 
 function isDarkColor(color) {
     let r, g, b;
@@ -578,6 +681,7 @@ document.addEventListener('click', function(event) {
         return result;
     }
 
+    // AREA DAS CHECKBOXES
     const addCheckboxButton = document.getElementById('add-checkbox-button');
     const saveCheckboxesButton = document.getElementById('save-checkboxes-button');
     const checkboxList = document.getElementById('checkbox-list');
@@ -588,6 +692,8 @@ document.addEventListener('click', function(event) {
 
         const checkboxInput = document.createElement('input');
         checkboxInput.type = 'checkbox';
+        checkboxInput.className = 'form-input';
+        checkboxInput.name = 'CheckboxStatus'; // Adiciona um novo campo para representar o status do checkbox
 
         const textInput = document.createElement('input');
         textInput.type = 'text';
@@ -600,44 +706,47 @@ document.addEventListener('click', function(event) {
         checkboxList.appendChild(checkboxDiv);
     });
 
-    saveCheckboxesButton.addEventListener('click', function() {
+    saveCheckboxesButton.addEventListener('click', async function() {
         const cardId = document.getElementById('cardId').value;
+        const boardId = document.querySelector('.lanes').dataset.id; // Ajuste para capturar o ID do board
         const checkboxNames = Array.from(document.getElementsByName('CheckboxNames')).map(input => input.value);
+        const checkboxStatuses = Array.from(document.getElementsByName('CheckboxStatus')).map(input => input.checked);
 
         if (checkboxNames.length === 0) {
-            alert('Por favor, adicione ao menos um checkbox.');
+            alert('Adicione pelo menos um checkbox.');
             return;
         }
 
-        console.log('Iniciando salvamento dos checkboxes:', checkboxNames);
+        const checkboxes = checkboxNames.map((name, index) => ({
+            name: name,
+            finished: checkboxStatuses[index],
+            cardId: cardId,
+            boardId: boardId
+        }));
 
-        Promise.all(checkboxNames.map(name => {
-            return fetch('/Checkbox/CreateCheckbox', {
+        try {
+            const response = await fetch('/Checkbox/SaveCheckboxes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ cardId: parseInt(cardId), name })
-            }).then(response => response.json())
-                .then(data => {
-                    console.log('Resposta do servidor para checkbox', name, data);
-                    return data;
-                })
-                .catch(error => {
-                    console.error('Erro ao salvar checkbox', name, error);
-                    return { success: false };
-                });
-        })).then(results => {
-            const allSuccessful = results.every(result => result.success);
-            if (allSuccessful) {
-                alert('Checkboxes salvos com sucesso!');
-                checkboxList.innerHTML = '';
-            } else {
-                alert('Falha ao salvar um ou mais checkboxes.');
-                console.error('Detalhes do erro:', results);
+                body: JSON.stringify({ checkboxes })
+            });
+
+            if (!response.ok) {
+                throw new Error('Falha ao salvar os checkboxes.');
             }
-        }).catch(error => {
-            console.error('Erro ao salvar checkboxes:', error);
-        });
+
+            alert('Checkboxes salvos com sucesso!');
+            location.reload();
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Falha ao salvar os checkboxes.');
+        }
     });
 });
+
+function reloadAndExecuteFunction() {
+    location.reload();
+    showOverlay();
+}
