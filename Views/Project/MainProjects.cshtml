@@ -20,16 +20,22 @@
     <div class="row row-4 flex-lg-grow-1">
         @foreach (var kvp in Model.ActiveProjects) {
             <div class="col d-flex border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; max-width: 300px; height: 300px;">
-                <a class="text-decoration-none" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@kvp.Key.Id" asp-route-IsMemberSideBarActive="@true">
-
-                    <p class="overflow-hidden text-white">@kvp.Key.Name</p>
-
-                    <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
-
-                    <br><br>
-                    <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
-                    <p class="text-muted overflow-hidden" style="font-size: smaller;">Criado por: @kvp.Value.Email</p>
-                </a>
+                @if(kvp.Key.Boards == null || !kvp.Key.Boards.Any()) {
+                    <a class="text-decoration-none" asp-controller="Board" asp-action="Create" asp-route-id="@kvp.Key.Id">
+                        <p class="overflow-hidden text-white">@kvp.Key.Name</p>
+                        <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
+                        <br><br>
+                        <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
+                    </a>
+                } else {
+                    var boardsList = kvp.Key.Boards.ToList();
+                    <a class="text-decoration-none" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
+                        <p class="overflow-hidden text-white">@kvp.Key.Name</p>
+                        <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
+                        <br><br>
+                        <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
+                    </a>
+                }
                 <div class="dropup">
                     <button class="dropdown-toggle text-white" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
                     <ul class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
@@ -56,7 +62,7 @@
             </div>
         }
     </div>
-</div>
+
 
 <div class="modal fade" id="ConfirmLeaveProjectModal" tabindex="-1" aria-labelledby="ConfirmLeaveProjectModal" aria-hidden="true">
     <div class="modal-dialog bg-dark">
@@ -76,7 +82,6 @@
                 <button type="submit" class="btn btn-danger" id="delete-submit">Deixar Projeto</button>
             </div>
         </form>
-        </div>
     </div>
 </div>
 

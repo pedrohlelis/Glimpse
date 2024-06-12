@@ -3,21 +3,63 @@
 
 <section class="container board-menu-func d-flex justify-content-center">
     <div class="board-header">
-        <div>
-            <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p>
-            <h1 class="fw-bold" style="letter-spacing: 2px;">@Model.Board.Name</h1>
-        </div>
-        @* <div class="text-white">
-            @foreach (var kvp in Model.UserRolesDictionary)
-            {
-                <p >User: @kvp.Key.FirstName @kvp.Key.LastName | Role: @kvp.Value.Name</p>
-            }
-        </div> *@
+        <div class="text-white">
+        <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p>
+        <button class="btn fw-bold btn-secondary dropdown-toggle board-title-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+          <h1>@Model.Board.Name</h1>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+          @foreach(var board in Model.UserBoards) {
+            <li><a class="dropdown-item" asp-action="GetBoardInfo" asp-controller="Board" asp-route-id="@board.Id">@board.Name</a></li>
+          }
+        </ul>
     </div>
     <div class="d-flex justify-content-center">
         <box-icon class="mx-1" name='hard-hat' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Cargos" type='solid' color="white" id="project-roles-btn" style="cursor: pointer;"></box-icon>
         <box-icon class="mx-1" name='bell' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Notificações" style="cursor: pointer;" color="white"></box-icon>
         <box-icon class="mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Membros" name="group" color="white" id="member-side-menu-btn" style="cursor: pointer;" onclick="ToggleMemberSideBar()"></box-icon>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Criar Tag</button>
     </div>
 
-</section>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #131313;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Criar nova tag</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form asp-action="CreateTag" asp-controller="Tag" method="post">
+            <input type="hidden" name="id" value="@Model.Board.Id">
+            <label for="tagName" class="form-label">Nome:</label>
+            <input type="text" name="tagName" id="tagName">
+            <label for="color" class="form-label">Cor:</label>
+            <input type="color" name="color" id="color">
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Criar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .board-title-btn {
+    background-color: #131313;
+    outline: none;
+    border: none;
+    display: flex;
+    gap: 3px;
+    margin: 0;
+    padding: 0;
+    padding-right: 8px;
+    align-items: center;
+  }
+  .board-title-btn:hover {
+    background-color: #a642f3;
+  }
+  .board-title-btn:focus {
+    background-color: #a642f3;
+  }
+</style>

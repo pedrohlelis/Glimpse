@@ -1,8 +1,27 @@
 ﻿@page
 @model ConfirmEmailModel
 @{
-    ViewData["Title"] = "Confirm email";
+    ViewData["Title"] = "Email confirmado com sucesso!";
 }
+<br><br><br><br>
+<center><h1 class="" style="color: #9531ff;">@ViewData["Title"]</h1></center>
+<center>
+    <br>
+    <p>Você será redirecionado em: <span id="countdown">10</span> segundos.</p>
+    <br>
+    <p>Ou clique aqui: <a asp-area="Identity" asp-page="/Account/Login"><button class="button-login button-style-1">Login</button></a></p>
+</center>
+<script>
+    var countdown = 10;
+    
+    function updateCountdown() {
+        if (countdown > 0) {
+            countdown--;
+            document.getElementById("countdown").textContent = countdown;
+        } else {
+            window.location.href = '/Identity/Account/Login';
+        }
+    }
 
-<h1>@ViewData["Title"]</h1>
-<partial name="_StatusMessage" model="Model.StatusMessage" />
+    setInterval(updateCountdown, 1000);
+</script>
