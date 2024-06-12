@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mIUoM0UJYf4t2KS1bhqixFrlkHXUCUxCijqNhd5K6do=",
+  "Hash": "bxjNg2aucB46SvUmOxu9yNQoWIgrkJiTMLdtqsSSQt8=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -2924,6 +2924,25 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\0ec6bad1-39f6-44e4-9e47-3e630035253d_GlimpseComponentDiagram.drawio.png"
     },
     {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\10d64739-2449-4c59-aa7d-2153182332c4_tattoo_idea.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/10d64739-2449-4c59-aa7d-2153182332c4_tattoo_idea.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\10d64739-2449-4c59-aa7d-2153182332c4_tattoo_idea.png"
+    },
+    {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\1679db0f-dacd-4f99-9228-05ebf0c70f83_Captura de tela 2024-05-20 141707.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -2979,6 +2998,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\18aa9b29-b2e0-43a8-a8e5-b91e710756b6_Captura de tela 2024-05-20 141707.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\18d06870-e046-4baf-bf9e-026ffad04971_pachy head.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/18d06870-e046-4baf-bf9e-026ffad04971_pachy head.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\18d06870-e046-4baf-bf9e-026ffad04971_pachy head.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\19429af2-7f24-40f3-9acd-11a68ee99ae0_TurnCoffeeIntoCode.jpg",
