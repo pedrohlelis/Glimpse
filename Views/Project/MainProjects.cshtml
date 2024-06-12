@@ -1,11 +1,12 @@
 @model List<Project>
+@using System.Linq
 @{
     ViewData["Title"] = "Projetos";
 }
 
 <br><br><br>
 <div class="d-flex align-items-center justify-content-center flex-column">
-    <h1 class="display-6 fw-bold reveal text-primary" style="letter-spacing: 3px;">Olá, @ViewData["UserName"]!</h1>
+    <h1 class="display-6 fw-bold reveal text-primary" style="letter-spacing: 3px;">Olá, @ViewData["UserName"]</h1>
     <p class="fw-light fs-6">Aqui estão seus projetos vistos recentemente.</p>
     <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
 </div>
@@ -14,15 +15,22 @@
 <div class="row row-4 flex-lg-grow-1">
     @foreach (Project p in Model) {
         <div class="col d-flex border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; max-width: 300px; height: 200px;">
-            <a class="text-decoration-none" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@p.Id">
-
-                <p class="overflow-hidden text-white">@p.Name</p>
-
-                <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
-
-                <br><br>
-                <p class="text-muted overflow-hidden" style="font-size: smaller;">@p.Description</p>
-            </a>
+            @if(p.Boards == null || !p.Boards.Any()) {
+                <a class="text-decoration-none" asp-controller="Board" asp-action="Create" asp-route-id="@p.Id">
+                    <p class="overflow-hidden text-white">@p.Name</p>
+                    <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
+                    <br><br>
+                    <p class="text-muted overflow-hidden" style="font-size: smaller;">@p.Description</p>
+                </a>
+            } else {
+                var boardsList = p.Boards.ToList();
+                <a class="text-decoration-none" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
+                    <p class="overflow-hidden text-white">@p.Name</p>
+                    <img class="img-icon" src="@Url.Content(p.Picture)" alt="">
+                    <br><br>
+                    <p class="text-muted overflow-hidden" style="font-size: smaller;">@p.Description</p>
+                </a>
+            }
             <button class="dropdown-toggle text-white" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
             <ul class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
                 <li>
@@ -38,6 +46,7 @@
             </ul>
         </div>
     }
+
 </div>
 
 <style>

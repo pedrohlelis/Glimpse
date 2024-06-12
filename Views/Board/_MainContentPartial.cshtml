@@ -1,10 +1,11 @@
 @using Glimpse.ViewModels;
+@using System.Text.Json;
 @model BoardVM;
 
 <div class="main-content d-flex flex-column mx-auto">
     <br>
     <div class="d-flex mx-auto">
-        <div class="board-main d-flex flex-row overflow-auto kanban" style="max-width: 1200px;">
+        <div class="board-main d-flex flex-row overflow-visible kanban" style="max-width: 1200px; max-height: 1000px;">
             @foreach (Lane lane in Model.Board.Lanes)
             {
                 <div style="width: 300px;" class="lane col lane mx-3" data-lane-id="@lane.Id">
@@ -36,14 +37,32 @@
                     <div class="container card-col">
                         @foreach (Card card in lane.Cards)
                         {
-                            <div class="card-link row py-3 border-bottom border-3 border-primary" 
+                            var tagsJson = JsonSerializer.Serialize(card.Tags.Select(tag => new { tag.Name, tag.Color }));
+                            var checkboxesJson = JsonSerializer.Serialize(card.Checkboxes.Select( checkbox => new { checkbox.Finished, checkbox.Name }));
+                            var userJson = card.User != null ? JsonSerializer.Serialize(new { card.User.FirstName, card.User.LastName, card.User.Picture }) : "null";
+
+                            <div class="card-link row py-3 border-bottom border-3 border-primary px-3" 
                                 style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
                                 data-id="@card.Id"
                                 data-name="@card.Name"
                                 data-description="@card.Description"
-                                data-date="@card.Date"
+                                data-date="@card.Date?.ToString("dd/MM/yyyy")"
+                                data-tags='@tagsJson'
+                                data-user='@userJson'
+                                data-checkboxes='@checkboxesJson'
                                 draggable="true">
-                                <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
+                                <a class="text-white card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
+                                <div>
+                                    <br>
+                                    @if(card.User == null) {
+                                        <p style="color: #959595;">Não atribuído</p>
+                                    } else {
+                                        <div class="d-flex align-content-center" style="text-wrap: nowrap;">
+                                            <img src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))" width="15%" style="border-radius: 50%;">
+                                            <p class="px-3 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis;">@card.User.FirstName @card.User.LastName</p>
+                                        </div>
+                                    }
+                                </div>
                             </div>
                             <br>
                         }

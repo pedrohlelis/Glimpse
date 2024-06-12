@@ -4,21 +4,9 @@
     int? projectId = ViewData["projectId"] as int?;
 }
 
-<script>
-    function validateForm() {
-        var fileInput = document.getElementById('boardImg');
-        var BackgroundImage = document.getElementById('BackgroundImage');
-        var file = fileInput.files[0];
-        if (!file) {
-            BackgroundImage.setAttribute("value", "../default-images/defaultBackground.jpg")
-            return true;
-        }
-        return true;
-    }
-</script>
-
 <section>
-    <form asp-action="EditBoard" asp-controller="Board" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <br><br>
+    <form asp-action="EditBoard" asp-controller="Board" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-12">
                 <h1>Editar quadro</h1>
