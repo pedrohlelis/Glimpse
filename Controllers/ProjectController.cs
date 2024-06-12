@@ -28,10 +28,12 @@ public class ProjectController : Controller
 
         var user = _db.Users
             .Include(u => u.Projects)
+                .ThenInclude(p => p.Boards)
             .Single(u => u.Id == userId);
 
         Dictionary<Project, User> activeUserProjects = new Dictionary<Project, User>();
-        foreach (Project project in user.Projects)
+
+        foreach(Project project in user.Projects)
         {
             if (project.IsActive)
             {
@@ -51,7 +53,6 @@ public class ProjectController : Controller
         return View(model);
     }
 
-    // CREATE
     public IActionResult Create()
     {
         return View();
@@ -64,24 +65,27 @@ public class ProjectController : Controller
         project.LastEdited = DateTime.UtcNow;
         project.IsActive = true;
         project.ResponsibleUserId = _userManager.GetUserId(User);
-
         var currentUser = await _userManager.GetUserAsync(User);
 
         project.Users.Add(currentUser);
 
+        if (projectImg != null && projectImg.Length > 0)
+        {
+            string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
+            string nomeArquivo = Guid.NewGuid() + "_" + Path.GetFileName(projectImg.FileName);
+            string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                await projectImg.CopyToAsync(stream);
+            }
+            project.Picture = "../project-pictures/" + nomeArquivo;
+        } else 
+        {
+            project.Picture = "../default-images/ProjectDefault.svg";
+        }
+
         if (ModelState.IsValid)
         {
-            if (projectImg != null && projectImg.Length > 0)
-            {
-                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
-                string nomeArquivo = Guid.NewGuid() + "_" + Path.GetFileName(projectImg.FileName);
-                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
-                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-                {
-                    await projectImg.CopyToAsync(stream);
-                }
-                project.Picture = "../project-pictures/" + nomeArquivo;
-            }
             _db.Projects.AddAsync(project);
             await _db.SaveChangesAsync();
 
@@ -118,9 +122,9 @@ public class ProjectController : Controller
 
             var DefaultPORole = new Role
             {
-                Name = "Product Owner",  // Assign a default role name or customize as needed
+                Name = "Product Owner",
                 Description = "This is the default Developer role created during project creation",
-                Color = "#74B72E",  // Assign a default color or customize as needed
+                Color = "#74B72E",
                 CanManageMembers = true,
                 CanManageRoles = true,
                 CanManageCards = true,
@@ -130,7 +134,7 @@ public class ProjectController : Controller
             };
             var DefaultDevTeamRole = new Role
             {
-                Name = "Developer",  // Assign a default role name or customize as needed
+                Name = "Developer",
                 Description = "This is the default Developer role created during project creation",
                 Color = "#FF1D8E",  // Assign a default color or customize as needed
                 CanManageMembers = false,
@@ -213,21 +217,25 @@ public class ProjectController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditProject(Project Project, IFormFile projectImg)
+    public async Task<IActionResult> EditProject(Project Project, IFormFile? projectImg)
     {
+        if (projectImg != null && projectImg.Length > 0)
+        {
+            string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
+            string nomeArquivo = Guid.NewGuid() + "_" + Path.GetFileName(projectImg.FileName);
+            string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                await projectImg.CopyToAsync(stream);
+            }
+            Project.Picture = "../project-pictures/" + nomeArquivo;
+        } else 
+        {
+            Project.Picture = "../default-images/ProjectDefault.png";
+        }
+
         if (ModelState.IsValid)
         {
-            if (projectImg != null && projectImg.Length > 0)
-            {
-                string pastaUploads = Path.Combine(_hostEnvironment.WebRootPath, "project-pictures");
-                string nomeArquivo = Guid.NewGuid() + "_" + Path.GetFileName(projectImg.FileName);
-                string caminhoArquivo = Path.Combine(pastaUploads, nomeArquivo);
-                using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
-                {
-                    await projectImg.CopyToAsync(stream);
-                }
-                Project.Picture = "../project-pictures/" + nomeArquivo;
-            }
             Project oldProject = await _db.Projects.FindAsync(Project.Id);
 
             _db.Entry(oldProject).CurrentValues.SetValues(Project);

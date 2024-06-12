@@ -30,11 +30,17 @@ public class BoardController : Controller
     [Authorize]
     public async Task<IActionResult> GetBoardInfo(int id, bool IsMemberSideBarActive)
     {
-        var board = _db.Boards
-            .Include(p => p.Project)
-            .Include(u => u.Lanes)
-            .ThenInclude(l => l.Cards)
-            .SingleOrDefault(u => u.Id == id);
+        var board = await _db.Boards
+            .Include(b => b.Project)
+            .Include(b => b.Tags)
+            .Include(b => b.Lanes)
+                .ThenInclude(l => l.Cards)
+                    .ThenInclude(c => c.Tags)
+            .Include(b => b.Lanes)
+                .ThenInclude(l => l.Cards)
+                    .ThenInclude(c => c.Checkboxes)
+            .SingleOrDefaultAsync(u => u.Id == id);
+
 
         if (board == null)
         {
@@ -65,12 +71,11 @@ public class BoardController : Controller
         }
         // Retrieve the user's role within the project associated with the board
         var userRole = await _db.Roles
-            .Include(r => r.Users) // Assuming Role.Users is a collection of users with this role
+            .Include(r => r.Users)
             .FirstOrDefaultAsync(r => r.Project.Id == board.Project.Id && r.Users.Any(u => u.Id == user.Id));
 
         string responsibleUserId = board.Project.ResponsibleUserId;
 
-        // Retrieve the responsible user for the project
         User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
 
         // Create a dictionary to store users and their roles
@@ -86,22 +91,28 @@ public class BoardController : Controller
                 canManageRoles.Add(role);
             }
         }
+        Dictionary<User, Role> userRoles = [];
 
-        Dictionary<User, Role> userRoles = new Dictionary<User, Role>();
-
-        // Iterate through each member and find their corresponding role
         foreach (var member in members)
         {
-            // Find the role of the member within the roles associated with the project
             var memberRole = roles.FirstOrDefault(r => r.Users.Any(u => u.Id == member.Id));
 
-            // Add the member and their role to the dictionary
             userRoles.Add(member, memberRole);
+        }
+        
+        // var project = await _db.Projects
+        //     .Include(b => b.Boards)
+        //     .SingleOrDefaultAsync(u => u.Id == projectId);
+
+        List<Board> userBoards = [];
+        foreach (var userBoard in project.Boards) {
+            userBoards.Add(userBoard);
         }
 
         var model = new BoardVM
         {
             User = user,
+            UserBoards = userBoards,
             Board = board,
             ProjectRoles = roles,
             UserRole = userRole,
@@ -109,10 +120,9 @@ public class BoardController : Controller
             Members = members,
             UserRolesDictionary = userRoles, // Add the dictionary to the model
             CanManageRoles = canManageRoles,
-            IsMemberSideBarActive = IsMemberSideBarActive
+            IsMemberSideBarActive = IsMemberSideBarActive,
+            Tags = (List<Tag>)board.Tags
         };
-
-        ViewData["lanes"] = board.Lanes;
 
         return View(model);
     }
@@ -135,7 +145,7 @@ public class BoardController : Controller
 
             if (!isMember && !isCreator)
             {
-                return Forbid(); // Return forbidden if the user is not a member or the creator
+                return Forbid();
             }
 
             ViewData["Boards"] = project.Boards;
@@ -216,7 +226,7 @@ public class BoardController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditBoard(Board Board, IFormFile BoardImg, int projectId)
+    public async Task<IActionResult> EditBoard(Board Board, IFormFile? BoardImg, int projectId)
     {
         if (ModelState.IsValid)
         {

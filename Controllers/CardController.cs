@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Glimpse.Controllers;
 
@@ -25,7 +26,6 @@ public class CardController : Controller
     public async Task<IActionResult> GetCardInfo(int id)
     {
         var Card = _db.Cards
-            .Include(c => c.Users)
             .Include(c => c.Tags)
             .Include(c => c.Checkboxes)
             .Single(c => c.Id == id);
@@ -65,7 +65,7 @@ public class CardController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditCard(int cardId, string name, string description, DateOnly date, int id)
+    public async Task<IActionResult> EditCard(int cardId, string? name, string? description, DateOnly? date, int id)
     {
         var card = await _db.Cards.FindAsync(cardId);
 
@@ -85,54 +85,21 @@ public class CardController : Controller
         return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
     }
 
-    public async Task<IActionResult> Delete(int laneId, int CardId)
-    {
-        var Card = await _db.Cards.FindAsync(CardId);
-
-        if (Card == null)
-        {
-            return NotFound();
-        }
-
-        ViewData["laneId"] = laneId;
-
-        return View(Card);
-    }
-
     [HttpPost]
-    public async Task<IActionResult> DeletarCard(Card Card, IFormFile CardImg, int laneId)
+    public async Task<IActionResult> DeleteCard(int deleteCardId, int boardId)
     {
-        if (ModelState.IsValid)
+        try
         {
-            try
-            {
-                await _db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                //ViewData["uniqueAlert"] = "Chassi do Card ja cadastrado";
-
-                return View("Edit", Card);
-            }
-            return RedirectToAction("GetlaneCards", new { id = laneId });
+            var card = await _db.Cards.FindAsync(deleteCardId);
+            _db.Cards.Remove(card);
+            await _db.SaveChangesAsync();
         }
-
-        return View("Edit", Card);
-    }
-
-    public async Task<ICollection<User>> GetUsersFromCard(Card Card)
-    {
-        /*ICollection<User> users = [];
-
-        foreach (User user in Card.lane.Users)
+        catch (DbUpdateException)
         {
-            if (user.IsActive == true)
-            {
-                users.Add(user);
-            }
-        }*/
+            return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        }
         
-        return null;
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
 
     [HttpPost]
@@ -181,6 +148,43 @@ public class CardController : Controller
             // Handle other exceptions
             return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred: " + ex.Message);
         }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddUserToCard(int userCardId, int boardId, string userId) {
+        Card card = await _db.Cards.FindAsync(userCardId);
+        var user = _db.Users
+            .Include(u => u.Cards)
+            .SingleOrDefault(u => u.Id == userId);
+
+        card.User = user;
+
+        if (ModelState.IsValid)
+        {
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        }
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+    }
+    [HttpPost]
+    public async Task<IActionResult> RemoveUserFromCard(int userCardId, int boardId, string userId) {
+        Card card = await _db.Cards.FindAsync(userCardId);
+        var user = _db.Users
+            .Include(u => u.Cards)
+            .SingleOrDefault(u => u.Id == userId);
+
+        user.Cards.Remove(card);
+
+        if (ModelState.IsValid)
+        {
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        }
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
 }
 

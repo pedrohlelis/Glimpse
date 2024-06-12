@@ -3,6 +3,7 @@ using Glimpse.Models;
 using Glimpse.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,8 +37,13 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
         o.TokenLifespan = TimeSpan.FromHours(3));
 
-// Other services setup
-builder.Services.AddControllersWithViews();
+// Configure JSON options to handle reference loops
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.MaxDepth = 64; // Aumentando a profundidade máxima se necessário
+    });
 
 var app = builder.Build();
 
