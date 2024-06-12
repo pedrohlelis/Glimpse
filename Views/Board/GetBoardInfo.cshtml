@@ -34,7 +34,7 @@
             </div>
     </form>
     <div class="col-4 d-flex flex-column">
-        @if (Model.UserRole.CanManageCards) {
+        @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
             <div class="d-flex gap-1">
                 <button type="submit" form="edit-card-form" id="save-button" class="button-save py-2 btn-info text-white flex-grow-1" style="outline: none; border-radius: 6px; border: none;">
                     Salvar

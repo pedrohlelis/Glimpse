@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1AeT9yTnh0/tLmP6UcNPJJJWNDlzcg6c/dSDz1S2DI8=",
+  "Hash": "ERNgOqyBZIoeNOxc1RunOG8zeTePHRty1aqvTedvBhs=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -3549,6 +3549,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\4247509a-060c-4c1f-9992-edd118e5a924_tattoo_idea.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\451bd28c-d9f9-489a-b678-d901d2835df4_pachy head.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/451bd28c-d9f9-489a-b678-d901d2835df4_pachy head.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\451bd28c-d9f9-489a-b678-d901d2835df4_pachy head.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\45b915d1-81e8-450b-b33b-48cf6ae1b1e2_Conceitual_02.png",

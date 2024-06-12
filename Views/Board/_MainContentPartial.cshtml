@@ -84,15 +84,11 @@
                         <div>
                             @foreach(Tag tag in Model.Tags)
                             {
-                                
+                                <span class="badge" style="background-color: @tag.Color;">@tag.Name</span>
                             }
                         </div>
                         <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
-                        @if(card.User == null)
-                        {
-                            <p style="color: #959595;">Não atribuído</p>
-                        }
-                        else
+                        @if(card.User != null)
                         {
                             <div class="d-flex align-content-center" style="text-wrap: nowrap;">
                                 <img src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))" width="15%" style="border-radius: 50%;">
