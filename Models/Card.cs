@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Glimpse.Models;
 
@@ -9,9 +10,11 @@ public class Card
     public int Id { get; set; }
     public string Name { get; set; }
     public string? Description { get; set; }
+    public int Index { get; set; }
     public DateOnly? Date { get; set; }
     public virtual Lane? Lane { get; set; }
-    public virtual ICollection<User> Users { get; } = [];
+    public virtual User? User { get; set; }
+    [JsonIgnore]
     public virtual ICollection<Tag> Tags { get; } = [];
     public virtual ICollection<Checkbox> Checkboxes { get; } = [];
 }

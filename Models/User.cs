@@ -12,9 +12,9 @@ public class User : IdentityUser
     public string? Picture { get; set; }
     public bool IsActive { get; set; }
     // card x user
-    public virtual ICollection<Card> Cards { get; } = [];
+    public virtual List<Card> Cards { get; set; } = new List<Card>();
     // cargo x user
-    public virtual ICollection<Role> Roles { get; set; } = [];
+    public virtual List<Role> Roles { get; } = [];
     // projeto x user
-    public virtual ICollection<Project> Projects { get; } = [];
+    public virtual List<Project> Projects { get; } = [];
 }

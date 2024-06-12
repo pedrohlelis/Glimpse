@@ -43,72 +43,71 @@ public class RoleController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateRole(Role role, int projectId)
+    public async Task<IActionResult> CreateRole(Role role, int boardId, int projectId, bool IsMemberSideBarActive)
     {
 
-        Project project = _db.Projects.Find(projectId);
+        Project project = _db.Projects.FirstOrDefault(p => p.Id == projectId);
         role.Project = project;
         // Lista de todos os roles
         _db.Roles.Add(role);
         project.Roles.Add(role);
         await _db.SaveChangesAsync();
-        return RedirectToAction("ShowRoles", new { projectId });
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive});
+    }
+
+    // // UPDATE
+    // public async Task<IActionResult> Edit(Role role)
+    // {
         
-
-        // return RedirectToAction("Create", new { projectId });
-    }
-
-    // UPDATE
-    public async Task<IActionResult> Edit(int projectId, int roleId)
-    {
-        Role role = _db.Roles.Find(roleId);
-        if (role == null)
-        {
-            return NotFound("Cargo não encontrado");
-        }
-
-        ViewData["projectId"] = projectId;
-
-        return View(role);
-    }
+    //     return View(role);
+    // }
 
     [HttpPost]
-    public async Task<IActionResult> EditRole(Role role, int projectId)
+    public async Task<IActionResult> EditRole(Role role, int roleId, int boardId, bool IsMemberSideBarActive)
     {
-        try
-        {
-            Role toEditRole = _db.Roles.Find(role.Id);
-            _db.Entry(toEditRole).CurrentValues.SetValues(role);
-            await _db.SaveChangesAsync();
-        }
-        catch (DbUpdateException)
-        {
-            return RedirectToAction("Edit", new {role.Id, projectId});
-        }
-        return RedirectToAction("ShowRoles", new {projectId});
+        Console.WriteLine("roleId: " + roleId);
+        // Retrieve the existing role from the database
+        Role toEditRole = await _db.Roles.FindAsync(roleId);
 
-        // return RedirectToAction("Edit", new {role.Id, projectId});
+        // Update the role properties with the submitted form data
+        toEditRole.Name = role.Name;
+        toEditRole.Description = role.Description;
+        toEditRole.Color = role.Color;
+        toEditRole.CanManageMembers = role.CanManageMembers;
+        toEditRole.CanManageRoles = role.CanManageRoles;
+        toEditRole.CanManageCards = role.CanManageCards;
+        toEditRole.CanManageTags = role.CanManageTags;
+        toEditRole.CanManageChecklist = role.CanManageChecklist;
+
+        Console.WriteLine(role.CanManageMembers);
+
+        // Save changes to the database
+        await _db.SaveChangesAsync();
+
+        // Redirect to the appropriate action with the boardId parameter
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive });
     }
 
     // DELETE
-    public async Task<IActionResult> Delete(int projectId, int roleId)
-    {
-        Role role = await _db.Roles.FindAsync(roleId);
-
-        ViewData["projectId"] = projectId;
-
-        return View(role);
-    }
-
     [HttpPost]
-    public async Task<IActionResult> DeleteRole(Role role)
+    public async Task<IActionResult> DeleteRole(int roleToDeleteId, int id, bool IsMemberSideBarActive)
     {
-        Role toDeleteRole = await _db.Roles.FindAsync(role.Id);
-        _db.Roles.Remove(toDeleteRole);
+        Role role = await _db.Roles.FindAsync(roleToDeleteId);
+        _db.Roles.Remove(role);
         await _db.SaveChangesAsync();
-
-        return RedirectToAction("Get");
+        return RedirectToAction("GetBoardInfo", "Board", new { id = id, IsMemberSideBarActive = IsMemberSideBarActive });
     }
+
+    // [HttpPost]
+    // public async Task<IActionResult> DeleteRole(Role role)
+    // {
+    //     Role toDeleteRole = await _db.Roles.FindAsync(role.Id);
+    //     _db.Roles.Remove(toDeleteRole);
+    //     await _db.SaveChangesAsync();
+
+    //     return RedirectToAction("Get");
+    // }
 
     public async Task<IActionResult> Assign(int roleId, int projectId)
     {
@@ -116,7 +115,6 @@ public class RoleController : Controller
         Project project = _db.Projects
             .Include(p => p.Users)
             .Single(p => p.Id == projectId);
-
 
         ICollection<User> projectUsers = [];
         foreach (User user in project.Users)
@@ -132,29 +130,53 @@ public class RoleController : Controller
         return View(role);
     }
 
-    public async Task<IActionResult> AtribuirRole(int roleId, string userId)
+    [HttpPost]
+    public async Task<IActionResult> AtribuirRole(int id ,int roleId, string userId)
     {
+
+        Console.WriteLine("roleid"+roleId);
+        Console.WriteLine("userid" + userId);
+        Board board = _db.Boards
+            .Include(b => b.Project)
+            .Single(b => b.Id == id);
+        User user = _db.Users
+            .Include(u => u.Roles)
+            .ThenInclude(r => r.Project)
+            .Single(u => u.Id == userId);
+        Role currentUserRoleInProject = user.Roles.FirstOrDefault(r => r.Project.Id == board.Project.Id);
+        if (roleId == 0)
+        {
+            if (currentUserRoleInProject == null){
+                Console.WriteLine(currentUserRoleInProject + "is null");
+                return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+            }
+            user.Roles.Remove(currentUserRoleInProject);
+            currentUserRoleInProject.Users.Remove(user);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+        }
+
         Role role = _db.Roles
             .Include(r => r.Project)
             .Single(r => r.Id == roleId);
-        User user = _db.Users
-            .Include(u => u.Roles)
-            .Single(u => u.Id == userId);
-        int projectId = role.Project.Id;
-        var existingUserRoleInProject = user.Roles.FirstOrDefault(ur => ur.Project.Id == role.Project.Id);
-        if (existingUserRoleInProject != null)
+
+        if(currentUserRoleInProject == null)
         {
-            user.Roles.Remove(existingUserRoleInProject);
             user.Roles.Add(role);
+            role.Users.Add(user);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
         }
         else
         {
-            // Adiciona o novo papel ao usuário
+            user.Roles.Remove(currentUserRoleInProject);
+            currentUserRoleInProject.Users.Remove(user);
             user.Roles.Add(role);
+            role.Users.Add(user);
+            await _db.SaveChangesAsync();
         }
-        await _db.SaveChangesAsync();
-        
-        return RedirectToAction("Users", "Project", new { projectId });
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
     }
 
     public async Task<IActionResult> UserRoles(int projectId)

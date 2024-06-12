@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
+using Glimpse.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace Glimpse.Controllers;
+
 
 [Authorize]
 public class BoardController : Controller
@@ -20,44 +23,136 @@ public class BoardController : Controller
         _userManager = userManager;
     }
 
-    public IActionResult GetBoardInfo(int id)
+    public IActionResult KanbanTest() {
+        return View();
+    }
+
+    [Authorize]
+    public async Task<IActionResult> GetBoardInfo(int id, bool IsMemberSideBarActive)
     {
-        var board = _db.Boards
-            .Include(u => u.Project)
-            .Include(u => u.Lanes)
+        var board = await _db.Boards
+            .Include(b => b.Project)
+            .Include(b => b.Tags)
+            .Include(b => b.Lanes)
                 .ThenInclude(l => l.Cards)
-            .SingleOrDefault(u => u.Id == id);
+                    .ThenInclude(c => c.Tags)
+            .Include(b => b.Lanes)
+                .ThenInclude(l => l.Cards)
+                    .ThenInclude(c => c.Checkboxes)
+            .SingleOrDefaultAsync(u => u.Id == id);
+
 
         if (board == null)
         {
             return NotFound();
         }
-        ViewData["lanes"] = board.Lanes;
-        
-        return View(board);
+
+        int projectId = board.Project.Id;
+
+        var project = _db.Projects.FirstOrDefault(p => p.Id == projectId);
+
+        if(!project.IsActive) {
+            return NotFound();
+        }
+
+        // Retrieve all members associated with the project
+        List<User> members = await _db.Users
+            .Where(u => u.Projects.Any(p => p.Id == projectId))
+            .ToListAsync();
+
+        var currentUser = await _userManager.GetUserAsync(User);
+
+        var user = _db.Users
+        .Include(u => u.Projects)
+        .FirstOrDefault(u => u.Id == currentUser.Id);
+
+        if (!user.Projects.Contains(board.Project)){
+            return Forbid();
+        }
+        // Retrieve the user's role within the project associated with the board
+        var userRole = await _db.Roles
+            .Include(r => r.Users)
+            .FirstOrDefaultAsync(r => r.Project.Id == board.Project.Id && r.Users.Any(u => u.Id == user.Id));
+
+        string responsibleUserId = board.Project.ResponsibleUserId;
+
+        User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
+
+        // Create a dictionary to store users and their roles
+        List<Role> canManageRoles = new List<Role>();
+        // Retrieve all roles associated with the project
+        List<Role> roles = await _db.Roles
+            .Include(r => r.Users)
+            .Where(r => r.Project.Id == projectId)
+            .ToListAsync();
+        foreach (Role role in roles) {
+            if(role.CanManageRoles)
+            {
+                canManageRoles.Add(role);
+            }
+        }
+        Dictionary<User, Role> userRoles = [];
+
+        foreach (var member in members)
+        {
+            var memberRole = roles.FirstOrDefault(r => r.Users.Any(u => u.Id == member.Id));
+
+            userRoles.Add(member, memberRole);
+        }
+
+        List<Board> userBoards = [];
+        foreach (var userBoard in project.Boards) {
+            userBoards.Add(userBoard);
+        }
+
+        var model = new BoardVM
+        {
+            User = user,
+            UserBoards = userBoards,
+            Board = board,
+            ProjectRoles = roles,
+            UserRole = userRole,
+            ProjectResponsibleUser = responsibleUser,
+            Members = members,
+            UserRolesDictionary = userRoles, // Add the dictionary to the model
+            CanManageRoles = canManageRoles,
+            IsMemberSideBarActive = IsMemberSideBarActive,
+            Tags = (List<Tag>)board.Tags
+        };
+
+        return View(model);
     }
     public async Task<IActionResult> GetProjectBoards(int id)
     {
-        Project project = _db.Projects
-            .Include(u => u.Boards)
-            .Single(u => u.Id == id);
+        try {
+            Project project = _db.Projects
+                .Include(p => p.Boards)
+                .Include(p => p.Users)
+                .Single(p => p.Id == id);
 
-        bool creator = false;
-        if (project == null || project.IsActive == false)
+            string userId = _userManager.GetUserId(User);
+            bool isMember = project.Users.Any(pm => pm.Id == userId);
+            bool isCreator = project.ResponsibleUserId == userId;
+
+            if (project == null || project.IsActive == false)
+            {
+                return NotFound();
+            }
+
+            if (!isMember && !isCreator)
+            {
+                return Forbid();
+            }
+
+            ViewData["Boards"] = project.Boards;
+            ViewData["Creator"] = isCreator;
+
+            return View(project);
+        }
+        catch(Exception ex)
         {
             return NotFound();
         }
-        string userId = _userManager.GetUserId(User);
-
-        if (userId == project.ResponsibleUserId)
-        {
-            creator = true;
-        }
-
-        ViewData["Boards"] = project.Boards;
-        ViewData["Creator"] = creator;
-
-        return View(project);
     }
 
     public IActionResult Create(int id)
@@ -106,7 +201,7 @@ public class BoardController : Controller
 
             project.Boards.Add(Board);
             await _db.SaveChangesAsync();
-            return RedirectToAction("GetBoardInfo", new { id = Board.Id });
+            return RedirectToAction("GetBoardInfo", new { id = Board.Id, IsMemberSideBarActive = true });
         }
 
         return View("Create", Board);
@@ -127,7 +222,7 @@ public class BoardController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditBoard(Board Board, IFormFile BoardImg, int projectId)
+    public async Task<IActionResult> EditBoard(Board Board, IFormFile? BoardImg, int projectId)
     {
         if (ModelState.IsValid)
         {
