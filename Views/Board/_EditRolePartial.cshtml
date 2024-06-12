@@ -290,7 +290,7 @@
             </div>
             <div class="modal-body">
                 @if ((Model.UserRole != null && Model.UserRole.CanManageTags) || Model.User == Model.ProjectResponsibleUser) {
-                    <button class=" btn btn-info text-white" onclick="createRole()">
+                    <button class=" btn btn-info text-white" onclick="createTag()">
                         <div class="d-flex justify-content-center">
                             <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
                             <p class="px-1 m-0">Nova Tag</p>
@@ -326,6 +326,31 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createTagModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createTagModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #131313;">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Criar nova tag</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form asp-action="CreateTag" asp-controller="Tag" method="post">
+                <input type="hidden" name="id" value="@Model.Board.Id">
+                <label for="tagName" class="form-label">Nome:</label>
+                <input type="text" name="tagName" id="tagName">
+                <label for="color" class="form-label">Cor:</label>
+                <input type="color" name="color" id="color">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Criar</button>
+                </div>
+            </form>
+        </div>
         </div>
     </div>
 </div>
