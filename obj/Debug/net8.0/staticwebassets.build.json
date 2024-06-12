@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "lzI/p4mm87yLAJr6PYe71eVg1ibjmN6BA+4DMbkci5s=",
+=======
+  "Hash": "1AeT9yTnh0/tLmP6UcNPJJJWNDlzcg6c/dSDz1S2DI8=",
+>>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -1537,6 +1541,47 @@
       "OriginalItemSpec": "wwwroot\\Icons\\GlimpseLogo.svg"
     },
     {
+<<<<<<< HEAD
+=======
+      "Identity": "C:\\Glimpse\\wwwroot\\Icons\\IconGlimpse01.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "Icons/IconGlimpse01.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Icons\\IconGlimpse01.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\Icons\\IconGlimpse02.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "Icons/IconGlimpse02.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Icons\\IconGlimpse02.png"
+    },
+    {
+>>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
       "Identity": "C:\\Glimpse\\wwwroot\\Icons\\plusIcon.svg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -3513,6 +3558,28 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg"
     },
     {
+<<<<<<< HEAD
+=======
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\4247509a-060c-4c1f-9992-edd118e5a924_tattoo_idea.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/4247509a-060c-4c1f-9992-edd118e5a924_tattoo_idea.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\4247509a-060c-4c1f-9992-edd118e5a924_tattoo_idea.png"
+    },
+    {
+>>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\45b915d1-81e8-450b-b33b-48cf6ae1b1e2_Conceitual_02.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -4423,6 +4490,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\ccb85467-1189-47c4-aa1e-9d18a0f5a527_U9_Carch1.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\ccd1018f-03b2-42f8-814d-687d91a0a3eb_tattoo_idea.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/ccd1018f-03b2-42f8-814d-687d91a0a3eb_tattoo_idea.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\ccd1018f-03b2-42f8-814d-687d91a0a3eb_tattoo_idea.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\ce545407-92a1-432a-8086-6775f94f03ba_Questao4.png",

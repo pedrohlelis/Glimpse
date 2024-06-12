@@ -14,7 +14,7 @@ function openManageUserModal(button) {
     document.getElementById('ManagedUserName').innerText = button.dataset.name;
     document.getElementById('ManagedUserEmail').innerText = button.dataset.email;
     document.getElementById('userPicture').src = button.dataset.picture;
-    document.getElementById('userId').value = button.dataset.id;
+    document.getElementById('userToManageId').value = button.dataset.id;
 }
 
 function createRole() {
@@ -369,6 +369,7 @@ lanes.forEach((lane) => {
 
     // Event listener para mostrar o overlay quando um card é clicado
     const cards = document.querySelectorAll('.task');
+    // const cards = document.querySelectorAll('.card-link');
     cards.forEach(card => {
         card.addEventListener('click', function(event) {
             const cardId = card.dataset.id;
@@ -470,26 +471,31 @@ lanes.forEach((lane) => {
         }
     });
 
-    addCardButtons.forEach((button, index) => {
-        button.addEventListener('click', function() {
-            cardForms[index].removeAttribute('hidden');
-            cardInputs[index].focus();
-        });
-    });
-
 // cardForms.addEventListener('submit', function(event) {
 //         event.preventDefault()
 //         cardForms.querySelector('input[name=IsMemberSideBarActive]').value = IsMemberSideBarActive.value;
 //         cardForms.submit();
 //     });
 
+function isDarkColor(color) {
+    let r, g, b;
+    if (color.length === 7) {
+        r = parseInt(color.slice(1, 3), 16);
+        g = parseInt(color.slice(3, 5), 16);
+        b = parseInt(color.slice(5, 7), 16);
+    } else if (color.length === 4) {
+        r = parseInt(color[1] + color[1], 16);
+        g = parseInt(color[2] + color[2], 16);
+        b = parseInt(color[3] + color[3], 16);
+    }}
+
+const addLaneButton = document.querySelector('.new-lane-btn');
+const laneForm = document.querySelector('.create-lane-form');
+const laneInput = document.querySelector('.lane-input');
+
 addLaneButton.addEventListener('click', function() {
     laneForm.removeAttribute('hidden');
     laneInput.focus();
-});
-
-cardInputs.forEach((input) => {
-    input.setAttribute('autocomplete', 'off');
 });
 
 laneInput.setAttribute('autocomplete', 'off');
@@ -498,29 +504,12 @@ document.addEventListener('click', function(event) {
     cardForms.forEach((form, index) => {
         if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
             form.setAttribute('hidden', true);
-        }
-    });
+        }})
 
     if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
         laneForm.setAttribute('hidden', true);
     }
-    });
-
-    // function isDarkColor(color) {
-    //     let r, g, b;
-    //     if (color.length === 7) {
-    //         r = parseInt(color.slice(1, 3), 16);
-    //         g = parseInt(color.slice(3, 5), 16);
-    //         b = parseInt(color.slice(5, 7), 16);
-    //     } else if (color.length === 4) {
-    //         r = parseInt(color[1] + color[1], 16);
-    //         g = parseInt(color[2] + color[2], 16);
-    //         b = parseInt(color[3] + color[3], 16);
-    //     }
-
-    //     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    //     return brightness < 128;
-    // }
+});
 
     const addCardButtons = document.querySelectorAll('.add-card-button');
     const cardForms = document.querySelectorAll('.create-card-form');
@@ -532,6 +521,11 @@ document.addEventListener('click', function(event) {
             cardInputs[index].focus();
         });
     });
+
+    cardInputs.forEach((input) => {
+        input.setAttribute('autocomplete', 'off');
+    });
+
 
     document.addEventListener('click', function(event) {
         cardForms.forEach((form, index) => {

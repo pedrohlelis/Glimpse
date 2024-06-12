@@ -3,7 +3,7 @@
 @model BoardVM;
 
 
-<div class="board container">
+@* <div class="board container"> *@
 
     <input name="IsMemberSideBarActive" type="hidden">
 
@@ -24,7 +24,6 @@
                 </div>
             </form>
         </div>
-        
         @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
         {
             <div class="swim-lane col mx-3 overflow-y" style="min-width: 250px; max-height: 600px; background-color: #353535 ;" data-id="@lane.Id" draggable="true">
@@ -34,7 +33,7 @@
                 <hr>
                 <br>
 
-                @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser) {
+                @if ((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser) {
                     <div class="col d-flex task-btn">
                         <a class="w-100 align-items-center add-card-link">
                             <button class="button-create add-card-button">
@@ -72,7 +71,7 @@
                     var checkboxesJson = JsonSerializer.Serialize(card.Checkboxes.Select( checkbox => new { checkbox.Finished, checkbox.Name }));
                     var userJson = card.User != null ? JsonSerializer.Serialize(new { card.User.FirstName, card.User.LastName, card.User.Picture }) : "null";
 
-                    <div class="task row py-3 border-bottom border-3 border-primary px-3" 
+                    <div class="task row py-3 border-bottom border-3 border-primary" 
                         style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
                         data-id="@card.Id"
                         data-name="@card.Name"
@@ -82,26 +81,24 @@
                         data-user='@userJson'
                         data-checkboxes='@checkboxesJson'
                         draggable="true">
-                        <a class="text-white card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
-                                <div>
-                                    <br>
-                                    @if(card.User == null) {
-                                        <p style="color: #959595;">Não atribuído</p>
-                                    } else {
-                                        <div class="d-flex align-content-center" style="text-wrap: nowrap;">
-                                            <img src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))" width="15%" style="border-radius: 50%;">
-                                            <p class="px-3 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis;">@card.User.FirstName @card.User.LastName</p>
-                                        </div>
-                                    }
-                                </div>
+                        <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
+                        @if(card.User == null)
+                        {
+                            <p style="color: #959595;">Não atribuído</p>
+                        }
+                        else
+                        {
+                            <div class="d-flex align-content-center" style="text-wrap: nowrap;">
+                                <img src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))" width="15%" style="border-radius: 50%;">
+                                <p class="px-3 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis;">@card.User.FirstName @card.User.LastName</p>
+                            </div>
+                        }
                     </div>
-                    <br>
                 }
+                
             </div>
         }
-    </div>
 </div>
-
 
 <style>
     .board {

@@ -133,6 +133,9 @@ public class RoleController : Controller
     [HttpPost]
     public async Task<IActionResult> AtribuirRole(int id ,int roleId, string userId)
     {
+
+        Console.WriteLine("roleid"+roleId);
+        Console.WriteLine("userid" + userId);
         Board board = _db.Boards
             .Include(b => b.Project)
             .Single(b => b.Id == id);

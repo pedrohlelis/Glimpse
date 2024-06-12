@@ -32,8 +32,7 @@ public class ProjectController : Controller
             .Single(u => u.Id == userId);
 
         Dictionary<Project, User> activeUserProjects = new Dictionary<Project, User>();
-
-        foreach(Project project in user.Projects)
+        foreach (Project project in user.Projects)
         {
             if (project.IsActive)
             {

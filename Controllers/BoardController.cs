@@ -99,10 +99,6 @@ public class BoardController : Controller
 
             userRoles.Add(member, memberRole);
         }
-        
-        // var project = await _db.Projects
-        //     .Include(b => b.Boards)
-        //     .SingleOrDefaultAsync(u => u.Id == projectId);
 
         List<Board> userBoards = [];
         foreach (var userBoard in project.Boards) {

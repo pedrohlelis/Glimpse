@@ -31,12 +31,15 @@
                 </div>
                 <input type="hidden" name="id" value="@Model.Board.Id">
             </div>
+<<<<<<< HEAD
             <div>
                 <label for="date">Date:</label>
                 <input type="date" name="date" id="date">
             </div>
             <input type="hidden" name="id" value="@Model.Board.Id">
 
+=======
+>>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
             @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
                 <button type="submit" id="save-button" class="button-save">Salvar</button>
             }
@@ -53,9 +56,12 @@
             <button type="submit" id="save-checkbox-button" class="button-save">Salvar</button>
         </form>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
     <div class="col-4 d-flex flex-column">
-        @if (Model.UserRole.CanManageCards) {
+        @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
             <div class="d-flex gap-1">
                 <button type="submit" form="edit-card-form" id="save-button" class="button-save py-2 btn-info text-white flex-grow-1" style="outline: none; border-radius: 6px; border: none;">
                     Salvar

@@ -21,12 +21,21 @@
         @foreach (var kvp in Model.ActiveProjects) {
             <div class="col d-flex border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; max-width: 300px; height: 300px;">
                 @if(kvp.Key.Boards == null || !kvp.Key.Boards.Any()) {
+<<<<<<< HEAD
                 <a class="text-decoration-none" asp-controller="Board" asp-action="Create" asp-route-id="@kvp.Key.Id">
                     <p class="overflow-hidden text-white">@kvp.Key.Name</p>
                     <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
                     <br><br>
                     <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
                 </a>
+=======
+                    <a class="text-decoration-none" asp-controller="Board" asp-action="Create" asp-route-id="@kvp.Key.Id">
+                        <p class="overflow-hidden text-white">@kvp.Key.Name</p>
+                        <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
+                        <br><br>
+                        <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
+                    </a>
+>>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
                 } else {
                     var boardsList = kvp.Key.Boards.ToList();
                     <a class="text-decoration-none" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
@@ -62,6 +71,7 @@
             </div>
         }
     </div>
+<<<<<<< HEAD
 </div>
 
 @* <div class="row row-4 flex-lg-grow-1">
@@ -100,6 +110,9 @@
     }
 </div> *@
 
+=======
+
+>>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
 
 <div class="modal fade" id="ConfirmLeaveProjectModal" tabindex="-1" aria-labelledby="ConfirmLeaveProjectModal" aria-hidden="true">
     <div class="modal-dialog bg-dark">

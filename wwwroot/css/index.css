@@ -43,7 +43,7 @@ html::-webkit-scrollbar-track {
   height: 10px;
 }
 .lanes::-webkit-scrollbar-thumb {
-  background-color: #63636333;
+  background-color: #63636355;
   height: 10px;
   border-radius: 100vw;
 }
@@ -147,24 +147,7 @@ input:focus {
   padding: 30px;
   box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.103);
 }
-::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-  cursor: pointer;
-}
 .button-save-modified {
   background-color: #6600eb;
   color: white;
