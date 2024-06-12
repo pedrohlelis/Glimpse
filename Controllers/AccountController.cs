@@ -131,7 +131,6 @@ public class AccountController : Controller
 
         user.IsActive = false;
         await _userManager.UpdateAsync(user);
-        await _userManager.UpdateAsync(user);
 
         await _signInManager.SignOutAsync();
 

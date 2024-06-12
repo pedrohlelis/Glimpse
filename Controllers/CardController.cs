@@ -43,7 +43,7 @@ public class CardController : Controller
     {
         if (string.IsNullOrEmpty(name))
         {
-            return RedirectToAction("GetBoardInfo", "Board", new { id });
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive });
         }
 
         var card = new Card
@@ -61,11 +61,11 @@ public class CardController : Controller
         lane.Cards.Add(card);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditCard(int cardId, string? name, string? description, DateOnly? date, int id)
+    public async Task<IActionResult> EditCard(int cardId, string? name, string? description, DateOnly? date, int id, bool IsMemberSideBarActive)
     {
         var card = await _db.Cards.FindAsync(cardId);
 
@@ -79,27 +79,61 @@ public class CardController : Controller
         {
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
         }
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
     }
 
     [HttpPost]
-    public async Task<IActionResult> DeleteCard(int deleteCardId, int boardId)
+    public async Task<IActionResult> DeleteCard(int deleteCardId, int boardId, bool IsMemberSideBarActive)
     {
         try
         {
-            var card = await _db.Cards.FindAsync(deleteCardId);
-            _db.Cards.Remove(card);
-            await _db.SaveChangesAsync();
+            var card = await _db.Cards
+                .Include(c => c.User)
+                .Include(c => c.Lane)
+                .Include(c => c.Tags)
+                .Include(c => c.Checkboxes)
+                .FirstOrDefaultAsync(c => c.Id == deleteCardId);
+
+            if (card != null)
+            {
+                foreach (var tag in card.Tags)
+                {
+                    tag.Cards.Remove(card);
+                }
+                
+                // Safely remove the card from the user's cards collection if the user exists
+                if (card.User != null && card.User.Cards != null)
+                {
+                    card.User.Cards.Remove(card);
+                }
+
+                // Safely remove the card from the lane's cards collection if the lane exists
+                if (card.Lane != null && card.Lane.Cards != null)
+                {
+                    card.Lane.Cards.Remove(card);
+                }
+                foreach (var checkbox in card.Checkboxes)
+                {
+                    checkbox.Card = null;
+                    card.Checkboxes.Remove(checkbox);
+                    Console.WriteLine(checkbox.Name);
+                    _db.Checkboxes.Remove(checkbox);
+                }
+                // Remove the card from the database
+                _db.Cards.Remove(card);
+                await _db.SaveChangesAsync();
+            }
         }
-        catch (DbUpdateException)
+        catch (DbUpdateException e)
         {
-            return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+            Console.WriteLine(e.Message);
+            return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive });
         }
         
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive });
     }
 
     [HttpPost]

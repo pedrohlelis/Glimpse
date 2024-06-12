@@ -27,8 +27,27 @@
         @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
         {
             <div class="swim-lane col mx-3 overflow-y bg-dark" style="min-width: 250px; max-height: 600px;" data-id="@lane.Id" draggable="true">
-                <div class="d-flex  px-1">
-                    <p class="text-uppercase fw-bold fs-6">@lane.Name <span class="badge bg-secondary text-black">@lane.Cards.Count</span></p>
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center me-2">
+                        <form asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
+                            <input type="hidden" name="laneId" value="@lane.Id">
+                            <input type="hidden" name="id" value="@Model.Board.Id">
+                            <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@lane.Name" value="@lane.Name" class="form-control me-2 text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;" name="name">
+                            <span class="badge bg-secondary text-black me-2">@lane.Cards.Count</span>
+                            <button type="submit" class="btn btn-info text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
+                                <box-icon name='save' color="white" style="width: 16px; height: 16px;"></box-icon>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <form asp-action="DeleteLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
+                            <input type="hidden" name="laneId" value="@lane.Id">
+                            <input type="hidden" name="id" value="@Model.Board.Id">
+                            <button type="submit" class="btn btn-danger text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
+                                <box-icon name='trash' color="white" style="width: 16px; height: 16px;"></box-icon>
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 <hr>
                 <br>
@@ -81,8 +100,8 @@
                         data-user='@userJson'
                         data-checkboxes='@checkboxesJson'
                         draggable="true">
-                        <div>
-                            @foreach(Tag tag in Model.Tags)
+                        <div class="tags-container d-flex flex-wrap">
+                            @foreach(Tag tag in card.Tags)
                             {
                                 <span class="badge" style="background-color: @tag.Color;">@tag.Name</span>
                             }
@@ -90,14 +109,15 @@
                         <a class="text-white px-4 card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
                         @if(card.User != null)
                         {
-                            <div class="d-flex align-content-center" style="text-wrap: nowrap;">
-                                <img src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))" width="15%" style="border-radius: 50%;">
-                                <p class="px-3 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis;">@card.User.FirstName @card.User.LastName</p>
+                            <div class="d-flex align-content-center" style="text-wrap: nowrap; color: @(Model.UserRolesDictionary[card.User]?.Color ?? "#fff");">
+                                <img src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
+                                width="15%"
+                                style="border: 2px solid @(Model.UserRolesDictionary[card.User]?.Color ?? "#fff"); border-radius: 50%;">
+                                <p class="px-1 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis;">@card.User.FirstName @card.User.LastName</p>
                             </div>
                         }
                     </div>
                 }
-                
             </div>
         }
 </div>

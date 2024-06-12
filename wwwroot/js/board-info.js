@@ -3,6 +3,26 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 const IsMemberSideBarActiveInputs = document.querySelectorAll('.IsMemberSideBarActiveInput');
 
+function openTagsModal() {
+    var tagsModal = new bootstrap.Modal(document.getElementById('tagsModal'));
+    tagsModal.show();
+}
+
+function createTag() {
+    var createTagModal = new bootstrap.Modal(document.getElementById('createTagModal'));
+    createTagModal.show();
+}
+
+function editTag(button) {
+        var listitem = button.closest('li');
+        document.getElementById('tagToEditId').value = listitem.dataset.id;
+        document.getElementById('tagEditName').value = listitem.dataset.name;
+        document.getElementById('tagEditColor').value = listitem.dataset.color;
+
+        var editTagModal = new bootstrap.Modal(document.getElementById('editTagModal'));
+        editTagModal.show();
+    }
+
 function openRolesModal() {
     var myModal = new bootstrap.Modal(document.getElementById('rolesModal'));
     myModal.show();
