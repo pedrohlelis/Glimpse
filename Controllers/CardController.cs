@@ -103,7 +103,7 @@ public class CardController : Controller
                 {
                     tag.Cards.Remove(card);
                 }
-                
+
                 // Safely remove the card from the user's cards collection if the user exists
                 if (card.User != null && card.User.Cards != null)
                 {
@@ -115,13 +115,18 @@ public class CardController : Controller
                 {
                     card.Lane.Cards.Remove(card);
                 }
-                foreach (var checkbox in card.Checkboxes)
+
+                // Create a list of checkboxes to remove
+                var checkboxesToRemove = card.Checkboxes.ToList();
+
+                foreach (var checkbox in checkboxesToRemove)
                 {
                     checkbox.Card = null;
                     card.Checkboxes.Remove(checkbox);
                     Console.WriteLine(checkbox.Name);
                     _db.Checkboxes.Remove(checkbox);
                 }
+
                 // Remove the card from the database
                 _db.Cards.Remove(card);
                 await _db.SaveChangesAsync();
@@ -132,7 +137,7 @@ public class CardController : Controller
             Console.WriteLine(e.Message);
             return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive });
         }
-        
+
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive });
     }
 

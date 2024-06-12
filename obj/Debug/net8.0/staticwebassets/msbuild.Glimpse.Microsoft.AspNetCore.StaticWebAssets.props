@@ -3280,6 +3280,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\88c1f25b-7502-4e01-8386-913e1422fa30_mermaid-diagram-2024-05-14-151659.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>project-pictures/88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>

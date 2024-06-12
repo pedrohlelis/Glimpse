@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sZgM1h2kwAKqkJBWKhiaI+mW2K7h+A5bFJuJseR5MhI=",
+  "Hash": "0NEHrcL4h6FMCbsiuExxtvA9sjyqho11Sr4tKRwyc+0=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -3929,6 +3929,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\88c1f25b-7502-4e01-8386-913e1422fa30_mermaid-diagram-2024-05-14-151659.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png",
