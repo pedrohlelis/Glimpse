@@ -19,7 +19,7 @@
 
     <div class="row row-4 flex-lg-grow-1">
         @foreach (var kvp in Model.ActiveProjects) {
-            <div class="col d-flex border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; max-width: 300px; height: 300px;">
+            <div class="col d-flex border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; width: 250px; height: 200px;">
                 @if(kvp.Key.Boards == null || !kvp.Key.Boards.Any()) {
                     <a class="text-decoration-none" asp-controller="Board" asp-action="Create" asp-route-id="@kvp.Key.Id">
                         <p class="overflow-hidden text-white">@kvp.Key.Name</p>

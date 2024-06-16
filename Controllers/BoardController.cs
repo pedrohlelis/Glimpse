@@ -23,10 +23,6 @@ public class BoardController : Controller
         _userManager = userManager;
     }
 
-    public IActionResult KanbanTest() {
-        return View();
-    }
-
     [Authorize]
     public async Task<IActionResult> GetBoardInfo(int id, bool IsMemberSideBarActive)
     {
@@ -49,7 +45,9 @@ public class BoardController : Controller
 
         int projectId = board.Project.Id;
 
-        var project = _db.Projects.FirstOrDefault(p => p.Id == projectId);
+        var project = await _db.Projects
+            .Include(b => b.Boards)
+            .SingleOrDefaultAsync(p => p.Id == projectId);
 
         if(!project.IsActive) {
             return NotFound();
@@ -103,6 +101,7 @@ public class BoardController : Controller
         List<Board> userBoards = [];
         foreach (var userBoard in project.Boards) {
             userBoards.Add(userBoard);
+            System.Console.WriteLine(userBoard.Name);
         }
 
         var model = new BoardVM

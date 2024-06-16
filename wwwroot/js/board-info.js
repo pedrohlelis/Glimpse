@@ -29,8 +29,6 @@ function openRolesModal() {
 }
 
 function openManageUserModal(button) {
-    // let form =  document.getElementById('form-role');
-
     document.getElementById('ManagedUserName').innerText = button.dataset.name;
     document.getElementById('ManagedUserEmail').innerText = button.dataset.email;
     document.getElementById('userPicture').src = button.dataset.picture;
@@ -387,11 +385,10 @@ lanes.forEach((lane) => {
         }
     });
 
-    // Event listener para mostrar o overlay quando um card é clicado
     const cards = document.querySelectorAll('.task');
-    // const cards = document.querySelectorAll('.card-link');
     cards.forEach(card => {
         card.addEventListener('click', function(event) {
+            let boardId = card.dataset.boardid;
             const cardId = card.dataset.id;
             const cardName = card.dataset.name;
             const cardDescription = card.dataset.description;
@@ -415,7 +412,7 @@ lanes.forEach((lane) => {
             } catch (error) {
                 cardCheckboxes = [];
             }
-            console.log(cardCheckboxes);
+
             const [day, month, year] = cardDate.split('/');
             const formattedDate = `${year}-${month}-${day}`;
             const dateObject = new Date(formattedDate);
@@ -440,47 +437,117 @@ lanes.forEach((lane) => {
                 tagElement.style.marginRight = '4px';
                 tagsContainer.appendChild(tagElement);
             });
+
             const checkboxesContainer = document.getElementById('checkbox-list');
             cardCheckboxes.forEach(checkbox => {
-                console.log(checkbox.Name);
-                const checkboxElement = document.createElement('p');
-                checkboxElement.textContent = checkbox.Name;
-                checkboxElement.style.color = 'white';
-                checkboxElement.style.backgroundColor = '#272727';
-                checkboxElement.style.borderRadius = 8;
-                checkboxElement.classList.add('px-3', 'py-1', 'my-1', 'align-content-center');
-                checkboxesContainer.appendChild(checkboxElement);
+                const checkboxDiv = document.createElement('form');
+                checkboxDiv.id = ''
+                checkboxDiv.style.borderRadius = 8;
+                checkboxDiv.classList.add('d-flex', 'px-3', 'py-1', 'my-1', 'align-content-center', 'text-white');
+
+                const checkboxChecked = document.createElement('input');
+                checkboxChecked.type = 'checkbox';
+                checkboxChecked.checked = checkbox.Finished;
+                checkboxDiv.appendChild(checkboxChecked);
+
+                const checkboxName = document.createElement('input');
+                checkboxName.style.backgroundColor = '#272727';
+                checkboxName.classList.add('text-white', 'px-2', 'py-1', 'form-control', 'd-flex', 'ms-2');
+                checkboxName.style.borderRadius = '6px';
+                checkboxName.style.outline = '1px solid'
+                checkboxName.style.border = 'none';
+                checkboxName.style.outlineColor = 'rgba(255, 255, 255, .3)';
+                checkboxName.value = checkbox.Name;
+                checkboxDiv.appendChild(checkboxName);
+
+                const checkboxSave = document.createElement('button');
+                checkboxSave.textContent = "salvar"
+                checkboxSave.type = 'submit';
+                checkboxDiv.appendChild(checkboxSave);
+
+                checkboxesContainer.appendChild(checkboxDiv);
+
+                checkboxDiv.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formData = new FormData(checkboxDiv);
+            
+                    fetch('/Checkbox/EditCheckbox', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Lane order saved successfully!');
+                            location.reload();
+                        } else {
+                            console.error('Failed to save card order.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('An error occurred:', error);
+                    });
+                });
             });
 
             const userContainer = document.getElementById('user');
             userContainer.innerHTML = '';
             if (cardUser) {
                 const userImageElement = document.createElement('img');
-                if(cardUser.Picture) {
+                if (cardUser.Picture) {
                     userImageElement.src = cardUser.Picture;
-                }
-                else {
+                } else {
                     userImageElement.src = "/default-images/default-avatar.jpg";
                 }
                 userImageElement.style.width = '15%';
 
                 const userElement = document.createElement('h4');
                 userElement.textContent = cardUser.LastName ? `${cardUser.FirstName} ${cardUser.LastName}` : cardUser.FirstName;
-
                 userElement.style.color = 'white';
                 userElement.style.textWrap = 'nowrap';
                 userElement.style.overflow = 'hidden';
-                userElement.style.textOverflow = 'ellipsis'
+                userElement.style.textOverflow = 'ellipsis';
                 userElement.style.padding = '2px 4px';
                 userElement.style.borderRadius = '4px';
                 userElement.style.marginRight = '4px';
                 userElement.classList.add('px-3', 'm-0', 'align-content-center');
 
+                // Encontrar o formulário existente
+                const form = document.getElementById('removeUserForm');
+
+                const inputBoardId = document.createElement('input');
+                inputBoardId.type = 'hidden';
+                inputBoardId.name = 'boardId';
+                inputBoardId.value = boardId;
+
+                const inputCardId = document.createElement('input');
+                inputCardId.type = 'hidden';
+                inputCardId.name = 'userCardId';
+                inputCardId.value = cardId;
+
+                const inputUserId = document.createElement('input');
+                inputUserId.type = 'hidden';
+                inputUserId.name = 'userId';
+                inputUserId.value = cardUser.Id;
+
+                form.appendChild(inputBoardId);
+                form.appendChild(inputCardId);
+                form.appendChild(inputUserId);
+
+                const removeButton = document.createElement('button');
+                const removeImageElement = document.createElement('img');
+                removeImageElement.src = "/default-images/default-avatar.jpg";
+
+                userImageElement.style.width = '15%';
+                removeButton.type = 'submit';
+                removeButton.style.marginLeft = '10px';
+                removeButton.classList.add('btn', 'btn-danger');
+
                 userContainer.appendChild(userImageElement);
                 userContainer.appendChild(userElement);
-                addUserToCardForm.setAttribute('hidden', true);
+                userContainer.appendChild(removeButton);
             }
-
+            
             showOverlay();
         });
     });
@@ -488,26 +555,32 @@ lanes.forEach((lane) => {
     overlay.addEventListener('click', function(event) {
         if (event.target === overlay || event.target.classList.contains('close-button')) {
             hideOverlay();
+            location.reload();
         }
     });
 
-// cardForms.addEventListener('submit', function(event) {
-//         event.preventDefault()
-//         cardForms.querySelector('input[name=IsMemberSideBarActive]').value = IsMemberSideBarActive.value;
-//         cardForms.submit();
-//     });
-
 function isDarkColor(color) {
-    let r, g, b;
-    if (color.length === 7) {
-        r = parseInt(color.slice(1, 3), 16);
-        g = parseInt(color.slice(3, 5), 16);
-        b = parseInt(color.slice(5, 7), 16);
-    } else if (color.length === 4) {
-        r = parseInt(color[1] + color[1], 16);
-        g = parseInt(color[2] + color[2], 16);
-        b = parseInt(color[3] + color[3], 16);
-    }}
+    // Remove o símbolo # se estiver presente
+    if (color.startsWith('#')) {
+        color = color.slice(1);
+    }
+
+    // Converte cores hexadecimais de 3 caracteres para 6 caracteres
+    if (color.length === 3) {
+        color = color.split('').map(char => char + char).join('');
+    }
+
+    // Converte a cor de hexadecimal para RGB
+    const r = parseInt(color.substring(0, 2), 16);
+    const g = parseInt(color.substring(2, 4), 16);
+    const b = parseInt(color.substring(4, 6), 16);
+
+    // Calcula a luminância relativa
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+    // Retorna true se a cor for escura, false se for clara
+    return luminance < 0.5;
+}
 
 const addLaneButton = document.querySelector('.new-lane-btn');
 const laneForm = document.querySelector('.create-lane-form');
@@ -549,19 +622,6 @@ document.addEventListener('click', function(event) {
     cardInputs.forEach((input) => {
         input.setAttribute('autocomplete', 'off');
     });
-
-
-    // document.addEventListener('click', function(event) {
-    //     cardForms.forEach((form, index) => {
-    //         if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
-    //             form.setAttribute('hidden', true);
-    //         }
-    //     });
-
-    //     if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
-    //         laneForm.setAttribute('hidden', true);
-    //     }
-    // });
 
     const columns = document.querySelectorAll(".card-col");
 
@@ -608,25 +668,56 @@ document.addEventListener('click', function(event) {
 
     addCheckboxButton.addEventListener('click', function() {
         const checkboxDiv = document.createElement('div');
-        checkboxDiv.className = 'd-flex mb-3';
+        checkboxDiv.className = 'd-flex flex-column mb-3';
+
+        const checkboxRow = document.createElement('div');
+        checkboxRow.className = 'd-flex';
 
         const checkboxInput = document.createElement('input');
         checkboxInput.type = 'checkbox';
+        checkboxInput.name = 'CheckboxFinished';
+        checkboxInput.className = 'form-input';
 
         const textInput = document.createElement('input');
         textInput.type = 'text';
-        textInput.name = 'CheckboxNames';
+        textInput.name = 'CheckboxName';
         textInput.className = 'form-input';
 
-        checkboxDiv.appendChild(checkboxInput);
-        checkboxDiv.appendChild(textInput);
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'text-danger mt-1';
+        errorMessage.style.display = 'none';
+
+        checkboxRow.appendChild(checkboxInput);
+        checkboxRow.appendChild(textInput);
+
+        checkboxDiv.appendChild(checkboxRow);
+        checkboxDiv.appendChild(errorMessage);
 
         checkboxList.appendChild(checkboxDiv);
     });
 
     saveCheckboxesButton.addEventListener('click', function() {
         const cardId = document.getElementById('cardId').value;
-        const checkboxNames = Array.from(document.getElementsByName('CheckboxNames')).map(input => input.value);
+        const checkboxFinished = Array.from(document.getElementsByName('CheckboxFinished')).map(input => input.checked);
+        const checkboxNames = Array.from(document.getElementsByName('CheckboxName')).map(input => input.value);
+        const errorMessages = checkboxList.getElementsByClassName('text-danger');
+
+        // Reset error messages
+        Array.from(errorMessages).forEach(error => error.style.display = 'none');
+
+        // Verificar se todos os nomes dos checkboxes não estão vazios
+        let hasEmptyName = false;
+        checkboxNames.forEach((name, index) => {
+            if (name.trim() === '') {
+                errorMessages[index].textContent = 'Por favor, preencha o nome do checkbox.';
+                errorMessages[index].style.display = 'block';
+                hasEmptyName = true;
+            }
+        });
+
+        if (hasEmptyName) {
+            return;
+        }
 
         if (checkboxNames.length === 0) {
             alert('Por favor, adicione ao menos um checkbox.');
@@ -635,13 +726,17 @@ document.addEventListener('click', function(event) {
 
         console.log('Iniciando salvamento dos checkboxes:', checkboxNames);
 
-        Promise.all(checkboxNames.map(name => {
+        Promise.all(checkboxNames.map((name, index) => {
             return fetch('/Checkbox/CreateCheckbox', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ cardId: parseInt(cardId), name })
+                body: JSON.stringify({ 
+                    cardId: parseInt(cardId), 
+                    name, 
+                    finished: checkboxFinished[index] // Adicionando o valor booleano correspondente
+                })
             }).then(response => response.json())
                 .then(data => {
                     console.log('Resposta do servidor para checkbox', name, data);
@@ -656,6 +751,7 @@ document.addEventListener('click', function(event) {
             if (allSuccessful) {
                 alert('Checkboxes salvos com sucesso!');
                 checkboxList.innerHTML = '';
+                location.reload();
             } else {
                 alert('Falha ao salvar um ou mais checkboxes.');
                 console.error('Detalhes do erro:', results);
@@ -664,4 +760,5 @@ document.addEventListener('click', function(event) {
             console.error('Erro ao salvar checkboxes:', error);
         });
     });
+
 });

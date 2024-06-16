@@ -28,9 +28,7 @@ public class CheckboxController : Controller
         {
             return Json(new { success = false, message = "Dados inválidos" });
         }
-        System.Console.WriteLine(model.Name);
-        System.Console.WriteLine(model.CardId);
-        var checkbox = new Checkbox { Name = model.Name ,Finished = false };
+        var checkbox = new Checkbox { Name = model.Name ,Finished = model.Finished };
         _db.Checkboxes.Add(checkbox);
         await _db.SaveChangesAsync();
 
@@ -42,5 +40,18 @@ public class CheckboxController : Controller
         await _db.SaveChangesAsync();
         
         return Json(new { success = true, checkbox });
+    }
+    [HttpPost]
+    public async Task<IActionResult> EditCheckbox([FromBody] int boardId, string name, bool finished, int checkboxId)
+    {
+        var checkbox = await _db.Checkboxes.FindAsync(checkboxId);
+
+        checkbox.Name = name;
+        checkbox.Finished = finished;
+
+        _db.Entry(checkbox);
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
 }
