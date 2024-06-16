@@ -10,6 +10,7 @@ public class Card
     public int Id { get; set; }
     public string Name { get; set; }
     public string? Description { get; set; }
+    public int Index { get; set; }
     public DateOnly? Date { get; set; }
     public virtual Lane? Lane { get; set; }
     public virtual User? User { get; set; }

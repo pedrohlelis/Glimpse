@@ -4,9 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
 using Glimpse.ViewModels;
-using Org.BouncyCastle.Crypto.Engines;
+using System.Text.RegularExpressions;
 
 namespace Glimpse.Controllers;
+
 
 [Authorize]
 public class BoardController : Controller
@@ -22,12 +23,8 @@ public class BoardController : Controller
         _userManager = userManager;
     }
 
-    public IActionResult KanbanTest() {
-        return View();
-    }
-
     [Authorize]
-    public async Task<IActionResult> GetBoardInfo(int id)
+    public async Task<IActionResult> GetBoardInfo(int id, bool IsMemberSideBarActive)
     {
         var board = await _db.Boards
             .Include(b => b.Project)
@@ -48,12 +45,29 @@ public class BoardController : Controller
 
         int projectId = board.Project.Id;
 
+        var project = await _db.Projects
+            .Include(b => b.Boards)
+            .SingleOrDefaultAsync(p => p.Id == projectId);
+
+        if(!project.IsActive) {
+            return NotFound();
+        }
+
+        // Retrieve all members associated with the project
         List<User> members = await _db.Users
             .Where(u => u.Projects.Any(p => p.Id == projectId))
             .ToListAsync();
 
-        var user = await _userManager.GetUserAsync(User);
+        var currentUser = await _userManager.GetUserAsync(User);
 
+        var user = _db.Users
+        .Include(u => u.Projects)
+        .FirstOrDefault(u => u.Id == currentUser.Id);
+
+        if (!user.Projects.Contains(board.Project)){
+            return Forbid();
+        }
+        // Retrieve the user's role within the project associated with the board
         var userRole = await _db.Roles
             .Include(r => r.Users)
             .FirstOrDefaultAsync(r => r.Project.Id == board.Project.Id && r.Users.Any(u => u.Id == user.Id));
@@ -61,13 +75,19 @@ public class BoardController : Controller
         string responsibleUserId = board.Project.ResponsibleUserId;
 
         User responsibleUser = await _db.Users.FirstOrDefaultAsync(u => u.Id == responsibleUserId);
-        
+
+        // Create a dictionary to store users and their roles
+        List<Role> canManageRoles = new List<Role>();
+        // Retrieve all roles associated with the project
         List<Role> roles = await _db.Roles
             .Include(r => r.Users)
             .Where(r => r.Project.Id == projectId)
             .ToListAsync();
         foreach (Role role in roles) {
-            Console.WriteLine(role.Name);
+            if(role.CanManageRoles)
+            {
+                canManageRoles.Add(role);
+            }
         }
         Dictionary<User, Role> userRoles = [];
 
@@ -77,14 +97,11 @@ public class BoardController : Controller
 
             userRoles.Add(member, memberRole);
         }
-        
-        var project = await _db.Projects
-            .Include(b => b.Boards)
-            .SingleOrDefaultAsync(u => u.Id == projectId);
 
         List<Board> userBoards = [];
         foreach (var userBoard in project.Boards) {
             userBoards.Add(userBoard);
+            System.Console.WriteLine(userBoard.Name);
         }
 
         var model = new BoardVM
@@ -96,7 +113,9 @@ public class BoardController : Controller
             UserRole = userRole,
             ProjectResponsibleUser = responsibleUser,
             Members = members,
-            UserRolesDictionary = userRoles,
+            UserRolesDictionary = userRoles, // Add the dictionary to the model
+            CanManageRoles = canManageRoles,
+            IsMemberSideBarActive = IsMemberSideBarActive,
             Tags = (List<Tag>)board.Tags
         };
 
@@ -181,7 +200,7 @@ public class BoardController : Controller
 
             project.Boards.Add(Board);
             await _db.SaveChangesAsync();
-            return RedirectToAction("GetBoardInfo", new { id = Board.Id });
+            return RedirectToAction("GetBoardInfo", new { id = Board.Id, IsMemberSideBarActive = true });
         }
 
         return View("Create", Board);

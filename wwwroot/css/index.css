@@ -19,6 +19,64 @@
   }
 }
 
+html::-webkit-scrollbar {
+  width: .8vw;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #63636355;
+  height: 10px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #636363;
+  height: 10px;
+}
+html::-webkit-scrollbar-track {
+  background-color: #27272755;
+}
+
+.lanes::-webkit-scrollbar {
+  height: 10px;
+}
+.lanes::-webkit-scrollbar-thumb {
+  background-color: #63636355;
+  height: 10px;
+  border-radius: 100vw;
+}
+.lanes::-webkit-scrollbar-thumb:hover {
+  background-color: #63636355;
+  height: 10px;
+  border-radius: 100vw;
+}
+
+.swim-lane::-webkit-scrollbar {
+  width: 10px;
+}
+.swim-lane::-webkit-scrollbar-thumb {
+  background-color: #63636333;
+  height: 10px;
+  border-radius: 100vw;
+}
+.swim-lane::-webkit-scrollbar-thumb:hover {
+  background-color: #63636355;
+  height: 10px;
+  border-radius: 100vw;
+}
+
+.memberSideMenu::-webkit-scrollbar {
+  width: .8vw;
+}
+.memberSideMenu::-webkit-scrollbar-thumb {
+  background-color: #63636355;
+  border-radius: 100vw;
+}
+.memberSideMenu::-webkit-scrollbar-thumb:hover {
+  background-color: #636363;
+  border-radius: 100vw;
+}
+.memberSideMenu::-webkit-scrollbar-track {
+  background-color: #27272755;
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem rgb(32, 32, 32), 0 0 0 0.25rem #a642f3;
   text-decoration: none;
@@ -62,6 +120,21 @@ input:focus {
   text-transform: uppercase;
   background-color: #272727;
   color: white;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .3);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button-create:hover {
+  background-color: #6600eb;
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .3), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
 }
 .overlay {
   position: absolute;
@@ -84,24 +157,7 @@ input:focus {
   padding: 30px;
   box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.103);
 }
-::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-  cursor: pointer;
-}
 .button-save-modified {
   background-color: #6600eb;
   color: white;
@@ -109,6 +165,24 @@ input:focus {
 
 .dragging {
     opacity: 0.5;
+}
+
+.form-input {
+    background-color: #131313;
+    border-radius: 5px;
+    border-color: #9531FF;
+    border-width: 1px;
+}
+
+.form-input:not(:placeholder-shown) {
+    background-color: #131313;
+    color: #fff; /* Same as default background color */
+}
+
+.form-input:focus {
+    background-color: #131313; /* Same as default background color */
+    border-color: #9531FF; /* Update border color when focused */
+    outline: none; /* Remove default focus outline */
 }
 
 .memberSideMenu {
@@ -120,6 +194,7 @@ input:focus {
   padding: .4rem .4rem;
   background: #272727;
   transition: all 0.5s ease;
+  max-height: 100vh;
 }
 
 .memberSideMenu.active {
@@ -230,6 +305,12 @@ input:focus {
   opacity: 1;
 }
 
+.board-main {
+  padding: 10px;
+  height: 80vh;
+  max-width: 1500px;
+}
+
 .lane {
   min-width: 300px;
   background-color: #959595;
@@ -298,10 +379,6 @@ input:focus {
   z-index: 1;
 }
 
-.add-Card-Button {
-
-}
-
 .project-card {
   display: flex;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -361,10 +438,6 @@ input:focus {
   height: 10px;
 }
 
-.lanes {
-  display: flex;
-}
-
 .lane {
   padding: 1%;
   justify-content: space-between;
@@ -420,10 +493,11 @@ hr {
 }
 
 .new-lane-btn {
-  width: auto;
-  height: 6vh;
+  margin-top: 11%;
+  padding: 7px;
+  min-width: 120px;
+  max-width: 150px;
   border-radius: 0.4vw;
-  align-content: center;
   border: none;
   background-color: #272727;
 }

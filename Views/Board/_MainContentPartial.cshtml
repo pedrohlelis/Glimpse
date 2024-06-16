@@ -2,83 +2,184 @@
 @using System.Text.Json;
 @model BoardVM;
 
-<div class="main-content d-flex flex-column mx-auto">
-    <br>
-    <div class="d-flex mx-auto">
-        <div class="board-main d-flex flex-row overflow-visible kanban" style="max-width: 1200px; max-height: 1000px;">
-            @foreach (Lane lane in Model.Board.Lanes)
-            {
-                <div style="width: 300px;" class="lane col lane mx-3" data-lane-id="@lane.Id">
-                    <div class="d-flex align-content-center align-items-center px-1">
-                        <p class="text-uppercase fw-bold fs-6">@lane.Name</p>
-                        <p class="rounded-circle text-black bg-white">@lane.Cards.Count</p>
-                    </div>
-                    <hr>
-                    <br>
 
-                    <div class="col d-flex task-btn">
-                        <a class="w-100 align-items-center add-card-link">
-                            <button class="button-create add-card-button">
-                                <div class="d-flex justify-content-center">
-                                    <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
-                                    <p class="px-1 m-0">Nova Tarefa</p>
-                                </div>
-                            </button>
-                        </a>
-                    </div>
-                    <br>
+<input name="IsMemberSideBarActive" type="hidden">
+<br>
 
-                    <form class="create-card-form" asp-action="CreateCard" asp-controller="Card" method="post" hidden>
-                        <input name="name" class="w-100 py-3 border-3 border-primary text-white card-input" style="background-color: #1E1E1E; border-radius: 13px; outline: none;" placeholder="Nome do cartão" type="text">
-                        <input name="laneId" value="@lane.Id" type="hidden">
-                        <input name="id" value="@Model.Board.Id" type="hidden">
+<div class="lanes text-white p-0 d-flex" style="max-width: 120vw; max-height: 800px; min-height: 100%; margin-left: 10%;">
+    <div>
+        <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
+            <div style="width: 300px; height: 200px;" class="lane">
+                <div class="d-flex align-content-center align-items-center px-1 py-3">
+                    <input name="name" class="flex-grow-1 text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none; border: none;">
+                    <input name="id" value="@Model.Board.Id" type="hidden">
+                    <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                </div>
+                <hr>
+            </div>
+        </form>
+    </div>
+    <div>
+        <button id="add-lane-button" class="fs-6 new-lane-btn text-white" style="">
+            Nova Raia +
+        </button>
+    </div>
+    @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
+    {
+        <div class="swim-lane col mx-1 overflow-y bg-dark" style="min-width: 280px; max-height: 600px; overflow: visible;" data-id="@lane.Id" draggable="true">
+            <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center me-2">
+                    <form asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
+                        <input type="hidden" name="laneId" value="@lane.Id">
+                        <input type="hidden" name="id" value="@Model.Board.Id">
+                        <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@lane.Name" value="@lane.Name" class="form-control me-2 text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;" name="name">
+                        <span class="bg-secondary text-white p-2 rounded-3 text-center align-items-center" style="min-width: 30px; max-width: 34px;">@lane.Cards.Count</span>
                     </form>
+                </div>
+                <div class="d-flex align-items-center">
+                    <form asp-action="DeleteLane" asp-controller="Lane" method="post">
+                        <input type="hidden" name="laneId" value="@lane.Id">
+                        <input type="hidden" name="id" value="@Model.Board.Id">
+                        <button type="submit" class="btn btn-danger text-white align-items-center " style="outline: none; border-radius: 6px; border: none;">
+                            <box-icon name='trash' color="white" style="width: 16px; height: 16px;"></box-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr>
 
-                    <div class="container card-col">
-                        @foreach (Card card in lane.Cards)
-                        {
-                            var tagsJson = JsonSerializer.Serialize(card.Tags.Select(tag => new { tag.Name, tag.Color }));
-                            var checkboxesJson = JsonSerializer.Serialize(card.Checkboxes.Select( checkbox => new { checkbox.Finished, checkbox.Name }));
-                            var userJson = card.User != null ? JsonSerializer.Serialize(new { card.User.FirstName, card.User.LastName, card.User.Picture }) : "null";
-
-                            <div class="card-link row py-3 border-bottom border-3 border-primary px-3" 
-                                style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
-                                data-id="@card.Id"
-                                data-name="@card.Name"
-                                data-description="@card.Description"
-                                data-date="@card.Date?.ToString("dd/MM/yyyy")"
-                                data-tags='@tagsJson'
-                                data-user='@userJson'
-                                data-checkboxes='@checkboxesJson'
-                                draggable="true">
-                                <a class="text-white card-link" style="text-decoration: none; cursor: pointer;">@card.Name</a>
-                                <div>
-                                    <br>
-                                    @if(card.User == null) {
-                                        <p style="color: #959595;">Não atribuído</p>
-                                    } else {
-                                        <div class="d-flex align-content-center" style="text-wrap: nowrap;">
-                                            <img src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))" width="15%" style="border-radius: 50%;">
-                                            <p class="px-3 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis;">@card.User.FirstName @card.User.LastName</p>
-                                        </div>
-                                    }
-                                </div>
+            @if ((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser) {
+                <div class="col d-flex task-btn">
+                    <a class="w-100 align-items-center add-card-link">
+                        <button class="button-create add-card-button">
+                            <div class="d-flex justify-content-center">
+                                <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
+                                <p class="px-1 m-0">Nova Tarefa</p>
                             </div>
-                            <br>
-                        }
-                    </div>
+                        </button>
+                    </a>
                 </div>
             }
-            <form class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
-                <div style="width: 300px; height: 200px;" class="lane">
-                    <div class="d-flex align-content-center align-items-center px-1">
-                        <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none;">
-                        <input name="id" value="@Model.Board.Id" type="hidden">
-                    </div>
-                    <br>
-                    <hr>
-                </div>
+            <form class="create-card-form" asp-action="CreateCard" asp-controller="Card" method="post" hidden>
+                <input name="name" class="w-100 ps-3 py-3 border-3 border-primary text-white card-input" style="background-color: #1E1E1E; border-radius: 13px; outline: none;" placeholder="Nome do cartão" type="text">
+                <input name="laneId" value="@lane.Id" type="hidden">
+                <input name="id" value="@Model.Board.Id" type="hidden">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
             </form>
+
+            <form class="save-card-order-form" asp-action="SaveCardOrder" asp-controller="Card" method="post" hidden>
+                <input type="text" name="taskIndexDictionary">
+                <input name="id" value="@Model.Board.Id" type="hidden">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+            </form>
+
+            <form class="save-lane-order-form" asp-action="SaveLaneOrder" asp-controller="Lane" method="post" hidden>
+                <input type="text" name="laneIndexDictionary">
+                <input name="id" value="@Model.Board.Id" type="hidden">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+            </form>
+
+            @foreach (Card card in lane.Cards.OrderBy(card => card.Index))
+            {
+                var tagsJson = JsonSerializer.Serialize(card.Tags.Select(tag => new { tag.Name, tag.Color }));
+                var checkboxesJson = JsonSerializer.Serialize(card.Checkboxes.Select( checkbox => new { checkbox.Finished, checkbox.Name }));
+                var userJson = card.User != null ? JsonSerializer.Serialize(new { card.User.FirstName, card.User.LastName, card.User.Picture }) : "null";
+
+                <div class="task row py-3 px-2 border-bottom border-3 border-primary" 
+                    style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
+                    data-boardid="@Model.Board.Id"
+                    data-id="@card.Id"
+                    data-name="@card.Name"
+                    data-description="@card.Description"
+                    data-date="@card.Date?.ToString("dd/MM/yyyy")"
+                    data-tags='@tagsJson'
+                    data-user='@userJson'
+                    data-checkboxes='@checkboxesJson'
+                    draggable="true">
+                    <div class="tags-container d-flex flex-wrap">
+                        @foreach(Tag tag in card.Tags)
+                        {
+                            <span class="badge" style="background-color: @tag.Color;">@tag.Name</span>
+                        }
+                    </div>
+                    <a class="text-white" style="text-decoration: none; cursor: pointer;">@card.Name</a>
+                    @if(card.User != null)
+                    {
+                        <div class="d-flex align-content-center pt-2 justify-content-between" style="text-wrap: nowrap; overflow: hidden;">
+                            <div class="d-flex align-content-center" style="max-width: 150px;">
+                                <img class="mx-1" src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
+                                width="30px"
+                                height="30px"
+                                style="border: 2px solid @(Model.UserRolesDictionary[card.User]?.Color ?? "#fff"); border-radius: 50%;">
+                                <p class="px-1 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis; color: @(Model.UserRolesDictionary[card.User]?.Color ?? "#fff");">@card.User.FirstName @card.User.LastName</p>
+                            </div>
+                            <p class="m-0 rounded-3 px-1 text-center align-content-center text-white" style="font-size: 12px; background-color: #323232; width: 60px">@String.Format("{0:dd/MM}", @card.Date)</p>
+                        </div>
+                    } else
+                    {
+                        <div class="d-flex align-content-center pt-2 justify-content-between" style="text-wrap: nowrap; overflow: hidden;">
+                            <div class="d-flex align-content-center" style="max-width: 150px;">
+                                <p class="px-1 m-0 align-content-center text-muted">Não atribuído</p>
+                            </div>
+                            <p class="m-0 rounded-3 px-1 text-center align-content-center text-white" style="font-size: 12px; background-color: #323232; width: 60px;">@String.Format("{0:dd/MM}", @card.Date)</p>
+                        </div>
+                    }
+                </div>
+            }
         </div>
-    </div>
+    }
 </div>
+<style>
+    .board {
+    width: 100%;
+    height: 100%;
+    }
+
+    /* ---- BOARD ---- */
+    .lanes {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 16px;
+    padding: 24px 32px;
+    height: 100%;
+    overflow-y: auto;
+    }
+
+    .swim-lane {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #272727;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    padding: 12px;
+    border-radius: 4px;
+    width: 225px;
+    min-height: 120px;
+    overflow-x: auto;
+    }
+
+    .task {
+    background: white;
+    color: black;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: move;
+    }
+
+    .is-dragging {
+    scale: 1.05;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    background: rgb(50, 50, 50);
+    color: white;
+    }
+
+    .is-dragging-lane {
+        transform: scale(1.05) rotate(-5deg);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        background: rgb(50, 50, 50);
+        color: white;
+        transition: transform 0.2s ease;
+    }
+</style>

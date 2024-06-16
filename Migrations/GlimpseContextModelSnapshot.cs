@@ -86,6 +86,9 @@ namespace Glimpse.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
                     b.Property<int?>("LaneId")
                         .HasColumnType("int");
 
@@ -145,7 +148,6 @@ namespace Glimpse.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -204,6 +206,9 @@ namespace Glimpse.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("CanManageMembers")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("CanManageRoles")
                         .HasColumnType("bit");
 
                     b.Property<bool>("CanManageTags")
