@@ -184,15 +184,38 @@ public class BoardController : Controller
                 await BoardImg.CopyToAsync(stream);
             }
             Board.Background = "../board-pictures/" + nomeArquivo;
-        } else 
+        }
+        else
         {
             Board.Background = "../board-pictures/defaultBackground.jpg";
         }
 
+        var BacklogLane = new Lane
+        {
+            Name = "BackLog",
+            Board = Board,
+            Index = 0,
+        };
+        var ToDoLane = new Lane
+        {
+            Name = "To Do",
+            Board = Board,
+            Index = 1,
+        };
+        var DoneLane = new Lane
+        {
+            Name = "Done",
+            Board = Board,
+            Index = 2,
+        };
+        Board.Lanes.Add(BacklogLane);
+        Board.Lanes.Add(ToDoLane);
+        Board.Lanes.Add(DoneLane);
+        _db.Boards.Add(Board);
+        await _db.SaveChangesAsync();
+        // Board.Background = "../board-pictures/defaultBackground.jpg";
         if (ModelState.IsValid)
         {
-            _db.Boards.Add(Board);
-            await _db.SaveChangesAsync();
             var project = await _db.Projects
                 .Include(u => u.Boards)
                 .SingleAsync(p => p.Id == projectId);
@@ -235,6 +258,9 @@ public class BoardController : Controller
             }
             try
             {
+                Board oldBoard = await _db.Boards.FindAsync(Board.Id);
+                _db.Entry(oldBoard).CurrentValues.SetValues(Board);
+
                 await _db.SaveChangesAsync();
             }
             catch (DbUpdateException)

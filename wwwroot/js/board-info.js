@@ -608,7 +608,7 @@ lanes.forEach((lane) => {
                 checkbox.addEventListener('change', updateProgress);
             });
 
-            updateProgress();
+            if(checkboxes.length > 0){updateProgress();}
 
             function updateProgress() {
                 let checked = 0;
