@@ -5,6 +5,9 @@
     ViewData["Path"] = new List<string> { "Projetos", Model.Name };
     bool? creatorR = ViewData["Creator"] as bool?;
     bool creator = creatorR ?? false;
+
+    @* Layout = "_BasicLayout";
+    ViewData["StylesheetUrl"] = "~/css/index.css"; *@
 }
 
 <section>

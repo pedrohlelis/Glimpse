@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
-
+using Glimpse.Models;
 
 namespace Glimpse.ViewModels;
 
 public class ProfileVM
 {
+    public User User { get; set; }
     public IFormFile? PictureFile { get; set; }
     public string? PicturePath {get; set;}
 

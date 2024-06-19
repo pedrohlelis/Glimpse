@@ -136,6 +136,65 @@ if (toggleMemberBarDiv != null)
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.task-checkbox');
+    const progressBar = document.getElementById('progress-bar');
+    const progressLabel = document.getElementById('progress-label');
+    const totalTasks = checkboxes.length;
+    let animationInterval = null; // Variable to store animation interval
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateProgress);
+    });
+
+    function updateProgress() {
+        let checked = 0;
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checked++;
+            }
+        });
+
+        const percentage = (checked / totalTasks) * 100;
+        const currentPercentage = parseFloat(progressLabel.textContent) || 0;
+
+        // Clear existing animation interval if it exists
+        if (animationInterval) {
+            clearInterval(animationInterval);
+        }
+
+        // Animate the progress label incrementally
+        animateProgress(currentPercentage, percentage);
+
+        progressBar.style.width = `${percentage}%`;
+        progressBar.setAttribute('aria-valuenow', percentage);
+
+        if (percentage >= 99.5) {
+            progressBar.style.backgroundColor = '#3BE73B'; // Green
+            progressBar.style.boxShadow = '0 0 10px rgba(59, 231, 59, 0.7)'; // Green shadow
+            progressBar.classList.add('completed');
+        } else {
+            progressBar.style.backgroundColor = 'rgb(109, 19, 255)'; // Purple
+            progressBar.style.boxShadow = '0 0 10px rgba(109, 19, 255, 0.7)'; // Purple shadow
+            progressBar.classList.remove('completed');
+        }
+    }
+
+    function animateProgress(current, target) {
+        const increment = target > current ? 1 : -1;
+        animationInterval = setInterval(() => {
+            if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                clearInterval(animationInterval);
+                animationInterval = null; // Reset animation interval variable
+            } else {
+                current += increment;
+                progressLabel.textContent = `${current.toFixed(1)}%`;
+                progressLabel.style.color = current >= 99.5 ? '#3BE73B' : 'white';
+            }
+        }, 10);
+    }
+
+
     // CARDS AND LANES DRAG&DROP
     const board = document.querySelector(".lanes");
 
@@ -478,7 +537,7 @@ lanes.forEach((lane) => {
 
                 userContainer.appendChild(userImageElement);
                 userContainer.appendChild(userElement);
-                addUserToCardForm.setAttribute('hidden', true);
+                // addUserToCardForm.setAttribute('hidden', true);
             }
 
             showOverlay();

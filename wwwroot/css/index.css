@@ -19,10 +19,7 @@
   }
 }
 
-/* html {
-  
-  scrollbar-color:  #272727;
-} */
+
 
 html::-webkit-scrollbar {
   width: .8vw;
@@ -369,9 +366,9 @@ input:focus {
   z-index: 1;
 }
 
-.add-Card-Button {
+/* .add-Card-Button {
 
-}
+} */
 
 .project-card {
   display: flex;

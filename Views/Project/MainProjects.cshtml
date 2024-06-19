@@ -6,7 +6,7 @@
     ViewData["StylesheetUrl"] = "~/css/index.css";
 }
 
-<partial name="_ProjectsSideBarPartial"></partial>
+@* <partial name="_ProjectsSideBarPartial"></partial> *@
 
 <br><br><br>
 <div class="main-content d-flex align-items-center justify-content-center flex-column">
@@ -39,36 +39,24 @@
                 }
                 <div class="dropup">
                     <button class="dropdown-toggle text-white" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
-                    <ul class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
+                    <div class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
                         @if(Model.User == kvp.Value){
-                            <li>
-                                <a class="text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@kvp.Key.Id">
-                                    Editar
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-white" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">
-                                    Deletar
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-white" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@kvp.Key.Id">
-                                    Boards
-                                </a>
-                            </li>
+                            <a class="dropdown-item text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@kvp.Key.Id">Editar</a>
+                            <a class="dropdown-item text-danger" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">Deletar</a>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item text-white" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@kvp.Key.Id">Boards</a>
                         } else{
-                            <li data-id="@kvp.Key.Id">
-                                <a class="text-danger" data-bs-toggle="modal" data-bs-target="#ConfirmLeaveProjectModal" aria-expanded="true" onclick="leaveProject(this)">
+                            <li data-id="@kvp.Key.Id" style="cursor: pointer;">
+                                <a class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#ConfirmLeaveProjectModal" aria-expanded="true" onclick="leaveProject(this)">
                                     Deixar Projeto
                                 </a>
                             </li>
                         }
-                    </ul>
+                    </div>
                 </div>
             </div>
         }
     </div>
-
 
 <div class="modal fade" id="ConfirmLeaveProjectModal" tabindex="-1" aria-labelledby="ConfirmLeaveProjectModal" aria-hidden="true">
     <div class="modal-dialog bg-dark">

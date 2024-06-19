@@ -74,6 +74,7 @@ public class CardController : Controller
         card.Date = date;
         await _db.SaveChangesAsync();
 
+        await _db.SaveChangesAsync();
         _db.Entry(card);
 
         if (ModelState.IsValid)

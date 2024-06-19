@@ -34,6 +34,7 @@ public class UserController : Controller
 
         var userProfile = new ProfileVM
         {
+            User = user,
             PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
@@ -50,6 +51,7 @@ public class UserController : Controller
         var user = _userManager.GetUserAsync(User).Result;
         var userProfile = new ProfileVM
         {
+            User = user,
             PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
