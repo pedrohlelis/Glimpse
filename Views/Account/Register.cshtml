@@ -2,7 +2,7 @@
 @model RegisterVM;
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registrar";
     Layout = "_BasicLayout";
 }
 <br><br>
@@ -14,7 +14,7 @@
                 <div class="column">
                     <div class="col-8">
                         <div class="input-box mb-2">
-                            <label asp-for="FirstName" class="form-label ">Primeiro Nome:</label>
+                            <label class="form-label ">Nome:</label>
                             <div class="input-validation">
                                 <input asp-for="FirstName" class="form-input">
                                 <span asp-validation-for="FirstName" class="validation-text"></span>
@@ -25,7 +25,7 @@
                         <div class="input-box mb-2">
                             <label asp-for="LastName" class="form-label">Ultimo Name:</label>
                             <input asp-for="LastName" class="form-input">
-                            <span asp-validation-for="LastName" class="validation-text"></span>
+                            <span asp-validation-for="LastName" class="validation-text">Nome</span>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <a asp-action="Login" class="alreadyHaveAccount-btn">Já possui uma conta?</a>
                     </div>
                     <div class="col-4">
-                        <input type="submit" value="Register" class="submit-btn">
+                        <input type="submit" value="Register" class="submit-btn button-create">
                     </div>
                 </div>
             </form>

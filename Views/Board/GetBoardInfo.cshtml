@@ -12,9 +12,10 @@
 <partial name="_EditRolePartial"></partial>
 <partial name="_MainContentPartial"></partial>
 
-<div id="overlay" class="overlay" hidden>
+<div id="overlay" class="overlay" style="min-height: 1400px;" hidden>
     <form id="edit-card-form" asp-action="EditCard" asp-controller="Card" method="post">
         <div id="overlay-content" class="overlay-content row">
+            <form id="edit-card-form" asp-action="EditCard" asp-controller="Card" method="post"></form>
             <div class="col d-flex flex-column gap-4">
                 <input type="hidden" name="cardId" id="cardId">
                 <div class="d-flex mb-3">
@@ -24,37 +25,41 @@
                     <label for="description" class="form-label">Descrição:</label>
                     <textarea class="form-control text-white" rows="6" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;" name="description" id="description"></textarea>
                 </div>
+                <div class="gap-1 mb-3">
+                    <label for="startDate" class="form-label">Data de início:</label>
+                    <input class="form-control text-white" type="date" name="startDate" id="startDate" style="max-width: 170px;background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;">
+                </div>
                 <div class="gap-1">
-                    <label for="date" class="form-label">Data:</label>
-                    <input class="form-control text-white" type="date" name="date" id="date" style="max-width: 170px;background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;">
+                    <label for="dueDate" class="form-label">Data de entrega:</label>
+                    <input class="form-control text-white" type="datetime-local" name="dueDate" id="dueDate" style="max-width: 250px;background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;">
                 </div>
                 <input type="hidden" name="id" value="@Model.Board.Id">
-                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
             </div>
     </form>
     <div class="col-4 d-flex flex-column">
-                <form asp-action="DeleteCard" id="DeleteCardForm" asp-controller="Card" method="post">
-                    <input type="hidden" name="deleteCardId" id="deleteCardId">
-                    <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
-                    <input type="hidden" name="deleteCardConfirmation" id="deleteCardConfirmation" value="">
-                    <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
-                </form>
         @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
             <div class="d-flex gap-1">
                 <button type="submit" form="edit-card-form" id="save-button" class="button-save py-2 btn-info text-white flex-grow-1" style="outline: none; border-radius: 6px; border: none;">
                     Salvar
                 </button>
-                <button type="submit" form="DeleteCardForm" class="px-2 d-flex justify-content-center align-items-center" style="outline: none; border: none; border-radius: 6px; background-color: #be4b4b;">
-                    <box-icon name='trash' color="white"></box-icon>
+
+                <form asp-action="DeleteCard" id="DeleteCardForm" asp-controller="Card" method="post">
+                    <input type="hidden" name="deleteCardId" id="deleteCardId">
+                    <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
+                    <input type="hidden" name="deleteCardConfirmation" id="deleteCardConfirmation" value="">
+                </form>
+
+                <button type="submit" form="DeleteCardForm" class="px-2 btn-danger btn" style="outline: none; border: none; border-radius: 6px;">
+                    <box-icon name='trash' color="white" style="width: 16px; height: 16px;"></box-icon>
                 </button>
             </div>
         }
         <br>
-        <p class="fs-5">Responsável</p>
+        <p class="fs-5 m-0">Responsável</p>
         <form asp-action="AddUserToCard" id="addUserToCardForm" asp-controller="Card" method="post">
             <input type="hidden" name="userCardId" id="userCardId">
             <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
-            <select name="userId" class="text-white" style="background-color: #131313; outline: none; border-color: #272727;">
+            <select name="userId" class="text-white mb-3" style="background-color: #131313; outline: none; border-color: #272727;">
                 <option selected>Escolher</option>
                 @foreach(User user in Model.Members) {
                     <option value="@user.Id">@user.FirstName @user.LastName</option>
@@ -62,18 +67,13 @@
             </select>
             <button type="submit" class="button-save px-1 btn-info text-white" style="outline: none; border-radius: 6px; border: none;">Salvar</button>
         </form>
-        <div class="d-flex align-content-center" id="user">
 
-            <form asp-action="RemoveUserFromCard" asp-controller="Card">
-                <input type="hidden" name="userCardId" id="userCardId">
-                <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
-            </form>
-        </div>
-
+        <div class="d-flex align-content-center" id="user"></div>
+        <form id="removeUserForm" asp-action="RemoveUserFromCard" asp-controller="Card" method="post"></form>
         <br>
         <br>
         <br>
-        <p class="fs-5">Tags</p>
+        <p class="fs-5 m-0">Tags</p>
         <form asp-action="AddTagToCard" asp-controller="Tag" method="post">
             <input type="hidden" name="tagCardId" id="tagCardId">
             <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
@@ -83,13 +83,9 @@
                     <option value="@tag.Id">@tag.Name</option>
                 }
             </select>
-            @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
-                <button type="submit" class="button-save px-1 btn-info text-white" style="outline: none; border-radius: 6px; border: none;">Salvar</button>
-            }
+            <button type="submit" class="button-save px-1 btn-info text-white" style="outline: none; border-radius: 6px; border: none;">Salvar</button>
         </form><br>
-        <div id="tags" class="tags-container d-flex flex-wrap">
-        </div>
-
+        <div id="tags" class="tags-container d-flex flex-wrap"></div>
     </div>
     <style>
         .checkbox-container {
@@ -128,14 +124,18 @@
             </div>
         </div>
 
-        <div class="checkbox-container">
-            <label><input type="checkbox" class="task-checkbox"> Task 1</label><br>
+        <div id="checkbox-list" class="d-flex flex-column">
+            @* <label><input type="checkbox" class="task-checkbox"> Task 1</label> *@
+        </div>
+        @* <div class="checkbox-container">
+            <br>
+            <label><input type="checkbox" class="task-checkbox"> Task 1</label>
             <label><input type="checkbox" class="task-checkbox"> Task 2</label><br>
             <label><input type="checkbox" class="task-checkbox"> Task 3</label><br>
             <label><input type="checkbox" class="task-checkbox"> Task 4</label><br>
             <label><input type="checkbox" class="task-checkbox"> Task 5</label><br>
             <label><input type="checkbox" class="task-checkbox"> Task 6</label>
-        </div>
+        </div> *@
     </div>
     <div class="d-flex">
         <div class="d-flex flex-column flex-grow-1">
@@ -143,132 +143,28 @@
             <h4>Checklist</h4>
 
             <div class="col d-flex gap-2">
-                <button type="button" class="py-2 px-2 btn-primary" id="add-checkbox-button">Adicionar</button>
-                <button type="button" class="py-2 px-2 btn-primary" id="save-checkboxes-button">Salvar</button>
+                <button type="button" class="py-2 px-2 btn-primary rounded-3" id="add-checkbox-button">Adicionar</button>
+                <button type="button" class="py-2 px-2 btn-primary rounded-3" id="save-checkboxes-button">Salvar</button>
             </div>
             <br>
-            <div id="checkbox-list" class="d-flex flex-column"></div>
+            
+            @* <div class="d-flex justify-content-start">
+                <div>
+                    <input type="checkbox" name="" id="">
+                    <label for="checkbox">checkbox.Name</label>
+                </div>
+                <form class="ms-5" id="checkbox-delete-form" action="">
+                    <button onclick="submit()" style="background-color:#131313; border:none;"><box-icon name="x" color="white" ></box-icon></button>
+                </form>
+            </div> *@
+
         </div>
         
         <div class="col-4 d-flex flex-column"></div>
         
     </div>
 </div>
-
 @section Scripts {
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="/js/board-info.js"></script>
 }
-
-@* <div id="overlay" class="overlay" hidden>
-    <form id="edit-card-form" asp-action="EditCard" asp-controller="Card" method="post">
-        <div id="overlay-content" class="overlay-content row">
-            <div class="col d-flex flex-column gap-4">
-                <input type="hidden" name="cardId" id="cardId">
-                <div class="d-flex mb-3">
-                    <textarea rows="4" class="input-group text-white fs-3" type="text" name="name" id="name" style="outline: none; background-color: #131313; border: none; min-height: 50px; max-height: 140px;"></textarea>
-                </div> 
-                <div class="gap-1 mb-3">
-                    <label for="description" class="form-label">Descrição:</label>
-                    <textarea class="form-control text-white" rows="6" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;" name="description" id="description"></textarea>
-                </div>
-                <div class="gap-1">
-                    <label for="date" class="form-label">Data:</label>
-                    <input class="form-control text-white" type="date" name="date" id="date" style="max-width: 170px;background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;">
-                </div>
-                <input type="hidden" name="id" value="@Model.Board.Id">
-            </div>
-            @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
-                <button type="submit" id="save-button" class="button-save">Salvar</button>
-            }
-        </div>
-    </form>
-    <div class="createCheckbox">
-        <button id="show-checkbox-form-button" class="button-create">Adicionar Checkbox</button>
-        <form id="create-checkbox-form" asp-action="CreateCheckbox" asp-controller="Checkbox" enctype="multipart/form-data" method="post" hidden>
-            <input type="checkbox" name="finished">
-            <input type="text" name="name" placeholder="Nome do checkbox">
-            <input type="date" name="date">
-            <input type="hidden" name="cardId" id="checkbox-cardId">
-
-            <button type="submit" id="save-checkbox-button" class="button-save">Salvar</button>
-        </form>
-    </div>
-    <div class="col-4 d-flex flex-column">
-        @if (Model.UserRole != null && Model.UserRole.CanManageCards) {
-            <div class="d-flex gap-1">
-                <button type="submit" form="edit-card-form" id="save-button" class="button-save py-2 btn-info text-white flex-grow-1" style="outline: none; border-radius: 6px; border: none;">
-                    Salvar
-                </button>
-
-                <form asp-action="DeleteCard" id="DeleteCardForm" asp-controller="Card" method="post">
-                    <input type="hidden" name="deleteCardId" id="deleteCardId">
-                    <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
-                    <input type="hidden" name="deleteCardConfirmation" id="deleteCardConfirmation" value="">
-                </form>
-
-                <button type="submit" form="DeleteCardForm" class="px-2" style="outline: none; border: none; border-radius: 6px; background-color: #be4b4b;">
-                    <img src="/Icons/Delete.svg">
-                </button>
-            </div>
-        }
-        <br>
-        <p class="fs-5">Responsável</p>
-        <form asp-action="AddUserToCard" id="addUserToCardForm" asp-controller="Card" method="post">
-            <input type="hidden" name="userCardId" id="userCardId">
-            <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
-            <select name="userId" class="text-white" style="background-color: #131313; outline: none; border-color: #272727;">
-                <option selected>Escolher</option>
-                @foreach(User user in Model.Members) {
-                    <option value="@user.Id">@user.FirstName @user.LastName</option>
-                }
-            </select>
-            <button type="submit" class="button-save px-1 btn-info text-white" style="outline: none; border-radius: 6px; border: none;">Salvar</button>
-        </form>
-        <div class="d-flex align-content-center" id="user">
-
-            <form asp-action="RemoveUserFromCard" asp-controller="Card">
-                <input type="hidden" name="userCardId" id="userCardId">
-                <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
-            </form>
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <p class="fs-5">Tags</p>
-        <form asp-action="AddTagToCard" asp-controller="Tag" method="post">
-            <input type="hidden" name="tagCardId" id="tagCardId">
-            <input type="hidden" name="boardId" id="boardId" value="@Model.Board.Id">
-            <select name="tagId" class="text-white" style="background-color: #131313; outline: none; border-color: #272727;">
-                <option selected>Escolher</option>
-                @foreach(Tag tag in Model.Tags) {
-                    <option value="@tag.Id">@tag.Name</option>
-                }
-            </select>
-            <button type="submit" class="button-save px-1 btn-info text-white" style="outline: none; border-radius: 6px; border: none;">Salvar</button>
-        </form><br>
-        <div id="tags" class="tags-container d-flex flex-wrap">
-        </div>
-
-    </div>
-    <div class="d-flex">
-        <div class="d-flex flex-column flex-grow-1">
-            <br><br>
-            <h4>Checklist</h4>
-
-            <div class="col d-flex gap-2">
-                <button type="button" class="py-2 px-2 btn-primary" id="add-checkbox-button">Adicionar</button>
-                <button type="button" class="py-2 px-2 btn-primary" id="save-checkboxes-button">Salvar</button>
-            </div>
-            <br>
-            <div id="checkbox-list" class="d-flex flex-column"></div>
-        </div>
-        
-        <div class="col-4 d-flex flex-column"></div>
-    </div>
-</div>
-@section Scripts {
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="/js/board-info.js"></script>
-} *@

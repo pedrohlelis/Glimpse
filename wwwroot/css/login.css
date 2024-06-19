@@ -60,7 +60,7 @@ src: url("../fonts/Fixture-Expanded-Light.otf");
 }
 
 .submit-btn {
-    width: 400px;
+    width: 100%;
     height: 50px;
     background-color: #9531FF;
     font-size: 15px;
@@ -71,6 +71,24 @@ src: url("../fonts/Fixture-Expanded-Light.otf");
 
 .submit-btn:hover {
     background-color: #de38ff;
+    transition: all 0.3s linear;
+}
+
+.google-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: #252525;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+.google-btn:hover {
+    background-color: #9531FF;
     transition: all 0.3s linear;
 }
 

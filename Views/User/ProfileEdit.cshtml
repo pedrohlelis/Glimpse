@@ -1,76 +1,72 @@
 @using Glimpse.ViewModels;
 @model ProfileVM;
-
 @{
     Layout = "_BasicLayout";
     ViewData["StylesheetUrl"] = "~/css/index.css";
 }
 
-<div class="container rounded bg-dark mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
+<br><br>
+<div class="container bg-dark mt-5 mb-5">
+    <div class="row d-flex justify-content-center gap-4">
+        <div class="col-md-3 border-right mx-3">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="300px" src='@(Model.PicturePath ?? Url.Content("~/default-images/default-avatar.jpg"))' alt="">
-                <span class="font-weight-bold">@Model.FirstName @Model.LastName</span>
-                <span class="text-black-50">@Model.Email</span>
+                <img class="rounded-circle mt-5" width="300px" height="300px" src='@(Model.PicturePath ?? Url.Content("~/default-images/default-avatar.jpg"))' alt="">
             </div>
         </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
+        <div class="col-md-5 border-right align-content-center mx-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-right">Configurações do perfil</h4>
+            </div>
+            <form method="post" asp-action="UpdateProfile" id="form" enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+
+                <div class="col-md-6">
+                    <label asp-for="PictureFile" class="control-label">Foto de perfil</label>
+                    <input asp-for="PictureFile" id="profilePicFileInput" class="btn-outline-primary form-control" style="background-color: #131313; border-color: #6610f2;" accept="image/*">
+                    <span asp-validation-for="PictureFile" class="text-danger"></span>
                 </div>
-                <form method="post" asp-action="UpdateProfile" id="form" enctype="multipart/form-data">
-                    <div asp-validation-summary="All" class="text-danger" role="alert"></div>
 
+                <div class="row mt-2">
                     <div class="col-md-6">
-                        <label asp-for="PictureFile" class="control-label"></label>
-                        <input asp-for="PictureFile" id="profilePicFileInput" class="form-control-file" accept="image/*">
-                        <span asp-validation-for="PictureFile" class="text-danger"></span>
+                        <label asp-for="FirstName" class="control-label">Primeiro Nome</label>
+                        <input asp-for="FirstName" id="firstName" name="firstName" class="btn-outline-primary form-control" style="background-color: #131313; border-color: #6610f2;" placeholder="First Name" value="@Model.FirstName">
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
-
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label asp-for="FirstName" class="control-label"></label>
-                            <input asp-for="FirstName" id="firstName" name="firstName" class="form-control" placeholder="First Name" value="@Model.FirstName">
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-6">
-                            <label asp-for="LastName" class="control-label"></label>
-                            <input asp-for="LastName" id="LastName" name="LastName" class="form-control" placeholder="Last Name" value="@Model.LastName">
-                            <span asp-validation-for="LastName" class="text-danger"></span>
-                        </div>
+                    <div class="col-md-6">
+                        <label asp-for="LastName" class="control-label">Sobrenome</label>
+                        <input asp-for="LastName" id="LastName" name="LastName" class="btn-outline-primary form-control" style="background-color: #131313; border-color: #6610f2;" placeholder="Last Name" value="@Model.LastName">
+                        <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
 
                     <div class="mt-5 text-center">
-                        <button class="btn btn-primary profile-button" id="submit-update" type="submit">Save Profile</button>
+                        <button class="profile-button button-create" id="submit-update" type="submit">Salvar Perfil</button>
+                    </div>
+
+                    <div class="mt-2 text-center">
+                        <button type="button" class="button-create" style="background-color: red;" data-bs-toggle="modal" data-bs-target="#ConfirmDeleteModal">
+                        Deletar Conta
+                        </button>
                     </div>
                 </form>
 
-                <div class="mt-2 text-center">
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ConfirmDeleteModal">
-                    Delete Account
-                    </button>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-labelledby="ConfirmDeleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ConfirmDeleteModalLabel">Account Delete</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- Modal -->
+            <div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-labelledby="ConfirmDeleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title" id="ConfirmDeleteModalLabel">Deletar Conta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-dark">
+                        <p>Você tem certeza que deseja deletar sua conta?</p>
+                        <p><strong>Essa ação não pode ser desfeita.</strong></p>
+                    </div>
+                    <form method="post" asp-action="DeleteAccount" asp-controller="Account" id="form-delete" enctype="multipart/form-data">
+                        <div class="modal-footer bg-dark">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-danger" id="delete-submit">Sim, deletar</button>
                         </div>
-                        <div class="modal-body bg-dark">
-                            <p>Are you sure you want to delete your account?</p>
-                            <p><strong>This action cannot be undone.</strong></p>
-                        </div>
-                        <form method="post" asp-action="DeleteAccount" asp-controller="Account" id="form-delete" enctype="multipart/form-data">
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
-                            </div>
-                        </form>
-                        </div>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -86,11 +82,11 @@
 
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
-
-
-
-
-
-
-
+<style>
+    .form-control:focus {
+        color: white;
+    }
+    .form-control {
+        color: white;
+    }
+</style>

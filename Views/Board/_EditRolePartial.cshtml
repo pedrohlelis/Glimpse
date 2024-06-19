@@ -11,7 +11,10 @@
 <div class="memberSideMenu d-flex flex-column overflow-y active">
     @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
         <div class="mt-4 mx-auto">
-            <button class="invite-btn btn btn-success text-white" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><box-icon name='user-plus' type='solid' color="white" ></box-icon> Convidar Membro</button>
+            <button class="invite-btn btn btn-primary text-white text-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <box-icon name='user-plus' type='solid' color="white" ></box-icon>
+                <p class="m-0">Convidar Membro</p>
+            </button>
         </div>
         <div class="invite-member-div collapse mt-4" id="collapseExample">
             <div class="card card-body" style="background-color: #272727; border-color: #7931ff;">
@@ -28,7 +31,10 @@
         </div>
     }else{
         <div class="mt-4 mx-auto d-none">
-                <button class="invite-btn btn btn-success text-white" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><box-icon name='user-plus' type='solid' color="white" ></box-icon> Convidar Membro</button>
+            <button class="invite-btn btn btn-primary text-white text-center d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <box-icon name='user-plus' type='solid' color="white" ></box-icon>
+                <p class="m-0">Convidar Membro</p>
+            </button>
         </div>
         <div class="collapse mt-4" id="collapseExample">
             <div class="card card-body">
@@ -47,7 +53,7 @@
     @foreach (var role in Model.ProjectRoles)
     {
         <div class="role-container mt-4">
-            <h5>@role.Name</h5>
+            <p class="fs-5">@role.Name</p>
             @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == role))
             {
                 var user = kvp.Key;
@@ -79,7 +85,7 @@
         </div>
     }
     <div class="role-container mt-4">
-        Sem Cargo
+        <p>Sem cargo</p>
         @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == null)){
             var user = kvp.Key;
             <div class="member-div container mt-3">
@@ -113,7 +119,10 @@
     <div class="memberSideMenu d-flex flex-column overflow-y">
     @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
         <div class="mt-4 mx-auto">
-            <button class="invite-btn btn btn-success text-white d-none" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><box-icon name='user-plus' type='solid' color="white" ></box-icon> Convidar Membro</button>
+            <button class="invite-btn btn-primary text-white d-none text-center d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <box-icon name='user-plus' type='solid' color="white"></box-icon>
+                <p class="m-0">Convidar Membro</p>
+            </button>
         </div>
         <div class="invite-member-div collapse mt-4 d-none" id="collapseExample">
             <div class="card card-body" style="background-color: #272727; border-color: #7931ff;">
@@ -130,7 +139,10 @@
         </div>
     }else{
         <div class="mt-4 mx-auto">
-                <button class="invite-btn btn btn-success text-white d-none" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><box-icon name='user-plus' type='solid' color="white" ></box-icon> Convidar Membro</button>
+            <button class="invite-btn btn btn-primary text-white d-none text-center align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <box-icon name='user-plus' type='solid' color="white" ></box-icon>
+                <p class="m-0">Convidar Membro</p>
+            </button>
         </div>
         <div class="collapse mt-4" id="collapseExample">
             <div class="card card-body">
@@ -149,7 +161,7 @@
     @foreach (var role in Model.ProjectRoles)
     {
         <div class="role-container mt-4 d-none">
-            <h5>@role.Name</h5>
+            <p>@role.Name</p>
             @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == role))
             {
                 var user = kvp.Key;

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Glimpse.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http.HttpResults;
+using System.Text.Json;
 
 namespace Glimpse.Controllers;
 
@@ -28,19 +29,55 @@ public class CheckboxController : Controller
         {
             return Json(new { success = false, message = "Dados inválidos" });
         }
-        System.Console.WriteLine(model.Name);
-        System.Console.WriteLine(model.CardId);
-        var checkbox = new Checkbox { Name = model.Name ,Finished = false };
+        var checkbox = new Checkbox { Name = model.Name ,Finished = model.Finished };
         _db.Checkboxes.Add(checkbox);
         await _db.SaveChangesAsync();
 
         var card = await _db.Cards
-        .Include(u => u.Checkboxes)
-        .SingleAsync(p => p.Id == model.CardId);
+            .Include(u => u.Checkboxes)
+            .SingleAsync(p => p.Id == model.CardId);
 
         card.Checkboxes.Add(checkbox);
         await _db.SaveChangesAsync();
         
         return Json(new { success = true, checkbox });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditCheckbox(int boardId, [FromForm] string checkboxesStatus)
+    {
+
+        var checkboxesStatusDeserialized = JsonSerializer.Deserialize<Dictionary<string, bool>>(checkboxesStatus);
+
+        // Iterate through the dictionary and update checkboxes in the database
+        foreach (var kvp in checkboxesStatusDeserialized)
+        {
+
+            var checkbox = _db.Checkboxes.FirstOrDefault(c => c.Id == int.Parse(kvp.Key));
+
+            checkbox.Finished = kvp.Value;
+            await _db.SaveChangesAsync();
+        }
+
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = false });
+        // return BadRequest("Checkbox states updated successfully.");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteCheckbox(int boardId, int checkboxId, int cardId)
+    {
+        var card = await _db.Cards
+            .Include(u => u.Checkboxes)
+            .FirstOrDefaultAsync(u => u.Id == cardId);
+
+        var checkbox = await _db.Checkboxes.FindAsync(checkboxId);
+
+        card.Checkboxes.Remove(checkbox);
+        _db.Checkboxes.Remove(checkbox);
+
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = false });
     }
 }

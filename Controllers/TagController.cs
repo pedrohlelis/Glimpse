@@ -50,7 +50,6 @@ public class TagController : Controller
     [HttpPost]
     public async Task<IActionResult> EditTag(string Name,string Color, int tagId, int boardId, bool IsMemberSideBarActive)
     {
-        Console.WriteLine("tagId: " + tagId);
         // Retrieve the existing role from the database
         Tag toEditTag = await _db.Tags.FindAsync(tagId);
 

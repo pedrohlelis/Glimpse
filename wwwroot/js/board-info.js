@@ -29,8 +29,6 @@ function openRolesModal() {
 }
 
 function openManageUserModal(button) {
-    // let form =  document.getElementById('form-role');
-
     document.getElementById('ManagedUserName').innerText = button.dataset.name;
     document.getElementById('ManagedUserEmail').innerText = button.dataset.email;
     document.getElementById('userPicture').src = button.dataset.picture;
@@ -136,63 +134,7 @@ if (toggleMemberBarDiv != null)
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    const checkboxes = document.querySelectorAll('.task-checkbox');
-    const progressBar = document.getElementById('progress-bar');
-    const progressLabel = document.getElementById('progress-label');
-    const totalTasks = checkboxes.length;
-    let animationInterval = null; // Variable to store animation interval
-
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', updateProgress);
-    });
-
-    function updateProgress() {
-        let checked = 0;
-
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                checked++;
-            }
-        });
-
-        const percentage = (checked / totalTasks) * 100;
-        const currentPercentage = parseFloat(progressLabel.textContent) || 0;
-
-        // Clear existing animation interval if it exists
-        if (animationInterval) {
-            clearInterval(animationInterval);
-        }
-
-        // Animate the progress label incrementally
-        animateProgress(currentPercentage, percentage);
-
-        progressBar.style.width = `${percentage}%`;
-        progressBar.setAttribute('aria-valuenow', percentage);
-
-        if (percentage >= 99.5) {
-            progressBar.style.backgroundColor = '#3BE73B'; // Green
-            progressBar.style.boxShadow = '0 0 10px rgba(59, 231, 59, 0.7)'; // Green shadow
-            progressBar.classList.add('completed');
-        } else {
-            progressBar.style.backgroundColor = 'rgb(109, 19, 255)'; // Purple
-            progressBar.style.boxShadow = '0 0 10px rgba(109, 19, 255, 0.7)'; // Purple shadow
-            progressBar.classList.remove('completed');
-        }
-    }
-
-    function animateProgress(current, target) {
-        const increment = target > current ? 1 : -1;
-        animationInterval = setInterval(() => {
-            if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
-                clearInterval(animationInterval);
-                animationInterval = null; // Reset animation interval variable
-            } else {
-                current += increment;
-                progressLabel.textContent = `${current.toFixed(1)}%`;
-                progressLabel.style.color = current >= 99.5 ? '#3BE73B' : 'white';
-            }
-        }, 10);
-    }
+    
 
 
     // CARDS AND LANES DRAG&DROP
@@ -418,7 +360,6 @@ lanes.forEach((lane) => {
         }, { offset: Number.NEGATIVE_INFINITY }).element;
     }
 
-
     const overlay = document.getElementById('overlay');
     const addUserToCardForm = document.getElementById('addUserToCardForm');
     const overlayContent = document.getElementById('overlay-content');
@@ -426,11 +367,47 @@ lanes.forEach((lane) => {
     const saveButton = document.getElementById('save-button');
     let isModified = false;
 
+    function submitCheckboxState() {
+    var checkboxes = overlay.querySelectorAll('input[type="checkbox"]');
+    var checkboxStates = {};
+
+    checkboxes.forEach(function(checkbox) {
+        var checkboxToEditId = checkbox.id.replace("checkbox_", "");;
+        var checkboxState = checkbox.checked;
+        console.log(checkboxToEditId + ":" + checkboxState);
+        checkboxStates[checkboxToEditId] = checkboxState;
+    });
+
+    var editFormData = new FormData();
+    editFormData.append("boardId", 2);
+    editFormData.append("checkboxesStatus", JSON.stringify(checkboxStates));
+    console.log(JSON.stringify(checkboxStates))
+    
+    fetch('/Checkbox/EditCheckbox', {
+        method: 'POST',
+        body: editFormData
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Checkbox states updated successfully!');
+            // Optionally handle UI update or feedback
+            // location.reload();
+        } else {
+            console.error('Failed to update checkbox states.');
+            // Handle error case if needed
+        }
+    })
+    .catch(error => {
+        console.error('Error occurred while updating checkbox states:', error);
+    });
+}
+
     function showOverlay() {
         overlay.removeAttribute('hidden');
     }
 
     function hideOverlay() {
+        submitCheckboxState();
         overlay.setAttribute('hidden', true);
     }
 
@@ -446,15 +423,16 @@ lanes.forEach((lane) => {
         }
     });
 
-    // Event listener para mostrar o overlay quando um card é clicado
     const cards = document.querySelectorAll('.task');
-    // const cards = document.querySelectorAll('.card-link');
     cards.forEach(card => {
         card.addEventListener('click', function(event) {
+            const boardId = card.dataset.boardid;
             const cardId = card.dataset.id;
             const cardName = card.dataset.name;
             const cardDescription = card.dataset.description;
-            const cardDate = card.dataset.date;
+            const cardStartDate = card.dataset.startdate;
+            const cardDueDate = card.dataset.duedate;
+            
             let cardTags = card.dataset.tags;
             let cardUser = card.dataset.user;
             let cardCheckboxes = card.dataset.checkboxes;
@@ -474,18 +452,36 @@ lanes.forEach((lane) => {
             } catch (error) {
                 cardCheckboxes = [];
             }
-            console.log(cardCheckboxes);
-            const [day, month, year] = cardDate.split('/');
-            const formattedDate = `${year}-${month}-${day}`;
-            const dateObject = new Date(formattedDate);
 
+            const [day, month, year] = cardStartDate.split('/');
+
+            // Splitting cardDueDate into day, month, year, hour, and minute
+            const [dueDay, dueMonth, dueYearTime] = cardDueDate.split('/');
+            // const [dueYear, time] = dueYearTime.split(' ');
+            // const [hour, minute] = time.split(':');
+
+            // Formatting startDate for input element (if needed)
+            const formattedStartDate = `${year}-${month}-${day}`;
+            // const formattedDueDateTime = `${dueYear}-${dueMonth}-${dueDay}T${hour}:${minute}`;
+
+            // Creating Date objects
+            const startDateObject = new Date(formattedStartDate);
+            // const dueDateTimeObject = new Date(formattedDueDateTime);
+
+
+            // Setting values to HTML elements
             document.getElementById('cardId').value = cardId;
             document.getElementById('tagCardId').value = cardId;
             document.getElementById('userCardId').value = cardId;
             document.getElementById('name').value = cardName;
             document.getElementById('deleteCardId').value = cardId;
             document.getElementById('description').value = cardDescription;
-            document.getElementById('date').valueAsDate = dateObject;
+
+            // Setting startDate input element
+            document.getElementById('startDate').valueAsDate = startDateObject;
+
+            // Setting dueDate input element (assuming it accepts date and time)
+            // document.getElementById('dueDate').value = formattedDueDateTime;
 
             const tagsContainer = document.getElementById('tags');
             tagsContainer.innerHTML = '';
@@ -499,47 +495,297 @@ lanes.forEach((lane) => {
                 tagElement.style.marginRight = '4px';
                 tagsContainer.appendChild(tagElement);
             });
+
             const checkboxesContainer = document.getElementById('checkbox-list');
+            const checkboxListNew = document.createElement('div');
+            checkboxListNew.style.display = 'flex';
+            checkboxListNew.style.alignContent = 'center';
             cardCheckboxes.forEach(checkbox => {
-                console.log(checkbox.Name);
-                const checkboxElement = document.createElement('p');
-                checkboxElement.textContent = checkbox.Name;
-                checkboxElement.style.color = 'white';
-                checkboxElement.style.backgroundColor = '#272727';
-                checkboxElement.style.borderRadius = 8;
-                checkboxElement.classList.add('px-3', 'py-1', 'my-1', 'align-content-center');
-                checkboxesContainer.appendChild(checkboxElement);
+                // Create checkbox element
+                var checkboxElement = document.createElement('input');
+                checkboxElement.classList.add('task-checkbox');
+                checkboxElement.checked = checkbox.Finished;
+                checkboxElement.type = 'checkbox';
+                checkboxElement.name = 'checkbox_' + checkbox.Id; // Set name attribute if needed
+                checkboxElement.id = 'checkbox_' + checkbox.Id; // Set id attribute if needed
+                // checkboxElement.addEventListener('change', function() {
+                //     var editFormData = new FormData();
+                //     editFormData.append('boardId', boardId)
+                //     editFormData.append('finished', checkboxElement.checked)
+                //     editFormData.append('checkboxId', checkbox.Id);
+
+                //     console.log(checkboxElement.checked)
+
+                //     fetch('/Checkbox/EditCheckbox', {
+                //         method: 'POST',
+                //         body: editFormData
+                //     })
+                //     .then(response => {
+                //         if (response.ok) {
+                //             console.log('Checkbox updated successfully!');
+                //             // Optionally, update UI or reload page after successful deletion
+                //             location.reload();
+                //         } else {
+                //             console.error('Failed to update checkbox.');
+                //         }
+                //     })
+                //     .catch(error => {
+                //         console.error('Error occurred while updating checkbox:', error);
+                //     });
+                // });
+
+                // Create label for checkbox
+                var labelElement = document.createElement('label');
+                labelElement.textContent = checkbox.Name;
+                labelElement.setAttribute('for', 'checkbox_' + checkbox.Id); // Set for attribute
+
+                // Hidden input for checkbox Id
+                var checkboxId = document.createElement('input');
+                checkboxId.type = 'hidden';
+                checkboxId.name = 'checkboxId';
+                checkboxId.value = checkbox.Id;
+
+                // Hidden input for board Id
+                var checkboxCardId = document.createElement('input');
+                checkboxCardId.type = 'hidden';
+                checkboxCardId.name = 'cardId';
+                checkboxCardId.value = cardId;
+                
+                var checkboxBoardId = document.createElement('input');
+                checkboxBoardId.type = 'hidden';
+                checkboxBoardId.name = 'boardId';
+                checkboxBoardId.value = boardId;
+
+                // Create delete button (x)
+                var deleteButton = document.createElement('button');
+                deleteButton.innerHTML = '<box-icon name="x" color="white"></box-icon>'; // Example with box-icon
+                deleteButton.style.backgroundColor = '#131313';
+                deleteButton.style.border = 'none';
+                deleteButton.addEventListener('click', function() {
+                    // Handle delete button click event here
+                    // checkboxContainer.remove();
+                    deleteForm.dispatchEvent(new Event('submit')); // Manually trigger form submission
+                });
+
+                // Create form for delete button
+                var deleteForm = document.createElement('form');
+                deleteForm.classList.add('ms-5'); // Add custom class if needed
+                deleteForm.id = 'checkbox-delete-form'; // Set id attribute if needed
+                deleteForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission behavior
+
+                    // Construct FormData object with form data
+                    var formData = new FormData(deleteForm);
+                    // formData.append('checkboxId', checkbox.Id);
+                    // formData.append('boardId', boardId); // Assuming boardId is defined
+
+                    // Perform fetch request to delete checkbox
+                    fetch('/Checkbox/DeleteCheckbox', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Checkbox deleted successfully!');
+                            // Optionally, update UI or reload page after successful deletion
+                            location.reload();
+                        } else {
+                            console.error('Failed to delete checkbox.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error occurred while deleting checkbox:', error);
+                    });
+                });
+
+                deleteForm.appendChild(deleteButton); // Append delete button to form
+                deleteForm.appendChild(checkboxId); // Append checkboxId input to form
+                deleteForm.appendChild(checkboxCardId); // Append cardBoardId input to form
+                deleteForm.appendChild(checkboxBoardId); // Append cardBoardId input to form
+
+                // Create div to hold checkbox, label, and form
+                var checkboxContainer = document.createElement('div');
+                checkboxContainer.classList.add('d-flex', 'justify-content-start'); // Adjust classes as needed
+                var checkboxDiv = document.createElement('div');
+                checkboxDiv.appendChild(checkboxElement); // Append checkbox to div
+                checkboxDiv.appendChild(labelElement); // Append label to div
+                checkboxContainer.appendChild(checkboxDiv); // Append checkbox div to container
+                checkboxContainer.appendChild(deleteForm); // Append form to container
+
+                checkboxesContainer.appendChild(checkboxContainer); // Append complete structure to main container
             });
+
+            //     const checkboxDiv = document.createElement('div');
+            //     checkboxDiv.id = 'checkbox-div-id';
+
+            //     checkboxDiv.style.borderRadius = 8;
+            //     checkboxDiv.classList.add('d-flex-row', 'px-3', 'py-1', 'my-1', 'align-content-center', 'text-white');
+
+            //     const checkboxChecked = document.createElement('input');
+            //     checkboxChecked.classList.add("task-checkbox");
+            //     checkboxChecked.type = 'checkbox';
+            //     checkboxChecked.name = 'finished';
+            //     checkboxChecked.checked = checkbox.Finished;
+            //     checkboxDiv.appendChild(checkboxChecked);
+
+            //     const checkboxName = document.createElement('p');
+            //     checkboxName.style.backgroundColor = '#272727';
+            //     checkboxName.classList.add('text-white', 'px-2', 'py-1', 'd-flex', 'ms-2');
+            //     checkboxName.textContent = checkbox.Name;
+            //     checkboxDiv.appendChild(checkboxName);
+
+
+
+
+
+            //     const checkboxDeleteButton = document.createElement('button');
+            //     checkboxDeleteButton.style = "height:15px; width:15px;"
+            //     checkboxDeleteButton.classList.add("btn-close", 'bg-light');
+            //     checkboxDeleteButton.type = 'submit';
+            //     checkboxDelete.appendChild(checkboxDeleteButton);
+
+            //     checkboxListNew.appendChild(checkboxDiv);
+            //     checkboxListNew.appendChild(checkboxDelete);
+
+            //     checkboxesContainer.appendChild(checkboxListNew);
+
+
+            //     checkboxDelete.addEventListener('submit', function(event) {
+            //         event.preventDefault();
+                    
+            //         const formData = new FormData(checkboxDelete);
+            
+            //         fetch('/Checkbox/DeleteCheckbox', {
+            //             method: 'POST',
+            //             body: formData
+            //         })
+            //         .then(response => {
+            //             if (response.ok) {
+            //                 console.log('Lane order saved successfully!');
+            //                 location.reload();
+            //             } else {
+            //                 console.error('Failed to save card order.');
+            //             }
+            //         })
+            //         .catch(error => {
+            //             console.error('An error occurred:', error);
+            //         });
+            //     });
+            // });
+
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            const progressBar = document.getElementById('progress-bar');
+            const progressLabel = document.getElementById('progress-label');
+            const totalTasks = checkboxes.length;
+            let animationInterval = null; // Variable to store animation interval
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+
+            function updateProgress() {
+                let checked = 0;
+
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        checked++;
+                    }
+                });
+
+                const percentage = (checked / totalTasks) * 100;
+                const currentPercentage = parseFloat(progressLabel.textContent) || 0;
+
+                // Clear existing animation interval if it exists
+                if (animationInterval) {
+                    clearInterval(animationInterval);
+                }
+
+                // Animate the progress label incrementally
+                animateProgress(currentPercentage, percentage);
+
+                progressBar.style.width = `${percentage}%`;
+                progressBar.setAttribute('aria-valuenow', percentage);
+
+                if (percentage >= 99.5) {
+                    progressBar.style.backgroundColor = '#3BE73B'; // Green
+                    progressBar.style.boxShadow = '0 0 10px rgba(59, 231, 59, 0.7)'; // Green shadow
+                    progressBar.classList.add('completed');
+                } else {
+                    progressBar.style.backgroundColor = 'rgb(109, 19, 255)'; // Purple
+                    progressBar.style.boxShadow = '0 0 10px rgba(109, 19, 255, 0.7)'; // Purple shadow
+                    progressBar.classList.remove('completed');
+                }
+            }
+
+            function animateProgress(current, target) {
+                const increment = target > current ? 1 : -1;
+                animationInterval = setInterval(() => {
+                    if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                        clearInterval(animationInterval);
+                        animationInterval = null; // Reset animation interval variable
+                    } else {
+                        current += increment;
+                        progressLabel.textContent = `${current.toFixed(1)}%`;
+                        progressLabel.style.color = current >= 99.5 ? '#3BE73B' : 'white';
+                    }
+                }, 10);
+            }
 
             const userContainer = document.getElementById('user');
             userContainer.innerHTML = '';
             if (cardUser) {
                 const userImageElement = document.createElement('img');
-                if(cardUser.Picture) {
+                if (cardUser.Picture) {
                     userImageElement.src = cardUser.Picture;
-                }
-                else {
+                } else {
                     userImageElement.src = "/default-images/default-avatar.jpg";
                 }
                 userImageElement.style.width = '15%';
 
                 const userElement = document.createElement('h4');
                 userElement.textContent = cardUser.LastName ? `${cardUser.FirstName} ${cardUser.LastName}` : cardUser.FirstName;
-
                 userElement.style.color = 'white';
                 userElement.style.textWrap = 'nowrap';
                 userElement.style.overflow = 'hidden';
-                userElement.style.textOverflow = 'ellipsis'
+                userElement.style.textOverflow = 'ellipsis';
                 userElement.style.padding = '2px 4px';
                 userElement.style.borderRadius = '4px';
                 userElement.style.marginRight = '4px';
                 userElement.classList.add('px-3', 'm-0', 'align-content-center');
 
+                // Encontrar o formulário existente
+                const form = document.getElementById('removeUserForm');
+
+                const inputBoardId = document.createElement('input');
+                inputBoardId.type = 'hidden';
+                inputBoardId.name = 'boardId';
+                inputBoardId.value = boardId;
+
+                const inputCardId = document.createElement('input');
+                inputCardId.type = 'hidden';
+                inputCardId.name = 'userCardId';
+                inputCardId.value = cardId;
+
+                form.appendChild(inputBoardId);
+                form.appendChild(inputCardId);
+
+                const removeButton = document.createElement('button');
+
+                const removeImageElement = document.createElement('img');
+                removeImageElement.src = "/Icons/default-avatar.jpg";
+
+                userImageElement.style.width = '15%';
+                removeButton.type = 'submit';
+                removeButton.style.display = 'flex';
+                removeButton.textContent = 'Remover'
+                removeButton.style.marginLeft = '10px';
+                removeButton.classList.add('m-0', 'mt-2', 'p-1', 'btn-danger', 'rounded-3');
+
                 userContainer.appendChild(userImageElement);
                 userContainer.appendChild(userElement);
-                // addUserToCardForm.setAttribute('hidden', true);
+                form.appendChild(removeButton);
             }
-
+            
             showOverlay();
         });
     });
@@ -547,26 +793,32 @@ lanes.forEach((lane) => {
     overlay.addEventListener('click', function(event) {
         if (event.target === overlay || event.target.classList.contains('close-button')) {
             hideOverlay();
+            location.reload();
         }
     });
 
-// cardForms.addEventListener('submit', function(event) {
-//         event.preventDefault()
-//         cardForms.querySelector('input[name=IsMemberSideBarActive]').value = IsMemberSideBarActive.value;
-//         cardForms.submit();
-//     });
-
 function isDarkColor(color) {
-    let r, g, b;
-    if (color.length === 7) {
-        r = parseInt(color.slice(1, 3), 16);
-        g = parseInt(color.slice(3, 5), 16);
-        b = parseInt(color.slice(5, 7), 16);
-    } else if (color.length === 4) {
-        r = parseInt(color[1] + color[1], 16);
-        g = parseInt(color[2] + color[2], 16);
-        b = parseInt(color[3] + color[3], 16);
-    }}
+    // Remove o símbolo # se estiver presente
+    if (color.startsWith('#')) {
+        color = color.slice(1);
+    }
+
+    // Converte cores hexadecimais de 3 caracteres para 6 caracteres
+    if (color.length === 3) {
+        color = color.split('').map(char => char + char).join('');
+    }
+
+    // Converte a cor de hexadecimal para RGB
+    const r = parseInt(color.substring(0, 2), 16);
+    const g = parseInt(color.substring(2, 4), 16);
+    const b = parseInt(color.substring(4, 6), 16);
+
+    // Calcula a luminância relativa
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+    // Retorna true se a cor for escura, false se for clara
+    return luminance < 0.5;
+}
 
 const addLaneButton = document.querySelector('.new-lane-btn');
 const laneForm = document.querySelector('.create-lane-form');
@@ -608,19 +860,6 @@ document.addEventListener('click', function(event) {
     cardInputs.forEach((input) => {
         input.setAttribute('autocomplete', 'off');
     });
-
-
-    // document.addEventListener('click', function(event) {
-    //     cardForms.forEach((form, index) => {
-    //         if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
-    //             form.setAttribute('hidden', true);
-    //         }
-    //     });
-
-    //     if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
-    //         laneForm.setAttribute('hidden', true);
-    //     }
-    // });
 
     const columns = document.querySelectorAll(".card-col");
 
@@ -667,25 +906,56 @@ document.addEventListener('click', function(event) {
 
     addCheckboxButton.addEventListener('click', function() {
         const checkboxDiv = document.createElement('div');
-        checkboxDiv.className = 'd-flex mb-3';
+        checkboxDiv.className = 'd-flex flex-column mb-3';
+
+        const checkboxRow = document.createElement('div');
+        checkboxRow.className = 'd-flex';
 
         const checkboxInput = document.createElement('input');
         checkboxInput.type = 'checkbox';
+        checkboxInput.name = 'CheckboxFinished';
+        checkboxInput.className = 'form-input';
 
         const textInput = document.createElement('input');
         textInput.type = 'text';
-        textInput.name = 'CheckboxNames';
+        textInput.name = 'CheckboxName';
         textInput.className = 'form-input';
 
-        checkboxDiv.appendChild(checkboxInput);
-        checkboxDiv.appendChild(textInput);
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'text-danger mt-1';
+        errorMessage.style.display = 'none';
+
+        checkboxRow.appendChild(checkboxInput);
+        checkboxRow.appendChild(textInput);
+
+        checkboxDiv.appendChild(checkboxRow);
+        checkboxDiv.appendChild(errorMessage);
 
         checkboxList.appendChild(checkboxDiv);
     });
 
     saveCheckboxesButton.addEventListener('click', function() {
         const cardId = document.getElementById('cardId').value;
-        const checkboxNames = Array.from(document.getElementsByName('CheckboxNames')).map(input => input.value);
+        const checkboxFinished = Array.from(document.getElementsByName('CheckboxFinished')).map(input => input.checked);
+        const checkboxNames = Array.from(document.getElementsByName('CheckboxName')).map(input => input.value);
+        const errorMessages = checkboxList.getElementsByClassName('text-danger');
+
+        // Reset error messages
+        Array.from(errorMessages).forEach(error => error.style.display = 'none');
+
+        // Verificar se todos os nomes dos checkboxes não estão vazios
+        let hasEmptyName = false;
+        checkboxNames.forEach((name, index) => {
+            if (name.trim() === '') {
+                errorMessages[index].textContent = 'Por favor, preencha o nome do checkbox.';
+                errorMessages[index].style.display = 'block';
+                hasEmptyName = true;
+            }
+        });
+
+        if (hasEmptyName) {
+            return;
+        }
 
         if (checkboxNames.length === 0) {
             alert('Por favor, adicione ao menos um checkbox.');
@@ -694,13 +964,17 @@ document.addEventListener('click', function(event) {
 
         console.log('Iniciando salvamento dos checkboxes:', checkboxNames);
 
-        Promise.all(checkboxNames.map(name => {
+        Promise.all(checkboxNames.map((name, index) => {
             return fetch('/Checkbox/CreateCheckbox', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ cardId: parseInt(cardId), name })
+                body: JSON.stringify({ 
+                    cardId: parseInt(cardId), 
+                    name, 
+                    finished: checkboxFinished[index] // Adicionando o valor booleano correspondente
+                })
             }).then(response => response.json())
                 .then(data => {
                     console.log('Resposta do servidor para checkbox', name, data);
@@ -715,6 +989,7 @@ document.addEventListener('click', function(event) {
             if (allSuccessful) {
                 alert('Checkboxes salvos com sucesso!');
                 checkboxList.innerHTML = '';
+                location.reload();
             } else {
                 alert('Falha ao salvar um ou mais checkboxes.');
                 console.error('Detalhes do erro:', results);
@@ -723,4 +998,5 @@ document.addEventListener('click', function(event) {
             console.error('Erro ao salvar checkboxes:', error);
         });
     });
+
 });

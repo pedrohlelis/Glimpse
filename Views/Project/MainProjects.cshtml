@@ -11,15 +11,15 @@
 <br><br><br>
 <div class="main-content d-flex align-items-center justify-content-center flex-column">
     <div class="d-flex align-items-center justify-content-center flex-column">
-        <h1 class="display-6 fw-bold reveal text-primary" style="letter-spacing: 3px;">Olá, @ViewData["UserName"]!</h1>
+        <h1 class="display-6 fw-bold text-primary" style="letter-spacing: 3px;">Olá, @ViewData["UserName"]!</h1>
         <p class="fw-light fs-6">Aqui estão seus projetos vistos recentemente.</p>
         <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
     </div>
     <br><br><br>
 
-    <div class="row row-4 flex-lg-grow-1">
+    <div class="row row-4 flex-lg-grow-1 reveal">
         @foreach (var kvp in Model.ActiveProjects) {
-            <div class="col d-flex border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; max-width: 300px; height: 300px;">
+            <div class="col d-flex justify-content-between border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; width: 250px; height: 250px;">
                 @if(kvp.Key.Boards == null || !kvp.Key.Boards.Any()) {
                     <a class="text-decoration-none" asp-controller="Board" asp-action="Create" asp-route-id="@kvp.Key.Id">
                         <p class="overflow-hidden text-white">@kvp.Key.Name</p>

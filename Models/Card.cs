@@ -11,7 +11,8 @@ public class Card
     public string Name { get; set; }
     public string? Description { get; set; }
     public int Index { get; set; }
-    public DateOnly? Date { get; set; }
+    public DateOnly? StartDate { get; set; }
+    public DateTime? DueDate { get; set; }
     public virtual Lane? Lane { get; set; }
     public virtual User? User { get; set; }
     [JsonIgnore]
