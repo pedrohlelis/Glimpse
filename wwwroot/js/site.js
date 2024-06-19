@@ -27,11 +27,3 @@ window.addEventListener("scroll", reveal);
 
 // To check the scroll position on page load
 reveal();
-
-// $(document).ajaxStart(function() {
-//     $('#loading').show(); // Mostra a tela de carregamento quando uma requisição AJAX é iniciada
-// });
-
-// $(document).ajaxStop(function() {
-//     $('#loading').hide(); // Oculta a tela de carregamento quando todas as requisições AJAX são concluídas
-// });
