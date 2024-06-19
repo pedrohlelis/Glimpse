@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "vHhK2lUFOcikKoUpdBR6tAhJE2GRfuh10sNd7mcGkF8e3CUAQ3aPjlFshA5zYl3l3BWK9FRN+1Kvd0Qa+ldcYA==",
-=======
-  "dgSpecHash": "FhAbHdL7NMc0p3HPsz9NyucNH7jpiFAzeHb/MDBbQAIoj9It/nJ63PaZU0BXE5t2r2nXnnpMqQtqElpmGbopNQ==",
->>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
   "success": true,
   "projectFilePath": "C:\\Glimpse\\Glimpse.csproj",
   "expectedPackageFiles": [
@@ -225,11 +221,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "Problema ao ler o arquivo de cache C:\\Glimpse\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "Problem reading the cache file C:\\Glimpse\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
     }
   ]
 }

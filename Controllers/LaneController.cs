@@ -42,6 +42,47 @@ public class LaneController : Controller
     }
 
     [HttpPost]
+    public async Task<IActionResult> EditLane(int laneId, string? name, int id)
+    {
+        Lane lane = await _db.Lanes.FindAsync(laneId);
+
+        lane.Name = name;
+
+        _db.Entry(lane);
+
+        if (ModelState.IsValid)
+        {
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = false });
+        }
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = false });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteLane(int laneId, int id)
+    {
+        try
+        {
+            Board board = _db.Boards
+            .Include(c => c.Lanes)
+            .Single(c => c.Id == id);
+
+            if (board.Lanes.Count > 1){
+                Lane lane = await _db.Lanes.FindAsync(laneId);
+                _db.Lanes.Remove(lane);
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
+        }
+        catch (DbUpdateException)
+        {
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
+        }
+    }
+
+    [HttpPost]
     public async Task<IActionResult> SaveLaneOrder([FromForm] string laneIndexDictionary, int id, bool isMemberSideBarActive)
     {
         Console.WriteLine(laneIndexDictionary);

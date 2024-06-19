@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "Hash": "lzI/p4mm87yLAJr6PYe71eVg1ibjmN6BA+4DMbkci5s=",
-=======
-  "Hash": "1AeT9yTnh0/tLmP6UcNPJJJWNDlzcg6c/dSDz1S2DI8=",
->>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
+  "Hash": "ZaYQm78jAalwKiLOfTV5kFOvLvz7q91cnFjlCgBOgzA=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -1541,47 +1537,6 @@
       "OriginalItemSpec": "wwwroot\\Icons\\GlimpseLogo.svg"
     },
     {
-<<<<<<< HEAD
-=======
-      "Identity": "C:\\Glimpse\\wwwroot\\Icons\\IconGlimpse01.png",
-      "SourceId": "Glimpse",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
-      "BasePath": "_content/Glimpse",
-      "RelativePath": "Icons/IconGlimpse01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Icons\\IconGlimpse01.png"
-    },
-    {
-      "Identity": "C:\\Glimpse\\wwwroot\\Icons\\IconGlimpse02.png",
-      "SourceId": "Glimpse",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
-      "BasePath": "_content/Glimpse",
-      "RelativePath": "Icons/IconGlimpse02.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Icons\\IconGlimpse02.png"
-    },
-    {
->>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
       "Identity": "C:\\Glimpse\\wwwroot\\Icons\\plusIcon.svg",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -3482,6 +3437,25 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\35f00a52-9c31-4cb3-b507-9b0170ddc0dd_threeDimensionsSecurity.png"
     },
     {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\3625c0b4-da7c-4b9a-b09c-8fe91d69fdf4_component.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/3625c0b4-da7c-4b9a-b09c-8fe91d69fdf4_component.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\3625c0b4-da7c-4b9a-b09c-8fe91d69fdf4_component.jpeg"
+    },
+    {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\36cbc959-cb8e-4af7-a029-fb5b19654a44_inicializacao_Windows_imagem.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -3558,8 +3532,6 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\4222bc1f-14c0-4b95-92af-275e86442c93_clowned (1).jpg"
     },
     {
-<<<<<<< HEAD
-=======
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\4247509a-060c-4c1f-9992-edd118e5a924_tattoo_idea.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -3579,7 +3551,25 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\4247509a-060c-4c1f-9992-edd118e5a924_tattoo_idea.png"
     },
     {
->>>>>>> 034f50e786f752791282237c22c9f35aeeab8fe6
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\451bd28c-d9f9-489a-b678-d901d2835df4_pachy head.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/451bd28c-d9f9-489a-b678-d901d2835df4_pachy head.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\451bd28c-d9f9-489a-b678-d901d2835df4_pachy head.png"
+    },
+    {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\45b915d1-81e8-450b-b33b-48cf6ae1b1e2_Conceitual_02.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -3789,6 +3779,25 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\6a66b084-82d8-42af-89f1-b0b9efd24b17_WhatsApp Image 2024-04-30 at 21.36.24 (1).jpeg"
     },
     {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\6be6dc4d-e2f2-478b-a3e0-f06987ce769f_Icon Glimpse 02.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/6be6dc4d-e2f2-478b-a3e0-f06987ce769f_Icon Glimpse 02.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\6be6dc4d-e2f2-478b-a3e0-f06987ce769f_Icon Glimpse 02.png"
+    },
+    {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\6c1b87a8-1faf-4c55-8695-f4b96bf0bc68_Conceitual_02.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -3941,6 +3950,25 @@
       "OriginalItemSpec": "wwwroot\\project-pictures\\88c1f25b-7502-4e01-8386-913e1422fa30_mermaid-diagram-2024-05-14-151659.png"
     },
     {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\88e14b91-b4c7-4494-ad4d-0f5aea2d9196_Itabarlogo.jpeg"
+    },
+    {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\8d09ef07-d560-47a5-a833-89f265b52d1f_Logico-Glimpse.png",
       "SourceId": "Glimpse",
       "SourceType": "Discovered",
@@ -4072,6 +4100,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\project-pictures\\92e1a868-bb98-4965-92d8-dc38f5643c55_Itabarlogo.jpeg"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\9394651d-1bfe-4e07-8bfb-501888c6f3c5_activity.jpeg",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "project-pictures/9394651d-1bfe-4e07-8bfb-501888c6f3c5_activity.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\project-pictures\\9394651d-1bfe-4e07-8bfb-501888c6f3c5_activity.jpeg"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\project-pictures\\95378be4-d4cf-447c-aca4-933a69e7d1a9_Captura de tela 2024-05-20 141707.png",
@@ -5269,6 +5316,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserProfilePics\\b8ab3ae1-7979-4b24-8380-75966d2f32c9_tattoo_idea.png"
+    },
+    {
+      "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\b947749f-34c7-4163-a1e6-13bf78bc3499_tattoo_idea.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "UserProfilePics/b947749f-34c7-4163-a1e6-13bf78bc3499_tattoo_idea.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserProfilePics\\b947749f-34c7-4163-a1e6-13bf78bc3499_tattoo_idea.png"
     },
     {
       "Identity": "C:\\Glimpse\\wwwroot\\UserProfilePics\\bb4bfa80-bd56-4ba8-a7af-eb49e399f450_pachy head.png",

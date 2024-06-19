@@ -317,8 +317,7 @@ public class ProjectController : Controller
         }
 
         if (project.Users.Contains(user)){
-            return Forbid();
-            // return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
         }
 
         project.Users.Add(user);

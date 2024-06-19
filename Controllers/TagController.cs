@@ -21,11 +21,11 @@ public class TagController : Controller
         _userManager = userManager;
     }
     [HttpPost]
-    public async Task<IActionResult> CreateTag(string tagName, string color, int id)
+    public async Task<IActionResult> CreateTag(string tagName, string color, int id, bool IsMemberSideBarActive)
     {
         if (string.IsNullOrEmpty(tagName))
         {
-            return RedirectToAction("GetBoardInfo", "Board", new { id });
+            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
         }  
 
         var Tag = new Tag
@@ -44,8 +44,40 @@ public class TagController : Controller
         Board.Tags.Add(Tag);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id });
+        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
     }
+
+    [HttpPost]
+    public async Task<IActionResult> EditTag(string Name,string Color, int tagId, int boardId, bool IsMemberSideBarActive)
+    {
+        Console.WriteLine("tagId: " + tagId);
+        // Retrieve the existing role from the database
+        Tag toEditTag = await _db.Tags.FindAsync(tagId);
+
+        // Update the role properties with the submitted form data
+        toEditTag.Name = Name;
+        toEditTag.Color = Color;
+
+        // Save changes to the database
+        await _db.SaveChangesAsync();
+        // Redirect to the appropriate action with the boardId parameter
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteTag(int tagToDeleteId, int id, bool IsMemberSideBarActive)
+    {
+        Tag tag = await _db.Tags.FindAsync(tagToDeleteId);
+        var Board = await _db.Boards
+            .Include(u => u.Tags)
+            .SingleAsync(p => p.Id == id);
+
+        Board.Tags.Remove(tag);
+        _db.Tags.Remove(tag);
+        await _db.SaveChangesAsync();
+        return RedirectToAction("GetBoardInfo", "Board", new { id = id, IsMemberSideBarActive = IsMemberSideBarActive });
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddTagToCard(int tagCardId, int tagId, int boardId)
     {
@@ -60,6 +92,6 @@ public class TagController : Controller
             await _db.SaveChangesAsync();
         }
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId});
     }
 }
