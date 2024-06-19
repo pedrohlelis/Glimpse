@@ -183,11 +183,11 @@ public class BoardController : Controller
             {
                 await BoardImg.CopyToAsync(stream);
             }
-            Board.Background = "../board-pictures/" + nomeArquivo;
+            Board.Background = "/board-pictures/" + nomeArquivo;
         }
         else
         {
-            Board.Background = "../board-pictures/defaultBackground.jpg";
+            Board.Background = "/board-pictures/defaultBackground.jpg";
         }
 
         _db.Boards.Add(Board);

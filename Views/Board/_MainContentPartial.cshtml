@@ -8,7 +8,7 @@
 
     <input name="IsMemberSideBarActive" type="hidden">
 
-    <div class="lanes text-white" style="max-width: 1250px; max-height: 800px;">
+    <div class="lanes text-white" style="max-width: 1250px;">
         <div>
             <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
                 <div style="width: 300px; height: 200px;" class="lane">
@@ -29,14 +29,14 @@
         </div>
         @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
         {
-            <div class="swim-lane col mx-3 overflow-y bg-dark" style="min-width: 280px; max-height: 600px;" data-id="@lane.Id" draggable="true">
+            <div class="swim-lane col mx-3 bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center me-2">
                         <form asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
                             <input type="hidden" name="laneId" value="@lane.Id">
                             <input type="hidden" name="id" value="@Model.Board.Id">
                             <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@lane.Name" value="@lane.Name" class="form-control me-2 text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;" name="name">
-                            <span class="badge bg-secondary text-black me-2">@lane.Cards.Count</span>
+                            <span class="badge bg-secondary text-white me-2 flex-grow-1 d-flex">@lane.Cards.Count</span>
                             @if((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser){
                                 <button type="submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salvar Lane" class="btn btn-info text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
                                     <box-icon name='save' color="white" style="width: 16px; height: 16px;"></box-icon>
@@ -116,7 +116,7 @@
                     @if(card.User != null)
                     {
                         <div class="d-flex align-content-center pt-2 mb-3 justify-content-between" style="text-wrap: nowrap; overflow: hidden;">
-                            <div class="d-flex align-content-center" style="max-width: 150px;">
+                            <div class="d-flex align-content-center">
                                 <img class="mx-1" src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
                                 width="30px"
                                 height="30px"
@@ -125,10 +125,10 @@
                             </div>
                         </div>
                         @if(card.StartDate != null && card.DueDate != null){
-                                <div class="d-flex align-items-center justify-content-start">
-                                    <div class="d-flex align-items-center mx-2 justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
                                         <box-icon name='time-five' color="#797979"></box-icon>
-                                        <span style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
+                                        <span class="px-1" style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-start" style="max-width: 100px;">
                                         @{
@@ -149,10 +149,10 @@
                     } else
                     {
                         @if(card.StartDate != null && card.DueDate != null){
-                            <div class="d-flex align-items-center justify-content-start">
-                                <div class="d-flex align-items-center mx-2 justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
                                     <box-icon name='time-five' color="#797979"></box-icon>
-                                    <span style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
+                                    <span class="px-1" style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-start" style="max-width: 100px;">
                                     @{
@@ -179,9 +179,9 @@
 
 <style>
     a.text-white {
-        word-wrap: break-word; /* Permite a quebra de linha dentro da palavra */
-        white-space: normal;   /* Permite a quebra de linha em espaços */
-        display: block;        /* Garante que o elemento use a largura completa disponível */
+        word-wrap: break-word;
+        white-space: normal;
+        display: block;
     }
     .board {
     width: 100%;
@@ -193,12 +193,12 @@
     display: flex;
     align-items: flex-start;
     justify-content: start;
-    gap: 16px;
+    gap: 13px;
     padding: 24px 32px;
     height: 100%;
     min-width: calc(100% - 250px);
     overflow-y: auto;
-    margin-left: 200px;
+    margin-left: 150px;
     }
 
     .swim-lane {

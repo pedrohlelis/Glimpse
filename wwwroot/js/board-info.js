@@ -376,45 +376,45 @@ lanes.forEach((lane) => {
     let isModified = false;
 
     function submitCheckboxState() {
-    var checkboxes = overlay.querySelectorAll('input[type="checkbox"]');
-    var checkboxStates = {};
+        var checkboxes = overlay.querySelectorAll('input[type="checkbox"]');
+        var checkboxStates = {};
 
-    checkboxes.forEach(function(checkbox) {
-        var checkboxToEditId = checkbox.id.replace("checkbox_", "");;
-        var checkboxState = checkbox.checked;
-        console.log(checkboxToEditId + ":" + checkboxState);
-        checkboxStates[checkboxToEditId] = checkboxState;
-    });
+        checkboxes.forEach(function(checkbox) {
+            var checkboxToEditId = checkbox.id.replace("checkbox_", "");;
+            var checkboxState = checkbox.checked;
+            console.log(checkboxToEditId + ":" + checkboxState);
+            checkboxStates[checkboxToEditId] = checkboxState;
+            });
 
-    var editFormData = new FormData();
-    editFormData.append("boardId", 2);
-    editFormData.append("checkboxesStatus", JSON.stringify(checkboxStates));
-    console.log(JSON.stringify(checkboxStates))
-    
-    fetch('/Checkbox/EditCheckbox', {
-        method: 'POST',
-        body: editFormData
-    })
-    .then(response => {
-        if (response.ok) {
-            console.log('Checkbox states updated successfully!');
-            // Optionally handle UI update or feedback
-            // location.reload();
-        } else {
-            console.error('Failed to update checkbox states.');
-            // Handle error case if needed
-        }
-    })
-    .catch(error => {
-        console.error('Error occurred while updating checkbox states:', error);
-    });
-}
+            var editFormData = new FormData();
+            editFormData.append("boardId", 2);
+            editFormData.append("checkboxesStatus", JSON.stringify(checkboxStates));
+            console.log(JSON.stringify(checkboxStates))
+            
+            fetch('/Checkbox/EditCheckbox', {
+                method: 'POST',
+                body: editFormData
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Checkbox states updated successfully!');
+                    // Optionally handle UI update or feedback
+                    // location.reload();
+                } else {
+                    console.error('Failed to update checkbox states.');
+                    // Handle error case if needed
+                }
+            })
+            .catch(error => {
+                console.error('Error occurred while updating checkbox states:', error);
+            });
+    }
 
     function showOverlay() {
         overlay.removeAttribute('hidden');
     }
 
-async function hideOverlay() {
+    async function hideOverlay() {
         await submitCheckboxState();
         location.reload();
     }
@@ -720,7 +720,6 @@ async function hideOverlay() {
     overlay.addEventListener('click', function(event) {
         if (event.target === overlay || event.target.classList.contains('close-button')) {
             hideOverlay();
-            location.reload();
         }
     });
 

@@ -1,37 +1,36 @@
 @using Glimpse.ViewModels;
 @model BoardVM;
 
-<section class="container board-menu-func d-flex justify-content-around">
-        <div class=" text-white">
-          @* <p style="font-size: smaller; letter-spacing: 2px;">Seja bem-vindo!</p> *@
-          <p style="font-size: smaller; letter-spacing: 2px;">Projeto: @Model.Board.Project.Name</p>
-          <button class="btn fw-bold btn-secondary dropdown-toggle board-title-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-            <h1>@Model.Board.Name</h1>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-            @foreach(var board in Model.Board.Project.Boards) {
-              <li><a class="dropdown-item" asp-action="GetBoardInfo" asp-controller="Board" asp-route-id="@board.Id">@board.Name</a></li>
-            }
-            <div class="dropdown-divider" style="background-color: rgb(160, 160, 160);"></div>
-            <li><a class="dropdown-item" asp-action="Create" asp-controller="Board" asp-route-id="@Model.Board.Project.Id">Criar quadro +</a></li>
-          </ul>
-        </div>
-        <div class="d-flex justify-content-center">
-          <box-icon class="mx-1" name='hard-hat' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Cargos" type='solid' color="white" id="project-roles-btn" style="cursor: pointer;"></box-icon>
-          <box-icon class="mx-1" name='bell' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Notificações" style="cursor: pointer;" color="white"></box-icon>
-          <box-icon class="mx-1" name='purchase-tag' color="white" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tags" style="cursor: pointer;" onclick="openTagsModal()"></box-icon>
-          <box-icon class="mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Membros" name="group" color="white" id="member-side-menu-btn" style="cursor: pointer;" onclick="ToggleMemberSideBar()"></box-icon>
-        </div>
+<section class="container board-menu-func d-flex">
+  <div class="text-white d-flex align-items-center gap-4" style="margin-right: 40%;">
+    <img width="100px" height="100px" src="@Url.Content(Model.Board.Background)" class="rounded-3 border-primary" style="border-color: #E07AFA; border: 2px solid;">
+    <div>
+      <p class="fs-6" style="letter-spacing: 2px;">Projeto: @Model.Board.Project.Name</p>
+      <button class="btn fw-bold btn-secondary dropdown-toggle board-title-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+        <h1>@Model.Board.Name</h1>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+        @foreach(var board in Model.Board.Project.Boards) {
+          <li><a class="dropdown-item" asp-action="GetBoardInfo" asp-controller="Board" asp-route-id="@board.Id">@board.Name</a></li>
+        }
+        <div class="dropdown-divider" style="background-color: rgb(160, 160, 160);"></div>
+        <li><a class="dropdown-item" asp-action="Create" asp-controller="Board" asp-route-id="@Model.Board.Project.Id">Criar quadro +</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-content-center align-items-end my-2">
+    <box-icon class="mx-1" name='hard-hat' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Cargos" type='solid' color="white" id="project-roles-btn" style="cursor: pointer;"></box-icon>
+    <box-icon class="mx-1" name='bell' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Notificações" style="cursor: pointer;" color="white"></box-icon>
+    <box-icon class="mx-1" name='purchase-tag' color="white" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tags" style="cursor: pointer;" onclick="openTagsModal()"></box-icon>
+    <box-icon class="mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Membros" name="group" color="white" id="member-side-menu-btn" style="cursor: pointer;" onclick="ToggleMemberSideBar()"></box-icon>
+  </div>
 </section>
-
-
-
 <style>
   .board-menu-func {
     min-width: calc(100% - 250px);
     justify-content: start;
-    margin-bottom: 80px;
-    @* margin-left: 200px; *@
+    margin-bottom: 60px;
+    margin-left: 180px;
   }
   .board-title-btn {
     background-color: #131313;

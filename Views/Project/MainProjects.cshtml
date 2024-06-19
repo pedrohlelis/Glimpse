@@ -6,8 +6,6 @@
     ViewData["StylesheetUrl"] = "~/css/index.css";
 }
 
-@* <partial name="_ProjectsSideBarPartial"></partial> *@
-
 <br><br><br>
 <div class="main-content d-flex align-items-center justify-content-center flex-column">
     <div class="d-flex align-items-center justify-content-center flex-column">
@@ -34,7 +32,7 @@
                         <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
                         <br><br>
                         <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
-                        <p class="text-muted overflow-hidden" style="font-size: smaller;">Created by: @kvp.Value.Email</p>
+                        <p class="text-muted overflow-hidden" style="font-size: smaller;">Criado por: @kvp.Value.Email</p>
                     </a>
                 }
                 <div class="dropup">
