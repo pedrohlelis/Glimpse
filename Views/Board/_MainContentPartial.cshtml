@@ -13,7 +13,7 @@
             <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
                 <div style="width: 300px; height: 200px;" class="lane">
                     <div class="d-flex align-content-center align-items-center px-1">
-                        <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none;">
+                        <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none; border: none;">
                         <input name="id" value="@Model.Board.Id" type="hidden">
                         <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
                     </div>

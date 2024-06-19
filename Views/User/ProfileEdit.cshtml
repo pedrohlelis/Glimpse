@@ -1,7 +1,7 @@
 @using Glimpse.ViewModels;
 @model ProfileVM;
 @{
-    Layout = "_BasicLayout";
+    Layout = "_BasicStructure";
     ViewData["StylesheetUrl"] = "~/css/index.css";
 }
 
@@ -19,6 +19,9 @@
             </div>
             <form method="post" asp-action="UpdateProfile" id="form" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+
+                <input asp-for="User" id="User" value="@Model.User" hidden>
+
 
                 <div class="col-md-6">
                     <label asp-for="PictureFile" class="control-label">Foto de perfil</label>

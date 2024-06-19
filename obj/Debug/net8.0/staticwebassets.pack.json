@@ -45,6 +45,14 @@
       "PackagePath": "staticwebassets\\board-pictures\\4e04488c-3e16-4e73-8dcd-112292de5fb6-board-pic.png"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\79b076aa-8bac-4a5b-942b-9e60acf60b55-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\79b076aa-8bac-4a5b-942b-9e60acf60b55-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\f89f1713-48c1-4a30-bb6e-53137280de3e-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\f89f1713-48c1-4a30-bb6e-53137280de3e-board-pic.png"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\fbcc6baa-6ee7-4d42-bfed-2d5e272fad3c-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\fbcc6baa-6ee7-4d42-bfed-2d5e272fad3c-board-pic.png"
     },
@@ -423,6 +431,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\6be6dc4d-e2f2-478b-a3e0-f06987ce769f_Icon Glimpse 02.png",
       "PackagePath": "staticwebassets\\project-pictures\\6be6dc4d-e2f2-478b-a3e0-f06987ce769f_Icon Glimpse 02.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\6dafffda-7770-40df-8807-6c08e138a9a4_tattoo_idea.png",
+      "PackagePath": "staticwebassets\\project-pictures\\6dafffda-7770-40df-8807-6c08e138a9a4_tattoo_idea.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\7bb7f647-92ea-45b2-854a-423ea1214f6b_pachy head.png",

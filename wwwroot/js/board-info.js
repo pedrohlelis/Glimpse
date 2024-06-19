@@ -414,9 +414,9 @@ lanes.forEach((lane) => {
         overlay.removeAttribute('hidden');
     }
 
-    function hideOverlay() {
-        submitCheckboxState();
-        overlay.setAttribute('hidden', true);
+async function hideOverlay() {
+        await submitCheckboxState();
+        location.reload();
     }
 
     overlayContent.addEventListener('input', function() {

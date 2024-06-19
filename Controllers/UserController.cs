@@ -48,7 +48,7 @@ public class UserController : Controller
     [HttpGet("profile/edit", Name = "ProfileEdit")]
     public IActionResult ProfileEdit()
     {
-        var user = _userManager.GetUserAsync(User).Result;
+        var user = _userManager.GetUserAsync(this.User).Result;
         var userProfile = new ProfileVM
         {
             User = user,
@@ -62,23 +62,12 @@ public class UserController : Controller
         return View(userProfile);
     }
 
-    [HttpPost("profile/edit", Name = "UpdateProfile")]
+    [HttpPost]
     public async Task<IActionResult> UpdateProfile([FromForm] ProfileVM profileVM)
     {
         if (ModelState.IsValid)
         {
             var user = _userManager.GetUserAsync(User).Result;
-
-            // var existingUser = await _userManager.FindByEmailAsync(profileVM.Email);
-            // if (existingUser != null && existingUser.Id != user.Id)
-            // {
-            //     ModelState.AddModelError("Email", "This email is already taken by another user.");
-            //     return View("ProfileEdit", profileVM);
-            // }
-            // else
-            // {
-            //     profileVM.Email = user.Email;
-            // }
 
             var profilePicture = profileVM.PictureFile;
             if (profilePicture != null && profilePicture.Length > 0)
@@ -102,6 +91,6 @@ public class UserController : Controller
             }
             return View("ProfileEdit",profileVM);
         }
-        return View("ProfileEdit",profileVM);
+        return RedirectToAction("Profile", "User");
     }
 }
