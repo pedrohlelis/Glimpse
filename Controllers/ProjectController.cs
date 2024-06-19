@@ -182,7 +182,6 @@ public class ProjectController : Controller
     [HttpPost]
     public async Task<IActionResult> RemoveFromProject(int id, string userId, int projectId)
     {
-        Console.WriteLine(userId);
         Project Project = await _db.Projects
         .Include(p => p.Users)
         .SingleAsync(p => p.Id == projectId);
@@ -228,9 +227,6 @@ public class ProjectController : Controller
                 await projectImg.CopyToAsync(stream);
             }
             Project.Picture = "../project-pictures/" + nomeArquivo;
-        } else 
-        {
-            Project.Picture = "../default-images/ProjectDefault.png";
         }
 
         if (ModelState.IsValid)

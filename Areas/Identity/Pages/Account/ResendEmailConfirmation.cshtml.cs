@@ -87,7 +87,6 @@ namespace Glimpse.Areas.Identity.Pages.Account
                 "Please confirm your account",
                 callbackUrl
                 );
-            Console.WriteLine("email sent?..." + Input.Email);
             }
             catch (Exception e)
             {

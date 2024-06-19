@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Http.HttpResults;
 namespace Glimpse.Controllers;
 
 [Authorize]
-
 public class CardController : Controller
 {
     private readonly GlimpseContext _db;
@@ -123,7 +122,6 @@ public class CardController : Controller
                 {
                     checkbox.Card = null;
                     card.Checkboxes.Remove(checkbox);
-                    Console.WriteLine(checkbox.Name);
                     _db.Checkboxes.Remove(checkbox);
                 }
 
@@ -144,8 +142,6 @@ public class CardController : Controller
     [HttpPost]
     public async Task<IActionResult> SaveCardOrder([FromForm] string taskIndexDictionary, int id, bool IsMemberSideBarActive)
     {
-        // Deserialize the JSON strings back into structured data
-        Console.WriteLine(taskIndexDictionary);
         try
         {
             // Deserialize the JSON strings back into structured data
@@ -208,11 +204,12 @@ public class CardController : Controller
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
     [HttpPost]
-    public async Task<IActionResult> RemoveUserFromCard(int userCardId, int boardId, string userId) {
-        Card card = await _db.Cards.FindAsync(userCardId);
-        var user = _db.Users
-            .Include(u => u.Cards)
-            .SingleOrDefault(u => u.Id == userId);
+    public async Task<IActionResult> RemoveUserFromCard(int userCardId, int boardId) {
+        var card = await _db.Cards
+            .Include(c => c.User)
+            .SingleOrDefaultAsync(u => u.Id == userCardId);
+
+        var user = _db.Users.Find(card.User.Id);
 
         user.Cards.Remove(card);
 

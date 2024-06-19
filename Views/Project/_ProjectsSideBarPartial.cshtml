@@ -5,7 +5,7 @@
     <div class="top mb-5">
         <div class="logo">
             <img class="menuLogo" src="~/Icons/GlimpseLogo.svg" alt="">
-            <span class="text-white">Glimpse</span>
+            <span class="text-white fw-bold">Glimpse</span>
         </div>
         <box-icon name="menu" color="white" id="side-menu-btn"></box-icon>
     </div>
@@ -13,21 +13,21 @@
         <div class="sideBar-item">
             <a class="button-style-2 h-100" href="">
                 <box-icon name='cog' color="white"></box-icon>
-                <span class="SB-nav-item">Settings</span>
+                <span class="SB-nav-item text-white">Opções</span>
             </a>
-            <span class="tooltip">Settings</span>
+            <span class="tooltip">Opções</span>
         </div>
         <div class="sideBar-item" >
             <a class="button-style-2 h-100" asp-action="MainProjects" asp-controller="Project">
                 <box-icon name='briefcase-alt' color="white"></box-icon>
-                <span class="SB-nav-item">Projects</span>
+                <span class="SB-nav-item text-white">Projetos</span>
             </a>
-            <span class="tooltip">Projects</span>
+            <span class="tooltip">Projetos</span>
         </div>
         <div class="sideBar-item">
             <a class="button-style-2  h-100" asp-action="Logout" asp-controller="Account">
                 <box-icon name='log-out' color="white"></box-icon>
-                <span class="SB-nav-item">Logout</span>
+                <span class="SB-nav-item text-white">Logout</span>
             </a>
             <span class="tooltip">Logout</span>
         </div>
@@ -46,7 +46,7 @@
                 <div class="dropup">
                     <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
-                        <a class="dropdown-item" asp-action="Profile" asp-controller="User">Profile</a>
+                        <a class="dropdown-item" asp-action="Profile" asp-controller="User">Perfil</a>
                         <hr class="dropdown-divider">
                         <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
                     </div>

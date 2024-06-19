@@ -33,8 +33,8 @@ public class CheckboxController : Controller
         await _db.SaveChangesAsync();
 
         var card = await _db.Cards
-        .Include(u => u.Checkboxes)
-        .SingleAsync(p => p.Id == model.CardId);
+            .Include(u => u.Checkboxes)
+            .SingleAsync(p => p.Id == model.CardId);
 
         card.Checkboxes.Add(checkbox);
         await _db.SaveChangesAsync();
@@ -42,7 +42,7 @@ public class CheckboxController : Controller
         return Json(new { success = true, checkbox });
     }
     [HttpPost]
-    public async Task<IActionResult> EditCheckbox([FromBody] int boardId, string name, bool finished, int checkboxId)
+    public async Task<IActionResult> EditCheckbox(int boardId, string name, bool finished, int checkboxId)
     {
         var checkbox = await _db.Checkboxes.FindAsync(checkboxId);
 
@@ -50,6 +50,21 @@ public class CheckboxController : Controller
         checkbox.Finished = finished;
 
         _db.Entry(checkbox);
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+    }
+    [HttpPost]
+    public async Task<IActionResult> DeleteCheckbox(int boardId, int checkboxId, int cardId)
+    {
+        var card = await _db.Cards
+            .Include(u => u.Checkboxes)
+            .FirstOrDefaultAsync(u => u.Id == cardId);
+
+        var checkbox = await _db.Checkboxes.FindAsync(checkboxId);
+
+        card.Checkboxes.Remove(checkbox);
+
         await _db.SaveChangesAsync();
 
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });

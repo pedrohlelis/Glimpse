@@ -358,6 +358,8 @@ lanes.forEach((lane) => {
     }
 
 
+
+
     const overlay = document.getElementById('overlay');
     const addUserToCardForm = document.getElementById('addUserToCardForm');
     const overlayContent = document.getElementById('overlay-content');
@@ -388,7 +390,7 @@ lanes.forEach((lane) => {
     const cards = document.querySelectorAll('.task');
     cards.forEach(card => {
         card.addEventListener('click', function(event) {
-            let boardId = card.dataset.boardid;
+            const boardId = card.dataset.boardid;
             const cardId = card.dataset.id;
             const cardName = card.dataset.name;
             const cardDescription = card.dataset.description;
@@ -439,18 +441,34 @@ lanes.forEach((lane) => {
             });
 
             const checkboxesContainer = document.getElementById('checkbox-list');
+            const checkboxListNew = document.createElement('div');
+            checkboxListNew.style.display = 'flex';
+            checkboxListNew.style.alignContent = 'center';
             cardCheckboxes.forEach(checkbox => {
+
+                const checkboxDelete = document.createElement('form');
+                checkboxDelete.id = 'checkbox-delete-form';
+
+                const checkboxCardId = document.createElement('input');
+                checkboxCardId.type = 'hidden';
+                checkboxCardId.name = 'cardId';
+                checkboxCardId.value = cardId;
+                checkboxDelete.appendChild(checkboxCardId);
+
                 const checkboxDiv = document.createElement('form');
-                checkboxDiv.id = ''
+                checkboxDiv.id = 'checkbox-edit-form';
+
                 checkboxDiv.style.borderRadius = 8;
                 checkboxDiv.classList.add('d-flex', 'px-3', 'py-1', 'my-1', 'align-content-center', 'text-white');
 
                 const checkboxChecked = document.createElement('input');
                 checkboxChecked.type = 'checkbox';
+                checkboxChecked.name = 'finished';
                 checkboxChecked.checked = checkbox.Finished;
                 checkboxDiv.appendChild(checkboxChecked);
 
                 const checkboxName = document.createElement('input');
+                checkboxName.name = 'name';
                 checkboxName.style.backgroundColor = '#272727';
                 checkboxName.classList.add('text-white', 'px-2', 'py-1', 'form-control', 'd-flex', 'ms-2');
                 checkboxName.style.borderRadius = '6px';
@@ -460,12 +478,34 @@ lanes.forEach((lane) => {
                 checkboxName.value = checkbox.Name;
                 checkboxDiv.appendChild(checkboxName);
 
+                const checkboxId = document.createElement('input');
+                checkboxId.type = 'hidden';
+                checkboxId.name = 'checkboxId';
+                checkboxId.value = checkbox.Id;
+                checkboxDiv.appendChild(checkboxId);
+                checkboxDelete.appendChild(checkboxId);
+
+                const cardBoardId = document.createElement('input');
+                cardBoardId.type = 'hidden';
+                cardBoardId.name = 'boardId';
+                cardBoardId.value = boardId;
+                checkboxDiv.appendChild(cardBoardId);
+                checkboxDelete.appendChild(cardBoardId);
+
                 const checkboxSave = document.createElement('button');
                 checkboxSave.textContent = "salvar"
                 checkboxSave.type = 'submit';
                 checkboxDiv.appendChild(checkboxSave);
 
-                checkboxesContainer.appendChild(checkboxDiv);
+                const checkboxDeleteButton = document.createElement('button');
+                checkboxDeleteButton.textContent = "Excluir"
+                checkboxDeleteButton.type = 'submit';
+                checkboxDelete.appendChild(checkboxDeleteButton);
+
+                checkboxListNew.appendChild(checkboxDiv);
+                checkboxListNew.appendChild(checkboxDelete);
+
+                checkboxesContainer.appendChild(checkboxListNew);
 
                 checkboxDiv.addEventListener('submit', function(event) {
                     event.preventDefault();
@@ -473,6 +513,27 @@ lanes.forEach((lane) => {
                     const formData = new FormData(checkboxDiv);
             
                     fetch('/Checkbox/EditCheckbox', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Lane order saved successfully!');
+                            location.reload();
+                        } else {
+                            console.error('Failed to save card order.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('An error occurred:', error);
+                    });
+                });
+                checkboxDelete.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formData = new FormData(checkboxDelete);
+            
+                    fetch('/Checkbox/DeleteCheckbox', {
                         method: 'POST',
                         body: formData
                     })
@@ -525,27 +586,24 @@ lanes.forEach((lane) => {
                 inputCardId.name = 'userCardId';
                 inputCardId.value = cardId;
 
-                const inputUserId = document.createElement('input');
-                inputUserId.type = 'hidden';
-                inputUserId.name = 'userId';
-                inputUserId.value = cardUser.Id;
-
                 form.appendChild(inputBoardId);
                 form.appendChild(inputCardId);
-                form.appendChild(inputUserId);
 
                 const removeButton = document.createElement('button');
+
                 const removeImageElement = document.createElement('img');
-                removeImageElement.src = "/default-images/default-avatar.jpg";
+                removeImageElement.src = "/Icons/default-avatar.jpg";
 
                 userImageElement.style.width = '15%';
                 removeButton.type = 'submit';
+                removeButton.style.display = 'flex';
+                removeButton.textContent = 'Remover'
                 removeButton.style.marginLeft = '10px';
-                removeButton.classList.add('btn', 'btn-danger');
+                removeButton.classList.add('m-0', 'mt-2', 'p-1', 'btn-danger', 'rounded-3');
 
                 userContainer.appendChild(userImageElement);
                 userContainer.appendChild(userElement);
-                userContainer.appendChild(removeButton);
+                form.appendChild(removeButton);
             }
             
             showOverlay();

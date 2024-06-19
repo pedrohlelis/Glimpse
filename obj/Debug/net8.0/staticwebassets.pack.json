@@ -1,372 +1,404 @@
 {
   "Files": [
     {
-      "Id": "C:\\Dev\\Glimpse-1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Glimpse.bundle.scp.css",
       "PackagePath": "staticwebassets\\Glimpse.bundle.scp.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\Glimpse_text_white.png",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Glimpse_text_white.png",
       "PackagePath": "staticwebassets\\Glimpse_text_white.png"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\Icons\\Grid.svg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Icons\\Grid.svg",
       "PackagePath": "staticwebassets\\Icons\\Grid.svg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\Icons\\LogoHome.svg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Icons\\LogoHome.svg",
       "PackagePath": "staticwebassets\\Icons\\LogoHome.svg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\Icons\\enter.svg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Icons\\enter.svg",
       "PackagePath": "staticwebassets\\Icons\\enter.svg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\Icons\\plus1.svg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Icons\\plus1.svg",
       "PackagePath": "staticwebassets\\Icons\\plus1.svg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\Icons\\vertical-dots.svg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Icons\\supreme.svg",
+      "PackagePath": "staticwebassets\\Icons\\supreme.svg"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Icons\\vertical-dots.svg",
       "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\UserProfilePics\\fb80d002-ed91-423f-881e-3b91297c177c_Captura de tela 2024-05-20 141707.png",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\Supremetones02 2 (1).png",
+      "PackagePath": "staticwebassets\\Supremetones02 2 (1).png"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\UserProfilePics\\fb80d002-ed91-423f-881e-3b91297c177c_Captura de tela 2024-05-20 141707.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\fb80d002-ed91-423f-881e-3b91297c177c_Captura de tela 2024-05-20 141707.png"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\css\\index.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\board-pictures\\25b42445-b91d-4103-bc83-bead80482e9e-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\25b42445-b91d-4103-bc83-bead80482e9e-board-pic.png"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\css\\login.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\css\\register.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\css\\register.css",
       "PackagePath": "staticwebassets\\css\\register.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\default-images\\ProjectDefault.png",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\default-images\\ProjectDefault.png",
       "PackagePath": "staticwebassets\\default-images\\ProjectDefault.png"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\default-images\\ProjectDefault.svg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\default-images\\ProjectDefault.svg",
       "PackagePath": "staticwebassets\\default-images\\ProjectDefault.svg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\default-images\\default-avatar.jpg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\default-images\\default-avatar.jpg",
       "PackagePath": "staticwebassets\\default-images\\default-avatar.jpg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\default-images\\defaultBackground.jpg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\default-images\\defaultBackground.jpg",
       "PackagePath": "staticwebassets\\default-images\\defaultBackground.jpg"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\default-images\\defaultUserPfP.png",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\default-images\\defaultUserPfP.png",
       "PackagePath": "staticwebassets\\default-images\\defaultUserPfP.png"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Black.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Black.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Black.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Condensed-SemiBold.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Condensed-SemiBold.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Condensed-SemiBold.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Expanded-Light.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Expanded-Light.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Expanded-Light.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Expanded-SemiBold.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Expanded-SemiBold.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Expanded-SemiBold.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-ExtraBold.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-ExtraBold.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-ExtraBold.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-ExtraLight.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-ExtraLight.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-ExtraLight.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Light.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Light.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Light.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-SemiBold.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-SemiBold.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-SemiBold.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-Bold.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-Bold.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-Bold.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-ExtraLight.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-ExtraLight.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-ExtraLight.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-SemiBold.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-SemiBold.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-SemiBold.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-Thin.otf",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\fonts\\Fixture-Ultra-Thin.otf",
       "PackagePath": "staticwebassets\\fonts\\Fixture-Ultra-Thin.otf"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\google_logo_icon.png",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\google_logo_icon.png",
       "PackagePath": "staticwebassets\\google_logo_icon.png"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\js\\board-info.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\js\\board-info.js",
       "PackagePath": "staticwebassets\\js\\board-info.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\project-pictures\\30cd3424-a6df-457c-9e70-cb9116f89322_Captura de tela 2024-05-20 141707.png",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\project-pictures\\148fb3f7-53a9-42bb-80ab-40abf7bec5ce_supremetones 2.png",
+      "PackagePath": "staticwebassets\\project-pictures\\148fb3f7-53a9-42bb-80ab-40abf7bec5ce_supremetones 2.png"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\project-pictures\\30cd3424-a6df-457c-9e70-cb9116f89322_Captura de tela 2024-05-20 141707.png",
       "PackagePath": "staticwebassets\\project-pictures\\30cd3424-a6df-457c-9e70-cb9116f89322_Captura de tela 2024-05-20 141707.png"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\project-pictures\\6a581ae0-68db-4343-8ede-11d576af2a1f_Captura de tela 2024-05-20 141707.png",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\project-pictures\\53f3945a-e31c-4cce-b06a-6be590430a1c_many2.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\53f3945a-e31c-4cce-b06a-6be590430a1c_many2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\project-pictures\\660f26bd-fb2f-4d31-9df9-d08a4bebac17_Captura de tela 2024-05-20 141707.png",
+      "PackagePath": "staticwebassets\\project-pictures\\660f26bd-fb2f-4d31-9df9-d08a4bebac17_Captura de tela 2024-05-20 141707.png"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\project-pictures\\6a581ae0-68db-4343-8ede-11d576af2a1f_Captura de tela 2024-05-20 141707.png",
       "PackagePath": "staticwebassets\\project-pictures\\6a581ae0-68db-4343-8ede-11d576af2a1f_Captura de tela 2024-05-20 141707.png"
     },
     {
-      "Id": "C:\\Dev\\Glimpse-1\\wwwroot\\registerSideImage.svg",
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\registerSideImage.svg",
       "PackagePath": "staticwebassets\\registerSideImage.svg"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\supremetones 2.png",
+      "PackagePath": "staticwebassets\\supremetones 2.png"
+    },
+    {
+      "Id": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse-1\\wwwroot\\topography.png",
+      "PackagePath": "staticwebassets\\topography.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Glimpse.Microsoft.AspNetCore.StaticWebAssets.props",

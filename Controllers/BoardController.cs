@@ -101,7 +101,6 @@ public class BoardController : Controller
         List<Board> userBoards = [];
         foreach (var userBoard in project.Boards) {
             userBoards.Add(userBoard);
-            System.Console.WriteLine(userBoard.Name);
         }
 
         var model = new BoardVM
@@ -206,22 +205,20 @@ public class BoardController : Controller
         return View("Create", Board);
     }
 
-    public async Task<IActionResult> Edit(int projectId, int boardId)
+    public async Task<IActionResult> Edit(int id)
     {
-        var Board = await _db.Boards.FindAsync(boardId);
+        var Board = await _db.Boards.FindAsync(id);
 
         if (Board == null)
         {
             return NotFound();
         }
 
-        ViewData["projectId"] = projectId;
-
         return View(Board);
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditBoard(Board Board, IFormFile? BoardImg, int projectId)
+    public async Task<IActionResult> EditBoard(Board Board, IFormFile? BoardImg)
     {
         if (ModelState.IsValid)
         {
@@ -244,7 +241,7 @@ public class BoardController : Controller
             {
                 return View("Edit", Board);
             }
-            return RedirectToAction("GetProjectBoards", new { id = projectId });
+            return RedirectToAction("GetBoardInfo", new { id = Board.Id });
         }
 
         return View("Edit", Board);

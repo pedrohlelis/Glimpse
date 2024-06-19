@@ -39,7 +39,7 @@
                 <div class="card-footer">
                     <center>
                         <button type="submit" class="btn-primary">Editar Quadro</button>
-                        <button class="btn-secondary"><a asp-action="GetProjectBoards" asp-route-id='@ViewData["projectId"]' asp-controller="Board">Cancelar</a></button>
+                        <button class="btn-secondary"><a asp-action="GetBoardInfo" asp-route-id='@Model.Id' asp-controller="Board">Cancelar</a></button>
                     </center>
                 </div>
             </div>

@@ -6,61 +6,76 @@
     ViewData["stylesheetUrl"] = "~/css/register.css";
 }
 
-<a class="navbar-brand text-white" aria-current="page" href="~/Home/Index">
-    <img src="~/Glimpse_text_white.png" alt="" width="160" height="36" class="d-inline-block align-text-top">
+<a class="navbar-brand text-white" style="position: absolute; left: 4%" aria-current="page" href="~/Home/Index">
+    <img src="/Icons/LogoHome.svg" alt="" width="160" height="36" class="d-inline-block align-text-top">
 </a>
 
-<div class="container-fluid d-flex justify-content-center" style="column-gap: 10%; margin-top: 5%">
-    <div>
-        <div class="d-flex flex-column justify-content-center text-center">
-            <h2 class="mb-4 fw-bold" style="color: #9531FF;">Crie sua conta</h2>
-            <p>A melhor plataforma de gestão de projetos</p>
+<div class="d-flex justify-content-center px-2" style="column-gap: 10%; margin-top: 3%;">
+    <div class="d-md-block d-none position-absolute" style="z-index: 1;">
+        <img src="~/Supremetones02 2 (1).png" alt="">
+    </div>
+    <div class="main-register d-flex flex-column px-3" style="z-index: 1000;">
+        <div class="d-flex flex-column justify-content-center text-center pt-2">
+            <h1 class="create-account mb-4 fw-bold display-4" style="color: #911aec;">Crie sua conta</h1>
+            <p class="fs-6 fw-normal">A melhor plataforma de gestão de projetos</p>
         </div>
-
+        <br>
         <form form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.FirstName" class="form-input form-control bg-dark text-white" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.FirstName" class="form-label">Nome:</label>
-                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            <div asp-validation-summary="ModelOnly" class="text-white" role="alert"></div>
+            <div class="row">
+                <div class="form-floating mb-3 col">
+                    <input asp-for="Input.FirstName" class="form-control input-register text-white" style="outline-color: #9531FF; border-color: #9531FF;" autocomplete="off" aria-required="true" placeholder="name@example.com"/>
+                    <label asp-for="Input.FirstName" class="form-label text-white ms-3">Nome:</label>
+                    <span asp-validation-for="Input.FirstName" class="text-white"></span>
+                </div>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.LastName" class="form-input form-control bg-dark text-white" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.LastName" class="form-label">Sobrenome:</label>
-                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            <div class="row">
+                <div class="form-floating mb-3 col">
+                    <input asp-for="Input.LastName" class="form-control input-register text-white" style="outline-color: #9531FF; border-color: #9531FF;" autocomplete="off" aria-required="true" placeholder="name@example.com"/>
+                    <label asp-for="Input.LastName" class="form-label text-white ms-3">Sobrenome:</label>
+                    <span asp-validation-for="Input.LastName" class="text-white"></span>
+                </div>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-input form-control bg-dark text-white" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email" class="form-label">Email:</label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Password" class="form-input form-control bg-dark text-white" autocomplete="current-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password" class="form-label">Senha:</label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-input form-control bg-dark text-white" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirmar Senha:</label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            <div class="row">
+                <div class="form-floating mb-3 col align-content-center">
+                    <input asp-for="Input.Email" class="input-register form-control text-white" style="outline-color: #9531FF; border-color: #9531FF;" autocomplete="off" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email" class="form-label text-white ms-3 text-center">Email:</label>
+                    <span asp-validation-for="Input.Email" class="text-white"></span>
+                </div>
             </div>
 
-            <button id="registersubmit" type="submit" class="submit-btn btn-create">Submit</button>
-            <p>
-                <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Já tem uma conta?</a>
-            </p>
+            <div class="row">
+                <div class="form-floating mb-3 col">
+                    <input asp-for="Input.Password" class="form-control input-register text-white" style="outline-color: #9531FF; border-color: #9531FF;" autocomplete="off" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password" class="form-label text-white ms-3">Senha:</label>
+                    <span asp-validation-for="Input.Password" class="text-white"></span>
+                </div>
+                <div class="form-floating mb-3 col">
+                    <input asp-for="Input.ConfirmPassword" class="form-control input-register text-white" style="outline-color: #9531FF; border-color: #9531FF;" autocomplete="off" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.ConfirmPassword" class="form-label text-white ms-3">Confirmar Senha:</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-white"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button id="registersubmit" type="submit" class="button-create" style="background-color: #B936EF;">Criar conta</button>
+                    <p>
+                        <a class="" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" style="color: #d7d7d7;">Já tem uma conta?</a>
+                    </p>
+                </div>
+            </div>
         </form>
 
         <section>
             <div class="d-flex align-items-center">
                 <div class="flex-grow-1">
-                    <hr>
+                    <hr style="border-top: 2px solid rgb(255, 255, 255);">
                 </div>
-                <div class="px-2">
-                    Or
+                <div class="px-3">
+                    Ou
                 </div>
                 <div class="flex-grow-1">
-                    <hr>
+                    <hr style="border-top: 2px solid rgb(255, 255, 255);">
                 </div>
             </div>
             
@@ -81,9 +96,14 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins!)
                                 {
-                                    <button type="submit" class="submit-btn" name="provider" value="@provider.Name" title="Register using your @provider.DisplayName account">
-                                        <img src="~/google_logo_icon.png"> Registrar com @provider.DisplayName
-                                    </button>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit" class="button-create bg-dark" name="provider" value="@provider.Name" title="Register using your @provider.DisplayName account">
+                                                <img src="~/google_logo_icon.png">
+                                                <p>Registrar com @provider.DisplayName</p>
+                                            </button>
+                                        </div>
+                                    </div>
                                 }
                             </p>
                         </div>
@@ -91,9 +111,6 @@
                 }
             }
         </section>
-    </div>
-    <div class="d-md-block d-none">
-        <img src="~/registerSideImage.svg" class="img-fluid" alt="">
     </div>
 </div>
 
@@ -104,3 +121,32 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+<style>
+    body {
+        overflow-y: auto; /* Hide vertical scrollbar */
+        overflow-x: auto; /* Hide horizontal scrollbar */
+    }
+    .input-register {
+        background-color: rgba(0, 0, 0, 0.729);
+    }
+    .input-register:focus {
+        background-color: rgba(0, 0, 0, 0.729);;
+    }
+    .create-account {
+        background: -webkit-linear-gradient(#ffffff, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .main-register {
+        border: 4px;
+        border-color: white;
+        border-radius: 8px;
+        padding: 3px;
+        background: rgba(255, 255, 255, 0.147);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.488);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+</style>

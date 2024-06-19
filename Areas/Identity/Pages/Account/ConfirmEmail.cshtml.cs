@@ -34,7 +34,6 @@ namespace Glimpse.Areas.Identity.Pages.Account
         {
             if (userId == null || code == null)
             {
-                Console.WriteLine("userId is null or code is null.");
                 return RedirectToPage("/Index");
             }
 

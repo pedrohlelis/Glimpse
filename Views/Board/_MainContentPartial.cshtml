@@ -6,7 +6,7 @@
 <input name="IsMemberSideBarActive" type="hidden">
 <br>
 
-<div class="lanes text-white p-0 d-flex" style="max-width: 120vw; max-height: 800px; min-height: 100%; margin-left: 10%;">
+<div class="lanes text-white p-0" style="max-width: 120vw; max-height: 800px; min-height: 100%; margin-left: 10%;">
     <div>
         <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
             <div style="width: 300px; height: 200px;" class="lane">
@@ -20,13 +20,13 @@
         </form>
     </div>
     <div>
-        <button id="add-lane-button" class="fs-6 new-lane-btn text-white" style="">
+        <button id="add-lane-button" class="fs-6 new-lane-btn text-white">
             Nova Raia +
         </button>
     </div>
     @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
     {
-        <div class="swim-lane col mx-1 overflow-y bg-dark" style="min-width: 14%; max-width: 18%; max-height: 600px; overflow: visible;" data-id="@lane.Id" draggable="true">
+        <div class="swim-lane col mx-1 bg-dark" style="min-width: 20%; max-width: 18%; max-height: 600px;" data-id="@lane.Id" draggable="true">
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center me-2">
                     <form asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
@@ -82,7 +82,7 @@
             @foreach (Card card in lane.Cards.OrderBy(card => card.Index))
             {
                 var tagsJson = JsonSerializer.Serialize(card.Tags.Select(tag => new { tag.Name, tag.Color }));
-                var checkboxesJson = JsonSerializer.Serialize(card.Checkboxes.Select( checkbox => new { checkbox.Finished, checkbox.Name }));
+                var checkboxesJson = JsonSerializer.Serialize(card.Checkboxes.Select( checkbox => new { checkbox.Id, checkbox.Finished, checkbox.Name }));
                 var userJson = card.User != null ? JsonSerializer.Serialize(new { card.User.FirstName, card.User.LastName, card.User.Picture }) : "null";
 
                 <div class="task row py-3 px-2 border-bottom border-3 border-primary" 
@@ -130,6 +130,11 @@
     }
 </div>
 <style>
+    a.text-white {
+        word-wrap: break-word; /* Permite a quebra de linha dentro da palavra */
+        white-space: normal;   /* Permite a quebra de linha em espaços */
+        display: block;        /* Garante que o elemento use a largura completa disponível */
+    }
     .board {
     width: 100%;
     height: 100%;

@@ -20,8 +20,6 @@ public class RoleController : Controller
     public async Task<IActionResult> ShowRoles(int projectId)
     {
         ICollection<Role> roles;
-        
-        System.Console.WriteLine(projectId);
 
         var project = _db.Projects
             .Include(p => p.Roles)
@@ -66,7 +64,6 @@ public class RoleController : Controller
     [HttpPost]
     public async Task<IActionResult> EditRole(Role role, int roleId, int boardId, bool IsMemberSideBarActive)
     {
-        Console.WriteLine("roleId: " + roleId);
         // Retrieve the existing role from the database
         Role toEditRole = await _db.Roles.FindAsync(roleId);
 
@@ -79,8 +76,6 @@ public class RoleController : Controller
         toEditRole.CanManageCards = role.CanManageCards;
         toEditRole.CanManageTags = role.CanManageTags;
         toEditRole.CanManageChecklist = role.CanManageChecklist;
-
-        Console.WriteLine(role.CanManageMembers);
 
         // Save changes to the database
         await _db.SaveChangesAsync();
@@ -133,9 +128,6 @@ public class RoleController : Controller
     [HttpPost]
     public async Task<IActionResult> AtribuirRole(int id ,int roleId, string userId)
     {
-
-        Console.WriteLine("roleid"+roleId);
-        Console.WriteLine("userid" + userId);
         Board board = _db.Boards
             .Include(b => b.Project)
             .Single(b => b.Id == id);
@@ -147,7 +139,6 @@ public class RoleController : Controller
         if (roleId == 0)
         {
             if (currentUserRoleInProject == null){
-                Console.WriteLine(currentUserRoleInProject + "is null");
                 return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
             }
             user.Roles.Remove(currentUserRoleInProject);
@@ -182,8 +173,6 @@ public class RoleController : Controller
     public async Task<IActionResult> UserRoles(int projectId)
     {
         ICollection<Role> roles;
-        
-        System.Console.WriteLine(projectId);
 
         var project = _db.Projects
             .Include(p => p.Roles)

@@ -80,8 +80,6 @@ public class LaneController : Controller
     [HttpPost]
     public async Task<IActionResult> SaveLaneOrder([FromForm] string laneIndexDictionary, int id, bool isMemberSideBarActive)
     {
-        Console.WriteLine(laneIndexDictionary);
-        // Deserialize the JSON strings back into structured data
         var laneIndexDictionaryDeserialized = JsonSerializer.Deserialize<Dictionary<string, int>>(laneIndexDictionary);
 
         foreach (var kvp in laneIndexDictionaryDeserialized)

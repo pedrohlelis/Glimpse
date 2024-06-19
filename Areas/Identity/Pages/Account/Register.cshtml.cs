@@ -130,7 +130,6 @@ namespace Glimpse.Areas.Identity.Pages.Account
                 user.LastName = Input.LastName;
                 user.IsActive = true;
                 var result = await _userManager.CreateAsync(user, Input.Password);
-                Console.WriteLine(Input.FirstName + " " + Input.LastName); 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
