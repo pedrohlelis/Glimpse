@@ -465,16 +465,16 @@ lanes.forEach((lane) => {
 
             // Splitting cardDueDate into day, month, year, hour, and minute
             const [dueDay, dueMonth, dueYearTime] = cardDueDate.split('/');
-            // const [dueYear, time] = dueYearTime.split(' ');
-            // const [hour, minute] = time.split(':');
+            const [dueYear, time] = dueYearTime.split(' ');
+            const [hour, minute] = time.split(':');
 
             // Formatting startDate for input element (if needed)
             const formattedStartDate = `${year}-${month}-${day}`;
-            // const formattedDueDateTime = `${dueYear}-${dueMonth}-${dueDay}T${hour}:${minute}`;
+            const formattedDueDateTime = `${dueYear}-${dueMonth}-${dueDay}T${hour}:${minute}`;
 
             // Creating Date objects
             const startDateObject = new Date(formattedStartDate);
-            // const dueDateTimeObject = new Date(formattedDueDateTime);
+            const dueDateTimeObject = new Date(formattedDueDateTime);
 
 
             // Setting values to HTML elements
@@ -489,7 +489,7 @@ lanes.forEach((lane) => {
             document.getElementById('startDate').valueAsDate = startDateObject;
 
             // Setting dueDate input element (assuming it accepts date and time)
-            // document.getElementById('dueDate').value = formattedDueDateTime;
+            document.getElementById('dueDate').value = formattedDueDateTime;
 
             const tagsContainer = document.getElementById('tags');
             tagsContainer.innerHTML = '';
@@ -516,31 +516,6 @@ lanes.forEach((lane) => {
                 checkboxElement.type = 'checkbox';
                 checkboxElement.name = 'checkbox_' + checkbox.Id; // Set name attribute if needed
                 checkboxElement.id = 'checkbox_' + checkbox.Id; // Set id attribute if needed
-                // checkboxElement.addEventListener('change', function() {
-                //     var editFormData = new FormData();
-                //     editFormData.append('boardId', boardId)
-                //     editFormData.append('finished', checkboxElement.checked)
-                //     editFormData.append('checkboxId', checkbox.Id);
-
-                //     console.log(checkboxElement.checked)
-
-                //     fetch('/Checkbox/EditCheckbox', {
-                //         method: 'POST',
-                //         body: editFormData
-                //     })
-                //     .then(response => {
-                //         if (response.ok) {
-                //             console.log('Checkbox updated successfully!');
-                //             // Optionally, update UI or reload page after successful deletion
-                //             location.reload();
-                //         } else {
-                //             console.error('Failed to update checkbox.');
-                //         }
-                //     })
-                //     .catch(error => {
-                //         console.error('Error occurred while updating checkbox:', error);
-                //     });
-                // });
 
                 // Create label for checkbox
                 var labelElement = document.createElement('label');
@@ -584,8 +559,8 @@ lanes.forEach((lane) => {
 
                     // Construct FormData object with form data
                     var formData = new FormData(deleteForm);
-                    // formData.append('checkboxId', checkbox.Id);
-                    // formData.append('boardId', boardId); // Assuming boardId is defined
+                    formData.append('checkboxId', checkbox.Id);
+                    formData.append('boardId', boardId); // Assuming boardId is defined
 
                     // Perform fetch request to delete checkbox
                     fetch('/Checkbox/DeleteCheckbox', {
@@ -623,64 +598,6 @@ lanes.forEach((lane) => {
                 checkboxesContainer.appendChild(checkboxContainer); // Append complete structure to main container
             });
 
-            //     const checkboxDiv = document.createElement('div');
-            //     checkboxDiv.id = 'checkbox-div-id';
-
-            //     checkboxDiv.style.borderRadius = 8;
-            //     checkboxDiv.classList.add('d-flex-row', 'px-3', 'py-1', 'my-1', 'align-content-center', 'text-white');
-
-            //     const checkboxChecked = document.createElement('input');
-            //     checkboxChecked.classList.add("task-checkbox");
-            //     checkboxChecked.type = 'checkbox';
-            //     checkboxChecked.name = 'finished';
-            //     checkboxChecked.checked = checkbox.Finished;
-            //     checkboxDiv.appendChild(checkboxChecked);
-
-            //     const checkboxName = document.createElement('p');
-            //     checkboxName.style.backgroundColor = '#272727';
-            //     checkboxName.classList.add('text-white', 'px-2', 'py-1', 'd-flex', 'ms-2');
-            //     checkboxName.textContent = checkbox.Name;
-            //     checkboxDiv.appendChild(checkboxName);
-
-
-
-
-
-            //     const checkboxDeleteButton = document.createElement('button');
-            //     checkboxDeleteButton.style = "height:15px; width:15px;"
-            //     checkboxDeleteButton.classList.add("btn-close", 'bg-light');
-            //     checkboxDeleteButton.type = 'submit';
-            //     checkboxDelete.appendChild(checkboxDeleteButton);
-
-            //     checkboxListNew.appendChild(checkboxDiv);
-            //     checkboxListNew.appendChild(checkboxDelete);
-
-            //     checkboxesContainer.appendChild(checkboxListNew);
-
-
-            //     checkboxDelete.addEventListener('submit', function(event) {
-            //         event.preventDefault();
-                    
-            //         const formData = new FormData(checkboxDelete);
-            
-            //         fetch('/Checkbox/DeleteCheckbox', {
-            //             method: 'POST',
-            //             body: formData
-            //         })
-            //         .then(response => {
-            //             if (response.ok) {
-            //                 console.log('Lane order saved successfully!');
-            //                 location.reload();
-            //             } else {
-            //                 console.error('Failed to save card order.');
-            //             }
-            //         })
-            //         .catch(error => {
-            //             console.error('An error occurred:', error);
-            //         });
-            //     });
-            // });
-
             const checkboxes = document.querySelectorAll('.task-checkbox');
             const progressBar = document.getElementById('progress-bar');
             const progressLabel = document.getElementById('progress-label');
@@ -690,6 +607,8 @@ lanes.forEach((lane) => {
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', updateProgress);
             });
+
+            updateProgress();
 
             function updateProgress() {
                 let checked = 0;

@@ -2,13 +2,14 @@
 
 @model BoardVM;
 @{
-    Layout = "_BasicLayout";
+    Layout = "_BasicStructure";
     ViewData["StylesheetUrl"] = "~/css/index.css";
     ViewData["Title"] = Model.Board.Name;
 }
 <br><br>
 
 <partial name="_BoardHeaderPartial"></partial>
+<partial name="_BoardSideBarPartial"></partial>
 <partial name="_EditRolePartial"></partial>
 <partial name="_MainContentPartial"></partial>
 

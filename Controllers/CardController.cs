@@ -49,6 +49,7 @@ public class CardController : Controller
         {
             Name = name,
             StartDate = DateOnly.FromDateTime(DateTime.Now),
+            DueDate = DateTime.Now,
             Lane = await _db.Lanes.FirstOrDefaultAsync(x => x.Id == laneId)
         };
 

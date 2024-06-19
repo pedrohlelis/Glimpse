@@ -56,9 +56,8 @@ public class CheckboxController : Controller
             var checkbox = _db.Checkboxes.FirstOrDefault(c => c.Id == int.Parse(kvp.Key));
 
             checkbox.Finished = kvp.Value;
-            await _db.SaveChangesAsync();
         }
-
+        await _db.SaveChangesAsync();
 
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = false });
         // return BadRequest("Checkbox states updated successfully.");

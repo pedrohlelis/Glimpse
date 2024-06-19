@@ -115,7 +115,7 @@
                     <a class="text-white mb-2" style="font-size: 14px; text-decoration: none; cursor: pointer;">@card.Name</a>
                     @if(card.User != null)
                     {
-                        <div class="d-flex align-content-center pt-2 justify-content-between" style="text-wrap: nowrap; overflow: hidden;">
+                        <div class="d-flex align-content-center pt-2 mb-3 justify-content-between" style="text-wrap: nowrap; overflow: hidden;">
                             <div class="d-flex align-content-center" style="max-width: 150px;">
                                 <img class="mx-1" src="@(card.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
                                 width="30px"
@@ -123,16 +123,35 @@
                                 style="border: 2px solid @(Model.UserRolesDictionary[card.User]?.Color ?? "#fff"); border-radius: 50%;">
                                 <p class="px-1 m-0 align-content-center" style="overflow: hidden; text-overflow: ellipsis; color: @(Model.UserRolesDictionary[card.User]?.Color ?? "#fff");">@card.User.FirstName @card.User.LastName</p>
                             </div>
-                            @if(card.StartDate != null && card.DueDate != null){
-                                <p class="m-0 rounded-3 px-1 text-center align-content-center text-white" style="font-size: 12px; background-color: #323232; width: 60px">@String.Format("{0:dd/MM}", @card.StartDate)</p>
-                            }
                         </div>
+                        @if(card.StartDate != null && card.DueDate != null){
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <div class="d-flex align-items-center mx-2 justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
+                                        <box-icon name='time-five' color="#797979"></box-icon>
+                                        <span style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-start" style="max-width: 100px;">
+                                        @{
+                                            int checkedboxes = 0;
+                                            foreach(Checkbox checkbox in card.Checkboxes){
+                                                if(checkbox.Finished){
+                                                    checkedboxes += 1;
+                                                }
+                                            }
+                                        }
+                                        <box-icon name='checkbox-checked' color="#797979" ></box-icon>
+                                        <span class="checkbox-count" style="font-size: 12px; color:#797979; width:100%;">
+                                            @checkedboxes/@card.Checkboxes.Count
+                                        </span>
+                                    </div>
+                                </div>
+                            }
                     } else
                     {
                         @if(card.StartDate != null && card.DueDate != null){
                             <div class="d-flex align-items-center justify-content-start">
-                                <div class="d-flex align-items-center mx-2 justify-content-start" style="background-color: #FFD1D1; border-radius: 2px; padding: 5px 10px; color: #d9534f; max-width:140px; max-height:30px;">
-                                    <box-icon name='time-five' color="#d9534f"></box-icon>
+                                <div class="d-flex align-items-center mx-2 justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
+                                    <box-icon name='time-five' color="#797979"></box-icon>
                                     <span style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-start" style="max-width: 100px;">
