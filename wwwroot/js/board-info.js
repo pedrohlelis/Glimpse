@@ -13,6 +13,14 @@ function createTag() {
     createTagModal.show();
 }
 
+function deleteTag(button) {
+    var editlistItem = button.closest('li');
+    document.getElementById('tagToDeleteId').value = editlistItem.dataset.id;
+
+    var deleteTagModal = new bootstrap.Modal(document.getElementById('ConfirmDeleteTagModal'));
+    deleteTagModal.show();
+}
+
 function editTag(button) {
         var listitem = button.closest('li');
         document.getElementById('tagToEditId').value = listitem.dataset.id;
