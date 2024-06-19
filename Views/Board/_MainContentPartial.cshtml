@@ -10,6 +10,11 @@
 
     <div class="lanes text-white" style="max-width: 1250px;">
         <div>
+            <button id="add-lane-button" class="fs-6 new-lane-btn text-white">
+                Nova Raia +
+            </button>
+        </div>
+        <div>
             <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
                 <div style="width: 300px; height: 200px;" class="lane">
                     <div class="d-flex align-content-center align-items-center px-1">
@@ -21,11 +26,6 @@
                     <hr>
                 </div>
             </form>
-        </div>
-        <div>
-            <button id="add-lane-button" class="fs-6 new-lane-btn text-white">
-                Nova Raia +
-            </button>
         </div>
         @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
         {

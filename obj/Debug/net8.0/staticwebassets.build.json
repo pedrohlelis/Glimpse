@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UEdYuXmGRPzgbjs0Y5k5cypHgNA8fGtJ8wydBooKXVU=",
+  "Hash": "kxq99sXzNdTBKmGtkMZlaVn9Q7xB3zuBG3ESXRA2PZQ=",
   "Source": "Glimpse",
   "BasePath": "_content/Glimpse",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\board-pictures\\f89f1713-48c1-4a30-bb6e-53137280de3e-board-pic.png"
+    },
+    {
+      "Identity": "C:\\Dev\\Glimpse\\wwwroot\\board-pictures\\f99a30e6-91d5-4ab2-ac07-cfe8307f08ed-board-pic.png",
+      "SourceId": "Glimpse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Dev\\Glimpse\\wwwroot\\",
+      "BasePath": "_content/Glimpse",
+      "RelativePath": "board-pictures/f99a30e6-91d5-4ab2-ac07-cfe8307f08ed-board-pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\board-pictures\\f99a30e6-91d5-4ab2-ac07-cfe8307f08ed-board-pic.png"
     },
     {
       "Identity": "C:\\Dev\\Glimpse\\wwwroot\\board-pictures\\fbcc6baa-6ee7-4d42-bfed-2d5e272fad3c-board-pic.png",

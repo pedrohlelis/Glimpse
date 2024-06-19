@@ -48,6 +48,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\f89f1713-48c1-4a30-bb6e-53137280de3e-board-pic.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\f99a30e6-91d5-4ab2-ac07-cfe8307f08ed-board-pic.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Glimpse</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Glimpse</BasePath>
+      <RelativePath>board-pictures/f99a30e6-91d5-4ab2-ac07-cfe8307f08ed-board-pic.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\f99a30e6-91d5-4ab2-ac07-cfe8307f08ed-board-pic.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\board-pictures\fbcc6baa-6ee7-4d42-bfed-2d5e272fad3c-board-pic.png))">
       <SourceType>Package</SourceType>
       <SourceId>Glimpse</SourceId>
