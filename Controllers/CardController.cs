@@ -72,6 +72,7 @@ public class CardController : Controller
         card.Name = name;
         card.Description = description;
         card.Date = date;
+        await _db.SaveChangesAsync();
 
         _db.Entry(card);
 

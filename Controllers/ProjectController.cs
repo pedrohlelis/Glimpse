@@ -135,7 +135,7 @@ public class ProjectController : Controller
             {
                 Name = "Developer",
                 Description = "This is the default Developer role created during project creation",
-                Color = "#FF1D8E",  // Assign a default color or customize as needed
+                Color = "#FF1D8E",
                 CanManageMembers = false,
                 CanManageRoles = true,
                 CanManageCards = true,

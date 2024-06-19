@@ -34,6 +34,7 @@
                         <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
                         <br><br>
                         <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
+                        <p class="text-muted overflow-hidden" style="font-size: smaller;">Created by: @kvp.Value.Email</p>
                     </a>
                 }
                 <div class="dropup">
@@ -48,6 +49,11 @@
                             <li>
                                 <a class="text-white" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">
                                     Deletar
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-white" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@kvp.Key.Id">
+                                    Boards
                                 </a>
                             </li>
                         } else{

@@ -65,16 +65,21 @@ public class LaneController : Controller
     {
         try
         {
-            Lane lane = await _db.Lanes.FindAsync(laneId);
-            _db.Lanes.Remove(lane);
-            await _db.SaveChangesAsync();
+            Board board = _db.Boards
+            .Include(c => c.Lanes)
+            .Single(c => c.Id == id);
+
+            if (board.Lanes.Count > 1){
+                Lane lane = await _db.Lanes.FindAsync(laneId);
+                _db.Lanes.Remove(lane);
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
         }
         catch (DbUpdateException)
         {
             return RedirectToAction("GetBoardInfo", "Board", new { id });
         }
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
 
     [HttpPost]
