@@ -190,6 +190,9 @@ public class BoardController : Controller
             Board.Background = "../board-pictures/defaultBackground.jpg";
         }
 
+        _db.Boards.Add(Board);
+        await _db.SaveChangesAsync();
+
         var BacklogLane = new Lane
         {
             Name = "BackLog",
@@ -211,7 +214,6 @@ public class BoardController : Controller
         Board.Lanes.Add(BacklogLane);
         Board.Lanes.Add(ToDoLane);
         Board.Lanes.Add(DoneLane);
-        _db.Boards.Add(Board);
         await _db.SaveChangesAsync();
         // Board.Background = "../board-pictures/defaultBackground.jpg";
         if (ModelState.IsValid)
