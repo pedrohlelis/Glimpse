@@ -1,0 +1,143 @@
+@model int
+@{
+    ViewData["Title"] = "Code";
+}
+<section class="">
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Navegar</button>
+
+    <div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">main - @ViewData["RepoName"]</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <button id="back-button" class="btn btn-secondary" style="display:none;">Voltar</button>
+            <div class="mt-4" style="border-radius: 10px;" id="repository-structure"></div>
+            <br>
+        </div>
+    </div>
+
+    <h1 class="display-4 pt-4">Repositório - @ViewData["RepoName"]</h1>
+    <pre class="p-3" id="file-content" style="background-color: #272727;"><code class="language-cs"></code></pre>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            var repoId = @Model;
+            var navigationStack = [];
+
+            loadRepositoryStructure(repoId);
+
+            function loadRepositoryStructure(repoId, path = "") {
+                $.get('/Repository/GetRepositoryStructure', { id: repoId, path: path }, function(data) {
+                    console.log('Loading repository structure:', data);  // Inspecionar a resposta
+                    $('#repository-structure').html(buildStructureHtml(data.$values));
+                    if (path) {
+                        $('#back-button').show();
+                    } else {
+                        $('#back-button').hide();
+                    }
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.error("Error loading repository structure: ", textStatus, errorThrown);
+                });
+            }
+
+            function buildStructureHtml(contents) {
+                let html = '<ul style="list-style: none;" class="ul2">';
+                if (Array.isArray(contents)) {
+                    contents.forEach(function(content) {
+                        if (content.type.stringValue === 'dir') {
+                            html += `<li class="li2">
+                                        <span class="folder p-2" style="cursor: pointer;" data-path="${content.path}">${content.name}</span>
+                                        <div class="sub-contents" id="${content.path.replace(/\//g, '-')}">
+                                            <ul></ul>
+                                        </div>
+                                    </li>`;
+                        } else {
+                            html += `<li class="li2"><a href="#" class="file text-white p-2" style="text-decoration: none;" data-path="${content.path}">${content.name}</a></li>`;
+                        }
+                    });
+                } else {
+                    console.error("Unexpected data format:", contents);
+                }
+                html += '</ul>';
+                return html;
+            }
+
+            $('#repository-structure').on('click', '.folder', function(e) {
+                e.preventDefault();  // Impede o comportamento padrão do link <a>
+                const path = $(this).data('path');
+                const subContentsDiv = $('#' + path.replace(/\//g, '-')).children('ul');
+                console.log('Folder clicked:', path);  // Log para verificar o clique na pasta
+                if (subContentsDiv.is(':empty')) {
+                    navigationStack.push(path);
+                    loadRepositoryStructure(repoId, path);
+                }
+                subContentsDiv.slideToggle();
+            });
+
+            $('#repository-structure').on('click', '.file', function(e) {
+                e.preventDefault();  // Impede o comportamento padrão do link <a>
+                const path = $(this).data('path');
+                $.get('/Repository/GetFileContent', { id: repoId, path: path }, function(data) {
+                    $('#file-content').text(data);
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.error("Error loading file content: ", textStatus, errorThrown);
+                });
+            });
+
+            $('#back-button').on('click', function(e) {
+                e.preventDefault();
+                navigationStack.pop();  // Remove the current path
+                const previousPath = navigationStack.length > 0 ? navigationStack[navigationStack.length - 1] : "";
+                loadRepositoryStructure(repoId, previousPath);
+            });
+        });
+    </script>
+}
+<style>
+    .offcanvas {
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 0.023);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.3px);
+        -webkit-backdrop-filter: blur(7.3px);
+        border: 1px solid rgba(255, 255, 255, 0.188);
+    }
+    .ul2 {
+        margin: 0;
+        padding: 0;
+    }
+    .li2 {
+        font-size: 14px;
+        padding-left: 4px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border: 1px solid;
+        border-color: rgb(66, 66, 66);
+    }
+    pre {
+        background: #f4f4f4;
+        border: 1px solid #c0c0c0;
+        border-left: 3px solid #bd33f3;
+        color: #c9c9c9;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: 1em 1.5em;
+        display: block;
+        word-wrap: break-word;
+    }
+    .ul2 :first-child {
+        border-radius: 0.8rem 0.8rem 0 0;
+    }
+
+    .ul2 :last-child {
+        border-radius: 0 0 0.8rem 0.8rem;
+    }
+</style>

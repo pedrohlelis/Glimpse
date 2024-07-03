@@ -40,9 +40,10 @@
                     <div class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
                         @if(Model.User == kvp.Value){
                             <a class="dropdown-item text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@kvp.Key.Id">Editar</a>
-                            <a class="dropdown-item text-danger" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">Deletar</a>
+                            <a class="dropdown-item text-white" asp-controller="Repository" asp-action="ConnectRepository" asp-route-projectId="@kvp.Key.Id">Conectar GitHub</a>
+                            <a class="dropdown-item text-white" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@kvp.Key.Id">Quadros</a>
                             <hr class="dropdown-divider">
-                            <a class="dropdown-item text-white" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@kvp.Key.Id">Boards</a>
+                            <a class="dropdown-item text-danger" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">Deletar</a>
                         } else{
                             <li data-id="@kvp.Key.Id" style="cursor: pointer;">
                                 <a class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#ConfirmLeaveProjectModal" aria-expanded="true" onclick="leaveProject(this)">

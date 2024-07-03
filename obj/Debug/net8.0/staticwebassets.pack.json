@@ -9,6 +9,54 @@
       "PackagePath": "staticwebassets\\Glimpse_text_white.png"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\Grid.svg",
+      "PackagePath": "staticwebassets\\Icons\\Grid.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\Group 3 (1).svg",
+      "PackagePath": "staticwebassets\\Icons\\Group 3 (1).svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\Group 3 (2).svg",
+      "PackagePath": "staticwebassets\\Icons\\Group 3 (2).svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\Group.svg",
+      "PackagePath": "staticwebassets\\Icons\\Group.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\LogoHome.svg",
+      "PackagePath": "staticwebassets\\Icons\\LogoHome.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\Vector (2).svg",
+      "PackagePath": "staticwebassets\\Icons\\Vector (2).svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\Vector (3).svg",
+      "PackagePath": "staticwebassets\\Icons\\Vector (3).svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\arrow.svg",
+      "PackagePath": "staticwebassets\\Icons\\arrow.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\enter.svg",
+      "PackagePath": "staticwebassets\\Icons\\enter.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\github-white.svg",
+      "PackagePath": "staticwebassets\\Icons\\github-white.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\plus1.svg",
+      "PackagePath": "staticwebassets\\Icons\\plus1.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\supreme.svg",
+      "PackagePath": "staticwebassets\\Icons\\supreme.svg"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\vertical-dots.svg",
       "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
     },
@@ -397,6 +445,10 @@
       "PackagePath": "staticwebassets\\project-pictures\\25b42445-b91d-4103-bc83-bead80482e9e-board-pic.png"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\26c6fcd1-a270-43f3-94a1-f0df80924e43_Captura de tela 2024-05-20 141707.png",
+      "PackagePath": "staticwebassets\\project-pictures\\26c6fcd1-a270-43f3-94a1-f0df80924e43_Captura de tela 2024-05-20 141707.png"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\2d87c2cc-4cda-4857-8e88-9920a11716fa_pachy head.png",
       "PackagePath": "staticwebassets\\project-pictures\\2d87c2cc-4cda-4857-8e88-9920a11716fa_pachy head.png"
     },
@@ -431,6 +483,10 @@
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\7bb7f647-92ea-45b2-854a-423ea1214f6b_pachy head.png",
       "PackagePath": "staticwebassets\\project-pictures\\7bb7f647-92ea-45b2-854a-423ea1214f6b_pachy head.png"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\7f4b6587-299e-43a2-87fb-7969c139114e_El_Primo.png",
+      "PackagePath": "staticwebassets\\project-pictures\\7f4b6587-299e-43a2-87fb-7969c139114e_El_Primo.png"
     },
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\8ef0ae53-7159-4f5c-ad61-2f33c99ebfd4_Captura de tela 2024-05-20 141707.png",

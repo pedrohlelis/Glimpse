@@ -37,6 +37,8 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
         o.TokenLifespan = TimeSpan.FromHours(3));
 
+builder.Services.AddScoped<GitHubService>();
+
 // Configure JSON options to handle reference loops
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>

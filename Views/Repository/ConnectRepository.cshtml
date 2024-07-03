@@ -1,0 +1,25 @@
+@using Glimpse.ViewModels;
+@model ConnectRepositoryViewModel;
+<br><br>
+<h1>Conectar projeto com repositório no GitHub</h1>
+
+<form asp-action="ConnectRepository" asp-controller="Repository" method="post">
+    <input type="hidden" asp-for="ProjectId" value="@Model.ProjectId">
+    <div class="form-group">
+        <label for="owner">Dono no GitHub:</label>
+        <input type="text" class="form-control" id="owner" name="owner" placeholder="Dono/Organização" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="repoName">Repositório no GitHub:</label>
+        <input type="text" class="form-control" id="repoName" name="repoName" placeholder="Nome do repositório" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="token">Token no GitHub:</label>
+        <input type="text" class="form-control" id="token" name="token" placeholder="Token de acesso pessoal do GitHub" required>
+        <small class="form-text text-muted">Você pode gerar um token de acesso nas configurações de desenvolvedor no GitHub.</small>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Conectar repositório</button>
+</form>

@@ -1,0 +1,45 @@
+@model Project
+@{
+    ViewData["Title"] = "Repositórios";
+}
+<br><br><br>
+<div class="d-flex justify-content-between" style="column-gap: 10%;">
+    @if(Model.Repositories != null && Model.Repositories.Count > 0) {
+        <h1>Repositórios de @Model.Name</h1>
+        <br>
+        <div class="d-flex flex-column gap-4 flex-grow-1">
+            @foreach(var repo in Model.Repositories) {
+                <div class="d-flex p-3 flex-column" style="background-color: #272727; border-radius: 6px;">
+                    <div class="d-flex gap-3">
+                        <h4 class="m-0">@repo.RepoName</h4>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Opções
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-action="Commits" asp-controller="Repository" asp-route-id="@repo.Id">Commits</a>
+                                <a class="dropdown-item" asp-action="Code" asp-controller="Repository" asp-route-id="@repo.Id">Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="dropdown-item" asp-action="Commits" asp-controller="Repository" asp-route-id="@repo.Id">Commits</a>
+                    <a class="dropdown-item" asp-action="Code" asp-controller="Repository" asp-route-id="@repo.Id">Código</a>
+                    <div>
+                        Dono:
+                        <p class="text-muted">@repo.Owner</p>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="d-flex">
+            <img src="/Icons/github-white.svg" style="width: 400px;" alt="">
+        </div>
+    } else {
+        <div>
+            <center>
+                <h2>Conectar Repositório?</h2>
+                <a class="" asp-controller="Repository" asp-action="ConnectRepository" asp-route-projectId="@Model.Id">Conectar</a>
+            </center>
+        </div>
+    }
+</div>

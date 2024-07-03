@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
 
-
 namespace Glimpse.Models;
 public class GlimpseContext(DbContextOptions<GlimpseContext> options) : IdentityDbContext<User>(options)
 {
@@ -15,6 +14,7 @@ public class GlimpseContext(DbContextOptions<GlimpseContext> options) : Identity
     public virtual DbSet<User> Users { get; set; } = null!;
     public virtual DbSet<Checkbox> Checkboxes { get; set; } = null!;
     public virtual DbSet<Tag> Tags { get; set; } = null!;
+    public virtual DbSet<Repository> Repositories { get; set; } = null!;
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -18,6 +18,13 @@
             <span class="tooltip">Opções</span>
         </div>
         <div class="sideBar-item" >
+            <a class="button-style-2 h-100" asp-action="GetRepositories" asp-controller="Repository" asp-route-projectId="@Model.Board.Project.Id">
+                <box-icon name='code-alt' color="white"></box-icon>
+                <span class="SB-nav-item text-white">Repos</span>
+            </a>
+            <span class="tooltip">Repos</span>
+        </div>
+        <div class="sideBar-item" >
             <a class="button-style-2 h-100" asp-action="MainProjects" asp-controller="Project">
                 <box-icon name='briefcase-alt' color="white"></box-icon>
                 <span class="SB-nav-item text-white">Projetos</span>

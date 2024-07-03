@@ -22,6 +22,7 @@
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.3",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.2",
+          "Octokit": "12.0.0",
           "SendGrid": "9.29.3",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
@@ -2033,6 +2034,14 @@
           }
         }
       },
+      "Octokit/12.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Octokit.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.0.0"
+          }
+        }
+      },
       "SendGrid/9.29.3": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
@@ -3525,6 +3534,13 @@
       "sha512": "sha512-ypnSvEtpNGo48bAWn95J1oHChycCXcevFSbn53fqzLxlXFSZP7dawu8p/7mHAfGufZQSV2sBpW80XQGIfXO8kQ==",
       "path": "nuget.versioning/6.9.1",
       "hashPath": "nuget.versioning.6.9.1.nupkg.sha512"
+    },
+    "Octokit/12.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7LAFFcirR/IaC84Uy+L1L+yqlYHxaMjHPt5GeLkB/GG0ujl7IgWWcL3VHMwMB3Y76Spsz0lMnPKub4EeosSljg==",
+      "path": "octokit/12.0.0",
+      "hashPath": "octokit.12.0.0.nupkg.sha512"
     },
     "SendGrid/9.29.3": {
       "type": "package",

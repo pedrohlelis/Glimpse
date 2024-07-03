@@ -1,9 +1,8 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-<html lang="en">
+<html style="background-color: #090011;" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,59 +10,88 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
 </head>
-<body class="bg-dark text-white">
-    <img src="..Icons/Grid.svg" alt="" style="width: 100%; position: absolute;">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top border-info my-4">
-            <div class="container-sm px-5 my-4">
-                <a class="navbar-brand active text-white" aria-current="page" href="">
-                    <img src="../Icons/LogoHome.svg" alt="" width="120" height="30" class="d-inline-block align-text-top">
-                </a>
-                <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon bg-secondary"></span>
-                </button>
 
-                <div class="d-flex collapse navbar-collapse justify-content-center text-white" id="navbarNav">
-                    <ul class="navbar-nav p-3 px-5 rounded-pill fs-6 fw-light " style="background-color: #272727; color: #c5c5c5;">
-                        <li class="nav-item-index">
-                            <a class="nav-link text-white" asp-action="MainProjects" asp-controller="Project">Home</a>
-                        </li>
-                        <li class="nav-item-index">
-                            <a class="nav-link text-white" href="#">Sobre</a>
-                        </li>
-                        <li class="nav-item-index">
-                            <a class="nav-link text-white" href="#">Contato</a>
-                        </li>
-                        <li class="nav-item-index">
-                            <a class="nav-link text-white" href="#">Planos</a>
-                        </li>
-                    </ul>
+<body class="text-white" style="background-color: #090011;">
+    <div class="gradient" style="margin-left: 2%; margin-right: 2%; border-radius: 30px;">
+        <header class="position-relative">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top border-info my-4">
+                <div class="container-sm px-5 my-4 justify-content-around" style="gap: 70%;">
+                    <a class="navbar-brand active text-white" aria-current="page" href="">
+                        <img src="../Icons/LogoHome.svg" alt="" width="120" height="30" class="d-inline-block align-text-top">
+                    </a>
+                    <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon bg-secondary"></span>
+                    </button>
+
+                    <div class="d-flex collapse navbar-collapse text-white position-absolute" style="" id="navbarNav">
+                        <ul class="navbar-nav p-2 px-4 rounded-pill fs-6 fw-light ul-navbar">
+                            <li class="nav-item-index">
+                                <a class="nav-link text-white" >Home</a>
+                            </li>
+                            <li class="nav-item-index">
+                                <a class="nav-link text-white" href="#">Sobre</a>
+                            </li>
+                            <li class="nav-item-index">
+                                <a class="nav-link text-white" href="#">Contato</a>
+                            </li>
+                            <li class="nav-item-index">
+                                <a class="nav-link text-white" href="#">Planos</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <partial name="_LoginPartial"/>
                 </div>
-                <partial name="_LoginPartial"/>
-            </div>
-        </nav>
-    </header>
-    <br>
-    <div class="container-sm px-5">
-        <p>awdawdawd</p>
-        <div class="row-12">
-            <h1 class="col-6 display-3 fw-bold reveal">Construa o seu próximo projeto no <p class="glimpse-p">GLIMPSE</p></h1>
-        </div>
-        <h1 class="h1 reveal">opa</h1><br><br><br><br><br>
-        <h1 class="h1 reveal">opa</h1><br><br><br><br><br>
-        <h1 class="h1 reveal">opa</h1><br><br><br><br><br>
-        <h1 class="h1 reveal">opa</h1><br><br><br><br><br>
-        <h1 class="h1 reveal">opa</h1><br><br><br><br><br>
-        <h1 class="h1 reveal">opa</h1><br><br><br><br><br>
-    </div>
+            </nav>
+        </header>
 
-    <footer class="border-top border-dark text-muted">
-        <div class="container text-center align-middle">
-            &copy; 2024 - Glimpse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+        <br><br><br><br><br><br><br><br><br>
+
+        <div class="container-sm px-5 text-white rounded-3">
+            <center>
+                <br><br><br>
+                <img src="/Icons/Group.svg" width="1000px" alt="">
+                <br><br><br>
+                <h1 class="fw-normal fst-italic" style="letter-spacing: 2px; padding-left: 140px; padding-right: 140px;">Construa o seu próximo projeto no GLIMPSE</h1>
+            </center>
+            <br>    
+        </div><br>
+        <center>
+            <img src="/Icons/arrow.svg" width="80px" alt="">
+        </center>
+    </div><br><br><br><br><br>
+    <center>
+        <h1 class="display-3 fw-bold">Quem somos?</h1>
+    </center><br>
+    <center>
+        <p class="fs-4" style="padding-left: 20%; padding-right: 20%;">Nós somos uma ferramenta para gestão de equipes ágeis, com foco principalmente em desenvolvimento de software.</p><br><br><br>
+        <button class="btn-primary p-3 button-create" style="border-radius: 10px; width: 10%;"><a asp-action="MainProjects" asp-controller="Project" style="text-decoration: none; color:white;">Começar</a></button>
+    </center>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>
+<style>
+    .gradient {
+        background: rgb(150,50,199);
+        background: -moz-linear-gradient(0deg, rgba(150,50,199,1) 7%, rgba(90,2,133,1) 25%, rgba(67,3,93,1) 36%, rgba(50,0,74,1) 48%, rgba(38,1,56,1) 60%, rgba(27,1,41,1) 70%, rgba(9,0,17,1) 82%);
+        background: -webkit-linear-gradient(0deg, rgba(150,50,199,1) 7%, rgba(90,2,133,1) 25%, rgba(67,3,93,1) 36%, rgba(50,0,74,1) 48%, rgba(38,1,56,1) 60%, rgba(27,1,41,1) 70%, rgba(9,0,17,1) 82%);
+        background: linear-gradient(0deg, rgba(150,50,199,1) 7%, rgba(90,2,133,1) 25%, rgba(67,3,93,1) 36%, rgba(50,0,74,1) 48%, rgba(38,1,56,1) 60%, rgba(27,1,41,1) 70%, rgba(9,0,17,1) 82%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9632c7",endColorstr="#090011",GradientType=1);
+    }
+    .ul-navbar {
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.4px);
+        -webkit-backdrop-filter: blur(7.4px);
+        border: 1px solid rgba(255, 255, 255, 0.212);
+    }
+    .display-2 {
+        background: #FFFFFF;
+        background: radial-gradient(ellipse farthest-corner at center center, #FFFFFF 30%, #CACACA 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>

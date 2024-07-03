@@ -371,7 +371,7 @@
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h5 class="modal-title" id="editRoleModalLabel">Edit Tag</h5>
+                <h5 class="modal-title" id="editRoleModalLabel">Editar Tag</h5>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div> 
             <div class="modal-body">
@@ -430,15 +430,14 @@
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h5 class="modal-title" id="rolesModalLabel">Project Roles</h5>
+                <h5 class="modal-title" id="rolesModalLabel">Cargos</h5>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 @if ((Model.UserRole != null && Model.UserRole.CanManageRoles) || Model.User == Model.ProjectResponsibleUser) {
-                    <button class=" btn btn-success" onclick="createRole()">
+                    <button class=" btn btn-success mb-2" onclick="createRole()">
                         <div class="d-flex justify-content-center">
-                            <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
-                            <p class="px-1 m-0">Novo Cargo</p>
+                            <p class="px-1 m-0">+ Novo Cargo</p>
                         </div>
                     </button>
                 }
@@ -461,13 +460,13 @@
                                 @if ((Model.UserRole != null && Model.UserRole.CanManageRoles) || Model.User == Model.ProjectResponsibleUser) {
                                     <button type="button" class="btn btn-primary btn-sm mx-1 d-flex align-items-center" onclick="editRole(this)">
                                         <box-icon type='solid' name='edit' color="white" style="height: 16px; width: 16px;"></box-icon>
-                                        <span class="ms-1">Edit</span>
+                                        <span class="ms-1">Editar</span>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-sm d-flex align-items-center" onclick="deleteRole(this)">
-                                        <span>Delete</span>
+                                        <span>Deletar</span>
                                     </button>
                                 }else {
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="editRole(this)">View</button>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="editRole(this)">Ver</button>
                                 }
                             </div>
                         </li>
@@ -483,7 +482,7 @@
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h5 class="modal-title" id="editRoleModalLabel">Edit Role</h5>
+                <h5 class="modal-title" id="editRoleModalLabel">Editar Cargo</h5>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div> 
             <div class="modal-body">
@@ -494,86 +493,86 @@
                     <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
                     
                     <div class="mb-3">
-                        <label for="roleName" class="form-label text-light">Name</label>
+                        <label for="roleName" class="form-label text-light">Nome</label>
                         <input type="text" class="form-input form-control" id="roleName" name="Name" value="">
                     </div>
                     
                     <div class="mb-3">
-                        <label for="roleDescription" class="form-label text-light">Description</label>
+                        <label for="roleDescription" class="form-label text-light">Descrição</label>
                         <textarea class="form-input form-control" id="roleDescription" name="Description" rows="3"></textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="roleColor" class="form-label text-light">Color</label>
+                        <label for="roleColor" class="form-label text-light">Cor</label>
                         <input type="color" class="form-input form-control" id="roleColor" name="Color" value="">
                     </div>
                     <!-- Permissions -->
                     @if ((Model.UserRole != null && Model.UserRole.CanManageRoles) || Model.User == Model.ProjectResponsibleUser) {
                     <div class="mb-3">
-                        <label class="form-label text-light">Permissions</label>
+                        <label class="form-label text-light">Permissões</label>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageMembers" class="form-check-input" type="checkbox" id="canManageMembers" name="CanManageMembers">
                             <label class="form-check-label text-light" for="canManageMembers">
-                                Can manage Members
+                                Pode Gerenciar Membros
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageRoles" class="form-check-input" type="checkbox" id="canManageRoles" name="CanManageRoles">
                             <label class="form-check-label text-light" for="canManageRoles">
-                                Can Manage Roles
+                                Pode Gerenciar Cargos
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageCards" class="form-check-input" type="checkbox" id="canManageCards" name="CanManageCards">
                             <label class="form-check-label text-light" for="canManageCards">
-                                Can Manage Cards
+                                Pode Gerenciar Cards
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageTags" class="form-check-input" type="checkbox" id="canManageTags" name="CanManageTags">
                             <label class="form-check-label text-light" for="canManageTags">
-                                Can Manage Tags
+                                Pode Gerenciar Tags
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageChecklist" class="form-check-input" type="checkbox" id="canManageChecklist" name="CanManageChecklist">
                             <label class="form-check-label text-light" for="canManageChecklist">
-                                Can Manage Checklist
+                                Pode Gerenciar Checklist
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                     } else {
                         <div class="mb-3">
-                        <label class="form-label text-light">Permissions</label>
+                        <label class="form-label text-light">Permissões</label>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageMembers" class="form-check-input" type="checkbox" id="canManageMembers" name="CanManageMembers" disabled>
                             <label class="form-check-label text-light" for="canManageMembers">
-                                Can manage Members
+                                Pode Gerenciar Membros
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageRoles" class="form-check-input" type="checkbox" id="canManageRoles" name="CanManageRoles" disabled>
                             <label class="form-check-label text-light" for="canManageRoles">
-                                Can Manage Roles
+                                Pode Gerenciar Cargos
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageCards" class="form-check-input" type="checkbox" id="canManageCards" name="CanManageCards" disabled>
                             <label class="form-check-label text-light" for="canManageCards">
-                                Can Manage Cards
+                                Pode Gerenciar Cards
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageTags" class="form-check-input" type="checkbox" id="canManageTags" name="CanManageTags" disabled>
                             <label class="form-check-label text-light" for="canManageTags">
-                                Can Manage Tags
+                                Pode Gerenciar Tags
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageChecklist" class="form-check-input" type="checkbox" id="canManageChecklist" name="CanManageChecklist" disabled>
                             <label class="form-check-label text-light" for="canManageChecklist">
-                                Can Manage Checklist
+                                Pode Gerenciar Checklist
                             </label>
                         </div>
                     </div>
@@ -589,7 +588,7 @@
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h5 class="modal-title" id="editRoleModalLabel">Create Role</h5>
+                <h5 class="modal-title" id="editRoleModalLabel">Criar Cargo</h5>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div> 
             <div class="modal-body">
@@ -600,55 +599,55 @@
                     <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
                     
                     <div class="mb-3">
-                        <label for="roleName" class="form-label text-light">Name</label>
+                        <label for="roleName" class="form-label text-light">Nome</label>
                         <input type="text" class="form-input form-control" id="roleName" name="Name" value="">
                     </div>
                     
                     <div class="mb-3">
-                        <label for="roleDescription" class="form-label text-light">Description</label>
+                        <label for="roleDescription" class="form-label text-light">Descrição</label>
                         <textarea class="form-input form-control" id="roleDescription" name="Description" rows="3"></textarea>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="roleColor" class="form-label text-light">Color</label>
+                        <label for="roleColor" class="form-label text-light">Cor</label>
                         <input type="color" class="form-input form-control" id="roleColor" name="Color" value="">
                     </div>
                     <!-- Permissions -->
                     <div class="mb-3">
-                        <label class="form-label text-light">Permissions</label>
+                        <label class="form-label text-light">Permissões</label>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageMembers" class="form-check-input" type="checkbox" id="canManageMembers" name="CanManageMembers">
                             <label class="form-check-label text-light" for="canManageMembers">
-                                Can manage Members
+                                Pode Gerenciar Membros
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageRoles" class="form-check-input" type="checkbox" id="canManageRoles" name="CanManageRoles">
                             <label class="form-check-label text-light" for="canManageRoles">
-                                Can Manage Roles
+                                Pode Gerenciar Cargos
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageCards" class="form-check-input" type="checkbox" id="canManageCards" name="CanManageCards">
                             <label class="form-check-label text-light" for="canManageCards">
-                                Can Manage Cards
+                                Pode Gerenciar Cards
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageTags" class="form-check-input" type="checkbox" id="canManageTags" name="CanManageTags">
                             <label class="form-check-label text-light" for="canManageTags">
-                                Can Manage Tags
+                                Pode Gerenciar Tags
                             </label>
                         </div>
                         <div class="form-check">
                             <input asp-for="@roleEditModel.CanManageChecklist" class="form-check-input" type="checkbox" id="canManageChecklist" name="CanManageChecklist">
                             <label class="form-check-label text-light" for="canManageChecklist">
-                                Can Manage Checklist
+                                Pode Gerenciar Checklist
                             </label>
                         </div>
                     </div>
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-success">Create</button>
+                    <button type="submit" class="btn btn-success">Criar</button>
                 </form>
             </div>
         </div>
@@ -659,20 +658,20 @@
     <div class="modal-dialog bg-dark">
         <div class="modal-content bg-dark">
         <div class="modal-header bg-dark">
-            <h5 class="modal-title" id="ConfirmDeleteModalLabel">Role Removal</h5>
+            <h5 class="modal-title" id="ConfirmDeleteModalLabel">Remover Cargo</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-dark">
-            <p>Are you sure you want to delete this role?</p>
-            <p><strong>This action cannot be undone.</strong></p>
+            <p>Tem certeza que deseja deletar este cargo?</p>
+            <p><strong>Essa ação não pode ser desfeita.</strong></p>
         </div>
         <form method="post" asp-action="DeleteRole" asp-controller="Role" id="form-delete" enctype="multipart/form-data">
             <div class="modal-footer bg-dark">
                 <input type="hidden" name="roleToDeleteId" id="roleToDeleteId" value="">
                 <input type="hidden" name="id" value="@Model.Board.Id">
                 <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-danger" id="delete-submit">yes, delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger" id="delete-submit">Sim, Deletar</button>
             </div>
         </form>
         </div>

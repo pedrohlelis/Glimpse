@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Glimpse.Migrations
 {
     /// <inheritdoc />
-    public partial class createDatabase : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -221,6 +221,28 @@ namespace Glimpse.Migrations
                     table.ForeignKey(
                         name: "FK_ProjectUser_Projects_ProjectsId",
                         column: x => x.ProjectsId,
+                        principalTable: "Projects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Repositories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Owner = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RepoName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Token = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProjectId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Repositories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Repositories_Projects_ProjectId",
+                        column: x => x.ProjectId,
                         principalTable: "Projects",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -464,6 +486,11 @@ namespace Glimpse.Migrations
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Repositories_ProjectId",
+                table: "Repositories",
+                column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Roles_ProjectId",
                 table: "Roles",
                 column: "ProjectId");
@@ -505,6 +532,9 @@ namespace Glimpse.Migrations
 
             migrationBuilder.DropTable(
                 name: "ProjectUser");
+
+            migrationBuilder.DropTable(
+                name: "Repositories");
 
             migrationBuilder.DropTable(
                 name: "RoleUser");

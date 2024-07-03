@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glimpse.Migrations
 {
     [DbContext(typeof(GlimpseContext))]
-    [Migration("20240619060837_createDatabase")]
-    partial class createDatabase
+    [Migration("20240703005819_CreateDatabase")]
+    partial class CreateDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -195,6 +195,36 @@ namespace Glimpse.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Glimpse.Models.Repository", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Owner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RepoName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Repositories");
                 });
 
             modelBuilder.Entity("Glimpse.Models.Role", b =>
@@ -567,6 +597,17 @@ namespace Glimpse.Migrations
                     b.Navigation("Board");
                 });
 
+            modelBuilder.Entity("Glimpse.Models.Repository", b =>
+                {
+                    b.HasOne("Glimpse.Models.Project", "Project")
+                        .WithMany("Repositories")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
             modelBuilder.Entity("Glimpse.Models.Role", b =>
                 {
                     b.HasOne("Glimpse.Models.Project", "Project")
@@ -686,6 +727,8 @@ namespace Glimpse.Migrations
             modelBuilder.Entity("Glimpse.Models.Project", b =>
                 {
                     b.Navigation("Boards");
+
+                    b.Navigation("Repositories");
 
                     b.Navigation("Roles");
                 });

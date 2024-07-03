@@ -3280,6 +3280,19 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
         }
       },
+      "Octokit/12.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Octokit.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Octokit.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SendGrid/9.29.3": {
         "type": "package",
         "dependencies": {
@@ -9606,6 +9619,20 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "Octokit/12.0.0": {
+      "sha512": "7LAFFcirR/IaC84Uy+L1L+yqlYHxaMjHPt5GeLkB/GG0ujl7IgWWcL3VHMwMB3Y76Spsz0lMnPKub4EeosSljg==",
+      "type": "package",
+      "path": "octokit/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Octokit.dll",
+        "lib/netstandard2.0/Octokit.xml",
+        "octokit.12.0.0.nupkg.sha512",
+        "octokit.nuspec",
+        "octokit.png"
+      ]
+    },
     "SendGrid/9.29.3": {
       "sha512": "nb/zHePecN9U4/Bmct+O+lpgK994JklbCCNMIgGPOone/DngjQoMCHeTvkl+m0Nglvm0dqMEshmvB4fO8eF3dA==",
       "type": "package",
@@ -11150,6 +11177,7 @@
       "Microsoft.EntityFrameworkCore.Tools.DotNet >= 2.0.3",
       "Microsoft.Extensions.Hosting >= 8.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.2",
+      "Octokit >= 12.0.0",
       "SendGrid >= 9.29.3",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -11257,6 +11285,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[8.0.2, )"
+          },
+          "Octokit": {
+            "target": "Package",
+            "version": "[12.0.0, )"
           },
           "SendGrid": {
             "target": "Package",

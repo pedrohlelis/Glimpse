@@ -258,8 +258,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev/Glimpse/Views/Project/_ProjectsSideBarPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxfUHJvamVjdHNTaWRlQmFyUGFydGlhbC5jc2h0bWw=
+[C:/Dev/Glimpse/Views/Repository/Code.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxDb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/Views/Repository/Commits.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxDb21taXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/Views/Repository/ConnectRepository.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxDb25uZWN0UmVwb3NpdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/Views/Repository/GetRepositories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxHZXRSZXBvc2l0b3JpZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Dev/Glimpse/Views/Role/Assign.cshtml]
