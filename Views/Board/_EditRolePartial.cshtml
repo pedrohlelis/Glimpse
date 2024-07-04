@@ -6,12 +6,11 @@
     List<User> unemployed = new List<User>();
 }
 
-
 @if(Model.IsMemberSideBarActive != null && Model.IsMemberSideBarActive == true){
 <div class="memberSideMenu d-flex flex-column overflow-y active">
     @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
         <div class="mt-4 mx-auto">
-            <button class="invite-btn btn btn-primary text-white text-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="invite-btn btn btn-primary text-white text-center button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <box-icon name='user-plus' type='solid' color="white" ></box-icon>
                 <p class="m-0">Convidar Membro</p>
             </button>
@@ -31,7 +30,7 @@
         </div>
     }else{
         <div class="mt-4 mx-auto d-none">
-            <button class="invite-btn btn btn-primary text-white text-center d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="invite-btn btn btn-primary text-white text-center d-flex align-items-center button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <box-icon name='user-plus' type='solid' color="white" ></box-icon>
                 <p class="m-0">Convidar Membro</p>
             </button>
@@ -119,7 +118,7 @@
     <div class="memberSideMenu d-flex flex-column overflow-y">
     @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
         <div class="mt-4 mx-auto">
-            <button class="invite-btn btn-primary text-white d-none text-center d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="invite-btn btn-primary text-white d-none text-center d-flex align-items-center button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <box-icon name='user-plus' type='solid' color="white"></box-icon>
                 <p class="m-0">Convidar Membro</p>
             </button>
@@ -139,7 +138,7 @@
         </div>
     }else{
         <div class="mt-4 mx-auto">
-            <button class="invite-btn btn btn-primary text-white d-none text-center align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="invite-btn btn btn-primary text-white d-none text-center align-items-center button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <box-icon name='user-plus' type='solid' color="white" ></box-icon>
                 <p class="m-0">Convidar Membro</p>
             </button>

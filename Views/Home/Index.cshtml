@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Glimpse</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/index.css"/>
 </head>
 
 <body class="text-white" style="background-color: #090011;">
@@ -26,7 +26,7 @@
                     <div class="d-flex collapse navbar-collapse text-white position-absolute" style="" id="navbarNav">
                         <ul class="navbar-nav p-2 px-4 rounded-pill fs-6 fw-light ul-navbar">
                             <li class="nav-item-index">
-                                <a class="nav-link text-white" >Home</a>
+                                <a class="nav-link text-white" href="#">Home</a>
                             </li>
                             <li class="nav-item-index">
                                 <a class="nav-link text-white" href="#">Sobre</a>
@@ -46,10 +46,10 @@
 
         <br><br><br><br><br><br><br><br><br>
 
-        <div class="container-sm px-5 text-white rounded-3">
+        <div class="container-sm px-5 text-white rounded-3 reveal">
             <center>
                 <br><br><br>
-                <img src="/Icons/Group.svg" width="1000px" alt="">
+                <img src="/Icons/Group.svg" style="max-width: 100%; min-width: 100%" alt="">
                 <br><br><br>
                 <h1 class="fw-normal fst-italic" style="letter-spacing: 2px; padding-left: 140px; padding-right: 140px;">Construa o seu próximo projeto no GLIMPSE</h1>
             </center>
@@ -59,20 +59,100 @@
             <img src="/Icons/arrow.svg" width="80px" alt="">
         </center>
     </div><br><br><br><br><br>
-    <center>
+    <center class="reveal">
         <h1 class="display-3 fw-bold">Quem somos?</h1>
     </center><br>
-    <center>
-        <p class="fs-4" style="padding-left: 20%; padding-right: 20%;">Nós somos uma ferramenta para gestão de equipes ágeis, com foco principalmente em desenvolvimento de software.</p><br><br><br>
-        <button class="btn-primary p-3 button-create" style="border-radius: 10px; width: 10%;"><a asp-action="MainProjects" asp-controller="Project" style="text-decoration: none; color:white;">Começar</a></button>
+    <center class="reveal">
+        <p class="fs-4" style="padding-left: 20%; padding-right: 20%;">Nós somos uma ferramenta para gestão de equipes ágeis, com foco principalmente em desenvolvimento de software.</p><br><br>
+        <button class="p-3 button-create rounded-pill" style="width: 15%; outline-color: rgba(255, 255, 255, 0.377); background-color: #a426ee"><a asp-action="MainProjects" asp-controller="Project" style="text-decoration: none; color:white;">Começar</a></button>
     </center>
-    
+
+    <br><br><br><br><br>
+
+    <div class="about text-dark d-flex justify-content-center flex-column" style="margin-left: 2%; margin-right: 2%; border-radius: 20px;">
+        <h1 class="my-2 text-center mb-5">Porque escolher
+            <div class="d-flex justify-content-center gap-2">
+                o<p style="text-decoration: underline; text-decoration-color: #B936EF; text-decoration-thickness: 3px;">Glimpse?</p>
+            </div>
+        </h1><br><br>
+        <div class="d-flex justify-content-center text-white" style="column-gap: 3%;">
+            <div class="card" style="background-color: #202020;">
+                <img class="mb-3" src="/Icons/agil.svg" alt="">
+                <h4>Agilidade</h4><br>
+                <p>Utilize métodos ágeis, como o Scrum, para gerenciar seus projetos com eficiência e flexibilidade.</p>
+            </div>
+            <div class="card" style="background-color: #7C46CD;">
+                <img class="mb-3" src="/Icons/eye.svg" alt="">
+                <h4>Visibilidade total</h4><br>
+                <p>Obtenha uma visão clara e abrangente do progresso do seu projeto com quadros intuitivos e relatórios detalhados.</p>
+            </div>
+            <div class="card" style="background-color: #C05AEA;">
+                <img class="mb-3" src="/Icons/colab.svg" alt="">
+                <h4>Colaboração</h4><br>
+                <p>Facilite a comunicação e a colaboração entre sua equipe com ferramentas integradas e fluxos de trabalho otimizados.</p>
+            </div>
+        </div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>
 <style>
+    .about {
+        padding-top: 8%;
+        padding-bottom: 8%;
+    }
+    .card { 
+        width: 20%;
+        align-items: center;
+        padding: 3%;
+        border-radius: 40px;
+        text-align: center;
+    }
+    .card h4 {
+        font-family: "Fixture-Expanded-SemiBold";
+    }
+</style>
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+    
+        for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+    
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        } else {
+            reveals[i].classList.remove("active");
+        }
+        }
+    }
+    
+    window.addEventListener("scroll", reveal);
+
+    reveal();
+</script>
+<style>
+    .about {
+        background-color: #fefefe;
+        opacity: 1;
+        background-image:  linear-gradient(#f8f8f8 1.8px, transparent 1.8px), linear-gradient(to right, #f8f8f8 1.8px, #fefefe 1.8px);
+        background-size: 36px 36px;
+    }
+    .reveal{
+        position: relative;
+        transform: translateY(150px);
+        opacity: 0;
+        transition: 1s all ease;
+    }
+
+    .reveal.active{
+        transform: translateY(0);
+        opacity: 1;
+    }
     .gradient {
         background: rgb(150,50,199);
         background: -moz-linear-gradient(0deg, rgba(150,50,199,1) 7%, rgba(90,2,133,1) 25%, rgba(67,3,93,1) 36%, rgba(50,0,74,1) 48%, rgba(38,1,56,1) 60%, rgba(27,1,41,1) 70%, rgba(9,0,17,1) 82%);

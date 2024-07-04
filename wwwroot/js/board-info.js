@@ -399,7 +399,7 @@ lanes.forEach((lane) => {
                 if (response.ok) {
                     console.log('Checkbox states updated successfully!');
                     // Optionally handle UI update or feedback
-                    // location.reload();
+                    //location.reload();
                 } else {
                     console.error('Failed to update checkbox states.');
                     // Handle error case if needed
@@ -415,7 +415,7 @@ lanes.forEach((lane) => {
     }
 
     async function hideOverlay() {
-        await submitCheckboxState();
+        submitCheckboxState();
         location.reload();
     }
 
@@ -490,6 +490,11 @@ lanes.forEach((lane) => {
 
             // Setting dueDate input element (assuming it accepts date and time)
             document.getElementById('dueDate').value = formattedDueDateTime;
+            if (dueDateTimeObject <= Date.now()) {
+                document.getElementById('dueDate').style.backgroundColor = '#8a1c2e';
+            } else {
+                document.getElementById('dueDate').style.backgroundColor = '#23782e';
+            }
 
             const tagsContainer = document.getElementById('tags');
             tagsContainer.innerHTML = '';
@@ -510,12 +515,76 @@ lanes.forEach((lane) => {
             checkboxListNew.style.alignContent = 'center';
             cardCheckboxes.forEach(checkbox => {
                 // Create checkbox element
+                var divWrapper = document.createElement('div');
+                divWrapper.classList.add('checkbox-wrapper-12');
+
+                // Cria o elemento div para cbx
+                var divCbx = document.createElement('div');
+                divCbx.classList.add('cbx');
+
+                // Cria o elemento input para o checkbox
                 var checkboxElement = document.createElement('input');
-                checkboxElement.classList.add('task-checkbox');
-                checkboxElement.checked = checkbox.Finished;
+                checkboxElement.id = 'cbx-12';
                 checkboxElement.type = 'checkbox';
-                checkboxElement.name = 'checkbox_' + checkbox.Id; // Set name attribute if needed
-                checkboxElement.id = 'checkbox_' + checkbox.Id; // Set id attribute if needed
+                checkboxElement.classList.add('task-checkbox', 'me-3');
+                checkboxElement.checked = checkbox.Finished; // Presume que existe uma variável checkbox com a propriedade Finished
+                checkboxElement.name = 'checkbox_' + checkbox.Id; // Presume que existe uma variável checkbox com a propriedade Id
+                checkboxElement.id = 'checkbox_' + checkbox.Id; // Presume que existe uma variável checkbox com a propriedade Id
+
+                // Adiciona o checkbox ao div cbx
+                divCbx.appendChild(checkboxElement);
+
+                // Cria o elemento label para o checkbox
+                var labelElement = document.createElement('label');
+                labelElement.setAttribute('for', 'cbx-12');
+                divCbx.appendChild(labelElement);
+
+                // Cria o elemento svg dentro do div cbx
+                var svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svgElement.setAttribute('width', '15');
+                svgElement.setAttribute('height', '14');
+                svgElement.setAttribute('viewBox', '0 0 15 14');
+                svgElement.setAttribute('fill', 'none');
+                var pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                pathElement.setAttribute('d', 'M2 8.36364L6.23077 12L13 2');
+                svgElement.appendChild(pathElement);
+                divCbx.appendChild(svgElement);
+
+                // Adiciona o div cbx ao div wrapper
+                divWrapper.appendChild(divCbx);
+
+                // Cria o segundo elemento svg
+                var svgDefs = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svgDefs.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                svgDefs.setAttribute('version', '1.1');
+
+                var defsElement = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+                var filterElement = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+                filterElement.setAttribute('id', 'goo-12');
+
+                var feGaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
+                feGaussianBlur.setAttribute('in', 'SourceGraphic');
+                feGaussianBlur.setAttribute('stdDeviation', '4');
+                feGaussianBlur.setAttribute('result', 'blur');
+                filterElement.appendChild(feGaussianBlur);
+
+                var feColorMatrix = document.createElementNS('http://www.w3.org/2000/svg', 'feColorMatrix');
+                feColorMatrix.setAttribute('in', 'blur');
+                feColorMatrix.setAttribute('mode', 'matrix');
+                feColorMatrix.setAttribute('values', '1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 22 -7');
+                feColorMatrix.setAttribute('result', 'goo-12');
+                filterElement.appendChild(feColorMatrix);
+
+                var feBlend = document.createElementNS('http://www.w3.org/2000/svg', 'feBlend');
+                feBlend.setAttribute('in', 'SourceGraphic');
+                feBlend.setAttribute('in2', 'goo-12');
+                filterElement.appendChild(feBlend);
+
+                defsElement.appendChild(filterElement);
+                svgDefs.appendChild(defsElement);
+
+                // Adiciona o segundo svg ao div wrapper
+                divWrapper.appendChild(svgDefs);
 
                 // Create label for checkbox
                 var labelElement = document.createElement('label');
@@ -541,13 +610,12 @@ lanes.forEach((lane) => {
 
                 // Create delete button (x)
                 var deleteButton = document.createElement('button');
-                deleteButton.innerHTML = '<box-icon name="x" color="white"></box-icon>'; // Example with box-icon
-                deleteButton.style.backgroundColor = '#131313';
+                deleteButton.innerHTML = '<box-icon name="x" color="white"></box-icon>';
+                deleteButton.style.backgroundColor = '#1b1b1b';
                 deleteButton.style.border = 'none';
+                deleteButton.style.alignContent = 'center';
                 deleteButton.addEventListener('click', function() {
-                    // Handle delete button click event here
-                    // checkboxContainer.remove();
-                    deleteForm.dispatchEvent(new Event('submit')); // Manually trigger form submission
+                    deleteForm.dispatchEvent(new Event('submit'));
                 });
 
                 // Create form for delete button
@@ -581,21 +649,30 @@ lanes.forEach((lane) => {
                     });
                 });
 
-                deleteForm.appendChild(deleteButton); // Append delete button to form
-                deleteForm.appendChild(checkboxId); // Append checkboxId input to form
-                deleteForm.appendChild(checkboxCardId); // Append cardBoardId input to form
-                deleteForm.appendChild(checkboxBoardId); // Append cardBoardId input to form
+                deleteForm.appendChild(deleteButton);
+                deleteForm.appendChild(checkboxId);
+                deleteForm.appendChild(checkboxCardId);
+                deleteForm.appendChild(checkboxBoardId);
 
-                // Create div to hold checkbox, label, and form
                 var checkboxContainer = document.createElement('div');
-                checkboxContainer.classList.add('d-flex', 'justify-content-start'); // Adjust classes as needed
-                var checkboxDiv = document.createElement('div');
-                checkboxDiv.appendChild(checkboxElement); // Append checkbox to div
-                checkboxDiv.appendChild(labelElement); // Append label to div
-                checkboxContainer.appendChild(checkboxDiv); // Append checkbox div to container
-                checkboxContainer.appendChild(deleteForm); // Append form to container
+                checkboxContainer.classList.add('d-flex', 'justify-content-start', 'p-2', 'align-items-center');
 
-                checkboxesContainer.appendChild(checkboxContainer); // Append complete structure to main container
+                var checkboxDiv = document.createElement('div');
+                checkboxContainer.style = 'background-color: #1b1b1b; border-radius: 6px; border: 2px; border-color: #373737; ';
+                
+                divWrapper.style.marginRight = '3%';
+                divWrapper.style.marginLeft = '1%';
+                checkboxDiv.appendChild(divWrapper);
+                checkboxDiv.appendChild(labelElement);
+                checkboxDiv.style.flexGrow = '1';
+                checkboxDiv.style.paddingTop = '1%';
+                checkboxDiv.style.paddingBottom = '1%';
+                checkboxDiv.style.display = 'flex';
+                
+                checkboxContainer.appendChild(checkboxDiv);
+                checkboxContainer.appendChild(deleteForm);
+
+                checkboxesContainer.appendChild(checkboxContainer);
             });
 
             const checkboxes = document.querySelectorAll('.task-checkbox');
@@ -659,6 +736,7 @@ lanes.forEach((lane) => {
             }
 
             const userContainer = document.getElementById('user');
+            userContainer.style.marginTop = '5%';
             userContainer.innerHTML = '';
             if (cardUser) {
                 const userImageElement = document.createElement('img');
@@ -668,8 +746,8 @@ lanes.forEach((lane) => {
                     userImageElement.src = "/default-images/default-avatar.jpg";
                 }
                 userImageElement.style.width = '15%';
-
-                const userElement = document.createElement('h4');
+            
+                const userElement = document.createElement('h5');
                 userElement.textContent = cardUser.LastName ? `${cardUser.FirstName} ${cardUser.LastName}` : cardUser.FirstName;
                 userElement.style.color = 'white';
                 userElement.style.textWrap = 'nowrap';
@@ -717,9 +795,10 @@ lanes.forEach((lane) => {
         });
     });
 
-    overlay.addEventListener('click', function(event) {
+    overlay.addEventListener('click', async function(event) {
         if (event.target === overlay || event.target.classList.contains('close-button')) {
-            hideOverlay();
+            await hideOverlay();
+            location.reload();
         }
     });
 

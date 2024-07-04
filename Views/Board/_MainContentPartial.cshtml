@@ -29,13 +29,13 @@
         </div>
         @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
         {
-            <div class="swim-lane col mx-3 bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
+            <div class="swim-lane col mx-2 bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center me-2">
                         <form asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
                             <input type="hidden" name="laneId" value="@lane.Id">
                             <input type="hidden" name="id" value="@Model.Board.Id">
-                            <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@lane.Name" value="@lane.Name" class="form-control me-2 text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px;" name="name">
+                            <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@lane.Name" value="@lane.Name" class="form-control me-2 text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px; font-family: Fixture-Expanded-SemiBold;" name="name">
                             <span class="badge bg-secondary text-white me-2 flex-grow-1 d-flex">@lane.Cards.Count</span>
                             @if((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser){
                                 <button type="submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salvar Lane" class="btn btn-info text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
@@ -60,10 +60,10 @@
             @if ((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser) {
                 <div class="col d-flex task-btn">
                     <a class="w-100 align-items-center add-card-link">
-                        <button class="button-create add-card-button">
+                        <button class="button-create add-card-button" style="text-transform: none;">
                             <div class="d-flex justify-content-center">
-                                <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
-                                <p class="px-1 m-0">Nova Tarefa</p>
+                                <img class="px-1" src="/Icons/plusIcon.svg">  
+                                <p class="px-1 m-0" style="font-family: Fixture-Expanded-Light;">Nova Tarefa</p>
                             </div>
                         </button>
                     </a>
@@ -94,8 +94,8 @@
                 var checkboxesJson = JsonSerializer.Serialize(card.Checkboxes.Select( checkbox => new { checkbox.Id, checkbox.Finished, checkbox.Name }));
                 var userJson = card.User != null ? JsonSerializer.Serialize(new { card.User.FirstName, card.User.LastName, card.User.Picture }) : "null";
 
-                <div class="task row py-3 px-2 border-bottom border-3 border-primary" 
-                    style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer;"
+                <div class="task row py-3 px-2 border-3" 
+                    style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer; border-bottom: 2px solid @(card.User != null && Model.UserRolesDictionary.ContainsKey(card.User) ? Model.UserRolesDictionary[card.User]?.Color ?? "#6600eb" : "#6600eb");"
                     data-boardid="@Model.Board.Id"
                     data-id="@card.Id"
                     data-name="@card.Name"
@@ -126,7 +126,7 @@
                         </div>
                         @if(card.StartDate != null && card.DueDate != null){
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
+                                    <div class="d-flex align-items-center justify-content-start" style="background-color: #1a1a1a00; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
                                         <box-icon name='time-five' color="#797979"></box-icon>
                                         <span class="px-1" style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
                                     </div>
@@ -150,7 +150,7 @@
                     {
                         @if(card.StartDate != null && card.DueDate != null){
                             <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center justify-content-start" style="background-color: #1a1a1a; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
+                                <div class="d-flex align-items-center justify-content-start" style="background-color: #1a1a1a00; border-radius: 2px; padding: 5px 10px; color: #797979; max-width:140px; max-height:30px;">
                                     <box-icon name='time-five' color="#797979"></box-icon>
                                     <span class="px-1" style="font-size: 11px;">@String.Format("{0:dd 'de' MMM} - {1:dd 'de' MMM}", card.StartDate, card.DueDate)</span>
                                 </div>

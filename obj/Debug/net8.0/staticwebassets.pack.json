@@ -25,6 +25,14 @@
       "PackagePath": "staticwebassets\\Icons\\Group.svg"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\Icon Edit.svg",
+      "PackagePath": "staticwebassets\\Icons\\Icon Edit.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\IconDescription.svg",
+      "PackagePath": "staticwebassets\\Icons\\IconDescription.svg"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\LogoHome.svg",
       "PackagePath": "staticwebassets\\Icons\\LogoHome.svg"
     },
@@ -41,6 +49,22 @@
       "PackagePath": "staticwebassets\\Icons\\arrow.svg"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\bxs-edit.svg",
+      "PackagePath": "staticwebassets\\Icons\\bxs-edit.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\calendarEnd.svg",
+      "PackagePath": "staticwebassets\\Icons\\calendarEnd.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\calendarStart.svg",
+      "PackagePath": "staticwebassets\\Icons\\calendarStart.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\checklist.svg",
+      "PackagePath": "staticwebassets\\Icons\\checklist.svg"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\enter.svg",
       "PackagePath": "staticwebassets\\Icons\\enter.svg"
     },
@@ -49,8 +73,20 @@
       "PackagePath": "staticwebassets\\Icons\\github-white.svg"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\playlistAdd.svg",
+      "PackagePath": "staticwebassets\\Icons\\playlistAdd.svg"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\plus1.svg",
       "PackagePath": "staticwebassets\\Icons\\plus1.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\plusIcon.svg",
+      "PackagePath": "staticwebassets\\Icons\\plusIcon.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\save.svg",
+      "PackagePath": "staticwebassets\\Icons\\save.svg"
     },
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\supreme.svg",
@@ -75,6 +111,10 @@
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\UserProfilePics\\fb80d002-ed91-423f-881e-3b91297c177c_Captura de tela 2024-05-20 141707.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\fb80d002-ed91-423f-881e-3b91297c177c_Captura de tela 2024-05-20 141707.png"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\board-pictures\\374d0731-7fa9-4b96-9fd2-b5a459fde969-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\374d0731-7fa9-4b96-9fd2-b5a459fde969-board-pic.png"
     },
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\board-pictures\\4e04488c-3e16-4e73-8dcd-112292de5fb6-board-pic.png",

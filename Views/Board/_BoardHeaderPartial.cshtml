@@ -7,7 +7,7 @@
     <div>
       <p class="fs-6" style="letter-spacing: 2px;">Projeto: @Model.Board.Project.Name</p>
       <button class="btn fw-bold btn-secondary dropdown-toggle board-title-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-        <h1>@Model.Board.Name</h1>
+        <h1 style="font-family: Fixture-Expanded-SemiBold;">@Model.Board.Name</h1>
       </button>
       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
         @foreach(var board in Model.Board.Project.Boards) {
