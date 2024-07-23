@@ -12,7 +12,7 @@
 </head>
 
 <body class="text-white" style="background-color: #090011;">
-    <div class="gradient" style="margin-left: 2%; margin-right: 2%; border-radius: 30px;">
+    <div class="gradientz" style="zmargin-left: 2%; zmargin-right: 2%; border-radius: 30px;">
         <header class="position-relative">
             <nav class="navbar navbar-expand-lg navbar-light fixed-top border-info my-4">
                 <div class="container-sm px-5 my-4 justify-content-around" style="gap: 70%;">
@@ -23,7 +23,7 @@
                         <span class="navbar-toggler-icon bg-secondary"></span>
                     </button>
 
-                    <div class="d-flex collapse navbar-collapse text-white position-absolute" style="" id="navbarNav">
+                    <div class="d-flex collapse navbar-collapse text-white position-absolute"id="navbarNav">
                         <ul class="navbar-nav p-2 px-4 rounded-pill fs-6 fw-light ul-navbar">
                             <li class="nav-item-index">
                                 <a class="nav-link text-white" href="#">Home</a>
@@ -40,64 +40,67 @@
                         </ul>
                     </div>
                     <partial name="_LoginPartial"/>
-                </div>
+                </div>  
             </nav>
         </header>
 
-        <br><br><br><br><br><br><br><br><br>
+        <script type="module" src="https://unpkg.com/@@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/131IqkldoEYy5rmW/scene.splinecode"></spline-viewer>
 
+        <br><br><br>
+        <center>
+            <img src="/Icons/arrow.svg" width="80px" alt="">
+        </center>
         <div class="container-sm px-5 text-white rounded-3 reveal">
             <center>
-                <br><br><br>
-                <img src="/Icons/Group.svg" style="max-width: 100%; min-width: 100%" alt="">
-                <br><br><br>
                 <h1 class="fw-normal fst-italic" style="letter-spacing: 2px; padding-left: 140px; padding-right: 140px;">Construa o seu próximo projeto no GLIMPSE</h1>
             </center>
             <br>    
         </div><br>
-        <center>
-            <img src="/Icons/arrow.svg" width="80px" alt="">
+    </div><br><br><br><br><br><br><br>
+    <div>
+        <center class="reveal">
+            <h1 class="display-3 fw-bold">Quem somos?</h1>
+        </center><br>
+        <center class="reveal">
+            <p class="fs-4" style="padding-left: 20%; padding-right: 20%;">Nós somos uma ferramenta para gestão de equipes ágeis, com foco principalmente em desenvolvimento de software.</p><br><br>
+            <button class="p-3 button-create rounded-pill" style="width: 15%; outline-color: rgba(255, 255, 255, 0.377); background-color: #a426ee"><a asp-action="MainProjects" asp-controller="Project" style="text-decoration: none; color:white;">Começar</a></button>
         </center>
-    </div><br><br><br><br><br>
-    <center class="reveal">
-        <h1 class="display-3 fw-bold">Quem somos?</h1>
-    </center><br>
-    <center class="reveal">
-        <p class="fs-4" style="padding-left: 20%; padding-right: 20%;">Nós somos uma ferramenta para gestão de equipes ágeis, com foco principalmente em desenvolvimento de software.</p><br><br>
-        <button class="p-3 button-create rounded-pill" style="width: 15%; outline-color: rgba(255, 255, 255, 0.377); background-color: #a426ee"><a asp-action="MainProjects" asp-controller="Project" style="text-decoration: none; color:white;">Começar</a></button>
-    </center>
+    </div>
 
-    <br><br><br><br><br>
+    <br><br><br><br><br><br><br>
 
     <div class="about text-dark d-flex justify-content-center flex-column" style="margin-left: 2%; margin-right: 2%; border-radius: 20px;">
-        <h1 class="my-2 text-center mb-5">Porque escolher
+        <h1 class="my-2 text-center mb-5 reveal">Porque escolher
             <div class="d-flex justify-content-center gap-2">
                 o<p style="text-decoration: underline; text-decoration-color: #B936EF; text-decoration-thickness: 3px;">Glimpse?</p>
             </div>
         </h1><br><br>
-        <div class="d-flex justify-content-center text-white" style="column-gap: 3%;">
-            <div class="card" style="background-color: #202020;">
+        <div class="d-flex justify-content-center text-white reveal" style="column-gap: 3%;">
+            <div class="card swing" style="background-color: #202020;">
                 <img class="mb-3" src="/Icons/agil.svg" alt="">
                 <h4>Agilidade</h4><br>
                 <p>Utilize métodos ágeis, como o Scrum, para gerenciar seus projetos com eficiência e flexibilidade.</p>
             </div>
-            <div class="card" style="background-color: #7C46CD;">
+            <div class="card swing" style="background-color: #7C46CD;">
                 <img class="mb-3" src="/Icons/eye.svg" alt="">
                 <h4>Visibilidade total</h4><br>
                 <p>Obtenha uma visão clara e abrangente do progresso do seu projeto com quadros intuitivos e relatórios detalhados.</p>
             </div>
-            <div class="card" style="background-color: #C05AEA;">
+            <div class="card swing" style="background-color: #C05AEA;">
                 <img class="mb-3" src="/Icons/colab.svg" alt="">
                 <h4>Colaboração</h4><br>
                 <p>Facilite a comunicação e a colaboração entre sua equipe com ferramentas integradas e fluxos de trabalho otimizados.</p>
             </div>
         </div>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!--<spline-viewer url="https://prod.spline.design/HWZTvqEWjz-fgwgO/scene.splinecode"></spline-viewer>-->
 </body>
 </html>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 <style>
     .about {
         padding-top: 8%;

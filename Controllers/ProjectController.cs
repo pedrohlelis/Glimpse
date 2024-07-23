@@ -29,6 +29,8 @@ public class ProjectController : Controller
         var user = _db.Users
             .Include(u => u.Projects)
                 .ThenInclude(p => p.Boards)
+            .Include(u => u.Projects)
+                .ThenInclude(c => c.Users)
             .Single(u => u.Id == userId);
 
         Dictionary<Project, User> activeUserProjects = new Dictionary<Project, User>();
@@ -51,7 +53,10 @@ public class ProjectController : Controller
 
         return View(model);
     }
-
+    public async Task<IActionResult> Dashboard(int projectId) 
+    {
+        return View();
+    }
     public IActionResult Create()
     {
         return View();
@@ -90,7 +95,7 @@ public class ProjectController : Controller
 
             var DefaultBoard = new Board 
             {
-                Name = "Meu_Quadro",
+                Name = "Quadro",
                 CreationDate = DateOnly.FromDateTime(DateTime.UtcNow),
                 IsActive = true,
                 CreatorId = currentUser.Id,

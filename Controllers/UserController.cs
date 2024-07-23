@@ -44,6 +44,11 @@ public class UserController : Controller
         ViewData["UserId"] = _userManager.GetUserId(this.User);
         return View(userProfile);
     }
+    [HttpGet()]
+    public IActionResult GetUserInfo()
+    {
+        return Ok();
+    }
 
     [HttpGet("profile/edit", Name = "ProfileEdit")]
     public IActionResult ProfileEdit()

@@ -61,8 +61,8 @@ public class BoardController : Controller
         var currentUser = await _userManager.GetUserAsync(User);
 
         var user = _db.Users
-        .Include(u => u.Projects)
-        .FirstOrDefault(u => u.Id == currentUser.Id);
+            .Include(u => u.Projects)
+            .FirstOrDefault(u => u.Id == currentUser.Id);
 
         if (!user.Projects.Contains(board.Project)){
             return Forbid();
@@ -319,32 +319,5 @@ public class BoardController : Controller
         }
 
         return View("Edit", Board);
-    }
-
-    public async Task<ICollection<User>> GetUsersFromBoard(Board board)
-    {
-        /*ICollection<User> users = [];
-
-        foreach (User user in board.Project.Users)
-        {
-            if (user.IsActive == true)
-            {
-                users.Add(user);
-            }
-        }*/
-        
-        return null;
-    }
-
-    public ICollection<Lane> GetLanesFromBoard(Board board)
-    {
-        ICollection<Lane> lanes = [];
-
-        foreach (Lane lane in board.Lanes)
-        {
-            lanes.Add(lane);
-        }
-
-        return lanes;
     }
 }

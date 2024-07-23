@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Glimpse.bundle.scp.css"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\.git add",
+      "PackagePath": "staticwebassets\\.git add"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Glimpse_text_white.png",
       "PackagePath": "staticwebassets\\Glimpse_text_white.png"
     },
@@ -45,6 +49,10 @@
       "PackagePath": "staticwebassets\\Icons\\Vector (3).svg"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\agil.svg",
+      "PackagePath": "staticwebassets\\Icons\\agil.svg"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\arrow.svg",
       "PackagePath": "staticwebassets\\Icons\\arrow.svg"
     },
@@ -65,8 +73,20 @@
       "PackagePath": "staticwebassets\\Icons\\checklist.svg"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\colab.svg",
+      "PackagePath": "staticwebassets\\Icons\\colab.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\door.svg",
+      "PackagePath": "staticwebassets\\Icons\\door.svg"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\enter.svg",
       "PackagePath": "staticwebassets\\Icons\\enter.svg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\eye.svg",
+      "PackagePath": "staticwebassets\\Icons\\eye.svg"
     },
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\Icons\\github-white.svg",
@@ -505,6 +525,10 @@
       "PackagePath": "staticwebassets\\project-pictures\\53f3945a-e31c-4cce-b06a-6be590430a1c_many2.jpg"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\5c22dbe3-6e62-4a10-bdd0-cabba35ebac3_image (1).png",
+      "PackagePath": "staticwebassets\\project-pictures\\5c22dbe3-6e62-4a10-bdd0-cabba35ebac3_image (1).png"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\660f26bd-fb2f-4d31-9df9-d08a4bebac17_Captura de tela 2024-05-20 141707.png",
       "PackagePath": "staticwebassets\\project-pictures\\660f26bd-fb2f-4d31-9df9-d08a4bebac17_Captura de tela 2024-05-20 141707.png"
     },
@@ -519,6 +543,10 @@
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\6dafffda-7770-40df-8807-6c08e138a9a4_tattoo_idea.png",
       "PackagePath": "staticwebassets\\project-pictures\\6dafffda-7770-40df-8807-6c08e138a9a4_tattoo_idea.png"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\736ebd6e-5e4a-4bab-bae4-86985d3eed9e_image (1).png",
+      "PackagePath": "staticwebassets\\project-pictures\\736ebd6e-5e4a-4bab-bae4-86985d3eed9e_image (1).png"
     },
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\7bb7f647-92ea-45b2-854a-423ea1214f6b_pachy head.png",
@@ -541,6 +569,18 @@
       "PackagePath": "staticwebassets\\project-pictures\\9394651d-1bfe-4e07-8bfb-501888c6f3c5_activity.jpeg"
     },
     {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\988ddd46-45e8-4358-862f-4470773d0746_image (1).png",
+      "PackagePath": "staticwebassets\\project-pictures\\988ddd46-45e8-4358-862f-4470773d0746_image (1).png"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\998f8b0b-4b82-4870-8a30-9107e345889c_texture.png",
+      "PackagePath": "staticwebassets\\project-pictures\\998f8b0b-4b82-4870-8a30-9107e345889c_texture.png"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\ad48c50c-0868-4ef2-8cce-0ed4c4dcd947_texture.png",
+      "PackagePath": "staticwebassets\\project-pictures\\ad48c50c-0868-4ef2-8cce-0ed4c4dcd947_texture.png"
+    },
+    {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\b022a309-4a19-4fac-bac3-0fef5aa7ff3f_mermaid-diagram-2024-05-14-151659.png",
       "PackagePath": "staticwebassets\\project-pictures\\b022a309-4a19-4fac-bac3-0fef5aa7ff3f_mermaid-diagram-2024-05-14-151659.png"
     },
@@ -551,6 +591,22 @@
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\b896bbc3-b4b2-43af-9d23-e1140d0ef5fb_component.jpeg",
       "PackagePath": "staticwebassets\\project-pictures\\b896bbc3-b4b2-43af-9d23-e1140d0ef5fb_component.jpeg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\b91c18ba-2c88-4fa8-9e0c-ead49d4e9c78_texture.png",
+      "PackagePath": "staticwebassets\\project-pictures\\b91c18ba-2c88-4fa8-9e0c-ead49d4e9c78_texture.png"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\be8bef8a-2800-4c75-b93d-1bb4046431d7_texture.png",
+      "PackagePath": "staticwebassets\\project-pictures\\be8bef8a-2800-4c75-b93d-1bb4046431d7_texture.png"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\cf344f4d-018f-4b74-a684-d7d2afc0e1d0_a.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\cf344f4d-018f-4b74-a684-d7d2afc0e1d0_a.jpg"
+    },
+    {
+      "Id": "C:\\Dev\\Glimpse\\wwwroot\\project-pictures\\d32ea1e6-0345-4bfa-97da-0e64bfce0314_texture.png",
+      "PackagePath": "staticwebassets\\project-pictures\\d32ea1e6-0345-4bfa-97da-0e64bfce0314_texture.png"
     },
     {
       "Id": "C:\\Dev\\Glimpse\\wwwroot\\registerSideImage.svg",

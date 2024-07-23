@@ -1,89 +1,173 @@
 @model Project
 @{
     ViewData["Title"] = "Criar Projeto";
+    Layout = null;
 }
-<script>
-    function validateForm() {
-        var fileInput = document.getElementById('boardImg');
-        var BackgroundImage = document.getElementById('BackgroundImage');
-        var file = fileInput.files[0];
-        if (!file) {
-            BackgroundImage.setAttribute("value", "../default-images/defaultBackground.jpg")
-            return true;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Glimpse</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/index.css"/>
+    <style>
+        body, html {
+            overflow: hidden;
+            height: 100%;
         }
-        return true;
-    }
-</script>
-<br><br>
-<section class="d-flex">
-    <form asp-action="CreateProject" asp-controller="Project" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" autocomplete="off">
-        <h1>@ViewData["Title"]</h1>
-        <div class="row">
-            <div class="col">
-                <br>
+        input {
+            background-color: #131313;
+            outline-color: indigo;
+        }
+        .image-container {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
+            backdrop-filter: blur(10px);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom border-info mb-3 fixed-top">
+            <div class="container-sm px-5">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse align-content-center">
+                    <a class="text-white" asp-controller="Project" asp-action="MainProjects" style="text-decoration: none;"><img src="/Icons/LogoHome.svg"></a>
+                </div>
+                <partial name="_LoginPartial"/>
+            </div>
+        </nav>
+    </header>
+    <div class="container-sm ps-5 mt-5">
+        <br><br>
+        <div class="d-flex">
+            <form asp-action="CreateProject" asp-controller="Project" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" autocomplete="off">
+                <h1 class="display-1" style="font-family: Fixture-Expanded-SemiBold;">@ViewData["Title"]</h1>
                 <div class="row">
-                    <div class="form-group col">
-                        <label asp-for="Description">Nome</label>
-                        <input asp-for="Name" type="text" class="form-control text-white" style="background-color: #131313; border-color: #6610f2;" placeholder="Dê um nome ao seu projeto" required/>
-                    </div>
+                    <div class="col">
+                        <br>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label asp-for="Name">Nome</label>
+                                <input asp-for="Name" type="text" class="form-control text-white" style="background-color: #131313; border-color: #6610f2;" placeholder="Dê um nome ao seu projeto" required/>
+                            </div>
 
-                    <div class="form-group col">
-                        <label for="projectImg">Icone do projeto</label>
-                        <input id="projectImg" name="projectImg" type="file" style="background-color: #131313;" accept="image/png, image/jpeg, image/jpg" class="btn-outline-primary form-control"/>
+                            <div class="form-group col">
+                                <label for="projectImg">Icone do projeto</label>
+                                <input id="projectImg" name="projectImg" type="file" style="background-color: #131313;" accept="image/png, image/jpeg, image/jpg" class="btn-outline-primary form-control"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label asp-for="Description">Descrição</label>
+                            <textarea asp-for="Description" style="background-color: #131313; min-height: 160px; border-color: #6610f2;" type="text" class="form-control text-white" placeholder="Descreva brevemente o projeto" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn-primary p-3 button-create" style="border-radius: 6px;">Criar Projeto</button>
+                            <button class="btn-secondary p-3 button-create" style="border-color: white; border-radius: 6px; text-decoration: none; background-color: #131313;"><a asp-action="MainProjects" asp-controller="Project" class="text-white p-2" style="text-decoration: none;">Cancelar</a></button>
+                        </div>
                     </div>
                 </div>
-                <br>
-                <div class="form-group">
-                    <label asp-for="Description">Descrição</label>
-                    <textarea asp-for="Description" style="background-color: #131313; min-height: 160px; border-color: #6610f2;" type="text" class="form-control text-white" placeholder="Descreva brevemente o projeto" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <div asp-validation-summary="All" class="text-danger"></div>
-                </div>
-                <br>
-                <div class="d-flex justify-content-center gap-3">
-                    <button type="submit" class="btn-primary p-3 button-create" style="border-radius: 6px;">Criar Projeto</button>
-                    <button class="btn-secondary p-3 button-create" style="border-color: white; border-radius: 6px; text-decoration: none; background-color: #131313;"><a asp-action="MainProjects" asp-controller="Project" class="text-white p-2" style="text-decoration: none;">Cancelar</a></button>
+            </form>
+            <div class="col px-4 mx-4 image-container overflow-visible">
+                <div id="splineViewer">
+                    <script type="module" src="https://unpkg.com/@@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
+                    <spline-viewer url="https://prod.spline.design/BfxbLDFLvKDhCCDq/scene.splinecode"></spline-viewer>
                 </div>
             </div>
         </div>
-    </form>
-    <div class="col px-4 mx-4 image-container overflow-visible">
-        <img src="~/topography.png" height="600px" width="600px">
     </div>
-</section>
-<style>
-    input {
-        background-color: #131313;
-        outline-color: indigo;
-    }
-    .image-container {
-        position: relative;
-        width: 600px;
-        height: 500px;
-        overflow: hidden;
-    }
+    <!-- Modal de Confirmação de Imagem -->
+    <div class="modal fade" id="imageConfirmationModal" tabindex="-1" aria-labelledby="imageConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageConfirmationModalLabel">Confirmar Imagem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirme se deseja utilizar esta imagem para o projeto:</p>
+                    <div id="imagePreviewContainer" class="text-center">
+                        <img id="imagePreview" src="#" alt="Imagem selecionada" style="max-width: 100%; max-height: 300px;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveImage()">Salvar</button>
+                    <button type="button" class="btn btn-danger" onclick="removeImage()">Remover</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Função para exibir imagem selecionada no modal
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-    .image-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                    $('#imageConfirmationModal').modal('show');
+                }
 
-    .image-wrapper img {
-        width: 100%;
-        height: 100%;
-    }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
-    .blur-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
-        backdrop-filter: blur(10px);
-        pointer-events: none;
-    }
-</style>
+        // Função para salvar imagem
+        function saveImage() {
+            // Aqui você pode adicionar lógica para salvar a imagem no seu sistema
+            $('#imageConfirmationModal').modal('hide');
+        }
+
+        // Função para remover imagem
+        function removeImage() {
+            $('#projectImg').val(''); // Limpa o campo de imagem
+            $('#imagePreview').attr('src', '#'); // Limpa a visualização da imagem
+            $('#imageConfirmationModal').modal('hide');
+        }
+
+        // Event listener para o input de imagem
+        $(document).ready(function() {
+            $('#projectImg').change(function() {
+                previewImage(this);
+            });
+        });
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@
     ViewData["Title"] = "Projetos";
     ViewData["StylesheetUrl"] = "~/css/index.css";
 }
-
+<partial name="_HeaderComponent"></partial>
 <br><br><br>
 <div class="main-content d-flex align-items-center justify-content-center flex-column">
     <div class="d-flex align-items-center justify-content-center flex-column">
@@ -15,43 +15,62 @@
     </div>
     <br><br><br>
 
-    <div class="row row-4 flex-lg-grow-1 reveal">
+    <div class="row reveal justify-content-center gap-4" style="width: 72%;">
         @foreach (var kvp in Model.ActiveProjects) {
-            <div class="col d-flex justify-content-between border-bottom border-primary border-3 p-3 m-xl-2" style="background-color: #272727; border-radius: 0.7em; width: 250px; height: 250px;">
-                @if(kvp.Key.Boards == null || !kvp.Key.Boards.Any()) {
-                    <a class="text-decoration-none" asp-controller="Board" asp-action="Create" asp-route-id="@kvp.Key.Id">
-                        <p class="overflow-hidden text-white">@kvp.Key.Name</p>
-                        <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
-                        <br><br>
-                        <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
-                    </a>
-                } else {
+            <div class="col-4 d-flex flex-column justify-content-between border-bottom border-primary border-3 p-0" style="background-color: #272727; border-radius: 3%; width: 30%; outline: #ffffff3f solid 1px;">
+                <img class="img-icon flex-grow-1" style="width: 100%; height: 32vh; object-fit: fill; border-top-left-radius: 3%; border-top-right-radius: 3%;" src="@Url.Content(kvp.Key.Picture)" alt="">
+                @{
                     var boardsList = kvp.Key.Boards.ToList();
-                    <a class="text-decoration-none" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
-                        <p class="overflow-hidden text-white">@kvp.Key.Name</p>
-                        <img class="img-icon" src="@Url.Content(kvp.Key.Picture)" alt="">
-                        <br><br>
-                        <p class="text-muted overflow-hidden" style="font-size: smaller;">@kvp.Key.Description</p>
-                        <p class="text-muted overflow-hidden" style="font-size: smaller;">Criado por: @kvp.Value.Email</p>
-                    </a>
                 }
-                <div class="dropup">
-                    <button class="dropdown-toggle text-white" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
-                    <div class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
-                        @if(Model.User == kvp.Value){
-                            <a class="dropdown-item text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@kvp.Key.Id">Editar</a>
-                            <a class="dropdown-item text-white" asp-controller="Repository" asp-action="ConnectRepository" asp-route-projectId="@kvp.Key.Id">Conectar GitHub</a>
-                            <a class="dropdown-item text-white" asp-controller="Board" asp-action="GetProjectBoards" asp-route-id="@kvp.Key.Id">Quadros</a>
-                            <hr class="dropdown-divider">
-                            <a class="dropdown-item text-danger" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">Deletar</a>
-                        } else{
-                            <li data-id="@kvp.Key.Id" style="cursor: pointer;">
-                                <a class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#ConfirmLeaveProjectModal" aria-expanded="true" onclick="leaveProject(this)">
-                                    Deixar Projeto
-                                </a>
-                            </li>
-                        }
+                <div class="d-flex p-2 m-xl-2 flex-column">
+                    <div>
+                        <div class="d-flex justify-content-between">
+                            <p class="overflow-hidden text-white" style="font-family: Fixture-Expanded-SemiBold;">@kvp.Key.Name</p>
+                            <div class="dropup">
+                                <button class="dropdown-toggle text-white" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
+                                <div class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
+                                    @if(Model.User == kvp.Value){
+                                        <a class="dropdown-item text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@kvp.Key.Id">Editar</a>
+                                        <a class="dropdown-item text-white" asp-controller="Repository" asp-action="ConnectRepository" asp-route-projectId="@kvp.Key.Id">Conectar GitHub</a>
+                                        <hr class="dropdown-divider">
+                                        <a class="dropdown-item text-danger" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">Deletar</a>
+                                    } else{
+                                        <li data-id="@kvp.Key.Id" style="cursor: pointer;">
+                                            <a class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#ConfirmLeaveProjectModal" aria-expanded="true" onclick="leaveProject(this)">
+                                                Deixar Projeto
+                                            </a>
+                                        </li>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted overflow-hidden" style="font-size: small;">@kvp.Key.Description</p>
+                        <div class="p-3" style="background-color: #202020; border-radius: 8px; border: 1px solid #ffffff25;">
+                            <div class="d-flex">
+                                <div style="position: relative; display: block; flex-grow: 1;">
+                                    <img class="mx-1" src="@(kvp.Key.Users[0].Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
+                                    width="30px"
+                                    height="30px"
+                                    style="border: 3px solid #232323; border-radius: 50%; position: relative; top: 0; left: 0;">
+                                    @for (var i = 1; i < kvp.Key.Users.Count && i <= 2; i++) {
+                                        var user = kvp.Key.Users[i];
+                                        <img class="mx-1" src="@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
+                                        width="30px"
+                                        height="30px"
+                                        style="border: 3px solid #232323; border-radius: 50%; position: absolute; z-index: 9; left: 10%">
+                                    }
+                                </div>
+                                <p>@kvp.Key.Users.Count Membros</p>
+                            </div>
+                            <p class="text-muted overflow-hidden m-0" style="font-size: smaller;">Criado por: @kvp.Value.Email</p>
+                        </div>
                     </div>
+                    <button class="button-create mt-3 mb-2" style="border-radius: 8px; border: 1px solid #7110df; color: #ffffff; background-color: #171718">
+                        <a class="text-decoration-none align-content-center d-flex p-2 justify-content-center" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
+                            <img src="/Icons/door.svg" alt="" style="margin-right: 2%;">
+                            <p class="m-0 text-white">Entrar</p>
+                        </a>
+                    </button>
                 </div>
             </div>
         }
@@ -84,6 +103,7 @@
 }
 
 <style>
+    
     a {
         text-decoration: none;
 
@@ -100,14 +120,12 @@
         position: relative;
         overflow: hidden;
         text-transform: uppercase;
-        outline: 2px solid #6600eb;
         background-color: black;
         color: white;
     }
 
     .button-create:hover {
         transform: scale(1.05);
-        outline: 2px solid #6600eb;
         box-shadow: 2px 3px 10px -2px #6600eb;
         color: white;
     }
