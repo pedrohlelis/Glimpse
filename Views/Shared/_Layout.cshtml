@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="~/css/index.css"/>
 </head>
 <body class="bg-dark text-white">
-    <partial name="_HeaderComponent"></partial>
-    <div class="container-sm px-5">
-        <main role="main" class="mt-5">
-            @RenderBody()
-        </main>
-    </div>
+    <partial name="HeaderComponent"></partial>
+    <main role="main">
+        @RenderBody()
+    </main>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/board-info.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

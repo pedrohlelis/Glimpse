@@ -1,7 +1,6 @@
 @model Project
 @{
     ViewData["Title"] = "Criar Projeto";
-    Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -51,20 +50,7 @@
     </style>
 </head>
 <body class="bg-dark text-white">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom border-info mb-3 fixed-top">
-            <div class="container-sm px-5">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse align-content-center">
-                    <a class="text-white" asp-controller="Project" asp-action="MainProjects" style="text-decoration: none;"><img src="/Icons/LogoHome.svg"></a>
-                </div>
-                <partial name="_LoginPartial"/>
-            </div>
-        </nav>
-    </header>
-    <div class="container-sm ps-5 mt-5">
+    <div class="container-sm ps-5 mt-3">
         <br><br>
         <div class="d-flex">
             <form asp-action="CreateProject" asp-controller="Project" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" autocomplete="off">
@@ -102,69 +88,12 @@
             </form>
             <div class="col px-4 mx-4 image-container overflow-visible">
                 <div id="splineViewer">
-                    <script type="module" src="https://unpkg.com/@@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
-                    <spline-viewer url="https://prod.spline.design/BfxbLDFLvKDhCCDq/scene.splinecode"></spline-viewer>
+                    <script type="module" src="https://unpkg.com/@@splinetool/viewer@1.9.3/build/spline-viewer.js"></script>
+                    <spline-viewer loading-anim-type="spinner-small-dark" url="https://prod.spline.design/BfxbLDFLvKDhCCDq/scene.splinecode"></spline-viewer>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal de Confirmação de Imagem -->
-    <div class="modal fade" id="imageConfirmationModal" tabindex="-1" aria-labelledby="imageConfirmationModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageConfirmationModalLabel">Confirmar Imagem</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Confirme se deseja utilizar esta imagem para o projeto:</p>
-                    <div id="imagePreviewContainer" class="text-center">
-                        <img id="imagePreview" src="#" alt="Imagem selecionada" style="max-width: 100%; max-height: 300px;">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="saveImage()">Salvar</button>
-                    <button type="button" class="btn btn-danger" onclick="removeImage()">Remover</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        // Função para exibir imagem selecionada no modal
-        function previewImage(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#imagePreview').attr('src', e.target.result);
-                    $('#imageConfirmationModal').modal('show');
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        // Função para salvar imagem
-        function saveImage() {
-            // Aqui você pode adicionar lógica para salvar a imagem no seu sistema
-            $('#imageConfirmationModal').modal('hide');
-        }
-
-        // Função para remover imagem
-        function removeImage() {
-            $('#projectImg').val(''); // Limpa o campo de imagem
-            $('#imagePreview').attr('src', '#'); // Limpa a visualização da imagem
-            $('#imageConfirmationModal').modal('hide');
-        }
-
-        // Event listener para o input de imagem
-        $(document).ready(function() {
-            $('#projectImg').change(function() {
-                previewImage(this);
-            });
-        });
-    </script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

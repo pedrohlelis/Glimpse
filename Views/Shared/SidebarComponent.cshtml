@@ -1,0 +1,19 @@
+<div class="sideBar d-flex flex-column">
+    <box-icon name="menu" color="white" id="side-menu-btn"></box-icon>
+    <div class="mb-3">
+        <div class="sideBar-item" >
+            <a class="button-style-2 h-100" asp-action="MainProjects" asp-controller="Project">
+                <box-icon size="25px" name='briefcase-alt' color="white"></box-icon>
+                <span class="SB-nav-item text-white">Projetos</span>
+            </a>
+            <span class="tooltip">Projetos</span>
+        </div>
+        <div class="sideBar-item">
+            <a class="button-style-2 h-100" asp-action="Logout" asp-controller="Account">
+                <box-icon size="25px" name='log-out' color="white"></box-icon>
+                <span class="SB-nav-item text-white">Logout</span>
+            </a>
+            <span class="tooltip">Logout</span>
+        </div>
+    </div>
+</div>

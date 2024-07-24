@@ -31,35 +31,5 @@
             </a>
             <span class="tooltip">Projetos</span>
         </div>
-        <div class="sideBar-item">
-            <a class="button-style-2  h-100" asp-action="Logout" asp-controller="Account">
-                <box-icon name='log-out' color="white"></box-icon>
-                <span class="SB-nav-item text-white">Logout</span>
-            </a>
-            <span class="tooltip">Logout</span>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="profile-container">
-
-            <img class="user-img" src='@(Model.User.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' alt="">
-            <div class="profile-info">
-                <div>@Model.User.FirstName @Model.User.LastName</div>
-                <div class="profile-status data-bs-toggle="tooltip" data-bs-placement="top" title="@Model.User.UserName">
-                    <div>@Model.User.UserName</div>
-                </div>
-            </div>
-            <div class="profile-icons">
-                <div class="dropup">
-                    <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
-                        <a class="dropdown-item" asp-action="Profile" asp-controller="User">Perfil</a>
-                        <hr class="dropdown-divider">
-                        <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

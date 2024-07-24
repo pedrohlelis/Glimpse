@@ -406,10 +406,7 @@ input:focus {
   }
 }
 .sideBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
+  height: 100%;
   width: 80px;
   padding: .4rem .4rem;
   background: #272727;
@@ -420,24 +417,13 @@ input:focus {
   width: 250px;
   z-index: 50;
 }
-.sideBar .menuLogo {
-  max-height: 35px;
-  padding-left: 0;
-  margin-left: 0;
-}
 
 .sideBar #side-menu-btn {
-  position: absolute;
-  background-color: #272727;
-  border: none;
-  top: .8rem;
-  left: 50%;
-  line-height: 50px;
-  transform: translate(-50%);
-  cursor: pointer;
+
 }
+
 .sideBar.active #side-menu-btn {
-  left: 90%;
+  
 }
 
 .sideBar .top .logo {
@@ -447,18 +433,17 @@ input:focus {
   align-items: center;
   opacity: 0;
 }
+
 .sideBar.active .top .logo {
   transition: right .5s ease;
   opacity: 1;
 }
 
 .menuLogo {
-  margin-left: 35px;
-  max-width: 30%;
+  
 }
 
 .sideBar-item {
-  position: relative;
   height: 50px;
   align-items: center;
   width: 100%;
@@ -469,22 +454,17 @@ input:focus {
   z-index: 2;
 }
 .sideBar.active .sideBar-item {
-  border-radius: 0%;
+  border-radius: 0;
   transition: all 0.3s ease;
 }
 
 .sideBar-item a {
   display: flex;
-  gap: 5px;
-  align-items: center;
   justify-content: center;
   text-decoration: none;
 }
 
 .sideBar-item a box-icon {
-  min-width: 30px;
-  width: 30px;
-  min-height: 30px;
   align-self: center;
   opacity: 1;
 }
@@ -528,7 +508,7 @@ input:focus {
   height: 56px;
   border-radius: 50%;
   background: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #6600eb);
-  padding: 3px; /* Border width */
+  padding: 3px;
   box-sizing: border-box;
 }
 
@@ -574,11 +554,6 @@ input:focus {
 .button-style-2:hover::before {
   width: 200%;
   z-index: -1;
-}
-
-.main-content {
-  margin-left: 90px;
-  z-index: 1;
 }
 
 .project-card {
@@ -695,13 +670,14 @@ hr {
 }
 
 .new-lane-btn {
-  margin-top: 11%;
-  padding: 7px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
   min-width: 120px;
   max-width: 150px;
   border-radius: 0.4vw;
   border: none;
-  background-color: #272727;
+  background-color: #131313;
 }
 
 .nav-item-index {

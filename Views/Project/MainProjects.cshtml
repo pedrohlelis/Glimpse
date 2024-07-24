@@ -1,15 +1,14 @@
 @using Glimpse.ViewModels;
 @model ProjectsVM
 @{
-    Layout = "_BasicLayout";
     ViewData["Title"] = "Projetos";
     ViewData["StylesheetUrl"] = "~/css/index.css";
 }
-<partial name="_HeaderComponent"></partial>
-<br><br><br>
+
+<br>
 <div class="main-content d-flex align-items-center justify-content-center flex-column">
     <div class="d-flex align-items-center justify-content-center flex-column">
-        <h1 class="display-6 fw-bold text-primary" style="letter-spacing: 3px;">Olá, @ViewData["UserName"]!</h1>
+        <h1 class="display-6 fw-bold" style="letter-spacing: 3px; color:rgb(186, 54, 238);">Olá, @ViewData["UserName"]!</h1>
         <p class="fw-light fs-6">Aqui estão seus projetos vistos recentemente.</p>
         <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
     </div>
@@ -17,17 +16,18 @@
 
     <div class="row reveal justify-content-center gap-4" style="width: 72%;">
         @foreach (var kvp in Model.ActiveProjects) {
-            <div class="col-4 d-flex flex-column justify-content-between border-bottom border-primary border-3 p-0" style="background-color: #272727; border-radius: 3%; width: 30%; outline: #ffffff3f solid 1px;">
+            <div class="col-4 justify-content-between border-bottom border-primary border-3 p-0" style="background-color: #272727; border-radius: 3%; width: 30%; outline: #ffffff3f solid 1px;">
                 <img class="img-icon flex-grow-1" style="width: 100%; height: 32vh; object-fit: fill; border-top-left-radius: 3%; border-top-right-radius: 3%;" src="@Url.Content(kvp.Key.Picture)" alt="">
                 @{
                     var boardsList = kvp.Key.Boards.ToList();
                 }
-                <div class="d-flex p-2 m-xl-2 flex-column">
-                    <div>
+                <div class="p-2 m-xl-2">
+
+                    <div class="name-description">
                         <div class="d-flex justify-content-between">
-                            <p class="overflow-hidden text-white" style="font-family: Fixture-Expanded-SemiBold;">@kvp.Key.Name</p>
+                            <p class="overflow-hidden text-white" style="font-family: Fixture-Expanded-SemiBold; text-overflow: ellipsis;">@kvp.Key.Name</p>
                             <div class="dropup">
-                                <button class="dropdown-toggle text-white" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
+                                <button class="dropdown-toggle text-white ps-2" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
                                 <div class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
                                     @if(Model.User == kvp.Value){
                                         <a class="dropdown-item text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@kvp.Key.Id">Editar</a>
@@ -44,7 +44,10 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-muted overflow-hidden" style="font-size: small;">@kvp.Key.Description</p>
+                        <p class="text-muted overflow-hidden" style="font-size: small; text-overflow: ellipsis;">@kvp.Key.Description</p>
+                    </div>
+
+                    <div class="members-enter">
                         <div class="p-3" style="background-color: #202020; border-radius: 8px; border: 1px solid #ffffff25;">
                             <div class="d-flex">
                                 <div style="position: relative; display: block; flex-grow: 1;">
@@ -62,15 +65,15 @@
                                 </div>
                                 <p>@kvp.Key.Users.Count Membros</p>
                             </div>
-                            <p class="text-muted overflow-hidden m-0" style="font-size: smaller;">Criado por: @kvp.Value.Email</p>
                         </div>
+                        <button class="button-create mt-3 mb-2" style="border-radius: 8px; border: 1px solid #7110df; color: #ffffff; background-color: #171718">
+                            <a class="text-decoration-none align-content-center d-flex p-2 justify-content-center" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
+                                <img src="/Icons/door.svg" alt="" style="margin-right: 2%;">
+                                <p class="m-0 text-white">Entrar</p>
+                            </a>
+                        </button>
                     </div>
-                    <button class="button-create mt-3 mb-2" style="border-radius: 8px; border: 1px solid #7110df; color: #ffffff; background-color: #171718">
-                        <a class="text-decoration-none align-content-center d-flex p-2 justify-content-center" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
-                            <img src="/Icons/door.svg" alt="" style="margin-right: 2%;">
-                            <p class="m-0 text-white">Entrar</p>
-                        </a>
-                    </button>
+
                 </div>
             </div>
         }
@@ -103,7 +106,6 @@
 }
 
 <style>
-    
     a {
         text-decoration: none;
 
