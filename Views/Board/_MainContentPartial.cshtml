@@ -5,8 +5,6 @@
 <input name="IsMemberSideBarActive" type="hidden">
 <br>
 
-<input name="IsMemberSideBarActive" type="hidden">
-
 <div class="lanes text-white">
     <div>
         <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
@@ -23,7 +21,7 @@
     </div>
     @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
     {
-        <div class="swim-lane col mx-2 bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
+        <div class="swim-lane mx-1 col bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center me-2">
                     <form asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
@@ -157,7 +155,7 @@
                                         }
                                     }
                                 }
-                                <box-icon name='checkbox-checked' color="#797979" ></box-icon>
+                                <box-icon name='checkbox-checked' color="#797979"></box-icon>
                                 <span class="checkbox-count" style="font-size: 12px; color:#797979; width:100%;">
                                     @checkedboxes/@card.Checkboxes.Count
                                 </span>
@@ -170,7 +168,6 @@
     </div>
     }
 </div>
-
 <style>
     a.text-white {
         word-wrap: break-word;
@@ -178,46 +175,45 @@
         display: block;
     }
     .board {
-    width: 100%;
-    height: 100%;
+        width: 100%;
+        height: 100%;
     }
 
     .lanes {
-    display: flex;
-    align-items: flex-start;
-    justify-content: start;
-    gap: 13px;
-    min-width: calc(100% - 250px);
-    overflow-y: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: start;
+        min-width: calc(100% - 250px);
+        overflow-y: auto;
     }
 
     .swim-lane {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: #272727;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-    padding: 12px;
-    border-radius: 4px;
-    max-width: 225px;
-    min-height: 120px;
-    overflow-x: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: #272727;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        padding: 12px;
+        border-radius: 4px;
+        max-width: 225px;
+        min-height: 120px;
+        overflow-x: auto;
     }
 
     .task {
-    background: white;
-    color: black;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: move;
+        background: white;
+        color: black;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: move;
     }
 
     .is-dragging {
-    scale: 1.05;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-    background: rgb(50, 50, 50);
-    color: white;
+        scale: 1.05;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        background: rgb(50, 50, 50);
+        color: white;
     }
 
     .is-dragging-lane {

@@ -5,27 +5,25 @@
     ViewData["StylesheetUrl"] = "~/css/index.css";
 }
 
-<br>
-<div class="main-content d-flex align-items-center justify-content-center flex-column">
+<div class="main-content d-flex align-items-center justify-content-center flex-column mt-4">
     <div class="d-flex align-items-center justify-content-center flex-column">
         <h1 class="display-6 fw-bold" style="letter-spacing: 3px; color:rgb(186, 54, 238);">Olá, @ViewData["UserName"]!</h1>
         <p class="fw-light fs-6">Aqui estão seus projetos vistos recentemente.</p>
         <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
     </div>
-    <br><br><br>
 
-    <div class="row reveal justify-content-center gap-4" style="width: 72%;">
+    <div class="row reveal justify-content-center gap-4 mt-5 mb-3" style="width: 72%;">
         @foreach (var kvp in Model.ActiveProjects) {
             <div class="col-4 justify-content-between border-bottom border-primary border-3 p-0" style="background-color: #272727; border-radius: 3%; width: 30%; outline: #ffffff3f solid 1px;">
                 <img class="img-icon flex-grow-1" style="width: 100%; height: 32vh; object-fit: fill; border-top-left-radius: 3%; border-top-right-radius: 3%;" src="@Url.Content(kvp.Key.Picture)" alt="">
                 @{
                     var boardsList = kvp.Key.Boards.ToList();
                 }
-                <div class="p-2 m-xl-2">
+                <div class="p-2 m-xl-2 flex-grow-1 d-flex flex-column">
 
                     <div class="name-description">
                         <div class="d-flex justify-content-between">
-                            <p class="overflow-hidden text-white" style="font-family: Fixture-Expanded-SemiBold; text-overflow: ellipsis;">@kvp.Key.Name</p>
+                            <p class="d-flex overflow-hidden text-white flex-grow-1" style="font-family: Fixture-Expanded-SemiBold; text-overflow: ellipsis;">@kvp.Key.Name</p>
                             <div class="dropup">
                                 <button class="dropdown-toggle text-white ps-2" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
                                 <div class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">

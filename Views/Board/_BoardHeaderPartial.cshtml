@@ -1,11 +1,9 @@
 @using Glimpse.ViewModels;
 @model BoardVM;
 
-<section>
+<section class="header-main-section">
   <div class="text-white d-flex align-items-center">
-
     <box-icon size="30px" name='objects-vertical-top' type='solid' color='#f6f6f6'></box-icon>
-
     <div class="ps-2">
       <button class="btn fw-bold btn-secondary dropdown-toggle board-title-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
         <h2 style="font-family: Fixture-Expanded-SemiBold;">@Model.Board.Name</h2>
@@ -18,7 +16,6 @@
         <li><a class="dropdown-item" asp-action="Create" asp-controller="Board" asp-route-id="@Model.Board.Project.Id">Criar quadro +</a></li>
       </ul>
     </div>
-
     <div class="d-flex justify-content-center align-content-center align-items-end my-2 ps-2">
       <box-icon size="24px" class="mx-2" name='hard-hat' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Cargos" type='solid' color="white" id="project-roles-btn" style="cursor: pointer;"></box-icon>
       <box-icon size="24px" class="mx-2" name='bell' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Notificações" style="cursor: pointer;" color="white"></box-icon>
@@ -26,14 +23,62 @@
       <box-icon size="24px" class="mx-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Membros" name="group" color="white" id="member-side-menu-btn" style="cursor: pointer;" onclick="ToggleMemberSideBar()"></box-icon>
     </div>
   </div>
-  <div class="mt-4">
+  <div class="board-functionalities mt-3">
+    <div class="align-content-center d-flex pe-3">
+      <button class="board-func-btn">
+        <span class="board-func-span"><span>Quadro</span></span>
+      </button>
+      <button class="board-func-btn">
+        <span class="board-func-span"><span>Analytics</span></span>
+      </button>
+    </div>
+    <div class="align-content-center align-items-center"><div class="vertical-separator px-1 "></div></div>
     <button id="add-lane-button" class="fs-6 new-lane-btn text-white">
-      <box-icon class="pe-2" size="20px" name='right-arrow-circle' color='#fcfcfc' ></box-icon>
-      Nova Raia
+      <span class="d-flex">
+        <box-icon class="pe-2" size="22px" name='right-arrow-circle' color='#d8d8d8' ></box-icon>
+        <span class="new-lane">Nova Raia</span>
+      </span>
     </button>
   </div>
 </section>
+
 <style>
+  .board-functionalities {
+    display: flex;
+    height: 50px;
+  }
+  .header-main-section {
+    border-bottom: 1px solid rgb(65, 65, 65);
+  }
+  .new-lane-btn {
+    padding-left: 10px;
+    border: none;
+    background-color: #131313;
+  }
+  .new-lane {
+    color: rgb(216, 216, 216);
+    align-self: center;
+  }
+  .board-func-btn {
+    outline: none;
+    border: none;
+    color: rgb(216, 216, 216);
+    text-align: center;
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+  }
+  .board-func-span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .vertical-separator {
+    border-left: 1px solid #6d6d6d;
+    height: 25px;
+  }
   .board-title-btn {
     background-color: #131313;
     outline: none;
