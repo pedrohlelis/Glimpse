@@ -66,10 +66,10 @@
             }
 
             $('#repository-structure').on('click', '.folder', function(e) {
-                e.preventDefault();  // Impede o comportamento padrão do link <a>
+                e.preventDefault();
                 const path = $(this).data('path');
                 const subContentsDiv = $('#' + path.replace(/\//g, '-')).children('ul');
-                console.log('Folder clicked:', path);  // Log para verificar o clique na pasta
+                console.log('Folder clicked:', path);
                 if (subContentsDiv.is(':empty')) {
                     navigationStack.push(path);
                     loadRepositoryStructure(repoId, path);
@@ -78,7 +78,7 @@
             });
 
             $('#repository-structure').on('click', '.file', function(e) {
-                e.preventDefault();  // Impede o comportamento padrão do link <a>
+                e.preventDefault();
                 const path = $(this).data('path');
                 $.get('/Repository/GetFileContent', { id: repoId, path: path }, function(data) {
                     $('#file-content').text(data);
@@ -89,7 +89,7 @@
 
             $('#back-button').on('click', function(e) {
                 e.preventDefault();
-                navigationStack.pop();  // Remove the current path
+                navigationStack.pop();
                 const previousPath = navigationStack.length > 0 ? navigationStack[navigationStack.length - 1] : "";
                 loadRepositoryStructure(repoId, previousPath);
             });
