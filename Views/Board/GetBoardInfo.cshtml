@@ -1,11 +1,13 @@
 @using Glimpse.ViewModels;
 @model BoardVM;
 
+
 @{
     ViewData["Title"] = Model.Board.Name;
 }
 <div class="container-fluid">
     <div class="row flex-nowrap">
+        <partial name="_BoardSideBarPartial"></partial>
         <partial name="_BoardSideBarPartial"></partial>
         <div class="col py-3 px-4">
             <partial name="_BoardHeaderPartial"></partial>
