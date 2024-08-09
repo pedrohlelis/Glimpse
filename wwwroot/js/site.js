@@ -1,8 +1,4 @@
-﻿document.querySelector('#side-menu-btn').onclick = function () {
-    document.querySelector(".sideBar").classList.toggle('active')
-};
-
-function leaveProject(button) {
+﻿function leaveProject(button) {
     var listItem = button.closest('li');
     document.getElementById('projectToLeaveId').value = listItem.dataset.id;
 

@@ -88,15 +88,6 @@ html::-webkit-scrollbar-track {
   box-sizing: border-box;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-  background-clip: content-box
-}
 @-webkit-keyframes swing {
   15% {
       -webkit-transform: translateY(5px);
@@ -263,30 +254,35 @@ input:focus {
 
 .form-input:not(:placeholder-shown) {
     background-color: #131313;
-    color: #fff; /* Same as default background color */
+    color: #fff;
 }
 
 .form-input:focus {
-    background-color: #131313; /* Same as default background color */
-    border-color: #9531FF; /* Update border color when focused */
-    outline: none; /* Remove default focus outline */
+    background-color: #131313;
+    border-color: #9531FF;
+    outline: none;
 }
 
 .memberSideMenu {
-  display: none;
+  visibility: hidden;
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
-  padding: .4rem .4rem;
+  height: 95vh;
   background: #272727;
   transition: all 0.5s ease;
   max-height: 100vh;
+  padding: .4rem .4rem;
+  margin-right: 1%;
+  border-radius: 12px;
+  border: 1px solid rgb(66, 66, 66);
+  margin-top: 1%;
 }
 
 .memberSideMenu.active {
-  display: block;
-  width: 250px;
+  visibility: visible;
+  padding: .4rem .9rem;
+  width: 300px;
   z-index: 50;
 }
 
@@ -670,7 +666,6 @@ hr {
 }
 
 .new-lane-btn {
-  display: flex;
   align-items: center;
   padding-left: 5px;
   min-width: 120px;

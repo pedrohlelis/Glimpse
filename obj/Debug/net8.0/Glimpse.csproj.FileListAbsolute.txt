@@ -3836,3 +3836,4 @@ C:\Users\victo\OneDrive\Área de Trabalho\ALL\Glimpse\obj\Debug\net8.0\refint\Gl
 C:\Users\victo\OneDrive\Área de Trabalho\ALL\Glimpse\obj\Debug\net8.0\Glimpse.pdb
 C:\Users\victo\OneDrive\Área de Trabalho\ALL\Glimpse\obj\Debug\net8.0\Glimpse.genruntimeconfig.cache
 C:\Users\victo\OneDrive\Área de Trabalho\ALL\Glimpse\obj\Debug\net8.0\ref\Glimpse.dll
+C:\Users\victo\OneDrive\Área de Trabalho\Glimpse\bin\Debug\net8.0\Octokit.dll
