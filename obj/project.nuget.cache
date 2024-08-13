@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "pqRYkc6wDUMp1WTciC677u/ughMdbTsk62SWaXoSk7YXpulaeyx8crGOaw2mSS5kmM20lfJ0a1A4t8X4tJYy3g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj",
+=======
   "dgSpecHash": "A+GyJiLpijtlCBM515Mzxk1Cz/c7O/k2HQ4A5hrzOgswyyc7xa8H3ig8NZvZOYT5ay1NekWj/ZZVF5qzJL41hw==",
   "success": true,
   "projectFilePath": "C:\\Dev\\Glimpse\\Glimpse.csproj",
+>>>>>>> efbbb37ffb9fe760934665f7c57a645ca36338ae
   "expectedPackageFiles": [
     "C:\\Users\\a498902\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

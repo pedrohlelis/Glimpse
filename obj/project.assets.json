@@ -11188,11 +11188,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj",
+      "projectName": "Glimpse",
+      "projectPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\Glimpse.csproj",
+      "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Glimpse\\obj\\",
+=======
       "projectUniqueName": "C:\\Dev\\Glimpse\\Glimpse.csproj",
       "projectName": "Glimpse",
       "projectPath": "C:\\Dev\\Glimpse\\Glimpse.csproj",
       "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
       "outputPath": "C:\\Dev\\Glimpse\\obj\\",
+>>>>>>> efbbb37ffb9fe760934665f7c57a645ca36338ae
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
