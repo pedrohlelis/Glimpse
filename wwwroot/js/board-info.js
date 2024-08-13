@@ -48,7 +48,6 @@ function createRole() {
     createRoleModal.show();
 }
 
-// Function to handle editing a role
 function editRole(button) {
 
     var listItem = button.closest('li');
@@ -67,7 +66,6 @@ function editRole(button) {
     editRoleModal.show();
 }
 
-// Function to handle deleting a role
 function deleteRole(button) {
     var listItem = button.closest('li');
     document.getElementById('roleToDeleteId').value = listItem.dataset.id;
@@ -83,14 +81,12 @@ function removeUser(button) {
     removeMemberModal.show();
 }
 
-// Event listener to open the modal when the icon is clicked
 document.getElementById('project-roles-btn').addEventListener('click', openRolesModal);
 
 //START of sidebar menu ---------------------------
 
 let memberSideMenuBtn = document.querySelector('#member-side-menu-btn')
 let memberSideMenu = document.querySelector('.memberSideMenu')
-let sideMenuBtn = document.querySelector('#side-menu-btn')
 let sideBar = document.querySelector(".sideBar")
 let mainContent = document.querySelector(".main-content")
 let memberDivs = document.querySelectorAll(".member-div")
@@ -101,11 +97,6 @@ let IsMemberSideBarActive = document.querySelector('.IsMemberSideBarActive')
 if (memberDivs.length === 0) {
 console.error('No memberDiv elements found');
 }
-
-memberSideMenuBtn.onclick = function () {
-    ToggleMemberSideBar()
-};
-
 
 function ToggleMemberSideBar() {
     let invDiv = document.querySelector(".invite-member-div")
@@ -129,10 +120,6 @@ function ToggleMemberSideBar() {
     }
 }
 
-sideMenuBtn.onclick = function () {
-    sideBar.classList.toggle('active')
-    mainContent.classList.toggle('opacity-50')
-};
 //END of sidebar menu   ---------------------------
 
 let toggleMemberBarDiv = document.querySelector('.toggleMemberBarDiv');
@@ -142,9 +129,6 @@ if (toggleMemberBarDiv != null)
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-
-
     // CARDS AND LANES DRAG&DROP
     const board = document.querySelector(".lanes");
 
@@ -155,23 +139,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const laneOrderInput = saveLaneOrderForm.querySelector('input[name="laneIndexDictionary"]');
 
     saveCardOrderForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
+        event.preventDefault();
         
         const formData = new FormData(saveCardOrderForm);
 
-        // Send the form data using an AJAX request
         fetch(saveCardOrderForm.action, {
             method: 'POST',
             body: formData
         })
         .then(response => {
             if (response.ok) {
-                // Optionally handle success response
-                console.log('Card order saved successfully!');
-                // Reload the page or update specific parts of the page with the new data
-                location.reload(); // Reload the page to reflect changes
+                location.reload();
             } else {
-                // Optionally handle error response
                 console.error('Failed to save card order.');
             }
         })
@@ -181,23 +160,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     saveLaneOrderForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
+        event.preventDefault();
         
         const formData = new FormData(saveLaneOrderForm);
 
-        // Send the form data using an AJAX request
         fetch(saveLaneOrderForm.action, {
             method: 'POST',
             body: formData
         })
         .then(response => {
             if (response.ok) {
-                // Optionally handle success response
-                console.log('Lane order saved successfully!');
-                // Reload the page or update specific parts of the page with the new data
-                location.reload(); // Reload the page to reflect changes
+                location.reload();
             } else {
-                // Optionally handle error response
                 console.error('Failed to save card order.');
             }
         })
@@ -206,11 +180,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Function to update the card order input value
     function updateCardOrderInput() {
         const swimLanes = document.querySelectorAll('.swim-lane');
         let isMemberSideBarActive = saveCardOrderForm.querySelector('input[name=IsMemberSideBarActive]')
-        let taskIndexDictionary = {}; // Initialize an empty object to store the task index for each task ID
+        let taskIndexDictionary = {};
 
         swimLanes.forEach((lane) => {
             const laneId = lane.dataset.id;
@@ -220,17 +193,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const taskId = card.dataset.id;
                 const indexPosition = index + 1;
                 
-                // If the task ID doesn't exist in the dictionary, initialize it with an empty list
                 if (!taskIndexDictionary[taskId]) {
                     taskIndexDictionary[taskId] = [];
                 }
 
-                // Add lane ID and task index to the list for this task ID
                 taskIndexDictionary[taskId].push(String(laneId), String(indexPosition));
             });
         });
 
-        // Convert the object to JSON and assign it to the cardOrderInput value
         if(memberSideMenu.classList.contains('active')){
             isMemberSideBarActive.value = true;
         }
@@ -243,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateLaneOrderInput() {
         const lanes = document.querySelectorAll('.lanes');
         let isMemberSideBarActive = saveLaneOrderForm.querySelector('input[name=IsMemberSideBarActive]')
-        let laneIndexDictionary = {}; // Initialize an empty object to store the task index for each task ID
+        let laneIndexDictionary = {};
 
         lanes.forEach((lane) => {
             const swimLanes = lane.querySelectorAll('.swim-lane');
@@ -252,11 +222,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const swimLaneId = swimLane.dataset.id;
                 const indexPosition = index + 1;
 
-                // Store the task index in the taskIndexDictionary using the task ID as the key
                 laneIndexDictionary[swimLaneId] = indexPosition;
             });
         });
-        // Convert the array to JSON and assign it to the cardOrderInput value
         if(memberSideMenu.classList.contains('active')){
             isMemberSideBarActive.value = true;
         }
@@ -266,7 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
         laneOrderInput.value = JSON.stringify(laneIndexDictionary);
     }
 
-    // Drag and drop functionality for tasks
     const draggables = document.querySelectorAll(".task");
     const droppables = document.querySelectorAll(".swim-lane");
 
@@ -315,26 +282,23 @@ document.addEventListener('DOMContentLoaded', function() {
         return closestTask;
     };
 
-    // Drag and drop functionality for lanes
 const lanes = document.querySelectorAll(".swim-lane");
 
 lanes.forEach((lane) => {
-    // Drag start for lanes
     lane.addEventListener("dragstart", (e) => {
         if (e.target.classList.contains("swim-lane")) {
             lane.classList.add("is-dragging-lane");
         }
-        e.stopPropagation(); // Prevent triggering dragstart on parent elements
+        e.stopPropagation();
     });
 
-    // Drag end for lanes
     lane.addEventListener("dragend", (e) => {
         if (e.target.classList.contains("swim-lane")) {
             lane.classList.remove("is-dragging-lane");
             updateLaneOrderInput();
             saveLaneOrderForm.submit();
         }
-        e.stopPropagation(); // Prevent triggering dragend on parent elements
+        e.stopPropagation();
     });
 })
 
@@ -382,14 +346,12 @@ lanes.forEach((lane) => {
         checkboxes.forEach(function(checkbox) {
             var checkboxToEditId = checkbox.id.replace("checkbox_", "");;
             var checkboxState = checkbox.checked;
-            console.log(checkboxToEditId + ":" + checkboxState);
             checkboxStates[checkboxToEditId] = checkboxState;
             });
 
             var editFormData = new FormData();
             editFormData.append("boardId", 2);
             editFormData.append("checkboxesStatus", JSON.stringify(checkboxStates));
-            console.log(JSON.stringify(checkboxStates))
             
             fetch('/Checkbox/EditCheckbox', {
                 method: 'POST',
@@ -397,12 +359,8 @@ lanes.forEach((lane) => {
             })
             .then(response => {
                 if (response.ok) {
-                    console.log('Checkbox states updated successfully!');
-                    // Optionally handle UI update or feedback
-                    //location.reload();
                 } else {
                     console.error('Failed to update checkbox states.');
-                    // Handle error case if needed
                 }
             })
             .catch(error => {
@@ -463,21 +421,17 @@ lanes.forEach((lane) => {
 
             const [day, month, year] = cardStartDate.split('/');
 
-            // Splitting cardDueDate into day, month, year, hour, and minute
             const [dueDay, dueMonth, dueYearTime] = cardDueDate.split('/');
             const [dueYear, time] = dueYearTime.split(' ');
             const [hour, minute] = time.split(':');
 
-            // Formatting startDate for input element (if needed)
             const formattedStartDate = `${year}-${month}-${day}`;
             const formattedDueDateTime = `${dueYear}-${dueMonth}-${dueDay}T${hour}:${minute}`;
 
-            // Creating Date objects
             const startDateObject = new Date(formattedStartDate);
             const dueDateTimeObject = new Date(formattedDueDateTime);
 
 
-            // Setting values to HTML elements
             document.getElementById('cardId').value = cardId;
             document.getElementById('tagCardId').value = cardId;
             document.getElementById('userCardId').value = cardId;
@@ -485,10 +439,8 @@ lanes.forEach((lane) => {
             document.getElementById('deleteCardId').value = cardId;
             document.getElementById('description').value = cardDescription;
 
-            // Setting startDate input element
             document.getElementById('startDate').valueAsDate = startDateObject;
 
-            // Setting dueDate input element (assuming it accepts date and time)
             document.getElementById('dueDate').value = formattedDueDateTime;
             if (dueDateTimeObject <= Date.now()) {
                 document.getElementById('dueDate').style.backgroundColor = '#8a1c2e';
@@ -514,32 +466,26 @@ lanes.forEach((lane) => {
             checkboxListNew.style.display = 'flex';
             checkboxListNew.style.alignContent = 'center';
             cardCheckboxes.forEach(checkbox => {
-                // Create checkbox element
                 var divWrapper = document.createElement('div');
                 divWrapper.classList.add('checkbox-wrapper-12');
 
-                // Cria o elemento div para cbx
                 var divCbx = document.createElement('div');
                 divCbx.classList.add('cbx');
 
-                // Cria o elemento input para o checkbox
                 var checkboxElement = document.createElement('input');
                 checkboxElement.id = 'cbx-12';
                 checkboxElement.type = 'checkbox';
                 checkboxElement.classList.add('task-checkbox', 'me-3');
-                checkboxElement.checked = checkbox.Finished; // Presume que existe uma variável checkbox com a propriedade Finished
-                checkboxElement.name = 'checkbox_' + checkbox.Id; // Presume que existe uma variável checkbox com a propriedade Id
-                checkboxElement.id = 'checkbox_' + checkbox.Id; // Presume que existe uma variável checkbox com a propriedade Id
+                checkboxElement.checked = checkbox.Finished;
+                checkboxElement.name = 'checkbox_' + checkbox.Id;
+                checkboxElement.id = 'checkbox_' + checkbox.Id;
 
-                // Adiciona o checkbox ao div cbx
                 divCbx.appendChild(checkboxElement);
 
-                // Cria o elemento label para o checkbox
                 var labelElement = document.createElement('label');
                 labelElement.setAttribute('for', 'cbx-12');
                 divCbx.appendChild(labelElement);
 
-                // Cria o elemento svg dentro do div cbx
                 var svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                 svgElement.setAttribute('width', '15');
                 svgElement.setAttribute('height', '14');
@@ -550,10 +496,8 @@ lanes.forEach((lane) => {
                 svgElement.appendChild(pathElement);
                 divCbx.appendChild(svgElement);
 
-                // Adiciona o div cbx ao div wrapper
                 divWrapper.appendChild(divCbx);
 
-                // Cria o segundo elemento svg
                 var svgDefs = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                 svgDefs.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
                 svgDefs.setAttribute('version', '1.1');
@@ -583,21 +527,17 @@ lanes.forEach((lane) => {
                 defsElement.appendChild(filterElement);
                 svgDefs.appendChild(defsElement);
 
-                // Adiciona o segundo svg ao div wrapper
                 divWrapper.appendChild(svgDefs);
 
-                // Create label for checkbox
                 var labelElement = document.createElement('label');
                 labelElement.textContent = checkbox.Name;
-                labelElement.setAttribute('for', 'checkbox_' + checkbox.Id); // Set for attribute
+                labelElement.setAttribute('for', 'checkbox_' + checkbox.Id);
 
-                // Hidden input for checkbox Id
                 var checkboxId = document.createElement('input');
                 checkboxId.type = 'hidden';
                 checkboxId.name = 'checkboxId';
                 checkboxId.value = checkbox.Id;
 
-                // Hidden input for board Id
                 var checkboxCardId = document.createElement('input');
                 checkboxCardId.type = 'hidden';
                 checkboxCardId.name = 'cardId';
@@ -608,7 +548,6 @@ lanes.forEach((lane) => {
                 checkboxBoardId.name = 'boardId';
                 checkboxBoardId.value = boardId;
 
-                // Create delete button (x)
                 var deleteButton = document.createElement('button');
                 deleteButton.innerHTML = '<box-icon name="x" color="white"></box-icon>';
                 deleteButton.style.backgroundColor = '#1b1b1b';
@@ -618,27 +557,22 @@ lanes.forEach((lane) => {
                     deleteForm.dispatchEvent(new Event('submit'));
                 });
 
-                // Create form for delete button
                 var deleteForm = document.createElement('form');
-                deleteForm.classList.add('ms-5'); // Add custom class if needed
-                deleteForm.id = 'checkbox-delete-form'; // Set id attribute if needed
+                deleteForm.classList.add('ms-5');
+                deleteForm.id = 'checkbox-delete-form';
                 deleteForm.addEventListener('submit', function(event) {
-                    event.preventDefault(); // Prevent default form submission behavior
+                    event.preventDefault();
 
-                    // Construct FormData object with form data
                     var formData = new FormData(deleteForm);
                     formData.append('checkboxId', checkbox.Id);
-                    formData.append('boardId', boardId); // Assuming boardId is defined
+                    formData.append('boardId', boardId);
 
-                    // Perform fetch request to delete checkbox
                     fetch('/Checkbox/DeleteCheckbox', {
                         method: 'POST',
                         body: formData
                     })
                     .then(response => {
                         if (response.ok) {
-                            console.log('Checkbox deleted successfully!');
-                            // Optionally, update UI or reload page after successful deletion
                             location.reload();
                         } else {
                             console.error('Failed to delete checkbox.');
@@ -679,7 +613,7 @@ lanes.forEach((lane) => {
             const progressBar = document.getElementById('progress-bar');
             const progressLabel = document.getElementById('progress-label');
             const totalTasks = checkboxes.length;
-            let animationInterval = null; // Variable to store animation interval
+            let animationInterval = null;
 
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', updateProgress);
@@ -699,24 +633,22 @@ lanes.forEach((lane) => {
                 const percentage = (checked / totalTasks) * 100;
                 const currentPercentage = parseFloat(progressLabel.textContent) || 0;
 
-                // Clear existing animation interval if it exists
                 if (animationInterval) {
                     clearInterval(animationInterval);
                 }
 
-                // Animate the progress label incrementally
                 animateProgress(currentPercentage, percentage);
 
                 progressBar.style.width = `${percentage}%`;
                 progressBar.setAttribute('aria-valuenow', percentage);
 
                 if (percentage >= 99.5) {
-                    progressBar.style.backgroundColor = '#3BE73B'; // Green
-                    progressBar.style.boxShadow = '0 0 10px rgba(59, 231, 59, 0.7)'; // Green shadow
+                    progressBar.style.backgroundColor = '#3BE73B';
+                    progressBar.style.boxShadow = '0 0 10px rgba(59, 231, 59, 0.7)';
                     progressBar.classList.add('completed');
                 } else {
-                    progressBar.style.backgroundColor = 'rgb(109, 19, 255)'; // Purple
-                    progressBar.style.boxShadow = '0 0 10px rgba(109, 19, 255, 0.7)'; // Purple shadow
+                    progressBar.style.backgroundColor = 'rgb(109, 19, 255)';
+                    progressBar.style.boxShadow = '0 0 10px rgba(109, 19, 255, 0.7)';
                     progressBar.classList.remove('completed');
                 }
             }
@@ -726,7 +658,7 @@ lanes.forEach((lane) => {
                 animationInterval = setInterval(() => {
                     if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
                         clearInterval(animationInterval);
-                        animationInterval = null; // Reset animation interval variable
+                        animationInterval = null;
                     } else {
                         current += increment;
                         progressLabel.textContent = `${current.toFixed(1)}%`;
@@ -758,7 +690,6 @@ lanes.forEach((lane) => {
                 userElement.style.marginRight = '4px';
                 userElement.classList.add('px-3', 'm-0', 'align-content-center');
 
-                // Encontrar o formulário existente
                 const form = document.getElementById('removeUserForm');
 
                 const inputBoardId = document.createElement('input');
@@ -803,25 +734,20 @@ lanes.forEach((lane) => {
     });
 
 function isDarkColor(color) {
-    // Remove o símbolo # se estiver presente
     if (color.startsWith('#')) {
         color = color.slice(1);
     }
 
-    // Converte cores hexadecimais de 3 caracteres para 6 caracteres
     if (color.length === 3) {
         color = color.split('').map(char => char + char).join('');
     }
 
-    // Converte a cor de hexadecimal para RGB
     const r = parseInt(color.substring(0, 2), 16);
     const g = parseInt(color.substring(2, 4), 16);
     const b = parseInt(color.substring(4, 6), 16);
 
-    // Calcula a luminância relativa
     const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
-    // Retorna true se a cor for escura, false se for clara
     return luminance < 0.5;
 }
 
@@ -839,14 +765,12 @@ addLaneButton.addEventListener('click', function(event) {
 laneInput.setAttribute('autocomplete', 'off');
 
 document.addEventListener('click', function(event) {
-    // Hide card forms if clicking outside
     cardForms.forEach((form) => {
         if (!event.target.closest('.create-card-form') && !event.target.closest('.add-card-button')) {
             form.setAttribute('hidden', true);
         }
     });
 
-    // Check if clicking outside the lane form and the new lane button
     if (!event.target.closest('.create-lane-form') && !event.target.closest('.new-lane-btn')) {
         laneForm.setAttribute('hidden', true);
     }
@@ -945,10 +869,8 @@ document.addEventListener('click', function(event) {
         const checkboxNames = Array.from(document.getElementsByName('CheckboxName')).map(input => input.value);
         const errorMessages = checkboxList.getElementsByClassName('text-danger');
 
-        // Reset error messages
         Array.from(errorMessages).forEach(error => error.style.display = 'none');
 
-        // Verificar se todos os nomes dos checkboxes não estão vazios
         let hasEmptyName = false;
         checkboxNames.forEach((name, index) => {
             if (name.trim() === '') {
@@ -967,8 +889,6 @@ document.addEventListener('click', function(event) {
             return;
         }
 
-        console.log('Iniciando salvamento dos checkboxes:', checkboxNames);
-
         Promise.all(checkboxNames.map((name, index) => {
             return fetch('/Checkbox/CreateCheckbox', {
                 method: 'POST',
@@ -978,11 +898,10 @@ document.addEventListener('click', function(event) {
                 body: JSON.stringify({ 
                     cardId: parseInt(cardId), 
                     name, 
-                    finished: checkboxFinished[index] // Adicionando o valor booleano correspondente
+                    finished: checkboxFinished[index]
                 })
             }).then(response => response.json())
                 .then(data => {
-                    console.log('Resposta do servidor para checkbox', name, data);
                     return data;
                 })
                 .catch(error => {
