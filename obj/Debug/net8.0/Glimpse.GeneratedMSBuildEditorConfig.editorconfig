@@ -314,10 +314,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhlYWRlckNvbXBvbmVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Dev/Glimpse/Views/Shared/SidebarComponent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNpZGViYXJDb21wb25lbnQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Dev/Glimpse/Views/Shared/_BasicStructure.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CYXNpY1N0cnVjdHVyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -340,6 +336,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Dev/Glimpse/Views/User/ProfileEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/Views/User/_UserSidebarComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfVXNlclNpZGViYXJDb21wb25lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Dev/Glimpse/Views/_ViewImports.cshtml]

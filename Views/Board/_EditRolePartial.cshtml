@@ -6,14 +6,17 @@
     List<User> unemployed = new List<User>();
 }
 
-@if(Model.IsMemberSideBarActive != null && Model.IsMemberSideBarActive == true){
+@if(Model.IsMemberSideBarActive == true){
 <div class="memberSideMenu d-flex flex-column overflow-y active">
-    @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
+    @if ((Model.UserRole?.CanManageMembers ?? false) || Model.User == Model.ProjectResponsibleUser)
+    {
         <div class="mt-2 member-div">
             <div class="d-flex">
                 <span class="fs-5">Membros</span>
                 <div class="flex-grow-1"></div>
-                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;"><box-icon size="30px" name='x' color='#fafafa'></box-icon></button>
+                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;">
+                    <box-icon size="30px" name='x' color='#fafafa'></box-icon>
+                </button>
             </div>
             <button class="button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <div class="d-flex align-items-center">
@@ -25,109 +28,50 @@
         <div class="invite-member-div collapse mt-4" id="collapseExample">
             <div class="card card-body" style="background-color: #272727; border-color: #7931ff;">
                 <form asp-action="AddUser" asp-controller="Project" method="post">
-                    <input type="text" name="id" value="@Model.Board.Id" hidden>
-                    <input type="text" name="projectId" value="@Model.Board.Project.Id" hidden>
+                    <input type="hidden" name="id" value="@Model.Board.Id">
+                    <input type="hidden" name="projectId" value="@Model.Board.Project.Id">
                     <div class="form-floating mb-3">
-                        <input class="form-input form-control bg-dark text-white" name="userEmail" autocomplete="off" aria-required="true" placeholder="name@example.com" required/>
+                        <input class="form-input form-control bg-dark text-white" name="userEmail" autocomplete="off" aria-required="true" placeholder="name@example.com" required />
                         <label class="form-label">Email</label>
                     </div>
-                    <button class="btn" style="background-color: #9531FF; type="submit">Enviar</button>
-                </form>
-            </div>
-        </div>
-    }else{
-        <div class="mt-2 member-div">
-            <div class="d-flex">
-                <span class="fs-5">Membros</span>
-                <div class="flex-grow-1"></div>
-                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;"><box-icon size="30px" name='x' color='#fafafa'></box-icon></button>
-            </div>
-            <button class="invite-btn btn-primary text-white d-none text-center d-flex align-items-center button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                <div>
-                    <box-icon name='user-plus' type='solid' color="white"></box-icon>
-                    <span>Convidar Membro</span>
-                </div>
-            </button>
-        </div>
-        <div class="collapse mt-4" id="collapseExample">
-            <div class="card card-body">
-                <form asp-action="AddUser" asp-controller="Project" method="post">
-                    <input type="text" name="id" value="@Model.Board.Id" hidden>
-                    <input type="text" name="projectId" value="@Model.Board.Project.Id" hidden>
-                    <div class="form-group">
-                        <label for="userEmail">E-mail do usuário a ser adicionado no projeto</label>
-                        <input name="userEmail" type="text" class="form-control" autocomplete="off" required/>
-                    </div>
-                    <button type="submit">Enviar</button>
+                    <button class="btn" style="background-color: #9531FF;" type="submit">Enviar</button>
                 </form>
             </div>
         </div>
     }
+    else
+    {
+        <div class="mt-2 member-div">
+            <div class="d-flex">
+                <span class="fs-5">Membros</span>
+                <div class="flex-grow-1"></div>
+                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;">
+                    <box-icon size="30px" name='x' color='#fafafa'></box-icon>
+                </button>
+            </div>
+        </div>
+    }
+    
     @foreach (var role in Model.ProjectRoles)
     {
         <div class="role-container mt-4">
             <p class="fs-5">@role.Name</p>
             @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == role))
             {
-                var user = kvp.Key;
-                <div class="member-div container mt-3">
-                <div class="profile-container">
-                    <img class="user-img" src='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' style="border: 2px solid @kvp.Value.Color;" alt="">
-                    <div class="profile-info" style="color: @kvp.Value.Color;">
-                        <div>@user.FirstName @user.LastName</div>
-                        <div class="profile-status" data-bs-toggle="tooltip" data-bs-placement="top" title="@user.UserName">
-                            <div>@user.UserName</div>
-                        </div>
-                    </div>
-                    @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
-                    <div class="profile-icons">
-                        <div class="dropup">
-                            <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
-                                <a class="dropdown-item" data-bs-toggle="modal" data-picture='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' data-id="@user.Id" data-name="@user.FirstName @user.LastName" data-email="@user.Email" data-bs-target="#editarCargoModal" aria-expanded="true" onclick="openManageUserModal(this)" color="white">Gerenciar</a>
-                                @if (user.Id != Model.User.Id){
-                                    <a class="dropdown-item" data-bs-toggle="modal" data-id="@user.Id" data-bs-target="#expulsarMembroModal" aria-expanded="true" onclick="removeUser(this)" color="white">Expulsar Membro</a>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    }
-                </div>
-            </div>
+                @await Html.PartialAsync("_MemberProfile", kvp.Key)
             }
         </div>
     }
+
     <div class="role-container mt-4">
         <p>Sem cargo</p>
-        @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == null)){
-            var user = kvp.Key;
-            <div class="member-div container mt-3">
-                <div class="profile-container">
-                    <img class="user-img" src='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' style="border: 2px solid #fff;" alt="">
-                    <div class="profile-info">
-                        <div>@user.FirstName @user.LastName</div>
-                        <div class="profile-status" data-bs-toggle="tooltip" data-bs-placement="top" title="@user.UserName">
-                            <div>@user.UserName</div>
-                        </div>
-                    </div>
-                    @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
-                        <div class="profile-icons">
-                            <div class="dropup">
-                                <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
-                                    <a class="dropdown-item" data-bs-toggle="modal" data-picture='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' data-id="@user.Id" data-name="@user.FirstName @user.LastName" data-email="@user.Email" data-bs-target="#editarCargoModal" aria-expanded="true" onclick="openManageUserModal(this)" color="white">Gerenciar</a>
-                                    @if (user != Model.User){
-                                    <a class="dropdown-item" data-bs-toggle="modal" data-id="@user.Id" data-bs-target="#expulsarMembroModal" aria-expanded="true" onclick="removeUser(this)" color="white">Expulsar Membro</a>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
+        @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == null))
+        {
+            @await Html.PartialAsync("_MemberProfile", kvp.Key)
         }
     </div>
 </div>
+
 } else {
     <div class="memberSideMenu d-flex flex-column overflow-y">
     @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
@@ -324,7 +268,7 @@
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h5 class="modal-title" id="tagsModalLabel">Project Tags</h5>
+                <h5 class="modal-title" id="tagsModalLabel">Tags</h5>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -444,20 +388,21 @@
                 <input type="hidden" name="id" value="@Model.Board.Id">
                 <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-danger" >yes, delete</button>
+                <button type="submit" class="btn btn-danger">yes, delete</button>
             </div>
         </form>
         </div>
     </div>
 </div>
 
-@* ========================== ROLES ============================== *@
-
 <div class="modal fade h-75" id="rolesModal" tabindex="-1" aria-labelledby="rolesModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
             <div class="modal-header">
-                <h5 class="modal-title" id="rolesModalLabel">Cargos</h5>
+                <span class="d-flex">
+                    
+                    <h5 class="modal-title" id="rolesModalLabel">Gerenciar Cargos</h5>
+                </span>
                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -533,7 +478,7 @@
                         <label for="roleColor" class="form-label text-light">Cor</label>
                         <input type="color" class="form-input form-control" id="roleColor" name="Color" value="">
                     </div>
-                    <!-- Permissions -->
+
                     @if ((Model.UserRole != null && Model.UserRole.CanManageRoles) || Model.User == Model.ProjectResponsibleUser) {
                     <div class="mb-3">
                         <label class="form-label text-light">Permissões</label>
@@ -638,7 +583,7 @@
                         <label for="roleColor" class="form-label text-light">Cor</label>
                         <input type="color" class="form-input form-control" id="roleColor" name="Color" value="">
                     </div>
-                    <!-- Permissions -->
+
                     <div class="mb-3">
                         <label class="form-label text-light">Permissões</label>
                         <div class="form-check">
@@ -672,7 +617,7 @@
                             </label>
                         </div>
                     </div>
-                    <!-- Submit button -->
+
                     <button type="submit" class="btn btn-success">Criar</button>
                 </form>
             </div>
@@ -703,7 +648,3 @@
         </div>
     </div>
 </div>
-@section Scripts {
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/board-info.js" asp-append-version="true"></script>
-}

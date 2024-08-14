@@ -13,7 +13,6 @@ public class ProfileVM
     [Display(Name = "First Name")]
     [MaxLength(25)]
     public string? FirstName { get; set; }
-    [Required(ErrorMessage = "Last Name is required.")]
     [Display(Name = "Last Name")]
     [MaxLength(25)]
     public string? LastName { get; set; }

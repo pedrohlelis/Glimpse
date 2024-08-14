@@ -12,14 +12,13 @@
         <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
     </div>
 
-    <div class="row reveal justify-content-center gap-4 mt-5 mb-3" style="width: 72%;">
+    <div class="row reveal justify-content-center gap-4 mt-5 mb-3" style="width: 70%;">
         @foreach (var kvp in Model.ActiveProjects) {
+            var boardsList = kvp.Key.Boards.ToList();
+            
             <div class="col-4 justify-content-between border-bottom border-primary border-3 p-0" style="background-color: #272727; border-radius: 3%; width: 30%; outline: #ffffff3f solid 1px;">
-                <img class="img-icon flex-grow-1" style="width: 100%; height: 32vh; object-fit: fill; border-top-left-radius: 3%; border-top-right-radius: 3%;" src="@Url.Content(kvp.Key.Picture)" alt="">
-                @{
-                    var boardsList = kvp.Key.Boards.ToList();
-                }
-                <div class="p-2 m-xl-2 flex-grow-1 d-flex flex-column">
+                <img style="border-top-left-radius: 3%; border-top-right-radius: 3%; width: 100%; height: 320px;" src="@Url.Content(kvp.Key.Picture)" alt="">
+                <div class="p-2 m-xl-2 d-flex flex-column">
 
                     <div class="name-description">
                         <div class="d-flex justify-content-between">
@@ -97,11 +96,6 @@
         </form>
     </div>
 </div>
-
-@section Scripts {
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="/js/site.js"></script>
-}
 
 <style>
     a {

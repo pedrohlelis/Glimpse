@@ -60,7 +60,6 @@ public class UserController : Controller
             PicturePath = user.Picture,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            // Email = user.Email,
         };
 
         ViewData["UserId"] = _userManager.GetUserId(this.User);

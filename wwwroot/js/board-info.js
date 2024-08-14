@@ -129,7 +129,6 @@ if (toggleMemberBarDiv != null)
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // CARDS AND LANES DRAG&DROP
     const board = document.querySelector(".lanes");
 
     const saveCardOrderForm = document.querySelector('.save-card-order-form');
@@ -754,7 +753,6 @@ function isDarkColor(color) {
 const addLaneButton = document.querySelector('.new-lane-btn');
 const laneForm = document.querySelector('.create-lane-form');
 const laneInput = document.querySelector('.lane-input');
-const cardForms = document.querySelectorAll('.create-card-form');
 const cardForms = document.querySelectorAll('.create-card-form');
 
 addLaneButton.addEventListener('click', function(event) {

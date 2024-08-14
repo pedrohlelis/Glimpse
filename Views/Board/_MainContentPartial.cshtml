@@ -11,7 +11,7 @@
             <div style="width: 300px; height: 200px;" class="lane">
                 <div class="d-flex align-content-center align-items-center px-1">
                     <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none; border: none;">
-                    <input name="id" value="@Model.Board.Id" type="hidden">
+                    <input name="id" value="@Model?.Board?.Id" type="hidden">
                     <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
                 </div>
                 <br>
@@ -27,13 +27,18 @@
                     <form asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
                         <input type="hidden" name="laneId" value="@lane.Id">
                         <input type="hidden" name="id" value="@Model.Board.Id">
-                        <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@lane.Name" value="@lane.Name" class="form-control me-2 text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px; font-family: Fixture-Expanded-SemiBold;" name="name">
-                        <span class="badge bg-secondary text-white me-2 flex-grow-1 d-flex">@lane.Cards.Count</span>
-                        @if((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser){
-                            <button type="submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salvar Lane" class="btn btn-info text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
-                                <box-icon name='save' color="white" style="width: 16px; height: 16px;"></box-icon>
-                            </button>
-                        }
+                        <div class="d-flex">
+                            <div class="d-flex me-2">
+                                <input type="text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="@lane.Name" value="@lane.Name" class="form-control text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px 0 0 6px; font-family: Fixture-Expanded-SemiBold;" name="name">
+                                <span class="text-white align-content-center px-1 text-center" style="border-radius: 0 6px 6px 0px; min-width: 30px; background-color: rgb(71, 71, 71);">@lane.Cards.Count</span>
+                            </div>
+                            @if((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser){
+                                <button type="submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salvar Lane" class="btn btn-info text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
+                                    <box-icon name='save' color="white" style="width: 17px; height: 17px;"></box-icon>
+                                </button>
+                            }
+                        </div>
+                        
                     </form>
                 </div>
                 <div class="d-flex align-items-center">

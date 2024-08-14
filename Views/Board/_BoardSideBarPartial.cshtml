@@ -5,7 +5,7 @@
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
         <div class="mt-2 d-flex">
             <img width="30" src="@Url.Content(Model.Board.Project.Picture)" alt="">
-            <span class="fs-6 d-none d-sm-inline" style="white-space:nowrap;">@Model.Board.Project.Name</span>
+            <span class="fs-6 d-none d-sm-inline" style="white-space:nowrap; font-family: Fixture-Expanded-SemiBold;">@Model.Board.Project.Name</span>
         </div>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li>
@@ -13,10 +13,10 @@
                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
                 <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                        <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                        <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
                     </li>
                 </ul>
             </li>
@@ -29,55 +29,59 @@
                     <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Quadros</span></a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Work items</span> 1</a>
+                        <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Quadros</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Quadros</span> 2</a>
+                        <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Itens</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Sprints</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Personas</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Estimate</span></a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                    <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
+                    <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span></a>
                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                    <li class="w-100">
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                    </li>
-                </ul>
+                        <li class="w-100">
+                            <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                        </li>
+                    </ul>
             </li>
             <li>
                 <a href="#" class="nav-link px-0 align-middle">
                     <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
             </li>
         </ul>
-        <hr>
-        <div class="dropdown pb-4">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                <span class="d-none d-sm-inline mx-1">loser</span>
+        <div class="horizontal-separator py-2"></div>
+        <div class="pb-4">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none">
+                <span class="d-none d-sm-inline mx-1">Opções de projeto</span>
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
         </div>
     </div>
 </div>
-@section Scripts {
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/board-info.js" asp-append-version="true"></script>
-}
+<style>
+    .horizontal-separator {
+        border-top: 1px solid #3a3a3a;
+        width: 100%;
+    }
+    .sidebar-link {
+        color: white;
+    }
+</style>

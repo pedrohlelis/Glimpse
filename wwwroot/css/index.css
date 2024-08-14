@@ -841,3 +841,13 @@ ul:hover li:hover ~ li:before {
     display: flex;
     align-items: center;
 }
+
+.modal-header {
+  background-color: #272727;
+  border: 1px solid #333333;
+}
+
+.modal-content {
+  background-color: #272727;
+  border: 1px solid #333333;
+}
