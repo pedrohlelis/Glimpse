@@ -5,9 +5,9 @@
     ViewData["Title"] = Model.Board.Name;
 }
 <div class="container-fluid">
-    <div class="row flex-nowrap">
+    <div class="row flex-nowrap overflow-hidden">
         <partial name="_BoardSideBarPartial"></partial>
-        <div class="col py-3 px-4">
+        <div class="col">
             <partial name="_BoardHeaderPartial"></partial>
             <partial name="_MainContentPartial"></partial>
         </div>

@@ -843,11 +843,12 @@ ul:hover li:hover ~ li:before {
 }
 
 .modal-header {
-  background-color: #272727;
-  border: 1px solid #333333;
+  background-color: #171717;
+  border-bottom: none;
 }
 
 .modal-content {
-  background-color: #272727;
+  background-color: #222222;
   border: 1px solid #333333;
 }
+
