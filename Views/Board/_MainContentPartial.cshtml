@@ -6,19 +6,16 @@
 <br>
 
 <div class="lanes text-white">
-    <div>
-        <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
-            <div style="width: 300px; height: 200px;" class="lane">
-                <div class="d-flex align-content-center align-items-center px-1">
-                    <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none; border: none;">
-                    <input name="id" value="@Model?.Board?.Id" type="hidden">
-                    <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
-                </div>
-                <br>
-                <hr>
+    <form id="create-lane-form" class="create-lane-form" asp-action="CreateLane" asp-controller="Lane" method="post" hidden>
+        <div style="width: 300px; height: 200px;" class="lane">
+            <div class="d-flex align-content-center align-items-center px-1 pb-3 mt-3">
+                <input name="name" class="text-white lane-input" placeholder="Nome da raia" type="text" autocomplete="off" style="outline: none; border: none;">
+                <input name="id" value="@Model?.Board?.Id" type="hidden">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
             </div>
-        </form>
-    </div>
+            <hr>
+        </div>
+    </form>
     @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
     {
         <div class="swim-lane mx-1 col bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
@@ -92,7 +89,7 @@
             var userJson = card.User != null ? JsonSerializer.Serialize(new { card.User.FirstName, card.User.LastName, card.User.Picture }) : "null";
 
             <div class="task row py-3 px-2 border-3" 
-                style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer; border-bottom: 2px solid @(card.User != null && Model.UserRolesDictionary.ContainsKey(card.User) ? Model.UserRolesDictionary[card.User]?.Color ?? "#6600eb" : "#6600eb");"
+                style="background-color: #1E1E1E; border-radius: 13px; cursor: pointer; border-bottom: 2px solid @(card.User != null && Model.UserRolesDictionary.ContainsKey(card.User) ? Model.UserRolesDictionary[card.User]?.Color ?? "#aaaaaa" : "#aaaaaa");"
                 data-boardid="@Model.Board.Id"
                 data-id="@card.Id"
                 data-name="@card.Name"
@@ -174,21 +171,12 @@
     }
 </div>
 <style>
-    a.text-white {
-        word-wrap: break-word;
-        white-space: normal;
-        display: block;
-    }
-    .board {
-        width: 100%;
-        height: 100%;
-    }
-
     .lanes {
+        position: absolute;
         display: flex;
         align-items: flex-start;
-        justify-content: start;
-        max-width: 1200px;
+        max-width: 100vw;
+        max-height: 100vh;
         overflow-y: auto;
         overflow-x: auto;
     }
@@ -202,8 +190,7 @@
         padding: 12px;
         border-radius: 4px;
         max-width: 225px;
-        min-height: 120px;
-        overflow-x: auto;
+        margin-bottom: 30px;
     }
 
     .task {
