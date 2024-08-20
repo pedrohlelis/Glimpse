@@ -1,10 +1,10 @@
 @using Glimpse.ViewModels;
 @model BoardVM;
 
-<section class="header-main-section">
-  <div class="text-white d-flex align-items-center">
-    <box-icon size="30px" name='objects-vertical-top' type='solid' color='#f6f6f6'></box-icon>
-    <div class="ps-2">
+<section class="header-main-section ms-3">
+  <div class="text-white d-flex align-items-center pt-3">
+    <box-icon class="mx-2" size="30px" name='objects-vertical-top' type='solid' color='#f6f6f6'></box-icon>
+    <div class="">
       <button class="btn fw-bold btn-secondary dropdown-toggle board-title-btn" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
         <h2 style="font-family: Fixture-Expanded-SemiBold;">@Model.Board.Name</h2>
       </button>

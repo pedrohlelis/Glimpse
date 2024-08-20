@@ -36,10 +36,10 @@ html::-webkit-scrollbar-track {
 
 .lanes::-webkit-scrollbar {
   height: 10px;
-  width: .8vw;;
+  width: .8vw;
 }
 .lanes::-webkit-scrollbar-thumb {
-  background-color: #63636355;
+  background-color: #b8b8b855;
   height: 10px;
 }
 .lanes::-webkit-scrollbar-thumb:hover {

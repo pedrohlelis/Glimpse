@@ -4,16 +4,15 @@
 @{
     ViewData["Title"] = Model.Board.Name;
 }
-<div class="container-fluid">
-    <div class="row flex-nowrap overflow-hidden">
-        <partial name="_BoardSideBarPartial"></partial>
-        <div style="max-height: 100vh;">
-            <partial name="_BoardHeaderPartial"></partial>
-            <partial name="_MainContentPartial"></partial>
-        </div>
+<div class="board-page d-flex" style="height: calc(100vh - 6vh); overflow-y: auto;">
+    <partial name="BoardSideBarPartial"></partial>
+    <div class="d-flex flex-column" style="width: 100vw; overflow-y: auto;">
+        <partial name="BoardHeaderPartial"></partial>
+        <partial name="MainContentPartial"></partial>
     </div>
 </div>
-<partial name="_EditRolePartial"></partial>
+
+<partial name="EditRolePartial"></partial>
 
 <div id="overlay" class="overlay" style="min-height: 1400px;" hidden>
     <form id="edit-card-form" asp-action="EditCard" asp-controller="Card" method="post">
