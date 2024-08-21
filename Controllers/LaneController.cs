@@ -69,7 +69,8 @@ public class LaneController : Controller
             .Include(c => c.Lanes)
             .Single(c => c.Id == id);
 
-            if (board.Lanes.Count > 1){
+            if (board.Lanes.Count > 1)
+            {
                 Lane lane = await _db.Lanes.FindAsync(laneId);
                 _db.Lanes.Remove(lane);
                 await _db.SaveChangesAsync();

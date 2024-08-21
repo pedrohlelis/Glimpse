@@ -1,6 +1,3 @@
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
 const IsMemberSideBarActiveInputs = document.querySelectorAll('.IsMemberSideBarActiveInput');
 
 function openTagsModal() {
@@ -22,14 +19,14 @@ function deleteTag(button) {
 }
 
 function editTag(button) {
-        var listitem = button.closest('li');
-        document.getElementById('tagToEditId').value = listitem.dataset.id;
-        document.getElementById('tagEditName').value = listitem.dataset.name;
-        document.getElementById('tagEditColor').value = listitem.dataset.color;
+    var listitem = button.closest('li');
+    document.getElementById('tagToEditId').value = listitem.dataset.id;
+    document.getElementById('tagEditName').value = listitem.dataset.name;
+    document.getElementById('tagEditColor').value = listitem.dataset.color;
 
-        var editTagModal = new bootstrap.Modal(document.getElementById('editTagModal'));
-        editTagModal.show();
-    }
+    var editTagModal = new bootstrap.Modal(document.getElementById('editTagModal'));
+    editTagModal.show();
+}
 
 function openRolesModal() {
     var myModal = new bootstrap.Modal(document.getElementById('rolesModal'));
@@ -83,15 +80,13 @@ function removeUser(button) {
 
 document.getElementById('project-roles-btn').addEventListener('click', openRolesModal);
 
-//START of sidebar menu ---------------------------
-
 let memberSideMenuBtn = document.querySelector('#member-side-menu-btn')
 let memberSideMenu = document.querySelector('.memberSideMenu')
 let mainContent = document.querySelector(".main-content")
 let memberDivs = document.querySelectorAll(".member-div")
 let rolesDivs = document.querySelectorAll(".role-container")
 let invButton = document.querySelector(".invite-btn")
-let IsMemberSideBarActive = document.querySelector('.IsMemberSideBarActive')
+let IsMemberSideBarActive = document.querySelector(".IsMemberSideBarActive")
 
 if (memberDivs.length === 0) {
 console.error('No memberDiv elements found');
@@ -109,17 +104,16 @@ function ToggleMemberSideBar() {
     invButton.classList.toggle('d-none');
     memberSideMenu.classList.toggle('active');
     invDiv.classList.toggle('d-none');
+
     if(memberSideMenu.classList.contains('active')){
         IsMemberSideBarActiveInputs.forEach(function(input) {
             input.value = 'true';
         });
         IsMemberSideBarActive.value = 'true'
-    }else{
+    } else {
         IsMemberSideBarActive.value = 'false'
     }
 }
-
-//END of sidebar menu   ---------------------------
 
 let toggleMemberBarDiv = document.querySelector('.toggleMemberBarDiv');
 if (toggleMemberBarDiv != null)
@@ -332,7 +326,6 @@ lanes.forEach((lane) => {
     }
 
     const overlay = document.getElementById('overlay');
-    const addUserToCardForm = document.getElementById('addUserToCardForm');
     const overlayContent = document.getElementById('overlay-content');
     const editForm = document.getElementById('edit-card-form');
     const saveButton = document.getElementById('save-button');
@@ -429,7 +422,6 @@ lanes.forEach((lane) => {
 
             const startDateObject = new Date(formattedStartDate);
             const dueDateTimeObject = new Date(formattedDueDateTime);
-
 
             document.getElementById('cardId').value = cardId;
             document.getElementById('tagCardId').value = cardId;
@@ -923,4 +915,40 @@ document.addEventListener('click', function(event) {
         });
     });
 
+    // Seleciona todos os botões de toggle
+    const toggleButtons = document.querySelectorAll('.dropdown-glimpse-toggle');
+
+    toggleButtons.forEach(function(toggleButton) {
+        toggleButton.addEventListener('click', function(event) {
+            // Fecha todos os dropdowns primeiro
+            document.querySelectorAll('.dropdown-glimpse').forEach(function(dropdown) {
+                dropdown.style.display = 'none';
+            });
+
+            // Encontra o dropdown associado ao botão clicado e exibe
+            const dropdownBody = toggleButton.nextElementSibling;
+            dropdownBody.style.display = dropdownBody.style.display === 'block' ? 'none' : 'block';
+
+            // Previne que o clique se propague para o document
+            event.stopPropagation();
+        });
+    });
+
+    // Fecha dropdowns ao clicar fora deles
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown-glimpse') && !event.target.closest('.dropdown-glimpse-toggle')) {
+            document.querySelectorAll('.dropdown-glimpse').forEach(function(dropdown) {
+                dropdown.style.display = 'none';
+            });
+        }
+    });
+
+    // Fecha dropdown ao clicar em um item dentro dele
+    const dropdownItems = document.querySelectorAll('.dropdown-glimpse-item');
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            item.closest('.dropdown-glimpse').style.display = 'none';
+        });
+    });
+    
 });
