@@ -166,7 +166,6 @@ public class ProjectController : Controller
     [HttpPost]
     public async Task<IActionResult> LeaveProject(int projectToLeaveId) 
     {
-        System.Console.WriteLine(projectToLeaveId);
         var currentUser = await _userManager.GetUserAsync(User);
 
         var Project = _db.Projects
@@ -174,9 +173,8 @@ public class ProjectController : Controller
             .FirstOrDefault(p => p.Id == projectToLeaveId);
 
         var user = _db.Users
-        .FirstOrDefault(u => u.Id == currentUser.Id);
+            .FirstOrDefault(u => u.Id == currentUser.Id);
 
-        user.Projects.Remove(Project);
         Project.Users.Remove(user);
 
         await _db.SaveChangesAsync();
