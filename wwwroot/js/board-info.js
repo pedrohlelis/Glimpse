@@ -915,26 +915,21 @@ document.addEventListener('click', function(event) {
         });
     });
 
-    // Seleciona todos os botões de toggle
     const toggleButtons = document.querySelectorAll('.dropdown-glimpse-toggle');
 
     toggleButtons.forEach(function(toggleButton) {
         toggleButton.addEventListener('click', function(event) {
-            // Fecha todos os dropdowns primeiro
             document.querySelectorAll('.dropdown-glimpse').forEach(function(dropdown) {
                 dropdown.style.display = 'none';
             });
 
-            // Encontra o dropdown associado ao botão clicado e exibe
             const dropdownBody = toggleButton.nextElementSibling;
             dropdownBody.style.display = dropdownBody.style.display === 'block' ? 'none' : 'block';
 
-            // Previne que o clique se propague para o document
             event.stopPropagation();
         });
     });
 
-    // Fecha dropdowns ao clicar fora deles
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.dropdown-glimpse') && !event.target.closest('.dropdown-glimpse-toggle')) {
             document.querySelectorAll('.dropdown-glimpse').forEach(function(dropdown) {
@@ -943,7 +938,6 @@ document.addEventListener('click', function(event) {
         }
     });
 
-    // Fecha dropdown ao clicar em um item dentro dele
     const dropdownItems = document.querySelectorAll('.dropdown-glimpse-item');
     dropdownItems.forEach(function(item) {
         item.addEventListener('click', function() {
