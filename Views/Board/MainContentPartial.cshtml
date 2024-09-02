@@ -19,36 +19,34 @@
     @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
     {
         <div class="swim-lane mx-3 col bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
-            <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center me-2">
-                    <form id="edit-lane-form" asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
-                        <input type="hidden" name="laneId" value="@lane.Id">
-                        <input type="hidden" name="id" value="@Model.Board.Id">
-                    </form>
-                    <form id="delete-lane-form" asp-action="DeleteLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
-                        <input type="hidden" name="laneId" value="@lane.Id">
-                        <input type="hidden" name="id" value="@Model.Board.Id">
-                    </form>
-                    <div class="d-flex">
-                        <div class="d-flex me-2">
-                            <input form="edit-lane-form" type="text" value="@lane.Name" class="form-control text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px 0 0 6px; font-family: Fixture-Expanded-SemiBold;" name="name">
-                            <span class="text-white align-content-center px-1 text-center" style="border-radius: 0 6px 6px 0px; min-width: 30px; background-color: rgb(71, 71, 71);">@lane.Cards.Count</span>
-                        </div>
-                        @if((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser){
-                            <span class="d-flex gap-2">
-                                <button form="edit-lane-form" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salvar Lane" class="btn btn-primary text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
-                                    <box-icon name='save' color="white" style="width: 17px; height: 17px;"></box-icon>
-                                </button>
-                                <button class="btn btn-primary text-white d-flex align-items-center justify-content-center p-2 dropdown-glimpse-toggle" style="outline: none; border-radius: 6px; border: none;">
-                                    <box-icon id="dropdown-glimpse-toggle" name='pencil' color="white" style="width: 17px; height: 17px;"></box-icon>
-                                </button>
-                                <div id="dropdown-glimpse-body" class="dropdown-glimpse">
-                                    <span class="add-card-button dropdown-glimpse-item"><box-icon name='edit' color="white" style="width: 17px; height: 17px;"></box-icon>Nova tarefa</span>
-                                    <button form="delete-lane-form" type="submit" class="no-style-btn"><span class="dropdown-glimpse-item"><box-icon name='trash' color="white" style="width: 17px; height: 17px;"></box-icon>Excluir raia</span></button>
-                                </div>
-                            </span>
-                        }
+            <div class="d-flex me-2">
+                <form id="edit-lane-form" asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
+                    <input type="hidden" name="laneId" value="@lane.Id">
+                    <input type="hidden" name="id" value="@Model.Board.Id">
+                </form>
+                <form id="delete-lane-form" asp-action="DeleteLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
+                    <input type="hidden" name="laneId" value="@lane.Id">
+                    <input type="hidden" name="id" value="@Model.Board.Id">
+                </form>
+                <div class="d-flex">
+                    <div class="d-flex me-2">
+                        <input form="edit-lane-form" type="text" value="@lane.Name" class="form-control text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px 0 0 6px; font-family: Fixture-Expanded-SemiBold;" name="name">
+                        <span class="text-white align-content-center px-1 text-center" style="border-radius: 0 6px 6px 0px; min-width: 30px; background-color: rgb(71, 71, 71);">@lane.Cards.Count</span>
                     </div>
+                    @if((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser){
+                        <span class="d-flex gap-2">
+                            <button form="edit-lane-form" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Salvar Lane" class="btn btn-primary text-white d-flex align-items-center justify-content-center p-2" style="outline: none; border-radius: 6px; border: none;">
+                                <box-icon name='save' color="white" style="width: 17px; height: 17px;"></box-icon>
+                            </button>
+                            <button class="btn btn-primary text-white d-flex align-items-center justify-content-center p-2 dropdown-glimpse-toggle" style="outline: none; border-radius: 6px; border: none;">
+                                <box-icon id="dropdown-glimpse-toggle" name='pencil' color="white" style="width: 17px; height: 17px;"></box-icon>
+                            </button>
+                            <div id="dropdown-glimpse-body" class="dropdown-glimpse">
+                                <span class="add-card-button dropdown-glimpse-item"><box-icon name='edit' color="white" style="width: 17px; height: 17px;"></box-icon>Nova tarefa</span>
+                                <button form="delete-lane-form" type="submit" class="no-style-btn"><span class="dropdown-glimpse-item"><box-icon name='trash' color="white" style="width: 17px; height: 17px;"></box-icon>Excluir raia</span></button>
+                            </div>
+                        </span>
+                    }
                 </div>
             </div>
             <hr>
