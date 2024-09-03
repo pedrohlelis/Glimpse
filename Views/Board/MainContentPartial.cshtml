@@ -19,7 +19,7 @@
     @foreach (Lane lane in Model.Board.Lanes.OrderBy(lane => lane.Index))
     {
         <div class="swim-lane mx-3 col bg-dark" style="min-width: 280px;" data-id="@lane.Id" draggable="true">
-            <div class="d-flex me-2">
+            <div class="d-flex me-2 w-100">
                 <form id="edit-lane-form" asp-action="EditLane" asp-controller="Lane" method="post" class="d-flex align-items-center">
                     <input type="hidden" name="laneId" value="@lane.Id">
                     <input type="hidden" name="id" value="@Model.Board.Id">
@@ -30,7 +30,7 @@
                 </form>
                 <div class="d-flex">
                     <div class="d-flex me-2">
-                        <input form="edit-lane-form" type="text" value="@lane.Name" class="form-control text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px 0 0 6px; font-family: Fixture-Expanded-SemiBold;" name="name">
+                        <input form="edit-lane-form" type="text" value="@lane.Name" class="lane-form-input form-control text-white" style="background-color: #2a2a2a; border-color: rgb(55, 55, 55); border-radius: 6px 0 0 6px; font-family: Fixture-Expanded-SemiBold;" name="name">
                         <span class="text-white align-content-center px-1 text-center" style="border-radius: 0 6px 6px 0px; min-width: 30px; background-color: rgb(71, 71, 71);">@lane.Cards.Count</span>
                     </div>
                     @if((Model.UserRole != null && Model.UserRole.CanManageCards) || Model.User == Model.ProjectResponsibleUser){
@@ -124,7 +124,7 @@
                                 int checkedboxes = card.Checkboxes.Count(checkbox => checkbox.Finished);
                             }
                             <box-icon name='checkbox-checked' color="#797979"></box-icon>
-                            <span class="checkbox-count" style="font-size: 12px; color:#797979; width:100%;">
+                            <span class="checkbox-count" style="font-size: 12px; color:#797979; width: 100%;">
                                 @checkedboxes/@card.Checkboxes.Count
                             </span>
                         </div>

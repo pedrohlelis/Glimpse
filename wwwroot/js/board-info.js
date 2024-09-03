@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const itemsSectionBtn = document.getElementById('items-section-btn');
+    const activeSection = document.querySelectorAll('.active-section');
+    console.log(activeSection);
+    
+    itemsSectionBtn.addEventListener('click', function() {
+        activeSection.classList.remove('active-section');
+        activeSection.classList.add('inactive-section');
+
+        const itemsSection = document.querySelectorAll('.items-section');
+        itemsSection.classList.add('active-section');
+        itemsSection.classList.remove('inactive-section');
+    });
+});
 const IsMemberSideBarActiveInputs = document.querySelectorAll('.IsMemberSideBarActiveInput');
 
 function openTagsModal() {

@@ -883,3 +883,21 @@ ul:hover li:hover ~ li:before {
 box-icon {
   display: flex;
 }
+.active-section {
+  display: flex;
+}
+
+.inactive-section {
+  display: none;
+}
+
+.items-section {
+
+}
+
+.board-section {
+
+}
+.dashboard-section {
+
+}

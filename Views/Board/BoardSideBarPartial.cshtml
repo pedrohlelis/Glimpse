@@ -2,106 +2,156 @@
 @model BoardVM;
 
 <div class="col col-md-3 col-xl-2" style="width: 16%; max-height: 100vh; background-color: #1b1b1b; border-right: 1px solid rgb(50, 50, 50);">
-    <div class="d-flex flex-column align-items-center align-items-sm-start text-white" style="height: 100%;">
-        <div class="mt-2 d-flex">
-            <img width="30" src="@Url.Content(Model.Board.Project.Picture)" alt="">
-            <span class="fs-6 d-none d-sm-inline" style="white-space:nowrap; font-family: Fixture-Expanded-SemiBold;">@Model.Board.Project.Name</span>
+    <div class="d-flex flex-column align-items-center text-white" style="height: 100%;">
+        <div class="sidebar-header">
+            <span style="width: 25px; height: 25px;"><img width="25px" height="25px" src="@Url.Content(Model.Board.Project.Picture)" alt=""></span>
+            <span class="fs-6 d-none d-sm-inline">@Model.Board.Project.Name</span>
         </div>
-        <ul class="nav flex-grow-1 w-100 nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-            <li class="w-100">
-                <a href="#submenu1" data-bs-toggle="collapse" class="topic-a nav-link align-middle">
-                    <i class="fs-4 bi-speedometer2"></i> <span class="sidebar-topic ms-1 d-none d-sm-inline">Dashboard</span> </a>
+        <div class="horizontal-separator-bottom py-2"></div>
+        <ul class="nav flex-grow-1 w-100 nav-pills flex-column mb-sm-auto align-items-center" id="menu">
+            <li class="w-100 li-clicked">
+                <a href="#submenu1" data-bs-toggle="collapse" class="topic-a nav-link">
+                    <span><i class="fs-4 bi-speedometer2" style="color: rgb(142, 83, 252);"></i></span><span class="sidebar-topic d-none d-sm-inline">Dashboard</span> </a>
                 <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                        <a href="#" class="sidebar-link nav-link"><span class="d-none d-sm-inline">Item</span></a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-link nav-link "> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                        <a href="#" class="sidebar-link nav-link"><span class="d-none d-sm-inline">Item</span></a>
                     </li>
                 </ul>
             </li>
             <li class="w-100">
-                <a href="#" class="topic-a nav-link align-middle">
-                    <i class="fs-4 bi-table"></i> <span class="sidebar-topic ms-1 d-none d-sm-inline">Orders</span></a>
+                <a href="#" class="topic-a nav-link">
+                    <i class="fs-4 bi-table" style="color: rgb(142, 83, 252);"></i> <span class="sidebar-topic d-none d-sm-inline">Orders</span></a>
             </li>
             <li class="w-100">
-                <a href="#submenu2" data-bs-toggle="collapse" class="topic-a nav-link align-middle ">
-                    <i class="fs-4 bi-bootstrap"></i> <span class="sidebar-topic ms-1 d-none d-sm-inline">Quadros</span></a>
+                <a href="#submenu2" data-bs-toggle="collapse" class="topic-a nav-link">
+                    <i class="fs-4 bi bi-kanban-fill" style="color: rgb(142, 83, 252);"></i> <span class="sidebar-topic d-none d-sm-inline">Quadros</span></a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                    <li class="w-100">
-                        <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Quadros</span></a>
+                    <li>
+                        <a href="#" id="items-section-btn" class="sidebar-link nav-link">
+                            <i class="fs-5 bi bi-list-ul" style="color: rgb(228, 228, 228);"></i>
+                            <span class="px-2 d-none d-sm-inline">Itens</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Itens</span></a>
+                        <a href="#" class="sidebar-link nav-link">
+                            <i class="fs-5 bi bi-arrow-repeat" style="color: rgb(228, 228, 228);"></i>
+                            <span class="px-2 d-none d-sm-inline">Sprints</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Sprints</span></a>
+                        <a href="#" class="sidebar-link nav-link">
+                            <i class="fs-5 bi bi-person-raised-hand" style="color: rgb(228, 228, 228);"></i>
+                            <span class="px-2 d-none d-sm-inline">Personas</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Personas</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Estimate</span></a>
+                        <a href="#" class="sidebar-link nav-link">
+                            <i class="fs-5 bi bi-suit-club" style="color: rgb(228, 228, 228);"></i>
+                            <span class="px-2 d-none d-sm-inline">Estimate</span>
+                        </a>
                     </li>
                 </ul>
             </li>
             <li class="w-100">
-                <a href="#submenu3" data-bs-toggle="collapse" class=" topic-a nav-link align-middle">
-                    <i class="fs-4 bi-grid"></i> <span class="sidebar-topic ms-1 d-none d-sm-inline">Products</span></a>
+                <a href="#submenu3" data-bs-toggle="collapse" class="topic-a nav-link">
+                    <i class="fs-4 bi-grid" style="color: rgb(142, 83, 252);"></i><span class="sidebar-topic d-none d-sm-inline">Products</span></a>
                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                         <li class="w-100">
-                            <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                            <a href="#" class="sidebar-link nav-link"><span class="d-none d-sm-inline">Product</span></a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                            <a href="#" class="sidebar-link nav-link"><span class="d-none d-sm-inline">Product</span></a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                            <a href="#" class="sidebar-link nav-link"><span class="d-none d-sm-inline">Product</span></a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link nav-link"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                            <a href="#" class="sidebar-link nav-link"><span class="d-none d-sm-inline">Product</span></a>
                         </li>
                     </ul>
             </li>
             <li class="w-100">
-                <a href="#" class="topic-a nav-link align-middle">
-                    <i class="fs-4 bi-people"></i> <span class="sidebar-topic ms-1 d-none d-sm-inline">Customers</span> </a>
+                <a href="#" class="topic-a nav-link">
+                    <i class="fs-4 bi-people" style="color: rgb(142, 83, 252);"></i><span class="sidebar-topic d-none d-sm-inline">Customers</span> </a>
             </li>
         </ul>
         <div class="flex-grow-1 d-flex"></div>
         <div class="horizontal-separator py-2"></div>
-        <div class="pb-4">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none">
-                <span class="d-none d-sm-inline mx-1">Opções de projeto</span>
-            </a>
-        </div>
+        <a href="#" class="px-3 pb-3 d-flex w-100 align-items-center text-white text-decoration-none" >
+            <i class="pe-1 fs-5 bi-gear" style="color: rgb(228, 228, 228);"></i>
+            <span class="d-none d-sm-inline mx-1">Opções de projeto</span>
+        </a>
     </div>
 </div>
 <style>
+    .sidebar-header {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        vertical-align: middle;
+        align-items: center;
+        display: flex;
+    }
     .horizontal-separator {
         border-top: 1px solid #3a3a3a;
         width: 100%;
     }
+    .horizontal-separator-bottom {
+        border-bottom: 1px solid #3a3a3a;
+        width: 100%;
+    }
     .sidebar-link {
+        align-items: center;
         display: flex;
         color: white;
         flex-grow: 1;
-        padding: .5rem;
-        border-radius: 0;
+        padding: .7rem 1rem;
     }
     .sidebar-link:hover {
         color: white;
         background-color: #3a3a3a;
     }
     .sidebar-topic {
-        padding: .5rem;
+        padding: .6em;
         font-size: 16px;
         font-family: 'Fixture-Expanded-SemiBold';
         color: white;
-        border-radius: 0;
+    }
+    .topic-a {
+        height: 55px;
+        display: flex;
+        align-items: center;
     }
     .topic-a:hover {
         background-color: #3a3a3a;
         color: white;
     }
+    .topic-a:focus {
+        border-left: 3px solid #8736f1;
+    }
+    .li-clicked {
+        background-color: #272727;
+        border-left: 2px solid #8f8f8f;
+    }
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[data-bs-toggle="collapse"]');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                const parentElement = link.parentElement;
+
+                document.querySelectorAll('.w-100').forEach(li => {
+                    li.classList.remove('li-clicked');
+                });
+
+                parentElement.classList.add('li-clicked');
+            });
+        });
+    });
+</script>

@@ -6,9 +6,17 @@
 }
 <div class="board-page d-flex" style="height: calc(100vh - 6vh); overflow-y: auto;">
     <partial name="BoardSideBarPartial"></partial>
-    <div class="d-flex flex-column" style="width: 100vw; overflow-y: auto;">
+    <div class="dashboard-section active-section">
+        Dashboard
+    </div>
+
+    <div class="board-section inactive-section flex-column" style="width: 100vw; overflow-y: auto;">
         <partial name="BoardHeaderPartial"></partial>
         <partial name="MainContentPartial"></partial>
+    </div>
+    
+    <div class="items-section inactive-section">
+        oi
     </div>
 </div>
 
