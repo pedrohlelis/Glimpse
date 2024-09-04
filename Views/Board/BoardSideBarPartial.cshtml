@@ -31,25 +31,25 @@
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                     <li>
                         <a href="#" id="items-btn" class="section-btn sidebar-link nav-link">
-                            <i class="fs-5 bi bi-list-ul" style="color: rgb(228, 228, 228);"></i>
+                            <i class="fs-5 bi bi-list-ul"></i>
                             <span class="px-2 d-none d-sm-inline">Itens</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="section-btn sidebar-link nav-link">
-                            <i class="fs-5 bi bi-arrow-repeat" style="color: rgb(228, 228, 228);"></i>
+                        <a href="#" id="sprints-btn" class="section-btn sidebar-link nav-link">
+                            <i class="fs-5 bi bi-arrow-repeat"></i>
                             <span class="px-2 d-none d-sm-inline">Sprints</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="section-btn sidebar-link nav-link">
-                            <i class="fs-5 bi bi-person-raised-hand" style="color: rgb(228, 228, 228);"></i>
+                        <a href="#" id="personas-btn" class="section-btn sidebar-link nav-link">
+                            <i class="fs-5 bi bi-person-raised-hand"></i>
                             <span class="px-2 d-none d-sm-inline">Personas</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="section-btn sidebar-link nav-link">
-                            <i class="fs-5 bi bi-suit-club" style="color: rgb(228, 228, 228);"></i>
+                        <a href="#" id="estimate-btn" class="section-btn sidebar-link nav-link">
+                            <i class="fs-5 bi bi-suit-club"></i>
                             <span class="px-2 d-none d-sm-inline">Estimate</span>
                         </a>
                     </li>
@@ -115,6 +115,10 @@
         color: white;
         background-color: #3a3a3a;
     }
+    .sidebar-link:focus {
+        color: #8e53fe;
+        background-color: #3a3a3a;
+    }
     .sidebar-topic {
         padding: .6em;
         font-size: 16px;
@@ -131,7 +135,8 @@
         color: white;
     }
     .topic-a:focus {
-        border-left: 3px solid #8736f1;
+        background-color: #3a3a3a;
+        border-left: 3px solid #8e53fe;
     }
     .li-clicked {
         background-color: #272727;
