@@ -1,17 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const itemsSectionBtn = document.getElementById('items-section-btn');
-    const activeSection = document.querySelectorAll('.active-section');
-    console.log(activeSection);
-    
-    itemsSectionBtn.addEventListener('click', function() {
-        activeSection.classList.remove('active-section');
-        activeSection.classList.add('inactive-section');
+    const sectionButtons = document.querySelectorAll('.section-btn');
 
-        const itemsSection = document.querySelectorAll('.items-section');
-        itemsSection.classList.add('active-section');
-        itemsSection.classList.remove('inactive-section');
+    sectionButtons.forEach(sectionBtn => {
+        sectionBtn.addEventListener('click', function() {
+            let sectionId = sectionBtn.id.replace('-btn', '');
+
+            const activeSection = document.getElementsByClassName('active-section')[0];
+            activeSection.classList.remove('active-section');
+            activeSection.classList.add('inactive-section');
+            const sectionToShow = document.getElementById('section-' + sectionId);
+
+            sectionToShow.classList.add('active-section');
+            sectionToShow.classList.remove('inactive-section');
+        });
     });
 });
+
 const IsMemberSideBarActiveInputs = document.querySelectorAll('.IsMemberSideBarActiveInput');
 
 function openTagsModal() {
