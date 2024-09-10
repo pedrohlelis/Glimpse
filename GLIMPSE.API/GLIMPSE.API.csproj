@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+	  <TargetFramework>net8.0</TargetFramework>
+	  <Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <UserSecretsId>7393b4b6-9f43-4204-95ca-940dabd10082</UserSecretsId>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FirebaseAdmin" Version="3.0.0" />
+		<PackageReference Include="MailKit" Version="4.7.1.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="8.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+		<PackageReference Include="Octokit" Version="13.0.1" />
+		<PackageReference Include="SendGrid" Version="9.29.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
+	</ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\GLIMPSE.Application\GLIMPSE.Application.csproj" />
+    <ProjectReference Include="..\GLIMPSE.Domain.Services\GLIMPSE.Domain.Services.csproj" />
+    <ProjectReference Include="..\GLIMPSE.Domain\GLIMPSE.Domain.csproj" />
+    <ProjectReference Include="..\GLIMPSE.Infrastructure.Data\GLIMPSE.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>

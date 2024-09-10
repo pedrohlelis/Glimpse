@@ -1,0 +1,14 @@
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\bin\Debug\net8.0\GLIMPSE.Application.deps.json
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\bin\Debug\net8.0\GLIMPSE.Application.runtimeconfig.json
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\bin\Debug\net8.0\GLIMPSE.Application.dll
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\bin\Debug\net8.0\GLIMPSE.Application.pdb
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.csproj.AssemblyReference.cache
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.AssemblyInfoInputs.cache
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.AssemblyInfo.cs
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.csproj.CoreCompileInputs.cache
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.dll
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\refint\GLIMPSE.Application.dll
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.pdb
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\GLIMPSE.Application.genruntimeconfig.cache
+C:\Dev\GLIMPSE-API\GLIMPSE.Application\obj\Debug\net8.0\ref\GLIMPSE.Application.dll
