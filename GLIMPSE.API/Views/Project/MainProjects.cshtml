@@ -1,0 +1,152 @@
+@using GLIMPSE.DOMAIN.ViewModels;
+@model ProjectsVM
+@{
+    ViewData["Title"] = "Projetos";
+    ViewData["StylesheetUrl"] = "~/css/index.css";
+}
+
+<div class="main-content d-flex align-items-center justify-content-center flex-column mt-4">
+    <div class="d-flex align-items-center justify-content-center flex-column">
+        <h1 class="display-6 fw-bold" style="letter-spacing: 3px; color:rgb(186, 54, 238);">Olá, @ViewData["UserName"]!</h1>
+        <p class="fw-light fs-6">Aqui estão seus projetos vistos recentemente.</p>
+        <a asp-controller="Project" asp-action="Create"><button class="button-create">Criar Projeto</button></a>
+    </div>
+
+    <div class="row reveal justify-content-center gap-4 mt-5 mb-3" style="width: 70%;">
+        @foreach (var kvp in Model.ActiveProjects) {
+            var boardsList = kvp.Key.Boards.ToList();
+            
+            <div class="col-4 justify-content-between border-bottom border-primary border-3 p-0" style="background-color: #272727; border-radius: 3%; width: 30%; outline: #ffffff3f solid 1px;">
+                <img style="border-top-left-radius: 3%; border-top-right-radius: 3%; width: 100%; height: 320px;" src="@Url.Content(kvp.Key.Picture)" alt="">
+                <div class="p-2 m-xl-2 d-flex flex-column">
+
+                    <div class="name-description">
+                        <div class="d-flex justify-content-between">
+                            <p class="d-flex overflow-hidden text-white flex-grow-1" style="font-family: Fixture-Expanded-SemiBold; text-overflow: ellipsis;">@kvp.Key.Name</p>
+                            <div class="dropup">
+                                <button class="dropdown-toggle text-white ps-2" type="button" id="project-dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #272727; height: 30px; outline: none; border: none;"></button>
+                                <div class="dropdown-menu dropdown-menu-dark px-2" aria-labelledby="project-dropdown">
+                                    @if(Model.User == kvp.Value){
+                                        <a class="dropdown-item text-white" asp-controller="Project" asp-action="Edit" asp-route-id="@kvp.Key.Id">Editar</a>
+                                        <a class="dropdown-item text-white" asp-controller="Repository" asp-action="ConnectRepository" asp-route-projectId="@kvp.Key.Id">Conectar GitHub</a>
+                                        <hr class="dropdown-divider">
+                                        <a class="dropdown-item text-danger" asp-controller="Project" asp-action="Delete" asp-route-id="@kvp.Key.Id">Deletar</a>
+                                    } else{
+                                        <li data-id="@kvp.Key.Id" style="cursor: pointer;">
+                                            <a class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#ConfirmLeaveProjectModal" aria-expanded="true" onclick="leaveProject(this)">
+                                                Deixar Projeto
+                                            </a>
+                                        </li>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted overflow-hidden" style="font-size: small; text-overflow: ellipsis;">@kvp.Key.Description</p>
+                    </div>
+
+                    <div class="members-enter">
+                        <div class="p-3" style="background-color: #202020; border-radius: 8px; border: 1px solid #ffffff25;">
+                            <div class="d-flex">
+                                <div style="position: relative; display: block; flex-grow: 1;">
+                                    <img class="mx-1" src="@(kvp.Key.Users[0].Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
+                                    width="30px"
+                                    height="30px"
+                                    style="border: 3px solid #232323; border-radius: 50%; position: relative; top: 0; left: 0;">
+                                    @for (var i = 1; i < kvp.Key.Users.Count && i <= 2; i++) {
+                                        var user = kvp.Key.Users[i];
+                                        <img class="mx-1" src="@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))"
+                                        width="30px"
+                                        height="30px"
+                                        style="border: 3px solid #232323; border-radius: 50%; position: absolute; z-index: 9; left: 10%">
+                                    }
+                                </div>
+                                <p>@kvp.Key.Users.Count Membros</p>
+                            </div>
+                        </div>
+                        <button class="button-create mt-3 mb-2" style="border-radius: 8px; border: 1px solid #7110df; color: #ffffff; background-color: #171718">
+                            <a class="text-decoration-none align-content-center d-flex p-2 justify-content-center" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@boardsList[0].Id">
+                                <img src="/Icons/door.svg" alt="" style="margin-right: 2%;">
+                                <p class="m-0 text-white">Entrar</p>
+                            </a>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+<div class="modal fade" id="ConfirmLeaveProjectModal" tabindex="-1" aria-labelledby="ConfirmLeaveProjectModal" aria-hidden="true">
+    <div class="modal-dialog bg-dark">
+        <div class="modal-content bg-dark">
+        <div class="modal-header bg-dark">
+            <h5 class="modal-title" id="ConfirmDeleteModalLabel">Deixar Projeto</h5>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-dark">
+            <p>Tem certeza que deseja deixar o projeto?</p>
+            <p><strong>Para retornar ao projeto terá que ser convidado novamente.</strong></p>
+        </div>
+        <form method="post" asp-action="LeaveProject" asp-controller="Project" id="form-leave" enctype="multipart/form-data">
+            <div class="modal-footer bg-dark">
+                <input type="hidden" name="projectToLeaveId" id="projectToLeaveId">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger" id="delete-submit">Deixar Projeto</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    a {
+        text-decoration: none;
+
+    }
+    .button-create {
+        padding: 0.4em 1.2em;
+        border: none;
+        border-radius: 8px;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+        transition: all 500ms;
+        justify-content: center;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        background-color: black;
+        color: white;
+    }
+
+    .button-create:hover {
+        transform: scale(1.05);
+        box-shadow: 2px 3px 10px -2px #6600eb;
+        color: white;
+    }
+
+    .button-create::before {
+        content: "";
+        position: absolute;
+        left: -50px;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#6600eb);
+        transform: skewX(45deg);
+        z-index: -1;
+        transition: width 500ms;
+    }
+
+    .button-create:hover::before {
+        width: 200%;
+    }
+
+    .glimpse-p {
+        font-weight: bolder;
+        background: -webkit-linear-gradient(144deg,#AF40FF, #5B42F3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 0.2em;
+        font-style: italic;
+    }
+</style>

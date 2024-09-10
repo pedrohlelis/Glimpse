@@ -1952,6 +1952,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\079671ca-ad7f-48f4-91bf-e03d9fad156e_Itabarlogo.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\0f1d4942-9452-4c95-9143-95fbb1024da2_Captura de tela 2024-05-20 141707.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>GLIMPSE.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GLIMPSE.API</BasePath>
+      <RelativePath>project-pictures/0f1d4942-9452-4c95-9143-95fbb1024da2_Captura de tela 2024-05-20 141707.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\0f1d4942-9452-4c95-9143-95fbb1024da2_Captura de tela 2024-05-20 141707.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\148fb3f7-53a9-42bb-80ab-40abf7bec5ce_supremetones 2.png))">
       <SourceType>Package</SourceType>
       <SourceId>GLIMPSE.API</SourceId>

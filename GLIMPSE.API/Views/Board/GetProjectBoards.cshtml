@@ -1,0 +1,54 @@
+@model Project
+@{
+    ViewData["Title"] = "Quadros do projeto";
+    var projectBoards = ViewData["Boards"] as List<Board>;
+    ViewData["Path"] = new List<string> { "Projetos", Model.Name };
+    bool? creatorR = ViewData["Creator"] as bool?;
+    bool creator = creatorR ?? false;
+}
+
+<section>
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <h1>Quadros - @Model.Name</h1>
+            </li>
+        </ul>
+    </div>
+    <center><a class="CTA-MODEL-01" asp-controller="Board" asp-action="Create" asp-route-id="@Model.Id">+ Criar Quadro</a></center>
+    @if(creator){
+        <center><a class="CTA-MODEL-01" asp-controller="Project" asp-action="Users" asp-route-projectId="@Model.Id">+ Gerenciar integrantes</a></center>
+    }
+</section>
+<section class="project-list-section">
+    <ul class="navbar-nav flex-grow-1">
+        @foreach (Board b in projectBoards) 
+        {
+            <li class="nav-item-7">
+                <div class="project-card">
+                    <a class="sla" asp-controller="Board" asp-action="GetBoardInfo" asp-route-id="@b.Id" asp-route-IsMemberSideBarActive="@true">
+                        <p class="text-white">@b.Name</p>
+                    </a>
+                    <a style="cursor: pointer;" class="popup-trigger" data-project-id="@b.Id"><img src="../icons/more-vertical.svg" alt=""></a>
+                    <div>
+                    <center>
+                        <a class="sla" asp-controller="Board" asp-action="Edit" asp-route-boardId="@b.Id" asp-route-projectId="@Model.Id">editar</a>
+                    </center>
+                    <center>
+                        <a class="sla" asp-controller="Board" asp-action="Delete" asp-route-boardId="@b.Id" asp-route-projectId="@Model.Id">deletar</a>
+                    </center>
+                </div>
+                </div>
+                <label class="pop-up-1" id="pop-up-@b.Id" style="display: none;">
+                    <a asp-controller="Board" asp-action="Edit" asp-route-id="@b.Id">Editar</a>
+                    <img class="normal-icon" src="../icons/edit.svg" alt="">
+                </label>
+            </li>
+        }
+    </ul>
+</section>
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>

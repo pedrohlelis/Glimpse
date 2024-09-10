@@ -1,0 +1,650 @@
+@using GLIMPSE.DOMAIN.ViewModels
+@model BoardVM;
+
+@{
+    var roleEditModel = new BoardVM.RoleEditInputModel();
+    List<User> unemployed = new List<User>();
+}
+
+@if(Model.IsMemberSideBarActive == true){
+<div class="memberSideMenu flex-column overflow-y active">
+    @if ((Model.UserRole?.CanManageMembers ?? false) || Model.User == Model.ProjectResponsibleUser)
+    {
+        <div class="mt-2 member-div">
+            <div class="d-flex">
+                <span class="fs-5">Membros</span>
+                <div class="flex-grow-1"></div>
+                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;">
+                    <box-icon size="30px" name='x' color='#fafafa'></box-icon>
+                </button>
+            </div>
+            <button class="button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <div class="d-flex align-items-center">
+                    <box-icon name='user-plus' type='solid' color="white"></box-icon>
+                    <span>Convidar Membro</span>
+                </div>
+            </button>
+        </div>
+        <div class="invite-member-div collapse mt-4" id="collapseExample">
+            <div class="card card-body" style="background-color: #272727; border-color: #7931ff;">
+                <form asp-action="AddUser" asp-controller="Project" method="post">
+                    <input type="hidden" name="id" value="@Model.Board.Id">
+                    <input type="hidden" name="projectId" value="@Model.Board.Project.Id">
+                    <div class="form-floating mb-3">
+                        <input class="form-input form-control bg-dark text-white" name="userEmail" autocomplete="off" aria-required="true" placeholder="name@example.com" required />
+                        <label class="form-label">Email</label>
+                    </div>
+                    <button class="btn" style="background-color: #9531FF;" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="mt-2 member-div">
+            <div class="d-flex">
+                <span class="fs-5">Membros</span>
+                <div class="flex-grow-1"></div>
+                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;">
+                    <box-icon size="30px" name='x' color='#fafafa'></box-icon>
+                </button>
+            </div>
+        </div>
+    }
+    
+    @foreach (var role in Model.ProjectRoles)
+    {
+        <div class="role-container mt-4">
+            <p class="fs-5">@role.Name</p>
+            @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == role))
+            {
+                @await Html.PartialAsync("MemberProfile", kvp.Key)
+            }
+        </div>
+    }
+
+    <div class="role-container mt-4">
+        <p>Sem cargo</p>
+        @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == null))
+        {
+            @await Html.PartialAsync("MemberProfile", kvp.Key)
+        }
+    </div>
+</div>
+
+} else {
+    <div class="memberSideMenu flex-column overflow-y">
+    @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
+        <div class="mt-2 member-div">
+            <div class="d-flex">
+                <span class="fs-5">Membros</span>
+                <div class="flex-grow-1"></div>
+                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;"><box-icon size="30px" name='x' color='#fafafa'></box-icon></button>
+            </div>
+            <button class="invite-btn btn-primary text-white d-none text-center d-flex align-items-center button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <div>
+                    <box-icon name='user-plus' type='solid' color="white"></box-icon>
+                    <span>Convidar Membro</span>
+                </div>
+            </button>
+        </div>
+        <div class="invite-member-div collapse mt-4 d-none" id="collapseExample">
+            <div class="card card-body" style="background-color: #272727; border-color: #7931ff;">
+                <form asp-action="AddUser" asp-controller="Project" method="post">
+                    <input type="text" name="id" value="@Model.Board.Id" hidden>
+                    <input type="text" name="projectId" value="@Model.Board.Project.Id" hidden>
+                    <div class="form-floating mb-3">
+                        <input class="form-input form-control bg-dark text-white" name="userEmail" autocomplete="off" aria-required="true" placeholder="name@example.com" required/>
+                        <label class="form-label">Email</label>
+                    </div>
+                    <button class="btn" style="background-color: #9531FF; type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    }else{
+        <div class="mt-2 member-div">
+            <div class="d-flex">
+                <span class="fs-5">Membros</span>
+                <div class="flex-grow-1"></div>
+                <button onclick="ToggleMemberSideBar()" style="background-color: transparent; border: none; outline: none;"><box-icon size="30px" name='x' color='#fafafa'></box-icon></button>
+            </div>
+            <button class="invite-btn btn-primary text-white d-none text-center d-flex align-items-center button-create" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <div>
+                    <box-icon name='user-plus' type='solid' color="white"></box-icon>
+                    <span>Convidar Membro</span>
+                </div>
+            </button>
+        </div>
+        <div class="collapse mt-4" id="collapseExample">
+            <div class="card card-body">
+                <form asp-action="AddUser" asp-controller="Project" method="post">
+                    <input type="text" name="id" value="@Model.Board.Id" hidden>
+                    <input type="text" name="projectId" value="@Model.Board.Project.Id" hidden>
+                    <div class="form-group">
+                        <label for="userEmail">E-mail do usuário a ser adicionado no projeto</label>
+                        <input name="userEmail" type="text" class="form-control" autocomplete="off" required/>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    }
+    @foreach (var role in Model.ProjectRoles)
+    {
+        <div class="role-container mt-4 d-none">
+            <p>@role.Name</p>
+            @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == role))
+            {
+                var user = kvp.Key;
+                <div class="member-div container mt-3 d-none">
+                <div class="profile-container">
+                    <img class="user-img" src='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' style="border: 2px solid @kvp.Value.Color;" alt="">
+                    <div class="profile-info" style="color: @kvp.Value.Color;">
+                        <div>@user.FirstName @user.LastName</div>
+                        <div class="profile-status" data-bs-toggle="tooltip" data-bs-placement="top" title="@user.UserName">
+                            <div>@user.UserName</div>
+                        </div>
+                    </div>
+                    @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
+                    <div class="profile-icons">
+                        <div class="dropup">
+                            <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
+                                <a class="dropdown-item" data-bs-toggle="modal" data-picture='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' data-id="@user.Id" data-name="@user.FirstName @user.LastName" data-email="@user.Email" data-bs-target="#editarCargoModal" aria-expanded="true" onclick="openManageUserModal(this)" color="white">Gerenciar</a>
+                                @if (user != Model.User && user.Id != Model.ProjectResponsibleUser.Id){
+                                    <a class="dropdown-item" data-bs-toggle="modal" data-id="@user.Id" data-bs-target="#expulsarMembroModal" aria-expanded="true" onclick="removeUser(this)" color="white">Expulsar Membro</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+    }
+    <div class="role-container mt-4 d-none">
+        Sem Cargo
+        @foreach (var kvp in Model.UserRolesDictionary.Where(kvp => kvp.Value == null)){
+            var user = kvp.Key;
+            <div class="member-div container mt-3 d-none">
+                <div class="profile-container">
+                    <img class="user-img" src='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' style="border: 2px solid #fff;" alt="">
+                    <div class="profile-info">
+                        <div>@user.FirstName @user.LastName</div>
+                        <div class="profile-status" data-bs-toggle="tooltip" data-bs-placement="top" title="@user.UserName">
+                            <div>@user.UserName</div>
+                        </div>
+                    </div>
+                    @if ((Model.UserRole != null && Model.UserRole.CanManageMembers) || Model.User == Model.ProjectResponsibleUser){
+                        <div class="profile-icons">
+                            <div class="dropup">
+                                <box-icon data-bs-toggle="dropdown" aria-expanded="true" class="options-dots" name='dots-vertical-rounded' color="white"></box-icon>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-dark">
+                                    <a class="dropdown-item" data-bs-toggle="modal" data-picture='@(user.Picture ?? Url.Content("~/default-images/default-avatar.jpg"))' data-id="@user.Id" data-name="@user.FirstName @user.LastName" data-email="@user.Email" data-bs-target="#editarCargoModal" aria-expanded="true" onclick="openManageUserModal(this)" color="white">Gerenciar</a>
+                                    @if (user != Model.User && user.Id != Model.ProjectResponsibleUser.Id){
+                                    <a class="dropdown-item" data-bs-toggle="modal" data-id="@user.Id" data-bs-target="#expulsarMembroModal" aria-expanded="true" onclick="removeUser(this)" color="white">Expulsar Membro</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+}
+
+<div class="modal fade" id="expulsarMembroModal" tabindex="-1" aria-labelledby="ExpulsarMembroModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="ConfirmDeleteModalLabel">Expulsar Membro</h5>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-dark">
+            <p>Tem certeza que deseja Expulsar Membro?</p>
+        </div>
+        <form method="post" asp-action="RemoveFromProject" asp-controller="Project" id="form-kick" enctype="multipart/form-data">
+            <div class="modal-footer bg-dark">
+                <input type="hidden" name="projectId" id="projectToLeaveId" value="@Model.Board.Project.Id">
+                <input type="hidden" name="userId" id="userId" value="">
+                <input type="hidden" name="id" id="id" value="@Model.Board.Id">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger" id="delete-submit">Expulsar Membro</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editarCargoModal" tabindex="-1" aria-labelledby="editarCargoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-contenttext-white">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="editarCargoModalLabel">Gerenciar Membro</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card bg-dark border-0">
+                    <div class="card-body text-center">
+                        <img class="rounded-circle mb-3" id="userPicture" width="150px" src='' alt="">
+                        <h5 class="font-weight-bold" id="ManagedUserName"></h5>
+                        <p id="ManagedUserEmail" class="mb-3"></p>
+                    </div>
+                </div>
+                <form method="post" asp-action="AtribuirRole" asp-controller="Role" id="form-role" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="@Model.Board.Id">
+                    <input type="hidden" name="userId" id="userToManageId" value="">
+                    @if (Model.ProjectRoles.Count == 0)
+                    {
+                        <p>Este projeto ainda não tem cargos</p>
+                    }
+                    else
+                    {
+                        <div class="form-group mb-3">
+                            <label for="roleId">Cargo:</label>
+                            <select class="form-select" name="roleId">
+                                @foreach (Role role in Model.ProjectRoles)
+                                {
+                                    <option value="@role.Id" selected>@role.Name</option>
+                                }
+                                <option value="0">Nenhum</option>
+                            </select>
+                        </div>
+                    }
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Atribuir cargo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade h-75" id="tagsModal" tabindex="-1" aria-labelledby="tagsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tagsModalLabel">Tags</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if ((Model.UserRole != null && Model.UserRole.CanManageTags) || Model.User == Model.ProjectResponsibleUser) {
+                    <button class=" btn btn-info text-white" onclick="createTag()">
+                        <div class="d-flex justify-content-center">
+                            <img class="px-1" src="/Icons/plusIcon.svg" alt="">  
+                            <p class="px-1 m-0">Nova Tag</p>
+                        </div>
+                    </button>
+                }
+                <div class="overflow-y">
+                    <ul class="list-group">
+                    @foreach(var tag in Model.Tags)
+                    {
+                        <li data-id="@tag.Id"
+                            data-name="@tag.Name"
+                            data-Color="@tag.Color"
+                            class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
+                            
+                            <span class="badge" style="background-color: @tag.Color;">@tag.Name</span>
+
+                            <div class="d-flex">
+                                @if ((Model.UserRole != null && Model.UserRole.CanManageTags) || Model.User == Model.ProjectResponsibleUser) {
+                                    <button type="button" class="btn btn-primary btn-sm mx-1 d-flex align-items-center" onclick="editTag(this)">
+                                        <box-icon type='solid' name='edit' color="white" style="height: 16px; width: 16px;"></box-icon>
+                                        <span class="ms-1">Edit</span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm d-flex align-items-center" onclick="deleteTag(this)">
+                                        <span>Delete</span>
+                                    </button>
+                                }else {
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="editTag(this)">View</button>
+                                }
+                            </div>
+                        </li>
+                    }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createTagModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createTagModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="createTagModalLabel">Criar nova tag</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form asp-action="CreateTag" asp-controller="Tag" method="post">
+                <input type="hidden" name="id" value="@Model.Board.Id">
+                <label for="tagName" class="form-label">Nome:</label>
+                <input type="text" name="tagName" id="tagName">
+                <label for="color" class="form-label">Cor:</label>
+                <input type="color" name="color" id="color">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput" value="false">
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Criar</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editTagModal" tabindex="-1" aria-labelledby="editTagModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRoleModalLabel">Editar Tag</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> 
+            <div class="modal-body">
+                <form asp-action="EditTag" asp-controller="Tag" id="editTagForm" method="post">
+                    
+                    <input type="hidden" id="tagToEditId" name="tagId" value="">
+                    <input type="hidden" id="boardId" name="boardId" value="@Model.Board.Id">
+                    <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                    
+                    <div class="mb-3">
+                        <label for="tagEditName" class="form-label text-light">Name</label>
+                        <input type="text" class="form-input form-control" id="tagEditName" name="Name" value="">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="tagEditColor" class="form-label text-light">Color</label>
+                        <input type="color" class="form-input form-control" id="tagEditColor" name="Color" value="">
+                    </div>
+                    @if ((Model.UserRole != null && Model.UserRole.CanManageTags) || Model.User == Model.ProjectResponsibleUser) {
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    } 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ConfirmDeleteTagModal" tabindex="-1" aria-labelledby="ConfirmDeleteTagModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="ConfirmDeleteTagModalLabel">Tag Removal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure you want to delete this Tag?</p>
+            <p><strong>This action cannot be undone.</strong></p>
+        </div>
+        <form method="post" asp-action="DeleteTag" asp-controller="Tag" enctype="multipart/form-data">
+            <div class="modal-footer">
+                <input type="hidden" name="tagToDeleteId" id="tagToDeleteId" value="">
+                <input type="hidden" name="id" value="@Model.Board.Id">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">yes, delete</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade h-75" id="rolesModal" tabindex="-1" aria-labelledby="rolesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="d-flex">
+                    
+                    <h5 class="modal-title" id="rolesModalLabel">Gerenciar Cargos</h5>
+                </span>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if ((Model.UserRole != null && Model.UserRole.CanManageRoles) || Model.User == Model.ProjectResponsibleUser) {
+                    <button class=" btn btn-success mb-2" onclick="createRole()">
+                        <div class="d-flex justify-content-center">
+                            <p class="px-1 m-0">Novo Cargo</p>
+                        </div>
+                    </button>
+                }
+                <div class="overflow-y">
+                    <ul class="list-group">
+                    @foreach(var role in Model.ProjectRoles)
+                    {
+                        <li data-id="@role.Id"
+                            data-name="@role.Name"
+                            data-description="@role.Description"
+                            data-Color="@role.Color"
+                            data-mng-members="@role.CanManageMembers"
+                            data-mng-roles="@role.CanManageRoles"
+                            data-mng-cards="@role.CanManageCards"
+                            data-mng-tags="@role.CanManageTags"
+                            data-mng-checklist="@role.CanManageChecklist"
+                        class="list-group-item d-flex justify-content-between align-items-center text-white" style="background-color: #1E1E1E;">
+                            @role.Name
+                            <div class="d-flex">
+                                @if ((Model.UserRole != null && Model.UserRole.CanManageRoles) || Model.User == Model.ProjectResponsibleUser) {
+                                    <button type="button" class="btn btn-primary btn-sm mx-1 d-flex align-items-center" onclick="editRole(this)">
+                                        <box-icon type='solid' name='edit' color="white" style="height: 16px; width: 16px;"></box-icon>
+                                        <span class="ms-1">Editar</span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm d-flex align-items-center" onclick="deleteRole(this)">
+                                        <span>Deletar</span>
+                                    </button>
+                                }else {
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="editRole(this)">Ver</button>
+                                }
+                            </div>
+                        </li>
+                    }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editRoleModal" tabindex="-1" aria-labelledby="editRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRoleModalLabel">Editar Cargo</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> 
+            <div class="modal-body">
+                <form asp-action="EditRole" asp-controller="Role" id="editRoleForm" method="post">
+                    
+                    <input type="hidden" id="roleToEditId" name="roleId" value="">
+                    <input type="hidden" id="boardId" name="boardId" value="@Model.Board.Id">
+                    <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                    
+                    <div class="mb-3">
+                        <label for="roleName" class="form-label text-light">Nome</label>
+                        <input type="text" class="form-input form-control" id="roleName" name="Name" value="">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="roleDescription" class="form-label text-light">Descrição</label>
+                        <textarea class="form-input form-control" id="roleDescription" name="Description" rows="3"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="roleColor" class="form-label text-light">Cor</label>
+                        <input type="color" class="form-input form-control" id="roleColor" name="Color" value="">
+                    </div>
+
+                    @if ((Model.UserRole != null && Model.UserRole.CanManageRoles) || Model.User == Model.ProjectResponsibleUser) {
+                    <div class="mb-3">
+                        <label class="form-label text-light">Permissões</label>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageMembers" class="form-check-input" type="checkbox" id="canManageMembers" name="CanManageMembers">
+                            <label class="form-check-label text-light" for="canManageMembers">
+                                Pode Gerenciar Membros
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageRoles" class="form-check-input" type="checkbox" id="canManageRoles" name="CanManageRoles">
+                            <label class="form-check-label text-light" for="canManageRoles">
+                                Pode Gerenciar Cargos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageCards" class="form-check-input" type="checkbox" id="canManageCards" name="CanManageCards">
+                            <label class="form-check-label text-light" for="canManageCards">
+                                Pode Gerenciar Cards
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageTags" class="form-check-input" type="checkbox" id="canManageTags" name="CanManageTags">
+                            <label class="form-check-label text-light" for="canManageTags">
+                                Pode Gerenciar Tags
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageChecklist" class="form-check-input" type="checkbox" id="canManageChecklist" name="CanManageChecklist">
+                            <label class="form-check-label text-light" for="canManageChecklist">
+                                Pode Gerenciar Checklist
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    } else {
+                        <div class="mb-3">
+                        <label class="form-label text-light">Permissões</label>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageMembers" class="form-check-input" type="checkbox" id="canManageMembers" name="CanManageMembers" disabled>
+                            <label class="form-check-label text-light" for="canManageMembers">
+                                Pode Gerenciar Membros
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageRoles" class="form-check-input" type="checkbox" id="canManageRoles" name="CanManageRoles" disabled>
+                            <label class="form-check-label text-light" for="canManageRoles">
+                                Pode Gerenciar Cargos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageCards" class="form-check-input" type="checkbox" id="canManageCards" name="CanManageCards" disabled>
+                            <label class="form-check-label text-light" for="canManageCards">
+                                Pode Gerenciar Cards
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageTags" class="form-check-input" type="checkbox" id="canManageTags" name="CanManageTags" disabled>
+                            <label class="form-check-label text-light" for="canManageTags">
+                                Pode Gerenciar Tags
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageChecklist" class="form-check-input" type="checkbox" id="canManageChecklist" name="CanManageChecklist" disabled>
+                            <label class="form-check-label text-light" for="canManageChecklist">
+                                Pode Gerenciar Checklist
+                            </label>
+                        </div>
+                    </div>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createRoleModal" tabindex="-1" aria-labelledby="createRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRoleModalLabel">Criar Cargo</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> 
+            <div class="modal-body">
+                <form asp-action="CreateRole" asp-controller="Role" id="createRoleForm" method="post">
+                    
+                    <input type="hidden" id="boardId" name="boardId" value="@Model.Board.Id">
+                    <input type="hidden" name="projectId" value="@Model.Board.Project.Id">
+                    <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                    
+                    <div class="mb-3">
+                        <label for="roleName" class="form-label text-light">Nome</label>
+                        <input type="text" class="form-input form-control" id="roleName" name="Name" value="">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="roleDescription" class="form-label text-light">Descrição</label>
+                        <textarea class="form-input form-control" id="roleDescription" name="Description" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="roleColor" class="form-label text-light">Cor</label>
+                        <input type="color" class="form-input form-control" id="roleColor" name="Color" value="">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-light">Permissões</label>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageMembers" class="form-check-input" type="checkbox" id="canManageMembers" name="CanManageMembers">
+                            <label class="form-check-label text-light" for="canManageMembers">
+                                Pode Gerenciar Membros
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageRoles" class="form-check-input" type="checkbox" id="canManageRoles" name="CanManageRoles">
+                            <label class="form-check-label text-light" for="canManageRoles">
+                                Pode Gerenciar Cargos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageCards" class="form-check-input" type="checkbox" id="canManageCards" name="CanManageCards">
+                            <label class="form-check-label text-light" for="canManageCards">
+                                Pode Gerenciar Cards
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageTags" class="form-check-input" type="checkbox" id="canManageTags" name="CanManageTags">
+                            <label class="form-check-label text-light" for="canManageTags">
+                                Pode Gerenciar Tags
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input asp-for="@roleEditModel.CanManageChecklist" class="form-check-input" type="checkbox" id="canManageChecklist" name="CanManageChecklist">
+                            <label class="form-check-label text-light" for="canManageChecklist">
+                                Pode Gerenciar Checklist
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Criar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ConfirmDeleteRoleModal" tabindex="-1" aria-labelledby="ConfirmDeleteRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="ConfirmDeleteModalLabel">Remover Cargo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Tem certeza que deseja deletar este cargo?</p>
+            <p><strong>Essa ação não pode ser desfeita.</strong></p>
+        </div>
+        <form method="post" asp-action="DeleteRole" asp-controller="Role" id="form-delete" enctype="multipart/form-data">
+            <div class="modal-footer">
+                <input type="hidden" name="roleToDeleteId" id="roleToDeleteId" value="">
+                <input type="hidden" name="id" value="@Model.Board.Id">
+                <input type="hidden" name="IsMemberSideBarActive" class="IsMemberSideBarActiveInput">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger" id="delete-submit">Sim, Deletar</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

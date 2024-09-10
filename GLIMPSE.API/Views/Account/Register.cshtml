@@ -1,0 +1,67 @@
+@using GLIMPSE.DOMAIN.ViewModels
+@model RegisterVM;
+
+@{
+    ViewData["Title"] = "Registrar";
+}
+<br><br>
+<div class="register-container">
+    <div class="form-container">
+            <h2 id="Register-h2">Registrar</h2>
+            <form asp-action="Register" id="form" method="post">
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                <div class="column">
+                    <div class="col-8">
+                        <div class="input-box mb-2">
+                            <label class="form-label ">Nome:</label>
+                            <div class="input-validation">
+                                <input asp-for="FirstName" class="form-input">
+                                <span asp-validation-for="FirstName" class="validation-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="input-box mb-2">
+                            <label asp-for="LastName" class="form-label">Ultimo Name:</label>
+                            <input asp-for="LastName" class="form-input">
+                            <span asp-validation-for="LastName" class="validation-text">Nome</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-box mb-2">
+                    <label asp-for="Email" class="form-label">E-mail:</label>
+                    <input asp-for="Email" class="form-input">
+                    <span asp-validation-for="Email" class="validation-text"></span>
+                </div>
+
+                <div class="input-box mb-2">
+                    <label asp-for="Password" class="form-label">Senha:</label>
+                    <input asp-for="Password" class="form-input">
+                    <span asp-validation-for="Password" class="validation-text"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirme sua senha:</label>
+                    <input asp-for="ConfirmPassword" class="form-input">
+                    <span asp-validation-for="ConfirmPassword" class="validation-text"></span>
+                </div>
+
+                <div class="column">
+                    <div class="col-8 mb-3">
+                        <a asp-action="Login" class="alreadyHaveAccount-btn">Já possui uma conta?</a>
+                    </div>
+                    <div class="col-4">
+                        <input type="submit" value="Register" class="submit-btn button-create">
+                    </div>
+                </div>
+            </form>
+    </div>
+    <div class="container-sm image-container">
+        <img src="../registerSideImage.svg" alt="">
+    </div>
+</div>
+
+@section Scripts
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

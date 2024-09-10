@@ -185,3 +185,171 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Dev/Glimpse/GLIMPSE.API/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/AnalyticsComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQW5hbHl0aWNzQ29tcG9uZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/BoardHeaderPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQm9hcmRIZWFkZXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/BoardSideBarPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQm9hcmRTaWRlQmFyUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/EditRolePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRWRpdFJvbGVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/GetBoardInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcR2V0Qm9hcmRJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/GetProjectBoards.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcR2V0UHJvamVjdEJvYXJkcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Board/MainContentPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcTWFpbkNvbnRlbnRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Project/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Project/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Project/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Project/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Project/MainProjects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxNYWluUHJvamVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Project/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Repository/Code.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxDb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Repository/Commits.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxDb21taXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Repository/ConnectRepository.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxDb25uZWN0UmVwb3NpdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Repository/GetRepositories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3NpdG9yeVxHZXRSZXBvc2l0b3JpZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Role/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBc3NpZ24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Role/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Role/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Role/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Role/ShowRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxTaG93Um9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Role/UserRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxVc2VyUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Shared/HeaderComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhlYWRlckNvbXBvbmVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Shared/_BasicStructure.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CYXNpY1N0cnVjdHVyZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Shared/_FooterComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXJDb21wb25lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/User/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/User/ProfileEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/User/_UserSidebarComponent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfVXNlclNpZGViYXJDb21wb25lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dev/Glimpse/GLIMPSE.API/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wwrzgqot2k

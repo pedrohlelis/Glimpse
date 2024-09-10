@@ -1,0 +1,94 @@
+@model Project
+@{
+    ViewData["Title"] = "Editar Projeto";
+}
+<script>
+    function validateForm() {
+        var fileInput = document.getElementById('boardImg');
+        var BackgroundImage = document.getElementById('BackgroundImage');
+        var file = fileInput.files[0];
+        if (!file) {
+            BackgroundImage.setAttribute("value", "../default-images/defaultBackground.jpg")
+            return true;
+        }
+        return true;
+    }
+</script>
+<br><br>
+<section class="d-flex">
+    <form asp-action="EditProject" asp-controller="Project" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" autocomplete="off">
+        <h1>@ViewData["Title"]</h1>
+        <div class="row">
+            <div class="col">
+                <br>
+                <input asp-for="Id" type="hidden"/>
+                <input asp-for="ResponsibleUserId" type="hidden"/>
+                <input asp-for="Picture" type="hidden"/>
+                <input asp-for="CreatedAt" type="hidden"/>
+                <div class="row">
+                    <div class="form-group col">
+                        <label asp-for="Name">Nome</label>
+                        <input asp-for="Name" type="text" class="form-control text-white" style="background-color: #131313; border-color: #6610f2;" placeholder="Dê um nome ao seu projeto" required/>
+                    </div>
+
+                    <div class="form-group col">
+                        <label for="projectImg">Icone do projeto</label>
+                        <input id="projectImg" name="projectImg" type="file" style="background-color: #131313;" accept="image/png, image/jpeg, image/jpg" class="btn-outline-primary form-control"/>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label asp-for="Description">Descrição</label>
+                    <textarea asp-for="Description" style="background-color: #131313; min-height: 160px; border-color: #6610f2;" type="text" class="form-control text-white" placeholder="Descreva brevemente o projeto" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+                <br>
+                <div class="d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn-primary p-3 button-create" style="border-radius: 6px;">Editar Projeto</button>
+                    <button class="btn-secondary p-3 button-create" style="border-color: white; border-radius: 6px; text-decoration: none; background-color: #131313;"><a asp-action="MainProjects" asp-controller="Project" class="text-white p-2" style="text-decoration: none;">Cancelar</a></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="col px-4 mx-4 image-container overflow-visible">
+        <img src="/Icons/topo2.png" height="600px" width="600px">
+        <div class="gradient-overlay"></div>
+    </div>
+</section>
+<style>
+    input {
+        background-color: #131313;
+        outline-color: indigo;
+    }
+    .image-container {
+        position: relative;
+        width: 600px;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .blur-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
+        backdrop-filter: blur(10px);
+        pointer-events: none;
+    }
+</style>

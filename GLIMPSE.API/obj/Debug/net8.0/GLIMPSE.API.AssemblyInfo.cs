@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLIMPSE.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdcc4753934391c780649419ef9033efa5087e3d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42599279ba17b6164c5521db969f4bab1c18f151")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLIMPSE.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLIMPSE.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
