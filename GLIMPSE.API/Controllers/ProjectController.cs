@@ -2,11 +2,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
 using GLIMPSE.Infrastructure.Data.Context;
 using GLIMPSE.DOMAIN.ViewModels;
+using GLIMPSE.Application.Interfaces;
 
 namespace GLIMPSE.API.Controllers;
 
@@ -55,10 +54,12 @@ public class ProjectController : Controller
 
         return View(model);
     }
-    public async Task<IActionResult> Dashboard(int projectId) 
-    {
-        return View();
-    }
+
+    //public Task<IActionResult> Dashboard(int projectId) 
+    //{
+    //    return View();
+    //}
+
     public IActionResult Create()
     {
         return View();
@@ -67,6 +68,17 @@ public class ProjectController : Controller
     [HttpPost]
     public async Task<IActionResult> CreateProject(Project project, IFormFile projectImg)
     {
+        /*try
+        {
+            if (project == null)
+                return NotFound();
+
+            return Ok(await this.projectApplicationService.Add(project));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }*/
         project.CreatedAt = DateTime.UtcNow;
         project.ModifiedAt = DateTime.UtcNow;
         project.ResponsibleUserId = _userManager.GetUserId(User);

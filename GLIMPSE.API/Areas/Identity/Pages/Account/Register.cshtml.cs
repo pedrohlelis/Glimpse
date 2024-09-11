@@ -11,7 +11,7 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
+using GLIMPSE.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

@@ -1,3 +1,4 @@
+using GLIMPSE.Domain.Services.Interfaces;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 

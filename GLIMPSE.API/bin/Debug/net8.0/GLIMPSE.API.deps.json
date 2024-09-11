@@ -2428,6 +2428,8 @@
       },
       "GLIMPSE.Application/1.0.0": {
         "dependencies": {
+          "GLIMPSE.Domain": "1.0.0",
+          "GLIMPSE.Domain.Services": "1.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8"
         },
@@ -2449,6 +2451,7 @@
       },
       "GLIMPSE.Domain.Services/1.0.0": {
         "dependencies": {
+          "GLIMPSE.Infrastructure.Data": "1.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8",
           "Octokit": "13.0.1",

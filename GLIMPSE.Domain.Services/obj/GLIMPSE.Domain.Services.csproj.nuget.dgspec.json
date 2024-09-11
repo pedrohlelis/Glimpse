@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {}
+    "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {}
   },
   "projects": {
-    "C:\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
         "projectName": "GLIMPSE.Domain.Services",
-        "projectPath": "C:\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Glimpse\\GLIMPSE.Domain.Services\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,7 +27,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -84,7 +88,187 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "projectName": "GLIMPSE.Domain",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
+        "projectName": "GLIMPSE.Infrastructure.Data",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

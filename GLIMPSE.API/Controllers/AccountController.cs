@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
 using GLIMPSE.DOMAIN.ViewModels;
+using GLIMPSE.Domain.Services.Interfaces;
 
 namespace GLIMPSE.API.Controllers;
 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
+using GLIMPSE.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

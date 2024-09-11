@@ -18,7 +18,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using System.Net;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
+using GLIMPSE.Domain.Services.Interfaces;
 
 namespace GLIMPSE.API.Areas.Identity.Pages.Account
 {

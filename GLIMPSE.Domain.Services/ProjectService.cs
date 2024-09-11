@@ -1,5 +1,6 @@
 ﻿using GLIMPSE.Domain.Models;
 using GLIMPSE.Domain.Services.Interfaces;
+using GLIMPSE.Infrastructure.Data.Interfaces;
 
 namespace GLIMPSE.Domain.Services
 {

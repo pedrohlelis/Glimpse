@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
+using GLIMPSE.Domain.Services.Interfaces;
 
 namespace GLIMPSE.API.Controllers;
 

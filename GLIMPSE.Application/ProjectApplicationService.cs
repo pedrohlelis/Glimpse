@@ -12,9 +12,11 @@ namespace GLIMPSE.Application
             this.projectService = projectService;
         }
 
-        public Task<Project> Add(Project obj)
+        public async Task<Project> Add(Project project)
         {
-            throw new NotImplementedException();
+            await this.projectService.Add(project);
+
+            return project;
         }
 
         public Task<IList<Project>> GetAll()

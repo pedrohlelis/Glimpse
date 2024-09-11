@@ -1,5 +1,6 @@
 using GLIMPSE.Domain.Models;
 using GLIMPSE.Domain.Services;
+using GLIMPSE.Domain.Services.Interfaces;
 using GLIMPSE.Infrastructure.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
