@@ -1,16 +1,16 @@
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Checkboxs.Interfaces;
+using GLIMPSE.Domain.Services.Interfaces;
 using GLIMPSE.Infrastructure.Data.Interfaces;
 
-namespace GLIMPSE.Domain.Checkboxs
+namespace GLIMPSE.Domain.Services
 {
-    public class ProjectCheckbox : BaseCheckbox<Project>, IProjectCheckbox
+    public class CheckboxService : BaseService<Checkbox>, ICheckboxService
     {
-        private readonly IProjectRepository projectRepository;
+        private readonly ICheckboxRepository CheckboxRepository;
 
-        public ProjectCheckbox(IProjectRepository projectRepository) : base(projectRepository)
+        public CheckboxService(ICheckboxRepository CheckboxRepository) : base(CheckboxRepository)
         {
-            this.projectRepository = projectRepository;
+            this.CheckboxRepository = CheckboxRepository;
         }
     }
 }

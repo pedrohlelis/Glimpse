@@ -8,7 +8,7 @@ namespace GLIMPSE.Domain.Services
     {
         private readonly IRepoRepository RepoRepository;
 
-        public RepoService(IRepoRepository RepoRepo) : base(RepoRepository)
+        public RepoService(IRepoRepository RepoRepository) : base(RepoRepository)
         {
             this.RepoRepository = RepoRepository;
         }
