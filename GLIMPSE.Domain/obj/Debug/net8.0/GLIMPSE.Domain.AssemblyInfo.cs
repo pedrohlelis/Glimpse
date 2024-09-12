@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLIMPSE.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26761cf045b83911d590aebd2b2ccb4b322b0195")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4cd6f2f7521647de64c6c449ea5e5562bec0204")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLIMPSE.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLIMPSE.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
