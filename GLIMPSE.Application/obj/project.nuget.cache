@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5rhCKJBxeZxQPSeItFshqARoVacokQKPnOvfhqevwfvT4OshlRhvEBTkfiFzq9cqHXIjwETxh8GqFqJLhsb6Ig==",
+  "dgSpecHash": "h2HqTcivDTEpVzg70T3W7RUiRl0MCDNBpfpZw4y4pxOW2t3TyIJZPs8XlU5wSSbxVuZfuJrHkPdaxT0+3zu15w==",
   "success": true,
   "projectFilePath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\a498902\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.5\\microsoft.data.sqlclient.5.1.5.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.1\\microsoft.data.sqlclient.sni.runtime.5.1.1.nupkg.sha512",
+    "C:\\Users\\a498902\\.nuget\\packages\\microsoft.dependencyvalidation.analyzers\\0.11.0\\microsoft.dependencyvalidation.analyzers.0.11.0.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.8\\microsoft.entityframeworkcore.8.0.8.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.8\\microsoft.entityframeworkcore.analyzers.8.0.8.nupkg.sha512",

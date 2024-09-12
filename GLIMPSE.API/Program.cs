@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
 
-// Authentication setup
 builder.Services.AddAuthentication()
     .AddCertificate()
     .AddGoogle(googleOptions =>
@@ -23,15 +22,12 @@ builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var connectionString = builder.Configuration.GetConnectionString("default");
 
-// Swagger setup
 builder.Services.AddSwaggerGen();
 
-// Database context setup
 builder.Services.AddDbContext<GlimpseContext>(
     options => options.UseSqlServer(connectionString)
 );
 
-// Identity setup
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<GlimpseContext>();
 
@@ -45,7 +41,7 @@ builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-        options.JsonSerializerOptions.MaxDepth = 64; // Aumentando a profundidade máxima se necessário
+        options.JsonSerializerOptions.MaxDepth = 64;
     });
 
 var app = builder.Build();

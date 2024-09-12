@@ -290,3 +290,4 @@ C:\Dev\Glimpse\GLIMPSE.API\obj\Debug\net8.0\refint\GLIMPSE.API.dll
 C:\Dev\Glimpse\GLIMPSE.API\obj\Debug\net8.0\GLIMPSE.API.pdb
 C:\Dev\Glimpse\GLIMPSE.API\obj\Debug\net8.0\GLIMPSE.API.genruntimeconfig.cache
 C:\Dev\Glimpse\GLIMPSE.API\obj\Debug\net8.0\ref\GLIMPSE.API.dll
+C:\Dev\Glimpse\GLIMPSE.API\obj\Debug\net8.0\GLIMPSE.API.MvcApplicationPartsAssemblyInfo.cs

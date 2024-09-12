@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GLIMPSE.Domain.Services.Interfaces
 {
-    public interface IRepoService : IBaseService<Repository>
+    public interface IRepositoryService : IBaseService<Repository>
     {
 
     }

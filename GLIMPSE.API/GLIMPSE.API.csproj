@@ -7,6 +7,14 @@
 	  <UserSecretsId>7393b4b6-9f43-4204-95ca-940dabd10082</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\GlimpseDependency\DependencyValidation1\DependencyValidation1.layerdiagram" Link="DependencyValidation1.layerdiagram">
+      <Visible>False</Visible>
+    </AdditionalFiles>
+    <None Include="..\..\GlimpseDependency\DependencyValidation1\DependencyValidation1.layerdiagram.layout" Link="DependencyValidation1.layerdiagram.layout" />
+    <None Include="..\..\GlimpseDependency\DependencyValidation1\DependencyValidation1.layerdiagram.suppressions" Link="DependencyValidation1.layerdiagram.suppressions" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="FirebaseAdmin" Version="3.0.0" />
 		<PackageReference Include="MailKit" Version="4.7.1.1" />
@@ -14,6 +22,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.8" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.8" />
+		<PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

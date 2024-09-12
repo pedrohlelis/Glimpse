@@ -6,18 +6,21 @@ using System.Text.Json;
 using GLIMPSE.Domain.Models;
 using GLIMPSE.Domain.Services;
 using GLIMPSE.Infrastructure.Data.Context;
+using GLIMPSE.Application.Interfaces;
 
 namespace GLIMPSE.API.Controllers;
 
 [Authorize]
 public class TagController : Controller
 {
+    private readonly ITagApplicationService tagApplicationService;
     private readonly GlimpseContext _db;
     private readonly IWebHostEnvironment _hostEnvironment;
     private readonly UserManager<User> _userManager;
 
-    public TagController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
+    public TagController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager, ITagApplicationService tagApplicationService)
     {
+        this.tagApplicationService = tagApplicationService;
         _db = db;
         _hostEnvironment = hostEnvironment;
         _userManager = userManager;
@@ -27,7 +30,7 @@ public class TagController : Controller
     {
         if (string.IsNullOrEmpty(tagName))
         {
-            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
         }  
 
         var Tag = new Tag
@@ -46,37 +49,33 @@ public class TagController : Controller
         Board.Tags.Add(Tag);
         await _db.SaveChangesAsync();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
+        return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
 
     [HttpPost]
     public async Task<IActionResult> EditTag(string Name,string Color, int tagId, int boardId, bool IsMemberSideBarActive)
     {
-        // Retrieve the existing role from the database
         Tag toEditTag = await _db.Tags.FindAsync(tagId);
 
-        // Update the role properties with the submitted form data
         toEditTag.Name = Name;
-        toEditTag.Color = Color;
+        toEditTag.Color = Color;  
 
-        // Save changes to the database
         await _db.SaveChangesAsync();
-        // Redirect to the appropriate action with the boardId parameter
+
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive });
     }
 
     [HttpPost]
-    public async Task<IActionResult> DeleteTag(int tagToDeleteId, int id, bool IsMemberSideBarActive)
+    public IActionResult DeleteTag(int tagToDeleteId)
     {
-        Tag tag = await _db.Tags.FindAsync(tagToDeleteId);
-        var Board = await _db.Boards
-            .Include(u => u.Tags)
-            .SingleAsync(p => p.Id == id);
-
-        Board.Tags.Remove(tag);
-        _db.Tags.Remove(tag);
-        await _db.SaveChangesAsync();
-        return RedirectToAction("GetBoardInfo", "Board", new { id = id, IsMemberSideBarActive = IsMemberSideBarActive });
+        try
+        {
+            return RedirectToAction("GetBoardInfo", "Board", new { id = this.tagApplicationService.Remove(tagToDeleteId).Result.Board?.Id });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost]

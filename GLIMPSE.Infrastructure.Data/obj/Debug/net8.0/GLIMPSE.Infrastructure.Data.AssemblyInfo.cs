@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLIMPSE.Infrastructure.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a86c7ba18cc009dd3130aa25679d1f31ebd5864")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fad3e72dabf946578dc00eb63a9a8ecdb40a7b7e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLIMPSE.Infrastructure.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLIMPSE.Infrastructure.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
