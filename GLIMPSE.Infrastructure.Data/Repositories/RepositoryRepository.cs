@@ -4,11 +4,11 @@ using GLIMPSE.Infrastructure.Data.Interfaces;
 
 namespace GLIMPSE.Infrastructure.Data.Repositories
 {
-    public class RepoRepository : BaseRepository<Repository>, IRepoRepository
+    public class RepositoryRepository : BaseRepository<Repository>, IRepositoryRepository
     {
         private readonly GlimpseContext sqlContext;
 
-        public RepoRepository(GlimpseContext _sqlContext) : base(_sqlContext)
+        public RepositoryRepository(GlimpseContext _sqlContext) : base(_sqlContext)
         {
             this.sqlContext = _sqlContext;
         }

@@ -16,6 +16,7 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
 		<PackageReference Include="FirebaseAdmin" Version="3.0.0" />
 		<PackageReference Include="MailKit" Version="4.7.1.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="8.0.8" />
@@ -47,6 +48,7 @@
     <ProjectReference Include="..\GLIMPSE.Domain.Services\GLIMPSE.Domain.Services.csproj" />
     <ProjectReference Include="..\GLIMPSE.Domain\GLIMPSE.Domain.csproj" />
     <ProjectReference Include="..\GLIMPSE.Infrastructure.Data\GLIMPSE.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\GLIMPSE.Infrastructure.IOC\GLIMPSE.Infrastructure.IOC.csproj" />
   </ItemGroup>
 
 </Project>

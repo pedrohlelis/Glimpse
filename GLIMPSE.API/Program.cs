@@ -4,7 +4,10 @@ using GLIMPSE.Domain.Services.Interfaces;
 using GLIMPSE.Infrastructure.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Autofac.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
+using Autofac;
+using GLIMPSE.Infrastructure.IOC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +38,11 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
         o.TokenLifespan = TimeSpan.FromHours(3));
 
 builder.Services.AddScoped<GitHubService>();
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterModule(new ModuleIOC());
+});
 
 // Configure JSON options to handle reference loops
 builder.Services.AddControllersWithViews()

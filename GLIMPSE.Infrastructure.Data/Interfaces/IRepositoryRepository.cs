@@ -7,7 +7,7 @@ using GLIMPSE.Domain.Models;
 
 namespace GLIMPSE.Infrastructure.Data.Interfaces
 {
-    public interface IRepoRepository : IBaseRepository<Repository>
+    public interface IRepositoryRepository : IBaseRepository<Repository>
     {
 
     }

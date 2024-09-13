@@ -4,11 +4,11 @@ using GLIMPSE.Infrastructure.Data.Interfaces;
 
 namespace GLIMPSE.Domain.Services
 {
-    public class RepoService : BaseService<Repository>, IRepositoryService
+    public class RepositoryService : BaseService<Repository>, IRepositoryService
     {
-        private readonly IRepoRepository RepoRepository;
+        private readonly IRepositoryRepository RepoRepository;
 
-        public RepoService(IRepoRepository RepoRepository) : base(RepoRepository)
+        public RepositoryService(IRepositoryRepository RepoRepository) : base(RepoRepository)
         {
             this.RepoRepository = RepoRepository;
         }
