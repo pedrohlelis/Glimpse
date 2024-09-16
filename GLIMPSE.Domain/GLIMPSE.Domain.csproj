@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\..\GlimpseDependency\DependencyValidation1\DependencyValidation1.layerdiagram" Link="DependencyValidation1.layerdiagram">
-      <Visible>False</Visible>
-    </AdditionalFiles>
+
   </ItemGroup>
 
   <ItemGroup>

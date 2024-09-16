@@ -10,7 +10,6 @@
         "dependencies": {
           "GLIMPSE.Domain": "1.0.0",
           "GLIMPSE.Domain.Services": "1.0.0",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8"
@@ -1389,7 +1388,6 @@
       "GLIMPSE.Domain.Services/1.0.0": {
         "dependencies": {
           "GLIMPSE.Infrastructure.Data": "1.0.0",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8",
           "Octokit": "13.0.1",
@@ -1403,7 +1401,6 @@
         "dependencies": {
           "GLIMPSE.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.Extensions.Hosting": "8.0.0",

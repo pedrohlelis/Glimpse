@@ -3262,7 +3262,7 @@
           "lib/netstandard1.0/_._": {}
         },
         "build": {
-          "build/netstandard2.0/_._": {}
+          "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
       "Newtonsoft.Json/13.0.3": {
@@ -3385,6 +3385,25 @@
         },
         "runtime": {
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
+        }
+      },
+      "NUnit/3.14.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/nunit.framework.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/nunit.framework.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/NUnit.props": {}
         }
       },
       "Octokit/13.0.1": {
@@ -4234,7 +4253,6 @@
         "dependencies": {
           "GLIMPSE.Domain": "1.0.0",
           "GLIMPSE.Domain.Services": "1.0.0",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8"
         },
@@ -4268,7 +4286,6 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "GLIMPSE.Infrastructure.Data": "1.0.0",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8",
           "Octokit": "13.0.1",
@@ -4287,7 +4304,6 @@
         "dependencies": {
           "GLIMPSE.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.Extensions.Hosting": "8.0.0",
@@ -9983,6 +9999,31 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "NUnit/3.14.0": {
+      "sha512": "R7iPwD7kbOaP3o2zldWJbWeMQAvDKD0uld27QvA3PAALl1unl7x0v2J7eGiJOYjimV/BuGT4VJmr45RjS7z4LA==",
+      "type": "package",
+      "path": "nunit/3.14.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGES.md",
+        "LICENSE.txt",
+        "NOTICES.txt",
+        "README.md",
+        "build/NUnit.props",
+        "icon.png",
+        "lib/net35/nunit.framework.dll",
+        "lib/net35/nunit.framework.xml",
+        "lib/net40/nunit.framework.dll",
+        "lib/net40/nunit.framework.xml",
+        "lib/net45/nunit.framework.dll",
+        "lib/net45/nunit.framework.xml",
+        "lib/netstandard2.0/nunit.framework.dll",
+        "lib/netstandard2.0/nunit.framework.xml",
+        "nunit.3.14.0.nupkg.sha512",
+        "nunit.nuspec"
+      ]
+    },
     "Octokit/13.0.1": {
       "sha512": "tjXTa2FXzbd3n17VWpi8UXe05EIJqHcWJW8C2kukftIve00duWiZL8x4i1vlZQ0zQ4RbRANbRc7J5K7Co/1spQ==",
       "type": "package",
@@ -11609,7 +11650,6 @@
       "Microsoft.AspNetCore.Authentication.Google >= 8.0.8",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.8",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.8",
-      "Microsoft.DependencyValidation.Analyzers >= 0.11.0",
       "Microsoft.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Relational >= 8.0.8",
@@ -11618,6 +11658,7 @@
       "Microsoft.EntityFrameworkCore.Tools.DotNet >= 2.0.3",
       "Microsoft.Extensions.Hosting >= 8.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.4",
+      "NUnit >= 3.14.0",
       "Octokit >= 13.0.1",
       "SendGrid >= 9.29.3",
       "Swashbuckle.AspNetCore >= 6.7.3"
@@ -11629,11 +11670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
+      "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
       "projectName": "GLIMPSE.API",
-      "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
+      "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
       "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\obj\\",
+      "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11650,20 +11691,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
-              "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
+            "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
+              "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
             },
-            "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
-              "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
+            "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
+              "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
             },
-            "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
-              "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
+            "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+              "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
             },
-            "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
-              "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj"
+            "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
+              "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj"
             },
-            "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj": {
-              "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj"
+            "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj": {
+              "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj"
             }
           }
         }
@@ -11711,10 +11752,6 @@
             "target": "Package",
             "version": "[8.0.8, )"
           },
-          "Microsoft.DependencyValidation.Analyzers": {
-            "target": "Package",
-            "version": "[0.11.0, )"
-          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.8, )"
@@ -11750,6 +11787,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[8.0.4, )"
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "[3.14.0, )"
           },
           "Octokit": {
             "target": "Package",

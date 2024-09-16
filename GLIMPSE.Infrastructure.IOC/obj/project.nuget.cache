@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RuKxHorlY3jqiKmkMl5HM1gd2nMrqi46KsWVSAuOkL/Lt5dqClqe94bsi8EoMPp0hhYb+WfvuPmIpUC7+jECKw==",
+  "dgSpecHash": "pd60Qbwyhl8GKm5eTrYMQq7msqs644rNdLnZhBx0/r8qrDDe3PTT+jadq16Z3XEwRo9lK29XaVHEC7i2K1dOvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
+  "projectFilePath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victo\\.nuget\\packages\\autofac\\8.1.0\\autofac.8.1.0.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

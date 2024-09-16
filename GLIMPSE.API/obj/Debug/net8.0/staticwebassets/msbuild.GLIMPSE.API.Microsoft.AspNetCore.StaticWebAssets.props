@@ -2272,6 +2272,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\7f4b6587-299e-43a2-87fb-7969c139114e_El_Primo.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\84ca465f-0e7a-4cb3-8bc1-bee6f64acead_pipelines-overview.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>GLIMPSE.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GLIMPSE.API</BasePath>
+      <RelativePath>project-pictures/84ca465f-0e7a-4cb3-8bc1-bee6f64acead_pipelines-overview.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\84ca465f-0e7a-4cb3-8bc1-bee6f64acead_pipelines-overview.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\8b140d58-ae26-48df-9c83-f9e667408363_Captura de tela 2023-08-15 101711.png))">
       <SourceType>Package</SourceType>
       <SourceId>GLIMPSE.API</SourceId>
@@ -2287,6 +2303,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\8b140d58-ae26-48df-9c83-f9e667408363_Captura de tela 2023-08-15 101711.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\8cc38239-a90c-45d2-8e39-a4a1ab86d1e1_pipefinal.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>GLIMPSE.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GLIMPSE.API</BasePath>
+      <RelativePath>project-pictures/8cc38239-a90c-45d2-8e39-a4a1ab86d1e1_pipefinal.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\8cc38239-a90c-45d2-8e39-a4a1ab86d1e1_pipefinal.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\8ef0ae53-7159-4f5c-ad61-2f33c99ebfd4_Captura de tela 2024-05-20 141707.png))">
       <SourceType>Package</SourceType>
@@ -2367,6 +2399,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\998f8b0b-4b82-4870-8a30-9107e345889c_texture.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\a015a5a7-5cd9-43d2-acaa-c9d2dd50abc1_pipelines-overview.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>GLIMPSE.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GLIMPSE.API</BasePath>
+      <RelativePath>project-pictures/a015a5a7-5cd9-43d2-acaa-c9d2dd50abc1_pipelines-overview.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\a015a5a7-5cd9-43d2-acaa-c9d2dd50abc1_pipelines-overview.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\a7725e3d-5fae-4aa5-b44f-ae38252cf91d_texture.png))">
       <SourceType>Package</SourceType>
@@ -2559,6 +2607,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\d4516e22-7408-47b0-99b3-7ee932588d19_texture.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\fee69e4a-c92a-4f67-9c8c-152574d5e35d_pipelines-overview.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>GLIMPSE.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GLIMPSE.API</BasePath>
+      <RelativePath>project-pictures/fee69e4a-c92a-4f67-9c8c-152574d5e35d_pipelines-overview.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\fee69e4a-c92a-4f67-9c8c-152574d5e35d_pipelines-overview.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\registerSideImage.svg))">
       <SourceType>Package</SourceType>

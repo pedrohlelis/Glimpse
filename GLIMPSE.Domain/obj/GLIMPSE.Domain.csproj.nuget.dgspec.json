@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {}
+    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
         "projectName": "GLIMPSE.Domain",
-        "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
         "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\obj\\",
         "projectStyle": "PackageReference",

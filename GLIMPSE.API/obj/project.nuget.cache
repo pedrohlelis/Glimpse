@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oXXPu5t/bmKVwSgtHcyNCSp01jx1azFuEBPB9O12KWLaXhdCtewGAzRwrLNxHvk0aYKBeCgibSbYqnDEl5Swwg==",
+  "dgSpecHash": "+IGDmt96FqLE8xQVftY3uPIskyXGEyBT+GffpOhjMlL2WPilyqie7b2DEYFZKIyLEXKMGB0OKGQiRr7+/H4DQA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
+  "projectFilePath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victo\\.nuget\\packages\\autofac\\8.1.0\\autofac.8.1.0.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\autofac.extensions.dependencyinjection\\10.0.0\\autofac.extensions.dependencyinjection.10.0.0.nupkg.sha512",
@@ -177,6 +177,7 @@
     "C:\\Users\\victo\\.nuget\\packages\\nuget.projectmodel\\6.9.1\\nuget.projectmodel.6.9.1.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\nuget.protocol\\6.9.1\\nuget.protocol.6.9.1.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\nuget.versioning\\6.9.1\\nuget.versioning.6.9.1.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\nunit\\3.14.0\\nunit.3.14.0.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\octokit\\13.0.1\\octokit.13.0.1.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\sendgrid\\9.29.3\\sendgrid.9.29.3.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",

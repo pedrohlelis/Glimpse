@@ -6,6 +6,11 @@ using System.Text.Json;
 using GLIMPSE.Domain.Models;
 using GLIMPSE.Domain.Services;
 using GLIMPSE.Infrastructure.Data.Context;
+using GLIMPSE.Application.Interfaces;
+using Microsoft.AspNetCore.Routing;
+using NuGet.ContentModel;
+using NUnit.Framework;
+using GLIMPSE.Application;
 
 namespace GLIMPSE.API.Controllers;
 
@@ -15,9 +20,11 @@ public class CardController : Controller
     private readonly GlimpseContext _db;
     private readonly IWebHostEnvironment _hostEnvironment;
     private readonly UserManager<User> _userManager;
+    public readonly ICardApplicationService cardApplicationService;
 
-    public CardController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
+    public CardController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager, ICardApplicationService cardApplicationService)
     {
+        this.cardApplicationService = cardApplicationService;
         _db = db;
         _hostEnvironment = hostEnvironment;
         _userManager = userManager;
@@ -25,25 +32,25 @@ public class CardController : Controller
 
     public async Task<IActionResult> GetCardInfo(int id)
     {
-        var Card = _db.Cards
+        var card = _db.Cards
             .Include(c => c.Tags)
             .Include(c => c.Checkboxes)
-            .Single(c => c.Id == id);
+            .SingleAsync(c => c.Id == id);
 
-        if (Card == null)
+        if (card == null)
         {
             return NotFound();
         }
 
-        return View(Card);
+        return View(await card);
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateCard(string name, int laneId, int id, bool IsMemberSideBarActive)
+    public async Task<IActionResult> CreateCard(string name, int laneId, int id)
     {
         if (string.IsNullOrEmpty(name))
         {
-            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive });
+            return RedirectToAction("GetBoardInfo", "Board", new { id });
         }
 
         var card = new Card
@@ -54,16 +61,13 @@ public class CardController : Controller
             Lane = await _db.Lanes.FirstOrDefaultAsync(x => x.Id == laneId)
         };
 
-        _db.Cards.Add(card);
-        await _db.SaveChangesAsync();
+        card = await cardApplicationService.Add(card);
+
         var lane = await _db.Lanes
             .Include(u => u.Cards)
             .SingleAsync(p => p.Id == laneId);
 
-        lane.Cards.Add(card);
-        await _db.SaveChangesAsync();
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
+        return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
 
     [HttpPost]
@@ -228,5 +232,15 @@ public class CardController : Controller
 
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
-}
 
+    [Test]
+    public async Task Test1Async()
+    {
+        var card = new Card
+        {
+            Name = "Test"
+        };
+        var result = await cardApplicationService.Add(card);
+        Assert.Pass(card.Name, result.Name);
+    }
+}

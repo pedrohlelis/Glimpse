@@ -20,7 +20,6 @@
           "Microsoft.AspNetCore.Authentication.Google": "8.0.8",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
           "Microsoft.AspNetCore.Identity.UI": "8.0.8",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.8",
@@ -29,6 +28,7 @@
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.0.3",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.4",
+          "NUnit": "3.14.0",
           "Octokit": "13.0.1",
           "SendGrid": "9.29.3",
           "Swashbuckle.AspNetCore": "6.7.3"
@@ -2097,6 +2097,17 @@
           }
         }
       },
+      "NUnit/3.14.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/nunit.framework.dll": {
+            "assemblyVersion": "3.14.0.0",
+            "fileVersion": "3.14.0.0"
+          }
+        }
+      },
       "Octokit/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Octokit.dll": {
@@ -2451,7 +2462,6 @@
         "dependencies": {
           "GLIMPSE.Domain": "1.0.0",
           "GLIMPSE.Domain.Services": "1.0.0",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8"
         },
@@ -2475,7 +2485,6 @@
       "GLIMPSE.Domain.Services/1.0.0": {
         "dependencies": {
           "GLIMPSE.Infrastructure.Data": "1.0.0",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.8",
           "Octokit": "13.0.1",
@@ -2489,7 +2498,6 @@
         "dependencies": {
           "GLIMPSE.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.Extensions.Hosting": "8.0.0",
@@ -3726,6 +3734,13 @@
       "sha512": "sha512-ypnSvEtpNGo48bAWn95J1oHChycCXcevFSbn53fqzLxlXFSZP7dawu8p/7mHAfGufZQSV2sBpW80XQGIfXO8kQ==",
       "path": "nuget.versioning/6.9.1",
       "hashPath": "nuget.versioning.6.9.1.nupkg.sha512"
+    },
+    "NUnit/3.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R7iPwD7kbOaP3o2zldWJbWeMQAvDKD0uld27QvA3PAALl1unl7x0v2J7eGiJOYjimV/BuGT4VJmr45RjS7z4LA==",
+      "path": "nunit/3.14.0",
+      "hashPath": "nunit.3.14.0.nupkg.sha512"
     },
     "Octokit/13.0.1": {
       "type": "package",

@@ -68,10 +68,8 @@ public class RoleController : Controller
     [HttpPost]
     public async Task<IActionResult> EditRole(Role role, int roleId, int boardId, bool IsMemberSideBarActive)
     {
-        // Retrieve the existing role from the database
         Role toEditRole = await _db.Roles.FindAsync(roleId);
 
-        // Update the role properties with the submitted form data
         toEditRole.Name = role.Name;
         toEditRole.Description = role.Description;
         toEditRole.Color = role.Color;
@@ -81,10 +79,8 @@ public class RoleController : Controller
         toEditRole.CanManageTags = role.CanManageTags;
         toEditRole.CanManageChecklist = role.CanManageChecklist;
 
-        // Save changes to the database
         await _db.SaveChangesAsync();
 
-        // Redirect to the appropriate action with the boardId parameter
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive });
     }
 
@@ -97,16 +93,6 @@ public class RoleController : Controller
         await _db.SaveChangesAsync();
         return RedirectToAction("GetBoardInfo", "Board", new { id = id, IsMemberSideBarActive = IsMemberSideBarActive });
     }
-
-    // [HttpPost]
-    // public async Task<IActionResult> DeleteRole(Role role)
-    // {
-    //     Role toDeleteRole = await _db.Roles.FindAsync(role.Id);
-    //     _db.Roles.Remove(toDeleteRole);
-    //     await _db.SaveChangesAsync();
-
-    //     return RedirectToAction("Get");
-    // }
 
     public async Task<IActionResult> Assign(int roleId, int projectId)
     {
@@ -201,19 +187,4 @@ public class RoleController : Controller
         return lanes;
     }
 
-    /*public async Task<Dictionary<Lane, List<Card>>> GetLanesWithCardsAsync(int boardId)
-    {
-        Dictionary<Lane, List<Card>> laneCardHashMap = [];
-
-        foreach (Lane lane in await _db.Lanes.ToListAsync())
-        {
-            if (lane.Board.Id == boardId)
-            {
-                List<Card> cards = lane.Cards.ToList();
-                laneCardHashMap.Add(lane, cards);
-            }
-        }
-
-        return laneCardHashMap;
-    }*/
 }
