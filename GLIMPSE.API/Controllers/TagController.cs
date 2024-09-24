@@ -26,7 +26,7 @@ public class TagController : Controller
         _userManager = userManager;
     }
     [HttpPost]
-    public async Task<IActionResult> CreateTag(string tagName, string color, int id, bool IsMemberSideBarActive)
+    public async Task<IActionResult> CreateTag(string tagName, string color, int id)
     {
         if (string.IsNullOrEmpty(tagName))
         {
@@ -53,16 +53,20 @@ public class TagController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditTag(string Name,string Color, int tagId, int boardId, bool IsMemberSideBarActive)
+    public async Task<IActionResult> EditTag(string Name, string Color, int tagId, int boardId)
     {
-        Tag toEditTag = await _db.Tags.FindAsync(tagId);
-
-        toEditTag.Name = Name;
-        toEditTag.Color = Color;  
-
-        await _db.SaveChangesAsync();
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive });
+        try
+        {
+            var toEditTag = await _db.Tags.FindAsync(tagId);
+            toEditTag.Name = Name;
+            toEditTag.Color = Color;
+            
+            return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        } 
     }
 
     [HttpPost]

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj": {}
+    "C:\\Dev\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
         "projectName": "GLIMPSE.API",
-        "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,20 +28,20 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
               },
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
               },
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
               },
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj"
               },
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj"
               }
             }
           }
@@ -161,21 +161,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
         "projectName": "GLIMPSE.Application",
-        "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -189,11 +189,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
               },
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
               }
             }
           }
@@ -244,21 +244,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
         "projectName": "GLIMPSE.Domain.Services",
-        "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -272,8 +272,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj"
               }
             }
           }
@@ -332,21 +332,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
         "projectName": "GLIMPSE.Domain",
-        "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -424,21 +424,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
         "projectName": "GLIMPSE.Infrastructure.Data",
-        "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.Data\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -452,8 +452,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
               }
             }
           }
@@ -516,21 +516,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
         "projectName": "GLIMPSE.Infrastructure.IOC",
-        "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
+        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -544,8 +544,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
-                "projectPath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
               }
             }
           }
@@ -586,7 +586,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

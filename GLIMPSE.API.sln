@@ -23,10 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GLIMPSE.Infrastructure.Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GLIMPSE.Infrastructure.IOC", "GLIMPSE.Infrastructure.IOC\GLIMPSE.Infrastructure.IOC.csproj", "{A93898C3-39C3-4FA5-9ACC-CCACF4A70F32}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Tests", "4 - Tests", "{947891E2-DB03-45B0-9077-9F3C2F54607A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{537068BB-8CF2-4980-890E-22CAEFB95543}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
