@@ -9,22 +9,6 @@
       "PackagePath": "staticwebassets\\Glimpse_text_white.png"
     },
     {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\GlimpseLogo.svg",
-      "PackagePath": "staticwebassets\\Icons\\GlimpseLogo.svg"
-    },
-    {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\IconGlimpse01.png",
-      "PackagePath": "staticwebassets\\Icons\\IconGlimpse01.png"
-    },
-    {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\IconGlimpse02.png",
-      "PackagePath": "staticwebassets\\Icons\\IconGlimpse02.png"
-    },
-    {
-      "Id": "C:\\Glimpse\\wwwroot\\Icons\\plusIcon.svg",
-      "PackagePath": "staticwebassets\\Icons\\plusIcon.svg"
-    },
-    {
       "Id": "C:\\Glimpse\\wwwroot\\Icons\\vertical-dots.svg",
       "PackagePath": "staticwebassets\\Icons\\vertical-dots.svg"
     },
@@ -35,6 +19,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\96af467f-a4e5-4dda-8f96-bbbd0d804e61_tattoo_idea.png",
       "PackagePath": "staticwebassets\\UserProfilePics\\96af467f-a4e5-4dda-8f96-bbbd0d804e61_tattoo_idea.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\99138500-b0c5-4ed7-b436-e220e4d593d8_tattoo_idea.png",
+      "PackagePath": "staticwebassets\\UserProfilePics\\99138500-b0c5-4ed7-b436-e220e4d593d8_tattoo_idea.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\UserProfilePics\\bf3c54c4-0723-42ec-b903-f4739a1b76a0_tattoo_idea.png",
@@ -51,6 +39,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\79b076aa-8bac-4a5b-942b-9e60acf60b55-board-pic.png",
       "PackagePath": "staticwebassets\\board-pictures\\79b076aa-8bac-4a5b-942b-9e60acf60b55-board-pic.png"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\9d1a19e3-fdcf-4141-aa06-ffd337757048-board-pic.png",
+      "PackagePath": "staticwebassets\\board-pictures\\9d1a19e3-fdcf-4141-aa06-ffd337757048-board-pic.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\board-pictures\\f89f1713-48c1-4a30-bb6e-53137280de3e-board-pic.png",
@@ -453,6 +445,10 @@
       "PackagePath": "staticwebassets\\project-pictures\\9394651d-1bfe-4e07-8bfb-501888c6f3c5_activity.jpeg"
     },
     {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\a4ccd990-c452-4a26-9f0d-d501ec93a0c4_mat0_c.jpg",
+      "PackagePath": "staticwebassets\\project-pictures\\a4ccd990-c452-4a26-9f0d-d501ec93a0c4_mat0_c.jpg"
+    },
+    {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\b022a309-4a19-4fac-bac3-0fef5aa7ff3f_mermaid-diagram-2024-05-14-151659.png",
       "PackagePath": "staticwebassets\\project-pictures\\b022a309-4a19-4fac-bac3-0fef5aa7ff3f_mermaid-diagram-2024-05-14-151659.png"
     },
@@ -463,6 +459,10 @@
     {
       "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\b896bbc3-b4b2-43af-9d23-e1140d0ef5fb_component.jpeg",
       "PackagePath": "staticwebassets\\project-pictures\\b896bbc3-b4b2-43af-9d23-e1140d0ef5fb_component.jpeg"
+    },
+    {
+      "Id": "C:\\Glimpse\\wwwroot\\project-pictures\\e00a15c3-a291-4e6c-b94f-3138adac1e4a_Icon Glimpse 01.png",
+      "PackagePath": "staticwebassets\\project-pictures\\e00a15c3-a291-4e6c-b94f-3138adac1e4a_Icon Glimpse 01.png"
     },
     {
       "Id": "C:\\Glimpse\\wwwroot\\registerSideImage.svg",
