@@ -4571,19 +4571,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\victo\\.nuget\\packages\\": {}
+    "C:\\Users\\a498902\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
       "projectName": "GLIMPSE.Infrastructure.IOC",
       "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
       "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Infrastructure.IOC\\obj\\",
+=======
+      "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
+      "projectName": "GLIMPSE.Infrastructure.IOC",
+      "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
+      "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
+      "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.IOC\\obj\\",
+>>>>>>> e600c070c2f9381623a80d3ad76d4572ec803e9c
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4597,8 +4605,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
               "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
+=======
+            "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj": {
+              "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj"
+>>>>>>> e600c070c2f9381623a80d3ad76d4572ec803e9c
             }
           }
         }
@@ -4639,7 +4652,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

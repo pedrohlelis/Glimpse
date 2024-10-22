@@ -1,3 +1,2 @@
-Glimpse/GLIMPSE.API/bin/*
-Glimpse/GLIMPSE.API/obj/*
-.vs/*
+Glimpse/GLIMPSE.API/bin
+GLIMPSE.API\obj

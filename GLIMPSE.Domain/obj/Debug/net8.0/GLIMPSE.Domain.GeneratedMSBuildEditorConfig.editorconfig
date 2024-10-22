@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GLIMPSE.Domain
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.Domain\
+=======
+build_property.ProjectDir = C:\Dev\Glimpse\GLIMPSE.Domain\
+>>>>>>> e600c070c2f9381623a80d3ad76d4572ec803e9c
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
