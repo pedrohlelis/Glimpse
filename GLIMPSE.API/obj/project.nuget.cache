@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+IGDmt96FqLE8xQVftY3uPIskyXGEyBT+GffpOhjMlL2WPilyqie7b2DEYFZKIyLEXKMGB0OKGQiRr7+/H4DQA==",
+  "dgSpecHash": "UwI1G6iYiIk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\victo\\Source\\Repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
+  "projectFilePath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\victo\\.nuget\\packages\\autofac\\8.1.0\\autofac.8.1.0.nupkg.sha512",
     "C:\\Users\\victo\\.nuget\\packages\\autofac.extensions.dependencyinjection\\10.0.0\\autofac.extensions.dependencyinjection.10.0.0.nupkg.sha512",

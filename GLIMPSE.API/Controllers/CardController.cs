@@ -11,19 +11,22 @@ using Microsoft.AspNetCore.Routing;
 using NuGet.ContentModel;
 using NUnit.Framework;
 using GLIMPSE.Application;
+using System.Net.Mail;
 
 namespace GLIMPSE.API.Controllers;
 
 [Authorize]
 public class CardController : Controller
 {
+    private readonly IConfiguration _configuration;
     private readonly GlimpseContext _db;
     private readonly IWebHostEnvironment _hostEnvironment;
     private readonly UserManager<User> _userManager;
     public readonly ICardApplicationService cardApplicationService;
 
-    public CardController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager, ICardApplicationService cardApplicationService)
+    public CardController(IConfiguration configuration, GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager, ICardApplicationService cardApplicationService)
     {
+        _configuration = configuration;
         this.cardApplicationService = cardApplicationService;
         _db = db;
         _hostEnvironment = hostEnvironment;
@@ -67,6 +70,33 @@ public class CardController : Controller
             .Include(u => u.Cards)
             .SingleAsync(p => p.Id == laneId);
 
+        string username = _configuration.GetValue<string>("EmailUser");
+        string password = _configuration.GetValue<string>("EmailToken");
+        string mailTo = "patumcam@gmail.com";
+        string mailSubject = "Glimpse - Novo Card Adicionado no quadro";
+        string mailBody = "Foi detectado um novo card no quadro, segue o link para checar: glimpse.com";
+
+        MailMessage mensagem = new MailMessage();
+        mensagem.From = new MailAddress(username);
+        mensagem.To.Add(mailTo);
+        mensagem.Subject = mailSubject;
+        mensagem.Body = mailBody;
+
+        using (SmtpClient smtp = new SmtpClient(_configuration.GetValue<string>("EmailServer"), _configuration.GetValue<int>("EmailPort")))
+        {
+            smtp.EnableSsl = true;
+            smtp.Credentials = new System.Net.NetworkCredential(username, password);
+
+            try
+            {
+                smtp.Send(mensagem);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         return RedirectToAction("GetBoardInfo", "Board", new { id });
     }
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLIMPSE.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fad3e72dabf946578dc00eb63a9a8ecdb40a7b7e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d9e06cbceb023c0339d38fdebabd3081ede2e98")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLIMPSE.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLIMPSE.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

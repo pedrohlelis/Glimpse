@@ -2528,6 +2528,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\b91c18ba-2c88-4fa8-9e0c-ead49d4e9c78_texture.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\ba7c8316-9e75-423e-b6ed-9c69cf47d51b_pxfuel.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>GLIMPSE.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/GLIMPSE.API</BasePath>
+      <RelativePath>project-pictures/ba7c8316-9e75-423e-b6ed-9c69cf47d51b_pxfuel.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\ba7c8316-9e75-423e-b6ed-9c69cf47d51b_pxfuel.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\project-pictures\be8bef8a-2800-4c75-b93d-1bb4046431d7_texture.png))">
       <SourceType>Package</SourceType>
       <SourceId>GLIMPSE.API</SourceId>
