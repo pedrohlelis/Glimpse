@@ -5769,27 +5769,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\a498902\\.nuget\\packages\\": {}
+    "C:\\Users\\victo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
       "projectName": "GLIMPSE.Application",
       "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
       "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\obj\\",
-=======
-      "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
-      "projectName": "GLIMPSE.Application",
-      "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\GLIMPSE.Application.csproj",
-      "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Application\\obj\\",
->>>>>>> e600c070c2f9381623a80d3ad76d4572ec803e9c
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5803,19 +5795,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
               "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
             },
             "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
               "projectPath": "C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
-=======
-            "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj": {
-              "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain.Services\\GLIMPSE.Domain.Services.csproj"
-            },
-            "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
-              "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
->>>>>>> e600c070c2f9381623a80d3ad76d4572ec803e9c
             }
           }
         }
@@ -5866,8 +5850,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\victo\\source\\repos\\pedrohlelis\\Glimpse\\GLIMPSE.Application\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
