@@ -66,7 +66,7 @@ public class ProjectController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateProject(Project project, IFormFile projectImg)
+    public async Task<IActionResult> CreateProject(Project project, IFormFile? projectImg)
     {
         /*try
         {

@@ -886,12 +886,12 @@ C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\sta
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GLIMPSE.API.props
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GLIMPSE.API.props
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\scopedcss\bundle\GLIMPSE.API.styles.css
-C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\scopedcss\projectbundle\GLIMPSE.API.bundle.scp.css
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\GLIMPSE..5A99CF57.Up2Date
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\GLIMPSE.API.dll
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\refint\GLIMPSE.API.dll
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\GLIMPSE.API.pdb
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\GLIMPSE.API.genruntimeconfig.cache
 C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\ref\GLIMPSE.API.dll
+C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\victo\source\repos\pedrohlelis\Glimpse\GLIMPSE.API\obj\Debug\net8.0\scopedcss\projectbundle\GLIMPSE.API.bundle.scp.css

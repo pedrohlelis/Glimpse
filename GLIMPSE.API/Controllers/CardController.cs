@@ -262,15 +262,4 @@ public class CardController : Controller
 
         return RedirectToAction("GetBoardInfo", "Board", new { id = boardId });
     }
-
-    [Test]
-    public async Task Test1Async()
-    {
-        var card = new Card
-        {
-            Name = "Test"
-        };
-        var result = await cardApplicationService.Add(card);
-        Assert.Pass(card.Name, result.Name);
-    }
 }

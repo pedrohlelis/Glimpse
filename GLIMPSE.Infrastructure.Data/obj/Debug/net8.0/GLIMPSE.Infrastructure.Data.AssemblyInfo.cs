@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLIMPSE.Infrastructure.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df36619504c92f353f469d61ed4b9f3a4a3370c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+936dd97d1b9a1ae3d289bbf1f4ee72df71e0cacb")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLIMPSE.Infrastructure.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLIMPSE.Infrastructure.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
