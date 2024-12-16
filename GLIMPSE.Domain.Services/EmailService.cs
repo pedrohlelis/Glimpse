@@ -52,11 +52,11 @@ namespace GLIMPSE.Domain.Services
             return mensagem;
         }
 
-        public async Task<List<User>> CheckUsersNotificationOptions(string username, List<User> usersToNotify) 
+        public async Task<List<User>> CheckUsersNotificationOptions(string notificationType, List<User> usersToNotify) 
         {
             foreach (var user in usersToNotify)
             {
-                var propertyInfo = typeof(NotificationOptions).GetProperty(attribute);
+                var propertyInfo = typeof(NotificationOptions).GetProperty(notificationType);
                 if (propertyInfo != null && propertyInfo.PropertyType == typeof(bool))
                 {
                     return (bool)propertyInfo.GetValue(notificationOptions);

@@ -11,5 +11,6 @@ namespace GLIMPSE.Domain.Models
         public virtual Project? Project { get; set; }
         public virtual ICollection<Tag> Tags { get; } = [];
         public virtual ICollection<Lane> Lanes { get; } = [];
+        public 
     }
 }
