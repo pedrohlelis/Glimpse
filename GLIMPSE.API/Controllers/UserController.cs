@@ -1,102 +1,104 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
-using GLIMPSE.DOMAIN.ViewModels;
-using GLIMPSE.Domain.Helpers;
+using GLIMPSE.Application.Interfaces;
+using GLIMPSE.Application.Dtos;
 
 namespace GLIMPSE.API.Controllers;
 
-[Route("Glimpse/[controller]")]
+[Route("api/[controller]")]
 [ApiController]
 [Authorize]
-public class UserController : Controller
+public class UserController : ControllerBase
 {
-    private readonly SignInManager<User> _signInManager;
-    private readonly IWebHostEnvironment _hostingEnvironment;
-    private readonly UserManager<User> _userManager;
-    private readonly string _profilePicFolderName;
+    private readonly IUserApplicationService userApplicationService;
 
-    public UserController(IWebHostEnvironment hostingEnvironment, UserManager<User> userManager, SignInManager<User> signInManager)
+    public UserController(IUserApplicationService userApplicationService)
     {
-        
-        _hostingEnvironment = hostingEnvironment;
-        _userManager = userManager;
-        _signInManager = signInManager;
-        _profilePicFolderName = "UserProfilePics";
+        this.userApplicationService = userApplicationService;
     }
 
-    [HttpGet("profile", Name = "Profile")]
-    public IActionResult Profile()
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
-        var user = _userManager.GetUserAsync(User).Result;
-
-        var userProfile = new ProfileVM
+        try
         {
-            User = user,
-            PicturePath = user.Picture,
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Email = user.Email,
-        };
-
-        ViewData["UserId"] = _userManager.GetUserId(this.User);
-        return View(userProfile);
-    }
-    [HttpGet()]
-    public IActionResult GetUserInfo()
-    {
-        return Ok();
-    }
-
-    [HttpGet("profile/edit", Name = "ProfileEdit")]
-    public IActionResult ProfileEdit()
-    {
-        var user = _userManager.GetUserAsync(this.User).Result;
-        var userProfile = new ProfileVM
+            return Ok(await this.userApplicationService.GetAll());
+        }
+        catch (Exception ex)
         {
-            User = user,
-            PicturePath = user.Picture,
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-        };
+            return BadRequest(ex.Message);
+        }
+    }
 
-        ViewData["UserId"] = _userManager.GetUserId(this.User);
-        return View(userProfile);
+    [HttpGet("GetIgnoreFilters")]
+    public async Task<IActionResult> GetIgnoreFilters()
+    {
+        try
+        {
+            return Ok(await userApplicationService.GetAllIgnoreFilters());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
+        {
+            return Ok(await this.userApplicationService.GetById(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost]
-    public async Task<IActionResult> UpdateProfile([FromForm] ProfileVM profileVM)
+    public async Task<IActionResult> Post([FromBody] UserDTO userDTO)
     {
-        if (ModelState.IsValid)
+        try
         {
-            var user = _userManager.GetUserAsync(User).Result;
+            if (userDTO == null)
+                return NotFound();
 
-            var profilePicture = profileVM.PictureFile;
-            if (profilePicture != null && profilePicture.Length > 0)
-            {
-                if (user.Picture != null) { FileHandlingHelper.DeleteFile(@"..\UserProfilePics", user.Picture); }
-                //user!.Picture = FileHandlingHelper.UploadFile(profilePicture, _profilePicFolderName, _hostingEnvironment);
-            }
-            else { user!.Picture = null; }
-            // user.Email = profileVM.Email;
-            // user.UserName = profileVM.Email;
-            user.FirstName = profileVM.FirstName;
-            user.LastName = profileVM.LastName;
-            var result = await _userManager.UpdateAsync(user);
-            if (result.Succeeded)
-            {
-                return RedirectToAction("Profile", "User");
-            }
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError("", error.Description);
-            }
-            return View("ProfileEdit",profileVM);
+            return Ok(await this.userApplicationService.Add(userDTO));
         }
-        return RedirectToAction("Profile", "User");
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] UserDTO userDTO)
+    {
+        try
+        {
+            if (userDTO == null)
+                return NotFound();
+
+            return Ok(await this.userApplicationService.Update(userDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            return Ok(await this.userApplicationService.Remove(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

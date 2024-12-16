@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Va17UQzxH2JIhzVOA8moKzFyEKYjUiFRZI0e8sPCoyikDwQiY9lSW+iaGabr119YrzewPhCcRGU0ko3DGSKABw==",
+  "dgSpecHash": "GT3s2op4W0I=",
   "success": true,
   "projectFilePath": "C:\\Glimpse\\GLIMPSE.API\\GLIMPSE.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a498902\\.nuget\\packages\\autofac\\8.1.0\\autofac.8.1.0.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\autofac.extensions.dependencyinjection\\10.0.0\\autofac.extensions.dependencyinjection.10.0.0.nupkg.sha512",
+    "C:\\Users\\a498902\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",

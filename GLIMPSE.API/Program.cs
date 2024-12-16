@@ -25,6 +25,7 @@ builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var connectionString = builder.Configuration.GetConnectionString("default");
 
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<GlimpseContext>(
@@ -37,42 +38,28 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
         o.TokenLifespan = TimeSpan.FromHours(3));
 
-builder.Services.AddScoped<GitHubService>();
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
     builder.RegisterModule(new ModuleIOC());
 });
 
-// Configure JSON options to handle reference loops
-builder.Services.AddControllersWithViews()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-        options.JsonSerializerOptions.MaxDepth = 64;
-    });
-
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
+// Swagger and HTTPS setup
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-// Swagger and HTTPS setup
-app.UseSwagger();
-app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
 app.UseAuthorization();
+
 app.MapControllers();
 
-// Default route setup
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}");
-app.MapRazorPages();
 app.Run();

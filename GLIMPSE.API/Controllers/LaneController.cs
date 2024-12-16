@@ -1,101 +1,104 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
-using GLIMPSE.Infrastructure.Data.Context;
+using GLIMPSE.Application.Interfaces;
+using GLIMPSE.Application.Dtos;
 
 namespace GLIMPSE.API.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 [Authorize]
-public class LaneController : Controller
+public class LaneController : ControllerBase
 {
-    private readonly GlimpseContext _db;
-    private readonly IWebHostEnvironment _hostEnvironment;
-    private readonly UserManager<User> _userManager;
+    private readonly ILaneApplicationService laneApplicationService;
 
-    public LaneController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
+    public LaneController(ILaneApplicationService laneApplicationService)
     {
-        _db = db;
-        _hostEnvironment = hostEnvironment;
-        _userManager = userManager;
-    }
-    [HttpPost]
-    public async Task<IActionResult> CreateLane(string name, int id, bool IsMemberSideBarActive)
-    {
-        if (string.IsNullOrEmpty(name))
-        {
-            return RedirectToAction("GetBoardInfo", "Board", new { id });
-        }  
-
-        var lane = new Lane
-        {
-            Name = name,
-            Index = 0,
-            Board = await _db.Boards.FirstOrDefaultAsync(x => x.Id == id)
-        };
-        _db.Lanes.Add(lane);
-        await _db.SaveChangesAsync();
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
+        this.laneApplicationService = laneApplicationService;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> EditLane(int laneId, string? name, int id)
-    {
-        Lane lane = await _db.Lanes.FindAsync(laneId);
-
-        lane.Name = name;
-
-        _db.Entry(lane);
-
-        if (ModelState.IsValid)
-        {
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = false });
-        }
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = false });
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> DeleteLane(int laneId, int id)
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
         try
         {
-            Board board = _db.Boards
-            .Include(c => c.Lanes)
-            .Single(c => c.Id == id);
-
-            if (board.Lanes.Count > 1)
-            {
-                Lane lane = await _db.Lanes.FindAsync(laneId);
-                _db.Lanes.Remove(lane);
-                await _db.SaveChangesAsync();
-            }
-            return RedirectToAction("GetBoardInfo", "Board", new { id });
+            return Ok(await this.laneApplicationService.GetAll());
         }
-        catch (DbUpdateException)
+        catch (Exception ex)
         {
-            return RedirectToAction("GetBoardInfo", "Board", new { id });
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetIgnoreFilters")]
+    public async Task<IActionResult> GetIgnoreFilters()
+    {
+        try
+        {
+            return Ok(await laneApplicationService.GetAllIgnoreFilters());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
+        {
+            return Ok(await this.laneApplicationService.GetById(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
         }
     }
 
     [HttpPost]
-    public async Task<IActionResult> SaveLaneOrder([FromForm] string laneIndexDictionary, int id, bool isMemberSideBarActive)
+    public async Task<IActionResult> Post([FromBody] LaneDTO laneDTO)
     {
-        var laneIndexDictionaryDeserialized = JsonSerializer.Deserialize<Dictionary<string, int>>(laneIndexDictionary);
-
-        foreach (var kvp in laneIndexDictionaryDeserialized)
+        try
         {
-            Lane lane = await _db.Lanes.FirstOrDefaultAsync(x => x.Id == int.Parse(kvp.Key));
-            lane.Index = kvp.Value;
-            await _db.SaveChangesAsync();
-        }
+            if (laneDTO == null)
+                return NotFound();
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id, isMemberSideBarActive });
+            return Ok(await this.laneApplicationService.Add(laneDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] LaneDTO laneDTO)
+    {
+        try
+        {
+            if (laneDTO == null)
+                return NotFound();
+
+            return Ok(await this.laneApplicationService.Update(laneDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            return Ok(await this.laneApplicationService.Remove(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

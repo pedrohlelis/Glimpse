@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Q+56EUhaRjOd+AjnJfl7hDXv+lun3RWCPTlHdcurCSxfahgXW6PsdbA0vniOZ/paqrtw3V8A2nESikHadSIHHA==",
+  "dgSpecHash": "rksl2coygj0=",
   "success": true,
   "projectFilePath": "C:\\Glimpse\\GLIMPSE.Infrastructure.IOC\\GLIMPSE.Infrastructure.IOC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a498902\\.nuget\\packages\\autofac\\8.1.0\\autofac.8.1.0.nupkg.sha512",
+    "C:\\Users\\a498902\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\a498902\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.8\\microsoft.aspnetcore.cryptography.internal.8.0.8.nupkg.sha512",

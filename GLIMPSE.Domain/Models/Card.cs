@@ -11,9 +11,10 @@ public class Card : Base
     public int Index { get; set; }
     public DateOnly? StartDate { get; set; }
     public DateTime? DueDate { get; set; }
+    public int LaneId { get; set; }
     public virtual Lane? Lane { get; set; }
+    public string? UserId { get; set; }
     public virtual User? User { get; set; }
-    [JsonIgnore]
     public virtual ICollection<Tag> Tags { get; } = [];
     public virtual ICollection<Checkbox> Checkboxes { get; } = [];
 }

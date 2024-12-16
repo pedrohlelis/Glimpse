@@ -1,3 +1,4 @@
+using GLIMPSE.Application.Dtos;
 using GLIMPSE.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GLIMPSE.Application.Interfaces
 {
-    public interface IUserApplicationService : IBaseApplicationService<User>
+    public interface IUserApplicationService : IBaseApplicationService<UserDTO>
     {
 
     }

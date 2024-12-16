@@ -8,5 +8,6 @@ public class Repository : Base
     public string? Owner { get; set; }
     public string? RepoName { get; set; }
     public string? Token { get; set; }
+    public int ProjectId { get; set; }
     public virtual required Project Project { get; set; }
 }

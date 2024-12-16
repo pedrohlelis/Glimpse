@@ -1,83 +1,104 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Http.HttpResults;
-using System.Text.Json;
-using GLIMPSE.Infrastructure.Data.Context;
 using GLIMPSE.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+using GLIMPSE.Application.Interfaces;
+using GLIMPSE.Application.Dtos;
 
 namespace GLIMPSE.API.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 [Authorize]
-public class CheckboxController : Controller
+public class CheckboxController : ControllerBase
 {
-    private readonly GlimpseContext _db;
-    private readonly IWebHostEnvironment _hostEnvironment;
-    private readonly UserManager<User> _userManager;
+    private readonly ICheckboxApplicationService checkboxApplicationService;
 
-    public CheckboxController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
+    public CheckboxController(ICheckboxApplicationService checkboxApplicationService)
     {
-        _db = db;
-        _hostEnvironment = hostEnvironment;
-        _userManager = userManager;
+        this.checkboxApplicationService = checkboxApplicationService;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> CreateCheckbox([FromBody] CheckboxRequestModel model)
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
-        if (model == null)
+        try
         {
-            return Json(new { success = false, message = "Dados inválidos" });
+            return Ok(await this.checkboxApplicationService.GetAll());
         }
-        var checkbox = new Checkbox { Name = model.Name ,Finished = model.Finished };
-        _db.Checkboxes.Add(checkbox);
-        await _db.SaveChangesAsync();
-
-        var card = await _db.Cards
-            .Include(u => u.Checkboxes)
-            .SingleAsync(p => p.Id == model.CardId);
-
-        card.Checkboxes.Add(checkbox);
-        await _db.SaveChangesAsync();
-        
-        return Json(new { success = true, checkbox });
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> EditCheckbox(int boardId, [FromForm] string checkboxesStatus)
-    {
-
-        var checkboxesStatusDeserialized = JsonSerializer.Deserialize<Dictionary<string, bool>>(checkboxesStatus);
-
-        // Iterate through the dictionary and update checkboxes in the database
-        foreach (var kvp in checkboxesStatusDeserialized)
+        catch (Exception ex)
         {
-
-            var checkbox = _db.Checkboxes.FirstOrDefault(c => c.Id == int.Parse(kvp.Key));
-
-            checkbox.Finished = kvp.Value;
+            return BadRequest(ex.Message);
         }
-        await _db.SaveChangesAsync();
+    }
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = false });
-        // return BadRequest("Checkbox states updated successfully.");
+    [HttpGet("GetIgnoreFilters")]
+    public async Task<IActionResult> GetIgnoreFilters()
+    {
+        try
+        {
+            return Ok(await checkboxApplicationService.GetAllIgnoreFilters());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
+        {
+            return Ok(await this.checkboxApplicationService.GetById(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost]
-    public async Task<IActionResult> DeleteCheckbox(int boardId, int checkboxId, int cardId)
+    public async Task<IActionResult> Post([FromBody] CheckboxDTO checkboxDTO)
     {
-        var card = await _db.Cards
-            .Include(u => u.Checkboxes)
-            .FirstOrDefaultAsync(u => u.Id == cardId);
+        try
+        {
+            if (checkboxDTO == null)
+                return NotFound();
 
-        var checkbox = await _db.Checkboxes.FindAsync(checkboxId);
+            return Ok(await this.checkboxApplicationService.Add(checkboxDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 
-        card.Checkboxes.Remove(checkbox);
-        _db.Checkboxes.Remove(checkbox);
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] CheckboxDTO checkboxDTO)
+    {
+        try
+        {
+            if (checkboxDTO == null)
+                return NotFound();
 
-        await _db.SaveChangesAsync();
+            return Ok(await this.checkboxApplicationService.Update(checkboxDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = false });
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            return Ok(await this.checkboxApplicationService.Remove(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

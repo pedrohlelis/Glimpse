@@ -53,6 +53,10 @@ namespace GLIMPSE.Infrastructure.IOC
             builder.RegisterType<RoleApplicationService>().As<IRoleApplicationService>();
             builder.RegisterType<RoleService>().As<IRoleService>();
             builder.RegisterType<RoleRepository>().As<IRoleRepository>();
+
+            builder.RegisterType<BlobFileApplicationService>().As<IBlobFileApplicationService>();
+            builder.RegisterType<BlobFileService>().As<IBlobFileService>();
+            builder.RegisterType<BlobFileRepository>().As<IBlobFileRepository>();
         }
     }
 }

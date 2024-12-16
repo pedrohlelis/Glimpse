@@ -1,136 +1,102 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
-using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
-using GLIMPSE.Infrastructure.Data.Context;
-using GLIMPSE.DOMAIN.ViewModels;
+using GLIMPSE.Application.Interfaces;
 
 namespace GLIMPSE.API.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 [Authorize]
-public class RepositoryController : Controller
+public class RepositoryController : ControllerBase
 {
-    private readonly GlimpseContext _db;
-    private readonly IWebHostEnvironment _hostEnvironment;
-    private readonly UserManager<User> _userManager;
-    private readonly GitHubService _gitHubService;
+    private readonly IRepositoryApplicationService repositoryApplicationService;
 
-    public RepositoryController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager, GitHubService gitHubService)
+    public RepositoryController(IRepositoryApplicationService repositoryApplicationService)
     {
-        _db = db;
-        _hostEnvironment = hostEnvironment;
-        _userManager = userManager;
-        _gitHubService = gitHubService;
+        this.repositoryApplicationService = repositoryApplicationService;
     }
 
-    public IActionResult GetRepositories(int projectId)
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
-        var projectRepos = _db.Projects
-            .Include(p => p.Repositories)
-            .SingleOrDefault(p => p.Id == projectId);
-
-        return View(projectRepos);
-    }
-    public IActionResult ConnectRepository(int projectId)
-    {
-        return View(new ConnectRepositoryViewModel
+        try
         {
-            ProjectId = projectId
-        });
+            return Ok(await this.repositoryApplicationService.GetAll());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetIgnoreFilters")]
+    public async Task<IActionResult> GetIgnoreFilters()
+    {
+        try
+        {
+            return Ok(await repositoryApplicationService.GetAllIgnoreFilters());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
+        {
+            return Ok(await this.repositoryApplicationService.GetById(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost]
-    public async Task<IActionResult> ConnectRepository(ConnectRepositoryViewModel viewModel)
+    public async Task<IActionResult> Post([FromBody] RepositoryDTO repositoryDTO)
     {
-        if (ModelState.IsValid)
+        try
         {
-            var project = _db.Projects
-                .Include(p => p.Repositories)
-                .Single(p => p.Id == viewModel.ProjectId);
+            if (repositoryDTO == null)
+                return NotFound();
 
-            var repository = new Repository
-            {
-                Owner = viewModel.Owner,
-                RepoName = viewModel.RepoName,
-                Token = viewModel.Token,
-                Project = project
-            };
-
-            _db.Repositories.Add(repository);
-            await _db.SaveChangesAsync();
-            
-            project.Repositories.Add(repository);
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction("MainProjects", "Project");
+            return Ok(await this.repositoryApplicationService.Add(repositoryDTO));
         }
-
-        return View(viewModel);
-    }
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Create(Repository repository)
-    {
-        if (ModelState.IsValid)
+        catch (Exception ex)
         {
-            _db.Add(repository);
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
+            return BadRequest(ex.Message);
         }
-        
-        return View(repository);
     }
 
-    public async Task<IActionResult> Commits(int id)
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] RepositoryDTO repositoryDTO)
     {
-        var repo = await _db.Repositories.FindAsync(id);
-        if (repo == null) return NotFound();
+        try
+        {
+            if (repositoryDTO == null)
+                return NotFound();
 
-        var commits = await _gitHubService.GetCommits(repo.Owner, repo.RepoName, repo.Token);
-        return View(commits);
+            return Ok(await this.repositoryApplicationService.Update(repositoryDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    public async Task<IActionResult> Branches(int id)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
     {
-        var repo = await _db.Repositories.FindAsync(id);
-        if (repo == null) return NotFound();
-
-        var branches = await _gitHubService.GetBranches(repo.Owner, repo.RepoName, repo.Token);
-        return View(branches);
-    }
-
-    public async Task<IActionResult> Code(int id)
-    {
-        var repo = await _db.Repositories.FindAsync(id);
-        if (repo == null) return NotFound();
-        ViewData["RepoName"] = repo.RepoName;
-
-        return View(id);
-    }
-    [HttpGet]
-    public async Task<IActionResult> GetRepositoryStructure(int id, string path = "")
-    {
-        var repo = await _db.Repositories.FindAsync(id);
-        if (repo == null) return NotFound();
-
-        var content = await _gitHubService.GetAllRepositoryContent(repo.Owner, repo.RepoName, repo.Token, path);
-        return Json(content);
-    }
-    [HttpGet]
-    public async Task<IActionResult> GetFileContent(int id, string path)
-    {
-        var repo = await _db.Repositories.FindAsync(id);
-        if (repo == null) return NotFound();
-
-        var content = await _gitHubService.GetFileContent(repo.Owner, repo.RepoName, path, repo.Token);
-        return Content(content);
+        try
+        {
+            return Ok(await this.repositoryApplicationService.Remove(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

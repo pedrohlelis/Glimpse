@@ -11,7 +11,7 @@ public class User : IdentityUser
     public string? LastName { get; set; }
     public string? Picture { get; set; }
     public bool IsActive { get; set; }
-    public virtual List<Card> Cards { get; set; } = new List<Card>();
-    public virtual List<Role> Roles { get; } = [];
-    public virtual List<Project> Projects { get; } = [];
+    public virtual ICollection<Card> Cards { get; set; } = [];
+    public virtual ICollection<Role> Roles { get; } = [];
+    public virtual ICollection<Project> Projects { get; } = [];
 }
