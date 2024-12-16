@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {}
+    "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {}
   },
   "projects": {
-    "C:\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
         "projectName": "GLIMPSE.Domain",
-        "projectPath": "C:\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
-        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
-        "outputPath": "C:\\Glimpse\\GLIMPSE.Domain\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj",
+        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,21 +92,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
+    "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
+        "projectUniqueName": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
         "projectName": "GLIMPSE.Infrastructure.Data",
-        "projectPath": "C:\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
-        "packagesPath": "C:\\Users\\a498902\\.nuget\\packages\\",
-        "outputPath": "C:\\Glimpse\\GLIMPSE.Infrastructure.Data\\obj\\",
+        "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\GLIMPSE.Infrastructure.Data.csproj",
+        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Glimpse\\GLIMPSE.Infrastructure.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a498902\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,8 +120,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
-                "projectPath": "C:\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
+              "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj": {
+                "projectPath": "C:\\Dev\\Glimpse\\GLIMPSE.Domain\\GLIMPSE.Domain.csproj"
               }
             }
           }
@@ -184,7 +184,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

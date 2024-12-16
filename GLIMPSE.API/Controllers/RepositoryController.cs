@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using GLIMPSE.Application.Interfaces;
+using GLIMPSE.Application.Dtos;
 
 namespace GLIMPSE.API.Controllers;
 

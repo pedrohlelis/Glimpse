@@ -1,11 +1,12 @@
 using System.Net.Mail;
+using System.Reflection;
+using GLIMPSE.Domain.Models;
 using GLIMPSE.Domain.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
-using Octokit;
 
 namespace GLIMPSE.Domain.Services
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private readonly IConfiguration configuration;
 
@@ -14,12 +15,14 @@ namespace GLIMPSE.Domain.Services
             this.configuration = configuration;
         }
 
-        public async Task SendEmail(List<User> usersToNotify)
+        public async Task SendEmail(string notificationType, List<User> usersToNotify)
         {
             string username = configuration.GetValue<string>("EmailUser");
             string password = configuration.GetValue<string>("EmailToken");
 
-            MailMessage message = await BuildMessage(username);
+            /* usersToNotify = CheckUsersNotificationOptions(notificationType, usersToNotify); */
+
+            MailMessage message = await SetupMessage(username, usersToNotify, notificationType);
 
             using (SmtpClient smtp = new SmtpClient(configuration.GetValue<string>("EmailServer"), configuration.GetValue<int>("EmailPort")))
             {
@@ -37,31 +40,35 @@ namespace GLIMPSE.Domain.Services
             }
         }
 
-        public async Task<MailMessage> BuildMessage(string username, List<User> usersToNotify) 
+        public async Task<MailMessage> SetupMessage(string username, List<User> usersToNotify, string notificationType)
         {
-            string mailSubject = "Glimpse - Novo Card Adicionado no quadro";
-            string mailBody = EmailBody.;
+            var emailBodyType = typeof(EmailBody);
+            
+            var method = emailBodyType.GetMethod(notificationType, BindingFlags.Public | BindingFlags.Static);
 
-            MailMessage mensagem = new MailMessage();
-            mensagem.From = new MailAddress(username);
-            mensagem.To.Add(mailTo);
-            mensagem.Subject = mailSubject;
-            mensagem.IsBodyHtml = true;
-            mensagem.Body = mailBody;
+            var message = method.Invoke(null, null) as MailMessage;
 
-            return mensagem;
+            message.From = new MailAddress(username);
+            foreach (var user in usersToNotify)
+            {
+                message.To.Add(user.Email);
+            }
+            message.IsBodyHtml = true;
+
+            return message;
         }
 
-        public async Task<List<User>> CheckUsersNotificationOptions(string notificationType, List<User> usersToNotify) 
+        /* public List<User> CheckUsersNotificationOptions(string notificationType, List<User> usersToNotify)
         {
             foreach (var user in usersToNotify)
             {
                 var propertyInfo = typeof(NotificationOptions).GetProperty(notificationType);
-                if (propertyInfo != null && propertyInfo.PropertyType == typeof(bool))
+                if (!(bool)propertyInfo.GetValue(notificationOptions))
                 {
-                    return (bool)propertyInfo.GetValue(notificationOptions);
+                    usersToNotify.Remove(user);
                 }
             }
-        }
+            return usersToNotify;
+        } */
     }
 }

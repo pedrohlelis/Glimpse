@@ -21,8 +21,6 @@ builder.Services.AddAuthentication()
         googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
     });
 
-builder.Services.AddScoped<IEmailSender, EmailSender>();
-
 var connectionString = builder.Configuration.GetConnectionString("default");
 
 builder.Services.AddEndpointsApiExplorer();
