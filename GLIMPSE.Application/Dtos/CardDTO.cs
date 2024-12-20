@@ -12,10 +12,13 @@ public class CardDTO : BaseDTO
     public int Index { get; set; }
     public DateOnly? StartDate { get; set; }
     public DateTime? DueDate { get; set; }
+    public int Estimation { get; set; }
     public int LaneId { get; set; }
     public virtual LaneDTO? Lane { get; set; }
     public string? UserId { get; set; }
     public virtual UserDTO? User { get; set; }
     public virtual ICollection<TagDTO> Tags { get; } = [];
     public virtual ICollection<CheckboxDTO> Checkboxes { get; } = [];
+    public int SprintId { get; set; }
+    public virtual SprintDTO? Sprint { get; set; }
 }

@@ -9,7 +9,8 @@ public class UserDTO : IdentityUser
     [MaxLength(50)]
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
-    public string? Picture { get; set; }
+    public int PictureId { get; set; }
+    public BlobFileDTO? Picture { get; set; }
     public bool IsActive { get; set; }
     public virtual ICollection<CardDTO> Cards { get; set; } = [];
     public virtual ICollection<RoleDTO> Roles { get; } = [];

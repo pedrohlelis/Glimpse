@@ -16,5 +16,4 @@ public class Role : Base
     public bool CanManageCards { get; set; }
     public bool CanManageTags { get; set; }
     public bool CanManageChecklist { get; set; }
-
 }
