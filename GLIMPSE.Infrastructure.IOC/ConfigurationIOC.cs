@@ -59,6 +59,10 @@ namespace GLIMPSE.Infrastructure.IOC
             builder.RegisterType<BlobFileRepository>().As<IBlobFileRepository>();
 
             builder.RegisterType<EmailService>().As<IEmailService>();
+
+            builder.RegisterType<SprintApplicationService>().As<ISprintApplicationService>();
+            builder.RegisterType<SprintService>().As<ISprintService>();
+            builder.RegisterType<SprintRepository>().As<ISprintRepository>();
         }
     }
 }
