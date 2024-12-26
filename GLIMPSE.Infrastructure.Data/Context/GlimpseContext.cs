@@ -5,7 +5,7 @@ using GLIMPSE.Domain.Models;
 
 namespace GLIMPSE.Infrastructure.Data.Context
 {
-    public class GlimpseContext(DbContextOptions<GlimpseContext> options) : IdentityDbContext<User>(options)
+    public class GlimpseContext(DbContextOptions<GlimpseContext> options) : DbContext(options)
     {
         public virtual DbSet<Project> Projects { get; set; } = null!;
         public virtual DbSet<Board> Boards { get; set; } = null!;
@@ -23,10 +23,6 @@ namespace GLIMPSE.Infrastructure.Data.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<IdentityUserLogin<string>>(entity =>
-            {
-                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
-            });
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

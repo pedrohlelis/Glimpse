@@ -14,6 +14,5 @@ namespace GLIMPSE.Domain.Models
         public virtual DateTime? ModifiedAt { get; set; }
         public virtual bool IsDeleted { get; set; }
         public virtual DateTime? DeletedAt { get; set; }
-
     }
 }

@@ -11,8 +11,8 @@ namespace GLIMPSE.Domain.Models
         public string? Name { get; set; }
         public DateOnly? StartDate { get; set; }
         public DateOnly? EndDate { get; set; }
-        public virtual ICollection<Card> Cards { get; } = [];
-        public int ProjectId { get; set; }
+        public virtual List<Card> Cards { get; } = [];
+        public int? ProjectId { get; set; }
         public virtual Project? Project { get; set; }
     }
 }

@@ -7,6 +7,6 @@ public class Checkbox : Base
 {
     public string? Name { get; set; }
     public bool Finished { get; set; }
-    public int CardId { get; set; }
+    public int? CardId { get; set; }
     public virtual Card? Card { get; set; }
 }

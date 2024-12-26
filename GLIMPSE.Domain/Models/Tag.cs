@@ -8,7 +8,7 @@ public class Tag : Base
 {
     public required string Name { get; set; }
     public required string Color { get; set; }
-    public int BoardId { get; set; }
+    public int? BoardId { get; set; }
     public virtual Board? Board { get; set; }
-    public virtual ICollection<Card> Cards { get; } = [];
+    public virtual List<Card> Cards { get; } = [];
 }

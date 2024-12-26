@@ -12,12 +12,12 @@ public class Card : Base
     public DateOnly? StartDate { get; set; }
     public DateTime? DueDate { get; set; }
     public int Estimation { get; set; }
-    public int LaneId { get; set; }
+    public int? LaneId { get; set; }
     public virtual Lane? Lane { get; set; }
-    public string? UserId { get; set; }
+    public int? UserId { get; set; }
     public virtual User? User { get; set; }
-    public virtual ICollection<Tag> Tags { get; } = [];
-    public virtual ICollection<Checkbox> Checkboxes { get; } = [];
-    public int SprintId { get; set; }
+    public virtual List<Tag> Tags { get; } = [];
+    public virtual List<Checkbox> Checkboxes { get; } = [];
+    public int? SprintId { get; set; }
     public virtual Sprint? Sprint { get; set; }
 }
