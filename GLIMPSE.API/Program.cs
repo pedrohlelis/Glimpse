@@ -4,13 +4,15 @@ using GLIMPSE.Domain.Services.Interfaces;
 using GLIMPSE.Infrastructure.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Autofac.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
+using Autofac;
+using GLIMPSE.Infrastructure.IOC;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
 
-// Authentication setup
 builder.Services.AddAuthentication()
     .AddCertificate()
     .AddGoogle(googleOptions =>
@@ -19,56 +21,43 @@ builder.Services.AddAuthentication()
         googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
     });
 
-builder.Services.AddScoped<IEmailSender, EmailSender>();
-
 var connectionString = builder.Configuration.GetConnectionString("default");
 
-// Swagger setup
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Database context setup
 builder.Services.AddDbContext<GlimpseContext>(
     options => options.UseSqlServer(connectionString)
 );
 
-// Identity setup
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<GlimpseContext>();
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
         o.TokenLifespan = TimeSpan.FromHours(3));
 
-builder.Services.AddScoped<GitHubService>();
-
-// Configure JSON options to handle reference loops
-builder.Services.AddControllersWithViews()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-        options.JsonSerializerOptions.MaxDepth = 64; // Aumentando a profundidade máxima se necessário
-    });
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterModule(new ModuleIOC());
+});
 
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
+// Swagger and HTTPS setup
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-// Swagger and HTTPS setup
-app.UseSwagger();
-app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
 app.UseAuthorization();
+
 app.MapControllers();
 
-// Default route setup
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}");
-app.MapRazorPages();
 app.Run();

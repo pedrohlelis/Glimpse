@@ -1,47 +1,15 @@
-﻿using GLIMPSE.Application.Interfaces;
+﻿using AutoMapper;
+using GLIMPSE.Application.Dtos;
+using GLIMPSE.Application.Interfaces;
 using GLIMPSE.Domain.Models;
 using GLIMPSE.Domain.Services.Interfaces;
 
 namespace GLIMPSE.Application
 {
-    public class ProjectApplicationService : IBaseApplicationService<Project>, IProjectApplicationService
+    public class ProjectApplicationService : BaseApplicationService<Project, ProjectDTO>, IProjectApplicationService
     {
-        private readonly IProjectService projectService;
-        public ProjectApplicationService(IProjectService projectService)
+        public ProjectApplicationService(IMapper mapper, IProjectService projectService): base(mapper, projectService)
         {
-            this.projectService = projectService;
-        }
-
-        public async Task<Project> Add(Project project)
-        {
-            await this.projectService.Add(project);
-
-            return project;
-        }
-
-        public Task<IList<Project>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IList<Project>> GetAllIgnoreFilters()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Project> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Project> Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Project> Update(Project obj)
-        {
-            throw new NotImplementedException();
         }
     }
 }

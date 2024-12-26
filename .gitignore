@@ -1,3 +1,7 @@
-Glimpse/GLIMPSE.API/bin/*
-Glimpse/GLIMPSE.API/obj/*
-.vs/*
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
+.vs/

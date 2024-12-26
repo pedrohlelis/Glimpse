@@ -46,7 +46,6 @@ public class GitHubService
         }
         catch (NotFoundException ex)
         {
-            // Trate a exceção de forma adequada, por exemplo, registrando um erro ou retornando uma lista vazia
             Console.Error.WriteLine($"Erro ao obter conteúdo do repositório: {ex.Message}");
             return new List<RepositoryContent>();
         }

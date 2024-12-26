@@ -16,6 +16,8 @@ namespace GLIMPSE.Infrastructure.Data.Context
         public virtual DbSet<Checkbox> Checkboxes { get; set; } = null!;
         public virtual DbSet<Tag> Tags { get; set; } = null!;
         public virtual DbSet<Repository> Repositories { get; set; } = null!;
+        public virtual DbSet<BlobFile> BlobFiles { get; set; } = null!;
+        public virtual DbSet<Sprint> Sprints { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

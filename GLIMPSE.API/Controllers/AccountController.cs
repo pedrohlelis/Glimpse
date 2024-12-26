@@ -1,156 +1,101 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using GLIMPSE.Domain.Models;
-using GLIMPSE.DOMAIN.ViewModels;
-using GLIMPSE.Domain.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GLIMPSE.API.Controllers;
 
-public class AccountController : Controller
+[Route("api/[controller]")]
+[ApiController]
+[Authorize]
+public class AccountController : ControllerBase
 {
-    private readonly SignInManager<User> _signInManager;
-    private readonly UserManager<User> _userManager;
-    private readonly IEmailSender _emailSender;
+    /* private readonly IAccountApplicationService accountApplicationService;
 
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IEmailSender emailSender)
+    public AccountController(IAccountApplicationService accountApplicationService)
     {
-        _signInManager = signInManager;
-        _userManager = userManager;
-        _emailSender = emailSender;
-    }
-
-    public IActionResult Login()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Login(LoginVM model)
-    {
-        if (ModelState.IsValid)
-        {
-            var user = await _userManager.FindByNameAsync(model.Email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
-            {
-                if (!user.IsActive)
-                {
-                    ModelState.AddModelError("", "Invalid Login Attempt.");
-                    return View(model);
-                }
-                var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, model.RememberMe, false);
-
-            if (result.Succeeded)
-            {
-                return RedirectToAction("MainProjects", "Project");
-            }
-            ModelState.AddModelError("", "Invalid Login Attempt");
-            return View(model);
-            }
-        }
-        ModelState.AddModelError("", "Invalid Login Attempt");
-        ModelState.AddModelError("", "Invalid Login Attempt");
-        return View(model);
-    }
-
-    public IActionResult Register()
-    {
-        ViewData["stylesheetUrl"] = "~/css/register.css";
-        return View();
-    }
-    [HttpPost]
-    public async Task<IActionResult> Register(RegisterVM model)
-    {
-        if(ModelState.IsValid)
-        {
-            var existingUser = await _userManager.FindByEmailAsync(model.Email);
-
-            if (existingUser != null && !existingUser.IsActive)
-            {
-                // Reactivate the existing user
-                existingUser.IsActive = true;
-                var resultReactivate = await _userManager.UpdateAsync(existingUser);
-
-                if (resultReactivate.Succeeded)
-                if (resultReactivate.Succeeded)
-                {
-                    return RedirectToAction("Login", "Account");
-                }
-                else
-                {
-                    // Handle errors during reactivation
-                    foreach (var error in resultReactivate.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                    return View(model);
-                }
-            }
-
-            User user = new()
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                UserName = model.Email,
-                Email = model.Email,
-                Picture = null,
-                IsActive = true,
-            };
-
-            var resultCreateUser = await _userManager.CreateAsync(user, model.Password!);
-            if (resultCreateUser.Succeeded)
-            {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                // var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                // var confirmationLink = Url.Action(nameof(ConfirmEmail), "Account", new { token, email = user.Email }, Request.Scheme);
-                // EmailDto emailDto = new EmailDto(user.Email, "email confirmation.", "teste");
-                // _emailService.SendEmail(emailDto);
-                
-                // await _emailService.SendEmail(user.Email, "teste", "Hello World");
-                // return RedirectToAction(nameof(SuccessRegistration));
-                return RedirectToAction("Index", "Home");
-            }
-            foreach(var error in resultCreateUser.Errors)
-            {
-                ModelState.AddModelError("", error.Description);
-            }
-        }
-        return View(model);
-    }
-
-    public async Task<IActionResult> Logout()
-    {
-        await _signInManager.SignOutAsync();
-
-        return RedirectToAction("Index", "Home");
-    }
-
-    [HttpPost("DeleteAccount", Name = "DeleteAccount")]
-    public async Task<IActionResult> DeleteAccount()
-    {
-        var user = _userManager.GetUserAsync(User).Result;
-
-        user.IsActive = false;
-        await _userManager.UpdateAsync(user);
-
-        await _signInManager.SignOutAsync();
-
-        return RedirectToAction("Index", "Home");
+        this.accountApplicationService = accountApplicationService;
     }
 
     [HttpGet]
-    public async Task<IActionResult> ConfirmEmail(string token, string email)
+    public async Task<IActionResult> Get()
     {
-        var user = await _userManager.FindByEmailAsync(email);
-        if (user == null)
-            return View("Error");
-        var result = await _userManager.ConfirmEmailAsync(user, token);
-        return View(result.Succeeded ? nameof(ConfirmEmail) : "Error");
+        try
+        {
+            return Ok(await this.accountApplicationService.GetAll());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    [HttpGet]
-    public IActionResult SuccessRegistration()
+    [HttpGet("GetIgnoreFilters")]
+    public async Task<IActionResult> GetIgnoreFilters()
     {
-        return View();
+        try
+        {
+            return Ok(await accountApplicationService.GetAllIgnoreFilters());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
+        {
+            return Ok(await this.accountApplicationService.GetById(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] AccountDTO accountDTO)
+    {
+        try
+        {
+            if (accountDTO == null)
+                return NotFound();
+
+            return Ok(await this.accountApplicationService.Add(accountDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] AccountDTO accountDTO)
+    {
+        try
+        {
+            if (accountDTO == null)
+                return NotFound();
+
+            return Ok(await this.accountApplicationService.Update(accountDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            return Ok(await this.accountApplicationService.Remove(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    } */
 }

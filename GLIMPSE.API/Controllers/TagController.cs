@@ -1,98 +1,104 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
-using GLIMPSE.Infrastructure.Data.Context;
+using GLIMPSE.Application.Interfaces;
+using GLIMPSE.Application.Dtos;
 
 namespace GLIMPSE.API.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 [Authorize]
-public class TagController : Controller
+public class TagController : ControllerBase
 {
-    private readonly GlimpseContext _db;
-    private readonly IWebHostEnvironment _hostEnvironment;
-    private readonly UserManager<User> _userManager;
+    private readonly ITagApplicationService tagApplicationService;
 
-    public TagController(GlimpseContext db, IWebHostEnvironment hostEnvironment, UserManager<User> userManager)
+    public TagController(ITagApplicationService tagApplicationService)
     {
-        _db = db;
-        _hostEnvironment = hostEnvironment;
-        _userManager = userManager;
+        this.tagApplicationService = tagApplicationService;
     }
-    [HttpPost]
-    public async Task<IActionResult> CreateTag(string tagName, string color, int id, bool IsMemberSideBarActive)
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
-        if (string.IsNullOrEmpty(tagName))
+        try
         {
-            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
-        }  
-
-        var Tag = new Tag
-        {
-            Name = tagName,
-            Color = color,
-            Board = await _db.Boards.FirstOrDefaultAsync(x => x.Id == id)
-        };
-
-        _db.Tags.Add(Tag);
-        await _db.SaveChangesAsync();
-        var Board = await _db.Boards
-            .Include(u => u.Tags)
-            .SingleAsync(p => p.Id == id);
-
-        Board.Tags.Add(Tag);
-        await _db.SaveChangesAsync();
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = IsMemberSideBarActive });
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> EditTag(string Name,string Color, int tagId, int boardId, bool IsMemberSideBarActive)
-    {
-        // Retrieve the existing role from the database
-        Tag toEditTag = await _db.Tags.FindAsync(tagId);
-
-        // Update the role properties with the submitted form data
-        toEditTag.Name = Name;
-        toEditTag.Color = Color;
-
-        // Save changes to the database
-        await _db.SaveChangesAsync();
-        // Redirect to the appropriate action with the boardId parameter
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive });
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> DeleteTag(int tagToDeleteId, int id, bool IsMemberSideBarActive)
-    {
-        Tag tag = await _db.Tags.FindAsync(tagToDeleteId);
-        var Board = await _db.Boards
-            .Include(u => u.Tags)
-            .SingleAsync(p => p.Id == id);
-
-        Board.Tags.Remove(tag);
-        _db.Tags.Remove(tag);
-        await _db.SaveChangesAsync();
-        return RedirectToAction("GetBoardInfo", "Board", new { id = id, IsMemberSideBarActive = IsMemberSideBarActive });
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> AddTagToCard(int tagCardId, int tagId, int boardId)
-    {
-        var tag = _db.Tags.FirstOrDefault(x => x.Id == tagId);
-        var card = _db.Cards
-            .Include(b => b.Tags)
-            .SingleOrDefault(u => u.Id == tagCardId);
-        
-        if (tag != null && card != null)
-        {
-            card.Tags.Add(tag);
-            await _db.SaveChangesAsync();
+            return Ok(await this.tagApplicationService.GetAll());
         }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId});
+    [HttpGet("GetIgnoreFilters")]
+    public async Task<IActionResult> GetIgnoreFilters()
+    {
+        try
+        {
+            return Ok(await tagApplicationService.GetAllIgnoreFilters());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
+        {
+            return Ok(await this.tagApplicationService.GetById(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] TagDTO tagDTO)
+    {
+        try
+        {
+            if (tagDTO == null)
+                return NotFound();
+
+            return Ok(await this.tagApplicationService.Add(tagDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] TagDTO tagDTO)
+    {
+        try
+        {
+            if (tagDTO == null)
+                return NotFound();
+
+            return Ok(await this.tagApplicationService.Update(tagDTO));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            return Ok(await this.tagApplicationService.Remove(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }

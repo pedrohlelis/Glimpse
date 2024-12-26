@@ -9,9 +9,17 @@ public class User : IdentityUser
     [MaxLength(50)]
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
-    public string? Picture { get; set; }
-    public bool IsActive { get; set; }
-    public virtual List<Card> Cards { get; set; } = new List<Card>();
-    public virtual List<Role> Roles { get; } = [];
-    public virtual List<Project> Projects { get; } = [];
+    public int PictureId { get; set; }
+    public BlobFile? Picture { get; set; }
+    [MaxLength(255)]
+    public virtual string? CreatedById { get; set; }
+    [MaxLength(255)]
+    public virtual string? ModifiedById { get; set; }
+    public virtual DateTime CreatedAt { get; set; }
+    public virtual DateTime? ModifiedAt { get; set; }
+    public virtual bool IsDeleted { get; set; }
+    public virtual DateTime? DeletedAt { get; set; }
+    public virtual ICollection<Card> Cards { get; set; } = [];
+    public virtual ICollection<Role> Roles { get; } = [];
+    public virtual ICollection<Project> Projects { get; } = [];
 }

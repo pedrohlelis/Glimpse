@@ -9,11 +9,11 @@ public class Role : Base
     public string? Description { get; set; }
     public string? Color { get; set; }
     public virtual ICollection<User> Users { get; } = [];
+    public int ProjectId { get; set; }
     public virtual Project? Project { get; set; }
     public bool CanManageMembers { get; set; }
     public bool CanManageRoles { get; set; }
     public bool CanManageCards { get; set; }
     public bool CanManageTags { get; set; }
     public bool CanManageChecklist { get; set; }
-
 }

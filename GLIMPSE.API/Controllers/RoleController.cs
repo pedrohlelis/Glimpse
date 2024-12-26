@@ -1,219 +1,104 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using System.Text.Json;
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
-using GLIMPSE.Infrastructure.Data.Context;
+using GLIMPSE.Application.Interfaces;
+using GLIMPSE.Application.Dtos;
 
 namespace GLIMPSE.API.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 [Authorize]
-public class RoleController : Controller
+public class RoleController : ControllerBase
 {
-    private readonly GlimpseContext _db;
-    private readonly IWebHostEnvironment _hostEnvironment;
+    private readonly IRoleApplicationService roleApplicationService;
 
-    public RoleController(GlimpseContext db, IWebHostEnvironment hostEnvironment)
+    public RoleController(IRoleApplicationService roleApplicationService)
     {
-        _db = db;
-        _hostEnvironment = hostEnvironment;
-    }
-    // Padrão para Roles, exibe todos os registros (teste)
-    public async Task<IActionResult> ShowRoles(int projectId)
-    {
-        ICollection<Role> roles;
-
-        var project = _db.Projects
-            .Include(p => p.Roles)
-            .Single(p => p.Id == projectId);
-        roles = project.Roles;
-
-        ViewData["projectId"] = projectId;
-        
-        return View(roles);
+        this.roleApplicationService = roleApplicationService;
     }
 
-    // CREATE
-    public IActionResult Create(int projectId)
+    [HttpGet]
+    public async Task<IActionResult> Get()
     {
-        // Lista de todos os projetos
-        ViewData["projectId"] = projectId;
+        try
+        {
+            return Ok(await this.roleApplicationService.GetAll());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 
-        return View();
+    [HttpGet("GetIgnoreFilters")]
+    public async Task<IActionResult> GetIgnoreFilters()
+    {
+        try
+        {
+            return Ok(await roleApplicationService.GetAllIgnoreFilters());
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
+        {
+            return Ok(await this.roleApplicationService.GetById(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateRole(Role role, int boardId, int projectId, bool IsMemberSideBarActive)
+    public async Task<IActionResult> Post([FromBody] RoleDTO roleDTO)
     {
-
-        Project project = _db.Projects.FirstOrDefault(p => p.Id == projectId);
-        role.Project = project;
-        // Lista de todos os roles
-        _db.Roles.Add(role);
-        project.Roles.Add(role);
-        await _db.SaveChangesAsync();
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive});
-    }
-
-    // // UPDATE
-    // public async Task<IActionResult> Edit(Role role)
-    // {
-        
-    //     return View(role);
-    // }
-
-    [HttpPost]
-    public async Task<IActionResult> EditRole(Role role, int roleId, int boardId, bool IsMemberSideBarActive)
-    {
-        // Retrieve the existing role from the database
-        Role toEditRole = await _db.Roles.FindAsync(roleId);
-
-        // Update the role properties with the submitted form data
-        toEditRole.Name = role.Name;
-        toEditRole.Description = role.Description;
-        toEditRole.Color = role.Color;
-        toEditRole.CanManageMembers = role.CanManageMembers;
-        toEditRole.CanManageRoles = role.CanManageRoles;
-        toEditRole.CanManageCards = role.CanManageCards;
-        toEditRole.CanManageTags = role.CanManageTags;
-        toEditRole.CanManageChecklist = role.CanManageChecklist;
-
-        // Save changes to the database
-        await _db.SaveChangesAsync();
-
-        // Redirect to the appropriate action with the boardId parameter
-        return RedirectToAction("GetBoardInfo", "Board", new { id = boardId, IsMemberSideBarActive = IsMemberSideBarActive });
-    }
-
-    // DELETE
-    [HttpPost]
-    public async Task<IActionResult> DeleteRole(int roleToDeleteId, int id, bool IsMemberSideBarActive)
-    {
-        Role role = await _db.Roles.FindAsync(roleToDeleteId);
-        _db.Roles.Remove(role);
-        await _db.SaveChangesAsync();
-        return RedirectToAction("GetBoardInfo", "Board", new { id = id, IsMemberSideBarActive = IsMemberSideBarActive });
-    }
-
-    // [HttpPost]
-    // public async Task<IActionResult> DeleteRole(Role role)
-    // {
-    //     Role toDeleteRole = await _db.Roles.FindAsync(role.Id);
-    //     _db.Roles.Remove(toDeleteRole);
-    //     await _db.SaveChangesAsync();
-
-    //     return RedirectToAction("Get");
-    // }
-
-    public async Task<IActionResult> Assign(int roleId, int projectId)
-    {
-        Role role = _db.Roles.Find(roleId);
-        Project project = _db.Projects
-            .Include(p => p.Users)
-            .Single(p => p.Id == projectId);
-
-        ICollection<User> projectUsers = [];
-        foreach (User user in project.Users)
+        try
         {
-            if (user.IsActive)
-            {
-                projectUsers.Add(user);
-            }
+            if (roleDTO == null)
+                return NotFound();
+
+            return Ok(await this.roleApplicationService.Add(roleDTO));
         }
-
-        ViewData["projectUsers"] = projectUsers;
-
-        return View(role);
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    [HttpPost]
-    public async Task<IActionResult> AtribuirRole(int id ,int roleId, string userId)
+    [HttpPut]
+    public async Task<IActionResult> Put([FromBody] RoleDTO roleDTO)
     {
-        Board board = _db.Boards
-            .Include(b => b.Project)
-            .Single(b => b.Id == id);
-        User user = _db.Users
-            .Include(u => u.Roles)
-            .ThenInclude(r => r.Project)
-            .Single(u => u.Id == userId);
-        Role currentUserRoleInProject = user.Roles.FirstOrDefault(r => r.Project.Id == board.Project.Id);
-        if (roleId == 0)
+        try
         {
-            if (currentUserRoleInProject == null){
-                return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
-            }
-            user.Roles.Remove(currentUserRoleInProject);
-            currentUserRoleInProject.Users.Remove(user);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+            if (roleDTO == null)
+                return NotFound();
+
+            return Ok(await this.roleApplicationService.Update(roleDTO));
         }
-
-        Role role = _db.Roles
-            .Include(r => r.Project)
-            .Single(r => r.Id == roleId);
-
-        if(currentUserRoleInProject == null)
+        catch (Exception ex)
         {
-            user.Roles.Add(role);
-            role.Users.Add(user);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
+            return BadRequest(ex.Message);
         }
-        else
-        {
-            user.Roles.Remove(currentUserRoleInProject);
-            currentUserRoleInProject.Users.Remove(user);
-            user.Roles.Add(role);
-            role.Users.Add(user);
-            await _db.SaveChangesAsync();
-        }
-
-        return RedirectToAction("GetBoardInfo", "Board", new { id, IsMemberSideBarActive = true });
     }
 
-    public async Task<IActionResult> UserRoles(int projectId)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
     {
-        ICollection<Role> roles;
-
-        var project = _db.Projects
-            .Include(p => p.Roles)
-            .Include(r => r.Roles)
-            .Single(p => p.Id == projectId);
-        roles = project.Roles;
-
-        ViewData["projectId"] = projectId;
-        
-        return View(roles);
-    }
-
-    public ICollection<Lane> GetLanesFromBoard(Board board)
-    {
-        ICollection<Lane> lanes = [];
-
-        foreach (Lane lane in board.Lanes)
+        try
         {
-            lanes.Add(lane);
+            return Ok(await this.roleApplicationService.Remove(id));
         }
-
-        return lanes;
-    }
-
-    /*public async Task<Dictionary<Lane, List<Card>>> GetLanesWithCardsAsync(int boardId)
-    {
-        Dictionary<Lane, List<Card>> laneCardHashMap = [];
-
-        foreach (Lane lane in await _db.Lanes.ToListAsync())
+        catch (Exception ex)
         {
-            if (lane.Board.Id == boardId)
-            {
-                List<Card> cards = lane.Cards.ToList();
-                laneCardHashMap.Add(lane, cards);
-            }
+            return BadRequest(ex.Message);
         }
-
-        return laneCardHashMap;
-    }*/
+    }
 }
