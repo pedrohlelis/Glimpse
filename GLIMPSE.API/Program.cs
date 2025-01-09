@@ -8,6 +8,7 @@ using Autofac.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
 using Autofac;
 using GLIMPSE.Infrastructure.IOC;
+using GLIMPSE.Application.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,14 +22,27 @@ builder.Services.AddAuthentication()
         googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
     });
 
-var connectionString = builder.Configuration.GetConnectionString("default");
+builder.Services.AddAuthorization();
+
+builder.Services.AddCors(o => o.AddPolicy(name: "MyPolicy", builder =>
+{
+    builder
+           .AllowAnyHeader()
+           .AllowAnyMethod()
+           .AllowAnyOrigin()
+           .WithExposedHeaders("X-Pagination")
+           .WithHeaders("authorization", "accept", "content-type", "origin", "X-Pagination", "OPTIONS");
+}));
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<GlimpseContext>(
-    options => options.UseSqlServer(connectionString)
-);
+builder.Services.AddDbContext<GlimpseContext>(options =>
+                                  options.UseSqlServer(builder.Configuration.GetConnectionString("default"),
+                                                        options => options.EnableRetryOnFailure()));
 
 //builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<GlimpseContext>();
@@ -42,7 +56,10 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
     builder.RegisterModule(new ModuleIOC());
 });
 
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+
 var app = builder.Build();
+app.UseCors("MyPolicy");
 
 // Swagger and HTTPS setup
 if (app.Environment.IsDevelopment())
@@ -52,9 +69,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
 
 app.UseAuthorization();
 
