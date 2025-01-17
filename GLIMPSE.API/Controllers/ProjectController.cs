@@ -104,4 +104,17 @@ public class ProjectController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+    [HttpPost("AddUser{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            return Ok(await this.projectApplicationService.Remove(id));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 }

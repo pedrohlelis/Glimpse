@@ -5,9 +5,5 @@ namespace GLIMPSE.Domain.Models;
 
 public class NotificationOptions : Base
 {
-    public string? Name { get; set; }
-    public int BoardId { get; set; }
-    public virtual Board? Board { get; set; }
-    public int Index { get; set; }
-    public virtual ICollection<Card> Cards { get; } = [];
+    
 }

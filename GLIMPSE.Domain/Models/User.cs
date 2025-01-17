@@ -11,7 +11,8 @@ public class User : Base
     public string? Email { get; set; }
     public int? PictureId { get; set; }
     public BlobFile? Picture { get; set; }
-    public virtual List<Card> Cards { get; } = [];
-    public virtual List<Role> Roles { get; } = [];
-    public virtual List<Project> Projects { get; } = [];
+    public virtual IList<Card> Cards { get; } = [];
+    public virtual IList<Role> Roles { get; } = [];
+    public virtual IList<Project> Projects { get; } = [];
+    public virtual IList<Invite> Invites { get; } = [];
 }
