@@ -9,6 +9,5 @@ namespace GLIMPSE.Domain.Services.Interfaces
 {
     public interface IUserService : IBaseService<User>
     {
-
     }
 }

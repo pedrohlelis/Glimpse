@@ -106,7 +106,7 @@ public class ProjectController : ControllerBase
     }
 
     [HttpPost("AddUser{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> AddUser(int id)
     {
         try
         {

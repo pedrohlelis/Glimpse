@@ -5,7 +5,7 @@ using GLIMPSE.Domain.Models;
 
 namespace GLIMPSE.Infrastructure.Data.Context
 {
-    public class GlimpseContext(DbContextOptions<GlimpseContext> options) : DbContext(options)
+    public class GlimpseContext(DbContextOptions<GlimpseContext> options) : IdentityDbContext<User>(options)
     {
         public virtual DbSet<Project> Projects { get; set; } = null!;
         public virtual DbSet<Board> Boards { get; set; } = null!;

@@ -13,3 +13,4 @@ namespace GLIMPSE.Application.Interfaces
 
     }
 }
+

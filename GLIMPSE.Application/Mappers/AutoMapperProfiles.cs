@@ -9,34 +9,34 @@ namespace GLIMPSE.Application.Mappers
         public AutoMapperProfiles()
         {
             CreateMap<CardDTO, Card>()
-            .ReverseMap();      
+                .ReverseMap();      
 
             CreateMap<BoardDTO, Board>()
-            .ReverseMap();  
+                .ReverseMap();  
 
             CreateMap<CheckboxDTO, Checkbox>()
-            .ReverseMap();  
+                .ReverseMap();  
 
             CreateMap<LaneDTO, Lane>()
-            .ReverseMap();  
+                .ReverseMap();  
 
             CreateMap<ProjectDTO, Project>()
-            .ReverseMap();  
+                .ReverseMap();  
 
             CreateMap<RepositoryDTO, Repository>()
-            .ReverseMap();  
+                .ReverseMap();  
 
             CreateMap<RoleDTO, Role>()
-            .ReverseMap();  
+                .ReverseMap();  
 
             CreateMap<TagDTO, Tag>()
-            .ReverseMap();  
+                .ReverseMap();  
 
             CreateMap<UserDTO, User>()
-            .ReverseMap();
+                .ReverseMap();
 
             CreateMap<BlobFileDTO, BlobFile>()
-            .ReverseMap();   
+                .ReverseMap();
         }
     }
 }

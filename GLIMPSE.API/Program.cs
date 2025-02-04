@@ -1,6 +1,4 @@
 using GLIMPSE.Domain.Models;
-using GLIMPSE.Domain.Services;
-using GLIMPSE.Domain.Services.Interfaces;
 using GLIMPSE.Infrastructure.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,20 +7,37 @@ using System.Text.Json.Serialization;
 using Autofac;
 using GLIMPSE.Infrastructure.IOC;
 using GLIMPSE.Application.Mappers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
 
-builder.Services.AddAuthentication()
-    .AddCertificate()
-    .AddGoogle(googleOptions =>
-    {
-        googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
-        googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
-    });
-
 builder.Services.AddAuthorization();
+
+var jwtSettings = configuration.GetSection("JwtSettings");
+var secretKey = jwtSettings["Secret"];
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+    };
+});
 
 builder.Services.AddCors(o => o.AddPolicy(name: "MyPolicy", builder =>
 {
@@ -44,8 +59,9 @@ builder.Services.AddDbContext<GlimpseContext>(options =>
                                   options.UseSqlServer(builder.Configuration.GetConnectionString("default"),
                                                         options => options.EnableRetryOnFailure()));
 
-//builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<GlimpseContext>();
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<GlimpseContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(o =>
         o.TokenLifespan = TimeSpan.FromHours(3));
